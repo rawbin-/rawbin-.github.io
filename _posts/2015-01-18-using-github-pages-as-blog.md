@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "Using Github Pages as Blog"
+date:   2015-01-18 20:36:38
+categories: Other
+---
+
 利用github pages 搭建自己的博客，搭建完成之后，可以直接用markdown来写博客，之后直接push到github
 就可以在网页上看到自己的博客了。
 
