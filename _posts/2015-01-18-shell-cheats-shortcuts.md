@@ -24,8 +24,8 @@ categories: dev env
 
 ##字符删除/恢复（删除为剪切）
 + **Ctrl+D** 删除光标所在处的字符，并向右删除，相当于Del键；最后一次可退出当前Shell
-+ **Ctrl+K** 删除从光标所在处字符及其后的所有字符，相当于长按Del键
 + **Ctrl+H** 删除光标左侧的字符，相当于Backspace
++ **Ctrl+K** 删除从光标所在处字符及其后的所有字符，相当于长按Del键
 + **Ctrl+U** 删除从光标所在处字符前面（到行首）的所有字符，相当于长按Backspace键
 + **Ctrl+L** 清屏，删除屏幕的所有输出，相当于Linux clear命令 或Windows cls命令
 + **Ctrl+W** 删除光标左侧的一个单词
