@@ -42,7 +42,7 @@ categories: dev env
 ##命令相关快捷操作
 + !! 执行上一条命令
 + 
-        apt=get install xxx
+        apt-get install xxx
         sudo !! #equals 'sudo apt-get install xxx'
 
 + !xxx 执行最近的以xxx开头的命令
