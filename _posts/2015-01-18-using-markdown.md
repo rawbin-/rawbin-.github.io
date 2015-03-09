@@ -84,7 +84,7 @@ Markdown行内方式为**`[链接文字](链接URL，"链接标题")`**,链接�
 
 显示为
 
->[显示的文字](http://github.com "URL标题")
+> [显示的文字](http://github.com "URL标题")
 
 Markdown作为参考链接的书写方式为 **`[链接文字][参考链接ID]`**, 可以在任何地方定义参考的链接;
 链接的定义方式为： **`[lind_id]: link_url "link_title"`**
@@ -96,7 +96,7 @@ Markdown作为参考链接的书写方式为 **`[链接文字][参考链接ID]`*
 显示为
 
 > [github主站][github]
-> [github]: http://github.com "github title"
+[github]: http://github.com "github title"
 
 
 ###图片
@@ -112,12 +112,12 @@ Markdown行内图片的定义方式为：**`![图片描述](图片路径, "图�
 当然也可以像超链接那样写成参考材料的方式,如
 
 >     ![演示图片][demo_img]
->     [demo_img]: /abspath/for/image, "图片标题"
+>     [demo_img]: /abspath/for/image "图片标题"
 
 显示为
 
 > ![演示图片][demo_img]
-> [demo_img]: /abspath/for/image, "图片标题"
+[demo_img]: /abspath/for/image "图片标题"
 
 
 ###转义
@@ -126,13 +126,13 @@ Markdown行内图片的定义方式为：**`![图片描述](图片路径, "图�
 ###分割线
 三个以上的星号或者减号一起就能表示分割线，星号之间可以用空格，但行内不能有其他内容,如：
 
->      * * *
->      - --
+>      * * *   
+>      - --   
 
 显示为
 
-> ** * 
-> - --
+> ** *   
+> - --   
 
 ###相关的编辑器
 大致可以参考：
