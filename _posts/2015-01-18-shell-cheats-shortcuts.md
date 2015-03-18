@@ -1,4 +1,4 @@
----
+ih---
 layout: post
 title:  "Bash Shell Linux命令行操作快捷键"
 date:   2015-01-18 20:36:38
@@ -18,19 +18,27 @@ categories: dev env
 + **Ctrl+F** 光标右移一个字符，相当于→方向键
 + **Ctrl+←** 光标移动到前一个单词的开头
 + **Ctrl+→** 光标移动到后一个单词的结尾
++ **ESC+B** 光标移动到前一个单词的开头
++ **ESC+F** 光标移动到后一个单词的结尾
 + **Ctrl+X+X** 光标在光标所在字符和光标上一次所在字符之间切换 
 
 
 
 ##字符删除/恢复（删除为剪切）
+
 + **Ctrl+D** 删除光标所在处的字符，并向右删除，相当于Del键；最后一次可退出当前Shell
 + **Ctrl+H** 删除光标左侧的字符，相当于Backspace
 + **Ctrl+K** 删除从光标所在处字符及其后的所有字符，相当于长按Del键
 + **Ctrl+U** 删除从光标所在处字符前面（到行首）的所有字符，相当于长按Backspace键
 + **Ctrl+L** 清屏，删除屏幕的所有输出，相当于Linux clear命令 或Windows cls命令
 + **Ctrl+W** 删除光标左侧的一个单词
++ **ESC+D**  删除光标右侧的一个单词
 + **Ctrl+?** 撤销前一次操作
 + **Ctrl+Y** 粘贴上一次剪切的内容
+
+##交换
++ **Ctrl+T** 交换光标前两个字符位置
++ **ESC+T**  交换光标前两个单词位置
 
 ##命令相关快捷键
 + **Ctrl+C** 结束当前命令
@@ -69,6 +77,9 @@ categories: dev env
 + **Ctrl+O** 相当于Enter
 
 ##参考文档：
-0. [Linux Shell 快捷键][1]
+0. [Linux Shell 快捷键1][1]
+0. [Linux Shell 快捷键2][2]
+
 
 [1]: http://blog.chinaunix.net/uid-361890-id-342066.html Linux Shell 快捷键
+[2]: http://blog.sina.com.cn/s/blog_7556be720100ryp2.html linux下的shell 快捷键 
