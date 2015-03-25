@@ -37,3 +37,5 @@ categories: Other
 [5] 在 Windows 上安装 Jekyll: http://cn.yizeng.me/2013/05/10/setup-jekyll-on-windows/
 
 [6] 如何将你的github仓库部署到github pages: http://os.51cto.com/art/201409/450260.htm
+
+[7] jekyllrb 官方网站:http://jekyllrb.com/docs/installation/
