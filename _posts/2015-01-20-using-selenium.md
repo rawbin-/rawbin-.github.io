@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "using git"
+title:  "Selenium 网页截图 网页操作"
 date:   2015-01-20 20:36:38
 categories: tools
 ---
