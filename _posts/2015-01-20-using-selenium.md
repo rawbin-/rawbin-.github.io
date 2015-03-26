@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Selenium 网页截图 网页操作"
+title:  "Selenium 浏览器截图，网页截图，浏览器操作"
 date:   2015-01-20 20:36:38
 categories: tools
 ---
