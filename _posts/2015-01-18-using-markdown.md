@@ -98,6 +98,19 @@ Markdown作为参考链接的书写方式为 **`[链接文字][参考链接ID]`*
 > [github主站][github]
 [github]: http://github.com "github title"
 
+还可以隐式链接的方式来写**`[隐式链接显示文字][]`**，然后同样定义一个链接，如
+**`[隐式链接显示的文字]: http://github.com`**
+如:
+
+>
+>     [懒人链接][]
+>     [懒人链接]: http://github.com
+
+显示为
+
+> [懒人链接][]
+[懒人链接]: http://github.com
+
 
 ###图片
 Markdown行内图片的定义方式为：**`![图片描述](图片路径, "图片标题")`**

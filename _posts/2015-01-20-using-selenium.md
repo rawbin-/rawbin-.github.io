@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "using git"
-date:   2015-01-18 20:36:38
+title:  "Selenium 浏览器截图，网页截图，浏览器操作"
+date:   2015-01-20 20:36:38
 categories: tools
 ---
 
@@ -26,6 +26,12 @@ Selenium 是一个Web自动化测试的套件
 
 
 ### 参考资料
+
+0. [ReadTheDoc文档][1]
+1. [selenium官网][2]
+2. [selenium官方文档][3]
+3. [selinium pypi文档说明][4]
+4. [selinium on GitHup][5]
 ---
 [1]: https://selenium-python.readthedocs.org/ ReadTheDoc文档
 
