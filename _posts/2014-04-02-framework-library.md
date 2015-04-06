@@ -23,6 +23,7 @@ jQuery,Prototype,ExtJS 等等
 ---
 
 0. [Web前端框架与类库的思考][7]
+1. [类库和框架区别][8]
 0. [API Toolkit Framework Library][1]
 0. [Framwork Library Toolkit区别][0]
 0. [difference-between-a-framework-and-a-toolkit][2]
@@ -30,6 +31,7 @@ jQuery,Prototype,ExtJS 等等
 0. [概念区分 Framework Toolkit Library][4]
 0. [Framework和Library的区别][5]
 0. [工具（Toolkit）结构（framework），库（library），之间的区别][6]
+
 
 
 [0]: http://www.cnblogs.com/jacquette/articles/691531.html "Framwork Library Toolkit区别"  
@@ -46,3 +48,4 @@ jQuery,Prototype,ExtJS 等等
 
 [6]: http://blog.sina.com.cn/s/blog_4a99dd25010006zd.html "工具（Toolkit）?结构（framework），库（library），之间的区别" 
 [7]: http://developer.51cto.com/art/201410/454787.htm "Web前端框架与类库的思考"
+[8]: http://blog.csdn.net/bluephper/article/details/5377451 "类库和框架区别"
