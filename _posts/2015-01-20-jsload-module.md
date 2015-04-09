@@ -20,12 +20,18 @@ JavaScript模块加载工具，解决我们在页面一次性加载所有需要�
 不管怎样，抓到老鼠就是好猫，能有明显的优化效果就行。
 
 [seajs 官网][2]
+
 [seajs 文档][3]
+
 [使用SeaJS实现模块化JavaScript开发][4]
+
 [SeaJS所为何][11]
+
 [为什么 SeaJS 模块的合并这么麻烦][12]
 
+
 [requirejs 英文][9]
+
 [requirejs 中文][10]
 
 
