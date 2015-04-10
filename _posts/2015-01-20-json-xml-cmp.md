@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "JSON XML 简要比较"
-date 2015-01-20 20:00:00
+date: 2015-01-20 20:00:00
 category: dev tech
 ---
 
