@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Using Github Pages as Blog"
+title:  "使用Github 搭建自己的博客"
 date:   2015-01-18 20:36:38
 categories: Other
 ---
