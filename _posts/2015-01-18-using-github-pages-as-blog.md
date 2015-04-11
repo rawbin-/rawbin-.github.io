@@ -26,16 +26,26 @@ categories: Other
 
 
 ###参考文档：
-[1] github pages: https://pages.github.com/， https://help.github.com/categories/github-pages-basics/， https://help.github.com/articles/using-jekyll-with-pages/
+0. [github pages jekyll][-1]
+1. [github pages help][0]
+2. [github pages wizard][1]
+1. [使用 GitHub, Jekyll 打造自己的独立博客][2]
+2. [Github+Jekyll构建个人博客][3]
+3. [通过GitHub Pages建立个人站点（详细步骤）][4]
+4. [在 Windows 上安装 Jekyll][5]
+5. [如何将你的github仓库部署到github pages][6]
+6. [jekyllrb 官方网站][7]
+7. [jekyll安装][8]
+8. [搭建一个免费的无流量的博客][9]
 
-[2] 使用 GitHub, Jekyll 打造自己的独立博客: https://github.com/minixalpha/minixalpha.github.io/blob/source/_posts/2014-02-15-github-jekyll-markdown.md
-
-[3] Github+Jekyll构建个人博客: http://aboutchen.org/blog/blog-with-github-and-jekyll/
-
-[4] 通过GitHub Pages建立个人站点（详细步骤）: http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html
-
-[5] 在 Windows 上安装 Jekyll: http://cn.yizeng.me/2013/05/10/setup-jekyll-on-windows/
-
-[6] 如何将你的github仓库部署到github pages: http://os.51cto.com/art/201409/450260.htm
-
-[7] jekyllrb 官方网站:http://jekyllrb.com/docs/installation/
+[0]: https://help.github.com/categories/github-pages-basics/ "github pages jekyll"
+[-1]: https://help.github.com/articles/using-jekyll-with-pages/ "github pages help"
+[1]: https://pages.github.com/ "github pages wizard" 
+[2]: https://github.com/minixalpha/minixalpha.github.io/blob/source/_posts/2014-02-15-github-jekyll-markdown.md "使用 GitHub, Jekyll 打造自己的独立博客"
+[3]: http://aboutchen.org/blog/blog-with-github-and-jekyll/ "Github+Jekyll构建个人博客"
+[4]: http://www.cnblogs.com/purediy/archive/2013/03/07/2948892.html " 通过GitHub Pages建立个人站点（详细步骤）"
+[5]: http://cn.yizeng.me/2013/05/10/setup-jekyll-on-windows/ "在 Windows 上安装 Jekyll"
+[6]: http://os.51cto.com/art/201409/450260.htm " 如何将你的github仓库部署到github pages"
+[7]: http://jekyllrb.com/docs/installation/ " jekyllrb 官方网站"
+[8]: http://hustlei.github.io/2014/08/jekyll-install.html " jekyll安装"
+[9]: http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html " 搭建一个免费的无流量的博客"
