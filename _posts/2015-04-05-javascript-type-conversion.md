@@ -92,7 +92,7 @@ Object的成员叫对象，包括Array，Function，Math，Date，JSON，RegExp�
         + 移位操作>>,<<会将左操作数转换为Int32,右操作数转换为无符号32位整数
         +  无符号移位运算符>>>,<<<,会将两操作数都转换为无符号32位整数
         +  <, <=, >, >=操作数都不是String类型，则都转换为数值进行运算
-        +  ==，!=操作数中只有String和Number类型
+        +  ==，!=操作数中只有String和Number类型，或者其中有一个是Boolean
         +  二进制位运算会将操作数转为Int32进行运算
 
 + 转换为Boolean
