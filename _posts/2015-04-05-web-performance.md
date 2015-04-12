@@ -85,6 +85,7 @@ category: Web前端
 7. [Web性能监控自动化探索之路–初识WebPageTest][19]
 3. [Web前端性能优化全攻略][7]
 4. [网站性能优化工具大全][16]
+5. [Web前端优化最佳实践及工具集锦][23]
 5. [Web网站性能测试工具][17]
 0. [WEB前端性能分析--工具篇][0]
 1. [Web前端性能分析--实践篇][1]
@@ -117,3 +118,4 @@ category: Web前端
 [20]: http://developer.51cto.com/art/201007/209634_all.htm "从输入网址到显示页面：浏览器工作原理拆解分析"
 [21]: http://www.ecdoer.com/post/dns.html "DNS解析过程原理【深入浅出详解】"
 [22]: http://369369.blog.51cto.com/319630/812889 "DNS原理及其解析过程【精彩剖析】"
+[23]: http://www.csdn.net/article/2013-09-23/2817020-web-performance-optimization "Web前端优化最佳实践及工具集锦"
