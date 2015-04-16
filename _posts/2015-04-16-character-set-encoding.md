@@ -108,6 +108,7 @@ UTF-8不需要BOM来表明字节顺序，但可以用BOM来表明编码方式。
 19. [各种编码UNICODE、UTF-8、ANSI、ASCII、GB2312、GBK详解][24]
 20. [计算机内部编码][25]
 21. [说说Unicode，UTF8，UTF16，BOM，Big endian，Little][26]
+22. [字符编码深入解析][27]
 
 
 
@@ -141,3 +142,4 @@ UTF-8不需要BOM来表明字节顺序，但可以用BOM来表明编码方式。
 [26]: http://cnn237111.blog.51cto.com/2359144/1080628 "说说Unicode，UTF8，UTF16，BOM，Big endian，Little"
 [27]: http://blog.csdn.net/iefreer/article/details/4836844 "UNICODE与UTF-8的转换详解"
 [28]: http://blog.csdn.net/dandycheung/article/details/5881620 "字节那些事儿"
+[29]: http://www.blue1000.com/bkhtml/c155/2010-06/68084.htm "字符编码深入解析"
