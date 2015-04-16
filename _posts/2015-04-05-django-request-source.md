@@ -26,6 +26,10 @@ category: Python Django
 8. [用Python写一个简单的Web框架][7]
 9. [Django 结构及处理流程分析][8]
 10. [Django运行方式及处理流程总结][9]
+11. [Python与Django篇][10]
+12. [Django运行方式及处理流程总结（xianglong.me）][11]
+13. [Django运行方式及处理流程总结][12]
+14. [Django 结构及处理流程分析][13]
 
 
 [0]: http://jianlee.ylinux.org/Computer/Python/django-arch.html "Django 结构及处理流程分析"
@@ -38,3 +42,7 @@ category: Python Django
 [7]: http://www.tuicool.com/articles/aYBRBz "用Python写一个简单的Web框架"
 [8]: http://my.oschina.net/tenking/blog/29439 "Django 结构及处理流程分析"
 [9]: http://www.tuicool.com/articles/BjInM3B "Django运行方式及处理流程总结"
+[10]: http://www.nowamagic.net/academy/part/13/286 "Python与Django篇"
+[11]: http://segmentfault.com/a/1190000002399134 "Django运行方式及处理流程总结（xianglong.me）"
+[12]: http://www.kuqin.com/shuoit/20141109/343106.html "Django运行方式及处理流程总结"
+[13]: http://blog.csdn.net/aixiaohei/article/details/6585980 "Django 结构及处理流程分析"
