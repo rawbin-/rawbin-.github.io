@@ -84,6 +84,7 @@ UTF-8不需要BOM来表明字节顺序，但可以用BOM来表明编码方式。
 14. [字符集与字符集编码简介][17]
 15. [字符，字节和编码][18]
 16. [字节那些事儿][28]
+17. [中文编码杂谈][30]
 16. [UNICODE与UTF-8的转换详解][27]
 0. [字符集编码详解][0]
 1. [常用字符集编码详解][1]
@@ -143,3 +144,4 @@ UTF-8不需要BOM来表明字节顺序，但可以用BOM来表明编码方式。
 [27]: http://blog.csdn.net/iefreer/article/details/4836844 "UNICODE与UTF-8的转换详解"
 [28]: http://blog.csdn.net/dandycheung/article/details/5881620 "字节那些事儿"
 [29]: http://www.blue1000.com/bkhtml/c155/2010-06/68084.htm "字符编码深入解析"
+[30]: http://www.searchtb.com/2012/04/chinese_encode.html "中文编码杂谈"
