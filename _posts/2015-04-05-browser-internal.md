@@ -22,6 +22,7 @@ category: Web开发
 8. [浏览器的渲染原理简介][10]
 9. [[译]Google Chrome中的高性能网络][11]
 10. [How Rendering Work (in WebKit and Blink)][12]
+11. [浏览器详谈及其内部工作机制 —— web开发必读][13]
 
 
 
@@ -37,3 +38,4 @@ category: Web开发
 [10]: http://kb.cnblogs.com/page/178445/ "浏览器的渲染原理简介"
 [11]: http://tech.uc.cn/?p=2092 "[译]Google Chrome中的高性能网络"
 [12]: http://tech.uc.cn/?p=2763 "How Rendering Work (in WebKit and Blink)"
+[13]: http://www.cnblogs.com/moltboy/archive/2013/05/05/3061872.html "浏览器详谈及其内部工作机制 —— web开发必读"
