@@ -8,6 +8,7 @@ categories: 大数据
 
 ### 参考
 0. [后Hadoop时代的大数据架构][0]
+1. [多图技术贴：深入浅出解析大数据平台架构][11]
 1. [大数据下的数据分析平台架构][1]
 2. [大数据分析平台架构][2]
 3. [大数据架构及行业大数据应用][3]
@@ -38,3 +39,4 @@ categories: 大数据
 [8]: http://www.thebigdata.cn/JieJueFangAn/6072.html "玩转大数据：需要知晓的12种工具"
 [9]: http://www.linuxidc.com/Linux/2014-03/98978.htm "Hadoop生态上几个技术的关系与区别：hive、pig、hbase 关系与区别"
 [10]: http://www.csdn.net/article/2014-04-15/2819321-bigdata-tools-opensource "强烈推荐！大数据领域的顶级开源工具大集合"
+[11]: http://www.36dsj.com/archives/10223 "多图技术贴：深入浅出解析大数据平台架构"
