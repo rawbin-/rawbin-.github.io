@@ -16,6 +16,9 @@ category: Python Django
 
 
 ## 参考
+0. [wsgiref 源代码分析][14]
+1. [WSGI 简介][15]
+2. [Wsgi研究][16]
 0. [Django 结构及处理流程分析][0]
 1. [Django源码分析--引导][1]
 2. [Django中的request和response][2]
@@ -46,3 +49,6 @@ category: Python Django
 [11]: http://segmentfault.com/a/1190000002399134 "Django运行方式及处理流程总结（xianglong.me）"
 [12]: http://www.kuqin.com/shuoit/20141109/343106.html "Django运行方式及处理流程总结"
 [13]: http://blog.csdn.net/aixiaohei/article/details/6585980 "Django 结构及处理流程分析"
+[14]: http://blog.csdn.net/on_1y/article/details/18818081 "wsgiref 源代码分析"
+[15]: http://blog.csdn.net/on_1y/article/details/18803563 "WSGI 简介"
+[16]: http://blog.kenshinx.me/blog/wsgi-research/ "Wsgi研究"

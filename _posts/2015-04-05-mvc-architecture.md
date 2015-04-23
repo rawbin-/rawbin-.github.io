@@ -82,6 +82,8 @@ MVVM跟MVP类似，区别在于MVVM包含了双向数据绑定，即V上的数�
 1. [MVC, MVP, MVVM比较以及区别(上)][8]
 0. [JavaScript MVC框架PK：Angular、Backbone、CanJS与Ember][3]
 0. [从Script到Code Blocks、Code Behind到MVC、MVP、MVVM][6]
+1. [JavaScript富应用MVC MVVM框架][9]
+2. [Web前端开发：为何选择MVVM而非MVC][10]
 
 
 
@@ -94,3 +96,5 @@ MVVM跟MVP类似，区别在于MVVM包含了双向数据绑定，即V上的数�
 [6]: http://www.cnblogs.com/indream/p/3602348.html "从Script到Code Blocks、Code Behind到MVC、MVP、MVVM"
 [7]: http://blog.csdn.net/napolunyishi/article/details/22722345 "对MVC、MVP、MVVM的理解"
 [8]: http://www.cnblogs.com/justrun1983/p/3679827.html "MVC, MVP, MVVM比较以及区别(上)"
+[9]: http://www.cnblogs.com/aaronjs/p/3149402.html "JavaScript富应用MVC MVVM框架"
+[10]: http://www.cnblogs.com/winter-cn/archive/2012/09/16/2687184.html "Web前端开发：为何选择MVVM而非MVC"
