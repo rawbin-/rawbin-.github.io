@@ -9,6 +9,7 @@ categories: Linux
 ### 参考
 0. [学习 Linux，101: 文本流和过滤器][0]
 1. [Linux中常用命令之一——文本处理][11]
+2. [日志分析查看——grep,sed,sort,awk运用][24]
 2. [三大文本处理工具grep、sed及awk的简单介绍][20]
 3. [LINUX sed grep awk之间比较整理][22]
 4. [Linux---文本处理（正则表达式，grep,awk,sed）][23]
@@ -56,3 +57,4 @@ categories: Linux
 [21]: http://blog.csdn.net/zhubinqiang/article/details/7549163 "Linux grep sed awk"
 [22]: http://blog.csdn.net/zzhays/article/details/7875549 "LINUX sed grep awk之间比较整理"
 [23]: http://blog.csdn.net/wei_ge163/article/details/9063655 "Linux---文本处理（正则表达式，grep,awk,sed）"
+[24]: http://blog.csdn.net/teamlet/article/details/38046409 "日志分析查看——grep,sed,sort,awk运用"
