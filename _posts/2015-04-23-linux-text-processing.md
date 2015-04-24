@@ -9,9 +9,17 @@ categories: Linux
 ### 参考
 0. [学习 Linux，101: 文本流和过滤器][0]
 1. [Linux中常用命令之一——文本处理][11]
+2. [三大文本处理工具grep、sed及awk的简单介绍][20]
+3. [LINUX sed grep awk之间比较整理][22]
+4. [Linux---文本处理（正则表达式，grep,awk,sed）][23]
+3. [Linux grep sed awk][21]
 2. [Linux下文本的高效处理][12]
+3. [Linux Shell 文本处理工具集锦][16]
+4. [Linux Shell 文本处理工具集锦][17]
+5. [linux下的文本处理命令sed&&awk&&grep ][19]
 3. [Linux下文本处理命令的使用][13]
 1. [文本过滤工具之AWK][1]
+2. [Linux文本处理利器 -- sed][18]
 2. [正则表达式和文本过滤工具grep][2]
 3. [Linux下常用文本处理命令][3]
 4. [学习 Linux，101: 文本流和过滤器][4]
@@ -21,6 +29,7 @@ categories: Linux
 8. [linux笔记3(过滤器、管道、常用文件管理操作指令) ][8]
 9. [Linux下常用文本处理命令][9]
 10. [Linux下常用文本处理命令][10]
+11. [Linux下文本的高效处理][15]
 
 
 [0]: https://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-2/ "学习 Linux，101: 文本流和过滤器"
@@ -38,3 +47,12 @@ categories: Linux
 [12]: http://blog.csdn.net/forgotaboutgirl/article/details/6801525 "Linux中常用命令之一——文本处理"
 [13]: http://ahei.info/text-processing.htm "Linux下文本的高效处理"
 [14]: http://iminmin.blog.51cto.com/689308/384014 "Linux下文本处理命令的使用"
+[15]: http://blog.csdn.net/wdzxl198/article/details/9175549 "Linux下文本的高效处理"
+[16]: http://www.cnblogs.com/me115/p/3427319.html "Linux Shell 文本处理工具集锦"
+[17]: http://www.4wei.cn/archives/1002473 "Linux Shell 文本处理工具集锦"
+[18]: http://blog.csdn.net/fu_wayne/article/details/42124455 "Linux文本处理利器 -- sed"
+[19]: http://blog.chinaunix.net/uid-11026459-id-2917524.html "linux下的文本处理命令sed&&awk&&grep "
+[20]: http://lq2419.blog.51cto.com/1365130/1238880 "三大文本处理工具grep、sed及awk的简单介绍"
+[21]: http://blog.csdn.net/zhubinqiang/article/details/7549163 "Linux grep sed awk"
+[22]: http://blog.csdn.net/zzhays/article/details/7875549 "LINUX sed grep awk之间比较整理"
+[23]: http://blog.csdn.net/wei_ge163/article/details/9063655 "Linux---文本处理（正则表达式，grep,awk,sed）"
