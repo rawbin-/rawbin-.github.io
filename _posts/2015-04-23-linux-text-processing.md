@@ -31,6 +31,8 @@ categories: Linux
 9. [Linux下常用文本处理命令][9]
 10. [Linux下常用文本处理命令][10]
 11. [Linux下文本的高效处理][15]
+12. [awk 正则匹配后分组问题][25]
+13. [linux正则获得分组][26]
 
 
 [0]: https://www.ibm.com/developerworks/cn/linux/l-lpic1-v3-103-2/ "学习 Linux，101: 文本流和过滤器"
@@ -58,3 +60,5 @@ categories: Linux
 [22]: http://blog.csdn.net/zzhays/article/details/7875549 "LINUX sed grep awk之间比较整理"
 [23]: http://blog.csdn.net/wei_ge163/article/details/9063655 "Linux---文本处理（正则表达式，grep,awk,sed）"
 [24]: http://blog.csdn.net/teamlet/article/details/38046409 "日志分析查看——grep,sed,sort,awk运用"
+[25]: http://bbs.chinaunix.net/thread-4061362-1-1.html "awk 正则匹配后分组问题"
+[26]: http://dikar.iteye.com/blog/1137244 "linux正则获得分组"
