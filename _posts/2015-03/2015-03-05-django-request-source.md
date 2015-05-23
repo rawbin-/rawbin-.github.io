@@ -7,6 +7,7 @@ tags: [Django 流程,Django 源码,WSGI]
 
 ## 创建服务器
 //todo django commands
+
 ### python manage.py runserver
 + manage.py 设置DJANGO_SETTINGS_MODULE环境变量为当前项目的settings.py,然后通过django.core.management.execute_from_command_line 继续执行命令（此处为runserver及其相关参数）
 [django-admin commands](http://django.readthedocs.org/en/latest/howto/custom-management-commands.html)
