@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "django admin 相关教程"
-date: 2015/4/15 21:42:11 
-categories:  [Django]
+categories:  [开发技术]
 Tags:  [Django, Django Admin, Python Web]
 ---
 

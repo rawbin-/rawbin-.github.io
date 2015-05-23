@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Linux 系统性能监控"
-date: 2015/4/23 星期四 14:00:46 
-categories: linux sysman
+categories: [操作系统]
+tags: [Linux性能检测, iostat, vmstat, 服务器监控]
 ---
 
 ## 参考

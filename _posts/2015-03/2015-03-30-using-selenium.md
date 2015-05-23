@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "Selenium 浏览器截图，网页截图，浏览器操作"
-date:   2015-01-20 20:36:38
-categories: [开发工具,测试工具]
+categories: [开发技术]
 tags: [Selenium, Python 网页截图, 自动截图]
 ---
 

@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "Markdown 语法简要说明"
-date:   2015-01-18 20:36:38
-categories: [开发技术]
+categories: [编程语言]
 tags: [Markdown]
 ---
 

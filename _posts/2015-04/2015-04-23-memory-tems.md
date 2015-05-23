@@ -2,7 +2,8 @@
 layout: post
 title: "内存占用相关术语 VSS RSS PSS USS"
 date: 2015/4/23 星期四 14:00:46 
-categories: storage,database
+categories: [开发环境]
+tags: [VSS, RSS, PSS, USS, 内存占用参数]
 ---
 
 ## 参考

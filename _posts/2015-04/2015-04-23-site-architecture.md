@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "网站架构设计"
-date: 2015/4/23 星期四 14:00:46 
-categories: 架构
+categories: [开发技术]
+tags: [Web架构, 网站架构]
 ---
 
 

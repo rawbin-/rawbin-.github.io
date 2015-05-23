@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "类库（Library） 框架（Framework）区别"
-category: Web开发技术 
+categories: [开发技术] 
 tags: [框架,类库]
 ---
 

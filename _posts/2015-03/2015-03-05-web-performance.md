@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "前端性能优化"
-date: 2015/4/11 18:27:10 
-category: [Web前端,Web开发]
+categories: [开发技术]
 tags: [前端,性能优化,HTTP请求]
 ---
 

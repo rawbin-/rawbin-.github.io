@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "Linux 自定义动态链接库 32位，64位"
-date: 2015/4/17 7:09:13 
-categories: [环境部署]
+categories: [操作系统]
 tags: [动态链接库, IA32]
 ---
 

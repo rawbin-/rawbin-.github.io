@@ -2,7 +2,8 @@
 layout: post
 title: "nginx 源码阅读 merge_slashes问题解决"
 date: 2015/4/18 17:46:09 
-categories: nginx
+categories:  [应用技术]
+tags: [Nginx,Web服务器,反向代理]
 ---
 
 ## 问题描述

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Python 相关资料"
-date: 2015/4/23 星期四 14:00:46 
-categories: python
+categories: [编程语言]
+tags: [Python, VirtualEnv, 正则表达式, 编码]
 ---
 
 ## Python基础

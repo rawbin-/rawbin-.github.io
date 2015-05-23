@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "使用Github 搭建自己的博客"
-date:   2015-01-18 20:36:38
-categories: [开发技术]
+categories: [应用技术]
 tags: [GitHub, Jekyll ,博客, 站点, Jekyll Bootstrap]
 ---
 

@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "JavaScript内存管理"
-date: 2015/4/23 星期四 14:00:46 
-categories: JavaScript
+categories: [编程语言]
+tags: [JavaScript, 内存管理]
 ---
 
 ### 

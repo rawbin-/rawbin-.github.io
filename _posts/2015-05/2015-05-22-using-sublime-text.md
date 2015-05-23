@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Sublime Text 使用和配置"
-date: 2015/5/22 12:12:32
-categories: fe,前端
+categories: [开发环境]
+tags: [Sublime Text 2, 快捷键, 插件推荐]
 
 ---
 

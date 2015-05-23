@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "程序员学习成长"
-date: 2015/4/23 星期四 14:00:46 
-categories: other
+categories: [知识积累]
+tags: [学习经验]
 ---
 
 ### 参考

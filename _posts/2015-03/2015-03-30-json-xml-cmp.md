@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "JSON XML 简要比较"
-date: 2015-01-20 20:00:00
-category: [开发技术]
+categories: [开发技术]
 tags: [JSON, XML]
 ---
 

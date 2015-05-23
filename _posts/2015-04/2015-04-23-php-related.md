@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "PHP 相关资料"
-date: 2015/4/23 星期四 14:00:46 
-categories: php
+categories: [编程语言]
+tags: [PHP, PHP内核]
 ---
 
 ### 参考

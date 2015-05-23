@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "Django框架流程 请求处理流程 源码分析"
-date: 2015/4/11 18:27:10 
-category: [Django]
+category: [开发技术]
 tags: [Django 流程,Django 源码,WSGI]
 ---
 

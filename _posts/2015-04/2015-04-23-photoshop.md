@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "PhotoShop 教程"
-date: 2015/4/23 星期四 14:00:46 
-categories: Photoshop
+categories: [开发环境]
+tags: [PhotoShop, 四色黑, 单色黑]
 ---
 
 

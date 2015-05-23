@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "JavaScript 隐式类型转换 JS类型转换"
-date: 2015/4/5 22:03:42 
-categories: [JavaScript]
+categories: [编程语言]
 tags: [类型转换,JavaScript,隐式类型转换]
 ---
 

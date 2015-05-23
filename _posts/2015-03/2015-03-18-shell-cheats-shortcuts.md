@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "Bash Shell Linux命令行操作快捷键"
-date:   2015-01-18 20:36:38
-categories: [Linux, Shell]
+categories: [编程语言]
 tags: [Linux, Shell,快捷键]
 ---
 

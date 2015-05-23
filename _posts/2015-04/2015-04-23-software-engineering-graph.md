@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "软件工程中的图"
-date: 2015/4/23 星期四 14:00:46 
-categories: 软件工程
+categories: [软件工程]
+tags:[软件工程, 设计图, UML]
 ---
 
 

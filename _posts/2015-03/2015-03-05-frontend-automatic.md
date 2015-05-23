@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "前端构建构建 前端自动化工具"
-date: 2015/4/9 星期四 12:12:44 
-catetories: [前端开发]
+catetories: [开发环境]
 tags: [开发工具,自动构建]
 ---
 

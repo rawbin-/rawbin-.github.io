@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "Web开发中的编码解码乱码问题深入解析"
-date: 2015/4/17 7:09:13 
-categories: [编码,解码]
+categories: [计算机基础]
 tags: [编码,解码,乱码,字符集]
 ---
 

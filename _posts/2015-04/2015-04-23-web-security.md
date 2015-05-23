@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Web安全相关资料"
-date: 2015/4/23 星期四 14:00:46 
-categories: web安全
+categories: [计算机安全]
+tags: [渗透,OWASP]
 ---
 
 ### 参考

@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "浏览器工作原理"
-date: 2015/4/6 21:32:47 
-categories: [Web开发]
+categories: [应用技术]
 tags: [浏览器,浏览器原理]
 ---
 

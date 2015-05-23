@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "大数据分析架构及相关工具"
-date: 2015/4/23 星期四 15:19:14 
-categories: 大数据 
+categories: [应用技术]
+tags: [大数据,数据分析,Hadoop]
 ---
 
 

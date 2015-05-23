@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "数据库 数据存储比较"
-date: 2015/4/23 星期四 14:00:46 
-categories: storage,database
+categories: [数据库]
+tags: [数据库比较,关系型数据库, NoSQL, 分布式文件系统]
 ---
 
 

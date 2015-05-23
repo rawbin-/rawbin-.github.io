@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "字符集和编码详解"
-date: 2015/4/16 星期四 16:34:09 
-categories: [编码,字符集]
+categories: [计算机基础]
 tags: [编码,字符集,字节序]
 ---
 

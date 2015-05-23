@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "MVC分层架构"
-date: 2015/4/5 22:03:42 
-categories: [Web前端,Web开发]
+categories: [开发技术]
 tags: [MVC,MVVM,MVP,前端框架]
 ---
 

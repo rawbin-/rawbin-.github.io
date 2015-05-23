@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Linux文本处理 日志分析"
-date: 2015/4/23 星期四 14:00:46 
-categories: Linux
+categories: [操作系统]
+tags: [Linux, 文本处理, 日志分析, grep, awk]
 ---
 
 

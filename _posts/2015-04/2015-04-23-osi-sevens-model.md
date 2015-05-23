@@ -2,7 +2,8 @@
 layout: post
 title: "OSI七层模型"
 date: 2015/4/23 星期四 14:00:46 
-categories: 计算机网络
+categories: [计算机体系结构]
+tags: [计算机网络, OSI, TCP/IP]
 ---
 
 ### 参考

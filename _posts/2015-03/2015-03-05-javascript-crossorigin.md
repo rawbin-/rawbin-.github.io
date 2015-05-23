@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "JavaScript 跨域问题 浏览器 同源策略"
-date: 2015/4/5 22:03:42 
-categories: [JavaScript]
+categories: [开发技术]
 tags: [跨域,同源策略,CORS,Same Origin Policy,浏览器安全]
 ---
 

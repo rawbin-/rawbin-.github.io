@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "算法相关资料"
-date: 2015/4/23 星期四 14:00:46 
-categories: algorithm
+categories: [算法结构]
+tags: [算法,数据结构]
 ---
 
 ### 参考

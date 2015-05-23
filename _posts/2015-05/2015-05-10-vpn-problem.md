@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "VPN 619 端口关闭问题解决"
-date: 2015/5/10 10:48:25 
-categories: VPN
+categories: [应用技术]
+tags: [VPN, 619, VPN错误]
 ---
 
 ### 原因总结

@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "JavaScript 模块加载工具 JSLoader"
-date: 2015/4/9 星期四 10:37:41 
-categories: [前端开发]
+categories: [开发技术]
 tags: [seajs,requirejs,AMD, CMD]
 ---
 
