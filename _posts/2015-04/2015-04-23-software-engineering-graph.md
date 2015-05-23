@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "软件工程中的图"
-categories:[软件工程]
-tags:[软件工程,设计图,UML]
+categories: [软件工程]
+tags: [设计图,流程图,UML]
 ---
 
 
