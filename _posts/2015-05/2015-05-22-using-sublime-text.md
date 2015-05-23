@@ -8,6 +8,7 @@ tags: [Sublime Text 2, 快捷键, 插件推荐]
 
 
 ## 快捷键        
+
 ### 查找
 + 文件名过滤   Ctrl + P  可以@和：符号与Ctrl+P和Ctrl+G配合使用
 + 符号过滤     Ctrl + R
@@ -33,6 +34,7 @@ tags: [Sublime Text 2, 快捷键, 插件推荐]
 + 替换			Ctrl + H， Ctrl + Shift + H
 
 ## 插件
+
 ### 安装方法
 参考[Package Control](https://packagecontrol.io/installation#st2), 基本方式是拷贝一段安装的Python 代码,在Sublime Text 的控制台（View->Console），回车执行。
 
