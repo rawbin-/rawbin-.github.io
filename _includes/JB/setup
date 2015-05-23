@@ -23,7 +23,7 @@
     {% if site.JB.LIBS_PATH %}
       {% assign LIBS_PATH = site.JB.LIBS_PATH %}
     {% else %}
-      {% capture LIBS_PATH %}{{ BASE_PATH }}/libs/{% endcapture %}
+      {% capture LIBS_PATH %}{{ BASE_PATH }}/libs{% endcapture %}
     {% endif %}  
   {% endif %}
 {% endcapture %}{% assign jbcache = nil %}
