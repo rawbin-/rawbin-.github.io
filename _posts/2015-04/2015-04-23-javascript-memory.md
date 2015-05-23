@@ -5,7 +5,7 @@ categories: [编程语言]
 tags: [JavaScript, 内存管理]
 ---
 
-### 
+### 参考    
 0. [理解JavaScript 内存分配][0]
 1. [JavaScript对象模型-执行模型][1]
 2. [JavaScript内存分析][2]

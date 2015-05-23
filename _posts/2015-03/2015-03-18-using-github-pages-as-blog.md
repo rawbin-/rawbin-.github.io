@@ -17,6 +17,7 @@ tags: [GitHub, Jekyll ,博客, 站点, Jekyll Bootstrap]
 4. 通过jekyll 可以配置一些自动生成的样式和模板  
 
 ### 基本部署过程
+
 #### 普通的过程：  
 1. 安装Ruby，Devkit，Jekyll [参考][5]
 2. 用jekyll 自动生成一个目录结构  (jekyll new xxx)
@@ -29,7 +30,7 @@ tags: [GitHub, Jekyll ,博客, 站点, Jekyll Bootstrap]
 2. 部署 Jekyll Bootstrap,参考[Jekyll Bootstrap][11]
 Jekyll Bootstrap 附带了几个实用的命令，可以用rake来构建，具体可参考主目录下的Rakefile
 这样就可以得到一个，能加标签和分类并能分类展示的博客。
-3、同样是提交到username.github.io这个代码库中
+3. 同样是提交到username.github.io这个代码库中
 
 ###参考文档：
 0. [github pages jekyll][-1]

@@ -14,13 +14,18 @@ MVC即Model-View-Controller，进行系统分层的一种架构模式。
 + C即Controller 指的是控制层
   该层用来控制表示层和业务层之间的交互，根据用户交互事件控制用户界面显示和更新Model层的数据
 他们之间的依赖关系如下：
+
 ----------->Model<-----------------
+
 |                                 |
+
 <-------Controller<-------View---->
+
 即View依赖于Controller，同时View和Controller都依赖于Model
 
 ##　MVC变种
 在不同的上下文中，有了不同的Controller的实现，MVC功能也有一些调整。
+
 ### MVC-1：
 + M即Model 指的是业务层
   + 封装应用程序的数据
@@ -37,9 +42,13 @@ MVC即Model-View-Controller，进行系统分层的一种架构模式。
   + 调用模型相应用户请求
   + 选择视图显示响应结果
 他们之间的依赖关系如下：
+
 ----------->Model<-----------------
+
 |                                 |
+
 <-----Controller<------->View<---->
+
 即Model和View是双向依赖关系，View和Controller是双向依赖关系，Controller依赖于View。
 流程为：View发送用户事件给Controller，Controller接收用户事件，将其转发给Model，Model处理事件，并通知View更新。
 这种方式无疑增加了View和Model的耦合度，于是为了解耦，有了下面的变种。
@@ -57,9 +66,13 @@ MVC即Model-View-Controller，进行系统分层的一种架构模式。
   + 调用模型相应用户请求
   + 选择视图显示响应结果
 他们之间的依赖关系如下：
+
 ----------->Model------------------
+
 |                                 |
+
 <-----Controller<------->View------
+
 即View和Controller是双向依赖关系，Controller和Model之间是双向依赖关系。
 流程是：用户交互事件通过Controller来操作Model，Model也通过Controller来控制数据更新。
 这是分层模式想要达到的效果，真正的解耦。

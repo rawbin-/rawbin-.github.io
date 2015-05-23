@@ -14,11 +14,11 @@ tags: [VPN, 619, VPN错误]
 
 ### 我的解决办法
 1、在计算机管理->服务中开启Windows服务
-Telephony 
-Remote Access Connection Manager 
-Remote Access Auto Connection Manager 
-Remote Procedure Call (RPC) Locator
-Network Connections
++ Telephony 
++ Remote Access Connection Manager 
++ Remote Access Auto Connection Manager 
++ Remote Procedure Call (RPC) Locator
++ Network Connections
 
 2、在路由器管理界面->安全设置里面关闭SPI防火墙
 
