@@ -7,7 +7,7 @@ tags: [Sublime Text 2, 快捷键, 插件推荐]
 ---
 
 
-## 快捷键
+## 快捷键  
 ### 查找
 + 文件名过滤   Ctrl + P  可以@和：符号与Ctrl+P和Ctrl+G配合使用
 + 符号过滤     Ctrl + R
