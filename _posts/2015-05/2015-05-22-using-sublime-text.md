@@ -58,7 +58,6 @@ JSON格式化插件
 看名字就可以知道了，做这三种代码的格式化的插件，直接在Package Setting中使用，快捷键Ctrl + Shift + H
 + JsFormat
 JS格式化插件
-
 + 其他
 在安装列表里面可以搜具体的格式化插件，比如CSS Formatter等，功能都差不多，有一个全功能的基本就OK了
 
