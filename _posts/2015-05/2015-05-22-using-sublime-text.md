@@ -99,6 +99,17 @@ Git命令相关工具，支持Sublime中执行Git相关命令
 + FileDiff
 文件比较结果，跟Git的diff类似
 
+#### 推荐的插件列表
++ Package Control
++ IME Support
++ Emmet
++ DocBlockr
++ Sublime Linter
++ BracketHighlighter
++ Pretty JSON
++ Better Completion
++ HTML-CSS-JS-Prettify
+
 ### 问题
 上面介绍的插件已经很多了，如果因为装了各种各样的插件，导致Sublime不那么灵活了，还会报类似下面的错误：
 A plugin (SublimeCodeIntel) may be making Sublime Text unresponsive by taking too long (0.020000s) in its on_modified callback.
