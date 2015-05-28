@@ -63,15 +63,14 @@ JS格式化插件
 
 #### 代码自动补全
 Sublime默认是从当前文件中提取符号作为代码补全提示。
-
-+ SublimeCodeIntel
-这个是从一个IDE里面移植到Sublime中的插件，功能较全面，支持的语言较多。
-+ AllAutoComplete
-这个是从所有打开的文件中提取符号作为提示信息的，可以作为一个选项，不建议用多个，因为这个是自动启用并执行的，你懂的。
 + Autocompletion​Fuzzy
 这个一直在更新，属于[sublime-enhanced][12] 的一部分,比All autocomplete实用
 + Better Completion
 对默认sublime text自动补全的修正和增强
++ SublimeCodeIntel
+这个是从一个IDE里面移植到Sublime中的插件，功能较全面，支持的语言较多。
++ AllAutoComplete
+这个是从所有打开的文件中提取符号作为提示信息的，可以作为一个选项，不建议用多个，因为这个是自动启用并执行的，你懂的。
 + 其他
 你可以安装其他开发库的代码自动补全，不如说jQuery等。
 
