@@ -63,6 +63,7 @@ JS格式化插件
 
 #### 代码自动补全
 Sublime默认是从当前文件中提取符号作为代码补全提示。
+
 + SublimeCodeIntel
 这个是从一个IDE里面移植到Sublime中的插件，功能较全面，支持的语言较多。
 + AllAutoComplete
