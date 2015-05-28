@@ -46,6 +46,8 @@ tags: [Sublime Text 2, 快捷键, 插件推荐]
 ### 插件列表
 + IMESupport
 在Sublime中更好地支持中文输入法；在Sublime中输入中文的时候，会出现输入法不跟随光标的情况，出现要么输入法在当前屏幕的左上角，要么在另外一个屏幕上，这个插件很好的解决了这个问题。
++ sublime-enhanced
+sublime增强工具集合，把sublime向ide打造的好帮手
 
 #### 格式化插件
 + CoolFormat
@@ -66,6 +68,10 @@ Sublime默认是从当前文件中提取符号作为代码补全提示。
 这个是从一个IDE里面移植到Sublime中的插件，功能较全面，支持的语言较多。
 + AllAutoComplete
 这个是从所有打开的文件中提取符号作为提示信息的，可以作为一个选项，不建议用多个，因为这个是自动启用并执行的，你懂的。
++ Autocompletion​Fuzzy
+这个一直在更新，属于[sublime-enhanced][12] 的一部分,比All autocomplete实用
++ Better Completion
+对默认sublime text自动补全的修正和增强
 + 其他
 你可以安装其他开发库的代码自动补全，不如说jQuery等。
 
@@ -113,6 +119,9 @@ Add the following: "detect_slow_plugins": false
 3. [Sublime Text2 的使用方法和插件推荐][4]
 4. [前端开发者需要的10个Sublime插件][6]
 5. [Sublime常用插件集锦][7]
+6. [20 个强大的 Sublime Text 插件][8]
+7. [15个针对开发人员的最好Sublime Text插件][9]
+8. [编码神器 Sublime Text 包管理工具及扩展大全][10]
 
 [1]: https://packagecontrol.io/ "Package Control Package 库"
 [2]: http://blog.jobbole.com/79326/ "Sublime Text最佳插件列表"
@@ -122,3 +131,7 @@ Add the following: "detect_slow_plugins": false
 [6]: http://developer.51cto.com/art/201503/467605_all.htm "前端开发者需要的10个Sublime插件"
 [7]: http://www.zuojj.com/archives/566.html "Sublime常用插件集锦"
 [8]: http://www.xuanfengge.com/practical-collection-of-sublime-plug-in.html "实用的sublime插件集合 – sublime推荐必备插件"
+[9]: http://www.open-open.com/news/view/26d731 "20 个强大的 Sublime Text 插件"
+[10]: http://www.open-open.com/news/view/f130bd "15个针对开发人员的最好Sublime Text插件"
+[11]: http://www.open-open.com/news/view/181c7a5 "编码神器 Sublime Text 包管理工具及扩展大全"
+[12]: https://github.com/shagabutdinov/sublime-enhanced "Sublime enhanced"
