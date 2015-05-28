@@ -63,6 +63,7 @@ JS格式化插件
 
 #### 代码自动补全
 Sublime默认是从当前文件中提取符号作为代码补全提示。
+
 + Autocompletion​Fuzzy
 这个一直在更新，属于[sublime-enhanced][12] 的一部分,比All autocomplete实用
 + Better Completion
@@ -79,7 +80,6 @@ Sublime默认是从当前文件中提取符号作为代码补全提示。
 Zen Coding, Emmet的支持，高效快速的生成静态HTML代码
 + Sublime Prefixr
 自动生成兼容各种浏览器的CSS3样式私有属性
-
 + Sublime Linter
 自动代码语法检查
 + Git、Gitgutter 、Modific
