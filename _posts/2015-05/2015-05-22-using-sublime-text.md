@@ -113,11 +113,15 @@ Git命令相关工具，支持Sublime中执行Git相关命令
 
 ### 问题
 上面介绍的插件已经很多了，如果因为装了各种各样的插件，导致Sublime不那么灵活了，还会报类似下面的错误：
+
 A plugin (SublimeCodeIntel) may be making Sublime Text unresponsive by taking too long (0.020000s) in its on_modified callback.
 This message can be disabled via the detect_slow_plugins setting
+
 解决办法为：
+
 Preferences > Settings - User
 Add the following: "detect_slow_plugins": false
+
 添加不检测的配置，不过这个只是隐藏了提示，确实是让Sublime没有那么快了，所以安装插件时需要节制。不过不管怎样，打造一个轻量级的IDE，占用内存一两百兆，总比占用八九百兆要好得多。
 
 ### 其他
