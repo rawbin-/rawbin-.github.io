@@ -46,8 +46,8 @@ tags: [Sublime Text 2, 快捷键, 插件推荐]
 ### 插件列表
 + IMESupport
 在Sublime中更好地支持中文输入法；在Sublime中输入中文的时候，会出现输入法不跟随光标的情况，出现要么输入法在当前屏幕的左上角，要么在另外一个屏幕上，这个插件很好的解决了这个问题。
-+ sublime-enhanced
-sublime增强工具集合，把sublime向ide打造的好帮手
++ sublime-enhanced（for Sublime Text 3）
+sublime增强工具集合，把sublime向ide打造的好帮手，不过按照官网的说法，在Sublime 2 和Sublime 3 中都装了一遍，Sublime 2中根本跑步起来，全部装完几十个插件，报了将近二十来个错误，醉了；在Sublime 3中还好，就三四个错误，同样是依赖加载失败，做了一个全量的安装，依赖全在里面，还是加载失败，没辙。
 
 #### 格式化插件
 + CoolFormat
@@ -109,6 +109,7 @@ Git命令相关工具，支持Sublime中执行Git相关命令
 + Pretty JSON
 + Better Completion
 + HTML-CSS-JS-Prettify
++ AutoFileName
 
 ### 问题
 上面介绍的插件已经很多了，如果因为装了各种各样的插件，导致Sublime不那么灵活了，还会报类似下面的错误：
@@ -119,6 +120,35 @@ Preferences > Settings - User
 Add the following: "detect_slow_plugins": false
 添加不检测的配置，不过这个只是隐藏了提示，确实是让Sublime没有那么快了，所以安装插件时需要节制。不过不管怎样，打造一个轻量级的IDE，占用内存一两百兆，总比占用八九百兆要好得多。
 
+### 其他
+Sublime Text和其他IDE都具有一个比较强的功能就死代码片段，闹了大半天了，函数注释有了，IDE中的文件头注释在Sublime Text中还没得到体现,具体做法就是新建一个代码片段，Tools->New Snippet，然后输入如下内容：
+
+    <snippet>
+	<content><![CDATA[
+    /**
+     * --------------------------------------------------------------------------- *
+     *
+     * @Project: ${3:ProjectName}
+     * @FileName: ${TM_FILENAME}
+     * @Dependence: --
+     * @Description: ${4:Description}
+     * @CreatedBy: ${5:username}
+     * @CreateDate: ${1:date}
+     * @LastModifiedBy: ${5:username}
+     * @LastModifiedDate: ${1:date}
+     *
+     * --------------------------------------------------------------------------- *
+     */
+    ]]></content>
+    	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    	<tabTrigger>filedoc</tabTrigger>
+    	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+    	<scope>source.js</scope>
+    </snippet>
+
+
+这样就可以在js文件中输入filedoc时出现文件注释头。
+TM_FILENAME是Sublime Text的变量，代表当前文件，具体可参考[Sublime Text 2 代码片断][13],功能没有IDE那么强大，不过基本够用了。
 
 ### 参考文档
 0. [Sublime Text 2 快捷键][5]
@@ -145,3 +175,4 @@ Add the following: "detect_slow_plugins": false
 [10]: http://www.open-open.com/news/view/f130bd "15个针对开发人员的最好Sublime Text插件"
 [11]: http://www.open-open.com/news/view/181c7a5 "编码神器 Sublime Text 包管理工具及扩展大全"
 [12]: https://github.com/shagabutdinov/sublime-enhanced "Sublime enhanced"
+[13]: http://www.cnblogs.com/yili16438/p/3734343.html "Sublime Text 2 代码片断"
