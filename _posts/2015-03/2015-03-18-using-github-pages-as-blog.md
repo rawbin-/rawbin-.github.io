@@ -45,7 +45,8 @@ Jekyll Bootstrap 附带了几个实用的命令，可以用rake来构建，具�
 6. [jekyllrb 官方网站][7]
 7. [jekyll安装][8]
 8. [搭建一个免费的无流量的博客][9]
-9. [Jekyll-Bootstrap][11]
+9. [Jekyll-Bootstrap Github][11]
+10. [Jekyll-Bootstrap][12]
 
 [0]: https://help.github.com/categories/github-pages-basics/ "github pages jekyll"
 [-1]: https://help.github.com/articles/using-jekyll-with-pages/ "github pages help"
@@ -59,4 +60,5 @@ Jekyll Bootstrap 附带了几个实用的命令，可以用rake来构建，具�
 [8]: http://hustlei.github.io/2014/08/jekyll-install.html " jekyll安装"
 [9]: http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html " 搭建一个免费的无流量的博客"
 [10]: http://blog.csdn.net/on_1y/article/details/19259435 "使用 GitHub, Jekyll 打造自己的免费独立博客"
-[11]: https://github.com/plusjade/jekyll-bootstrap/ "Jekyll-Bootstrap"
+[11]: https://github.com/plusjade/jekyll-bootstrap/ "Jekyll-Bootstrap Github"
+[12]: http://jekyllbootstrap.com/ "Jekyll-Bootstrap"
