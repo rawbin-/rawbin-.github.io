@@ -27,10 +27,7 @@ tags: [CSS详解,CSS属性,CSS]
 ### background
 + 属性详解
 背景色 背景图片 背景平铺模式 背景滚动模式 背景定位
-    <div style="background-color:blue;width:120px;height:20px;">
-    <div style="width:100px;height:20px;background-color:green;">
-    </div>
-    </div>
+
 + 实现进度条
 
 + 实现淘宝评价效果
