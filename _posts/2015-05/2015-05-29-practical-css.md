@@ -23,7 +23,9 @@ tags: [CSS详解,CSS属性,CSS]
     background:background-color|background-image|background-repeat|background-attachment|background-position
     + color
     六位十六进制可以缩写为三位，如果每两位都是相同的话。
+    
 ##属性详解
+
 ### background
 + 属性详解
 背景色 背景图片 背景平铺模式 背景滚动模式 背景定位
