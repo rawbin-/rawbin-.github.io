@@ -62,8 +62,10 @@ label 标签下面嵌套`<input type="file">`点击label会自动打开文件浏
 
 ## 组件推荐  
 在这二十来个上传组件或插件中，根据可定制UI，支持度较广（仅支持Flash或HTML5的就pass），网站能打开，有能上手的实例等条件过滤掉了一些像ajaxfileupload，uploadify等还不错的资源，留下下面这些个。
+
 ### plupload  
 自动切换多种方式的支持，有国际化的支持，支持自定义容器。
+
 #### 参考资料  
 0. [plupload 官网][5]
 1. [plupload Github][4]
@@ -73,17 +75,20 @@ label 标签下面嵌套`<input type="file">`点击label会自动打开文件浏
 
 ### jquery file upload
 样式不错，引入的库较多，只支持绑定input file。
+
 #### 参考资料
 0. [jQuery-File-Upload][8]
 1. [jQuery File Upload Demo][9]
 
 ### jQuery Ajax File Uploader / uploader
 有进度，有预览，不支持IE8；
+
 ### 参考资料
 0. [JQuery File Uploader][10]
 
 ### JSAjaxFileUploader
 有进度，有预览，不支持IE8；
+
 #### 参考资料
 0. [JSAjaxFileUploader][11]
 1. [JSAjaxFileUploader Demo][12]

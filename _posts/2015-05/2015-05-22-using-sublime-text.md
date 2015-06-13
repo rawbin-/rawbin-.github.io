@@ -46,6 +46,8 @@ tags: [Sublime Text 2, 快捷键, 插件推荐]
 ### 插件列表
 + IMESupport
 在Sublime中更好地支持中文输入法；在Sublime中输入中文的时候，会出现输入法不跟随光标的情况，出现要么输入法在当前屏幕的左上角，要么在另外一个屏幕上，这个插件很好的解决了这个问题。
++ ConvertToUTF8
+中文和UTF8之间的转码，解决乱码问题
 + sublime-enhanced（for Sublime Text 3）
 sublime增强工具集合，把sublime向ide打造的好帮手，不过按照官网的说法，在Sublime 2 和Sublime 3 中都装了一遍，Sublime 2中根本跑步起来，全部装完几十个插件，报了将近二十来个错误，醉了；在Sublime 3中还好，就三四个错误，同样是依赖加载失败，做了一个全量的安装，依赖全在里面，还是加载失败，没辙。
 
@@ -102,6 +104,7 @@ Git命令相关工具，支持Sublime中执行Git相关命令
 #### 推荐的插件列表
 + Package Control
 + IME Support
++ ConvertToUTF8
 + Emmet
 + DocBlockr
 + Sublime Linter
