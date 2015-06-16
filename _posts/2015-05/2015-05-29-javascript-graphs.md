@@ -2,7 +2,7 @@
 layout: post
 title: "JavaScript前端画图工具"
 categoriess: [开发技术]
-tags: [JavaScript画图，前端画图，JavaScript图表]
+tags: [JavaScript画图,前端画图,JavaScript图表]
 ---
 
 
