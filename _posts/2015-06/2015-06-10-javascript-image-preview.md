@@ -2,7 +2,7 @@
 layout: post
 title: "JavaScript 图片预览，上传预览"
 categories: [开发技术]
-tags: [JavaScript，图片预览，图片上传]
+tags: [JavaScript,图片预览,图片上传]
 ---
 
 # 文件上传预览概述

@@ -2,7 +2,7 @@
 layout: post
 title: "JavaScript浏览器检测，浏览器分辨"
 categories: [开发技术]
-tags: [浏览器，JavaScript]
+tags: [浏览器,JavaScript]
 ---
 
 

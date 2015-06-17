@@ -35,8 +35,18 @@ OTT 是“Over The Top”的缩写，是指通过互联网向用户提供各种�
 + CPO Chief Procurement Officer 首席采购官
 + CQO Chief Quality Officer 首席质量官
 
+### X2X
 
 ### 参考资料
+0. [Over The Air][1]
+1. [Online Travel Agen][2]
+2. [Over the Top][3]
+3. [OTT 概念解析][4]
+4. [常见CXO解释][5]
+5. [O2O、C2C、B2B、B2C区别][6]
+6. [P2P、P2C、O2O、B2C、B2B、C2C区别][7]
+7. [互联网电子商务名词区别在哪里？][8]
+
 [1]: http://baike.baidu.com/link?url=MDE198oAT7wGO8X0tQAqTAbWI26_GGy_IYmSSHdvJWDgEaYWUDs5sY_H-uJZe5rUtDlxHRhfC9hWTSeb_RlF7_ "Over The Air"
 [2]: http://baike.baidu.com/link?url=YNVKcQ_vOvgHHtFla9KkzAzSx6NC-cxFJcULFUfccFxkxSVRtpiOOJln3gjGD1GV-UG04J5OqktQavLETalHUq "Online Travel Agent"
 [3]: http://baike.baidu.com/link?url=_I7pI6nFaxjSfBJhEybIx2orjlC4K4GgZweRc_un_htMCl1uoO3ue8aIVBbUazAxdUk3IqGYTJYs0BbeXp0UdK "Over the Top"
@@ -44,5 +54,4 @@ OTT 是“Over The Top”的缩写，是指通过互联网向用户提供各种�
 [5]: http://blog.chinaunix.net/uid-1710011-id-2830550.html "常见CXO解释"
 [6]: http://j.news.163.com/docs/99/2014100909/A83UQQSQ9001QQSR.html "O2O、C2C、B2B、B2C区别"
 [7]: http://news.mbalib.com/story/88506 "P2P、P2C、O2O、B2C、B2B、C2C区别"
-[8]: http://blog.sina.com.cn/s/blog_614375770102vcla.html "互联网   电子商务  B2C  C2C  B2B  O2O
-C2C、O2O、B2B、B2C 的区别在哪里？"
+[8]: http://blog.sina.com.cn/s/blog_614375770102vcla.html "互联网电子商务名词区别在哪里？"
