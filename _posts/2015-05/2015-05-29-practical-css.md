@@ -10,18 +10,24 @@ tags: [CSS详解,CSS属性,CSS]
     + 缩写就是按照一定的规则将扩展写法写到一起，各个属性之间用空格隔开，比如background，font，margin，border等，由于各个属性之间的值比较容易区分，所以CSS解析器不容易混淆属性,对于不容易区分的需要用单撇号`/`分隔。
 + 常见的缩写
     + font
+    
     font: font-style|font-variant|font-weight|font-size|line-height|font-family
     + margin 或 padding
+    
     margin: margin-top|margin-right|margin-bottom|margin-left
     padding: padding-top|padding-right|padding-bottom|padding-left
     这种涉及到四个值的缩写属性有一个规则，写一个值是应用到四方；写两个值分别为上下和左右的值；写三个值为上、左右、下的值；写四个值依次为上、右、下、左的值。
     + border
+    
     border:border-width|border-style|border-color
     + list-style
+    
     list-style:list-style-type|list-style-position|list-style-image
     + background
+    
     background:background-color|background-image|background-repeat|background-attachment|background-position
     + color
+    
     六位十六进制可以缩写为三位，如果每两位都是相同的话。
     
 
@@ -29,27 +35,35 @@ tags: [CSS详解,CSS属性,CSS]
 
 ###  属性详解
 + background
+
 设置元素的背景色，背景图，背景重复方式，背景滚动方式，背景位置
 + background-color
+
 设置背景色，可以是颜色名称，十六进制值或者rgb值或者是transparent（默认）
 + background-image
+
 可以给一个url对象或者none（默认）
 + background-repeat
+
 repeat（默认）或者repeat-x或者repeat-y或者no-repeat,设置两个方向，单向或者不重复
 + background-attachment
+
 随着页面滚动而滚动（scroll）或者固定在页面的某一个位置（fixed）
 + background-position
+
 设置背景图片的位置，可以是top left center bottom right这些位置关键词，或者是百分比，也可以是像素值
 
 ### 应用实例
 + 实现进度条
+
     	<div style="position:relative;width:100px;height:20px;border:solid 1px grey;">
     		<div style="width:50px;height:18px;margin:1px;background-color:blue;"></div>
     		<span style="position:absolute;left:40%;top:0;">50%</span>
     	</div>
 
 + 实现淘宝评价效果
-    	<div style="position:relative;width:120px;height:19px;background:url(star_both_five.png) 0 -18px no-repeat;">
+    	
+        <div style="position:relative;width:120px;height:19px;background:url(star_both_five.png) 0 -18px no-repeat;">
     		<div style="height:20px;float:left;background:url(star_both_five.png) 0 0 no-repeat;width:70%;"></div>
     		<div style="position:absolute;left:0;top:0;height:19px;z-index:1">
     			<span style="display:inline-block;width:18px;height:18px;cursor:pointer;"></span>
@@ -101,6 +115,7 @@ repeat（默认）或者repeat-x或者repeat-y或者no-repeat,设置两个方向
 + margin-right
 + margin-bottom
 + margin-left
+
 margin 属性可以以上右下左的顺序设定各个方向的外边距值，也可以通过margin-方向来设定单个方向的外边距值，值可以是具体的像素、厘米等单位的值，也可以是百分比。
 
 #### padding
@@ -109,6 +124,7 @@ margin 属性可以以上右下左的顺序设定各个方向的外边距值，�
 + padding-right
 + padding-bottom
 + padding-left
+
 padding 属性可以以上右下左的顺序设定各个方向的内边距值，也可以通过padding-方向来设定单个方向的内边距值，值可以是具体的像素、厘米等单位的值，也可以是百分比。
 
 #### border
@@ -128,10 +144,12 @@ padding 属性可以以上右下左的顺序设定各个方向的内边距值，
 + border-left-width
 + border-left-style
 + border-left-color
+
 border 依次设置宽度，样式和颜色，也可以通过border-width，border-style，border-color单独来以上右下左的顺序设置其中的每一项，同样也可以用border-方向-width,border-方向-style,border-方向-color,来单独设置各个方向的值。
 
 ### 应用实例
 + 实现Tab页效果
+
     	<div style="background-color:grey;height:28px;width:250px;border-bottom:1px solid white;">
     		<ul style="list-style-type:none;">
     			<li style="float:left;padding:4px;margin:1px; border-width: 1px;border-style: solid solid none; border-color:darkgrey;">页签一</li>
@@ -140,12 +158,14 @@ border 依次设置宽度，样式和颜色，也可以通过border-width，bord
     		</ul>
     	</div>
 + 实现选中效果
+
     	<div style="text-align:center;">
     		<a href="#" style="display:inline-block;text-decoration:none;border: 1px solid lightgrey;width:20px;height:20px;background-color:grey;">1</a>
     		<a href="#" style="display:inline-block;;text-decoration:none;border: 1px solid red;width:20px;height:20px;background-color:transparent;">2</a>
     		<a href="#" style="display:inline-block;;text-decoration:none;border: 1px solid lightgrey;width:20px;height:20px;background-color:grey;">3</a>
     	</div>	
 + 实现各向小三角
+
     	<div style="border-style:solid;border-width: 50px; border-color: red green blue yellow; width:0;height:0;">
     	</div>
     	<div style="border-style:solid;border-width: 50px 50px 0px; border-color: red transparent transparent; width:0;height:0;">
@@ -172,12 +192,16 @@ float 属性可以用来做文字环绕的效果，或者靠在靠右排列的�
 
 #### position
 + static
+
 默认的普通文档流的定位方式，顺序排放。
 + relative
+
 相对于元素当前位置的定位方式，元素还存在在文档流中，可以用top，left，right，bottom进行偏移定位。可以在元素位置保留（不被其他元素占用）的情况下进行位置调整。
 + absolute
+
 此种定位方式的元素，脱离了文档流，定位不是完全绝对的；他的定位的相对位置是范围从小扩大的过程中遇到的第一个非static（默认文档流定位）定位的祖先元素，如果没有最后则相对于body元素。这种特性便于设定一个非static的祖先元素来界定其中absolute元素的相对定位。
 + fixed
+
 这种定位方式的元素也脱离了文档流，他的定位的原点是视窗本身，不随文档的滚动而变动。
 
 #### z-index
@@ -185,10 +209,12 @@ float 属性可以用来做文字环绕的效果，或者靠在靠右排列的�
 
 ### 应用实例
 + 实现弹窗效果
+
         <div style="background-color:lightblue;border:1px solid grey;z-index 100;width:100px;height:100px;position:absolute;top:50%;left:50%;">
 	   </div>	
 
 + 实现进度条
+
     	<div style="position:relative;width:100px;height:20px;border:solid 1px grey;">
     		<div style="width:50px;height:18px;margin:1px;background-color:blue;"></div>
     		<span style="position:absolute;left:40%;top:0;">50%</span>
