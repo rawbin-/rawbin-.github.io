@@ -152,28 +152,28 @@ border 依次设置宽度，样式和颜色，也可以通过border-width，bord
 ### 应用实例
 + 实现Tab页效果
 
-    	<div style="background-color:grey;height:28px;width:250px;border-bottom:1px solid white;">
-    		<ul style="list-style-type:none;">
-    			<li style="float:left;padding:4px;margin:1px; border-width: 1px;border-style: solid solid none; border-color:darkgrey;">页签一</li>
-    			<li style="float:left;padding:4px;margin:1px; border-width: 1px;border-style: solid solid none; border-color:darkgrey; background-color:white;">页签二</li>
-    			<li style="float:left;padding:4px;margin:1px; border-width: 1px;border-style: solid solid none; border-color:darkgrey;">页签三</li>
-    		</ul>
-    	</div>
+        	<div style="background-color:grey;height:28px;width:250px;border-bottom:1px solid white;">
+        		<ul style="list-style-type:none;">
+        			<li style="float:left;padding:4px;margin:1px; border-width: 1px;border-style: solid solid none; border-color:darkgrey;">页签一</li>
+        			<li style="float:left;padding:4px;margin:1px; border-width: 1px;border-style: solid solid none; border-color:darkgrey; background-color:white;">页签二</li>
+        			<li style="float:left;padding:4px;margin:1px; border-width: 1px;border-style: solid solid none; border-color:darkgrey;">页签三</li>
+        		</ul>
+        	</div>
 
 + 实现选中效果
 
-    	<div style="text-align:center;">
-    		<a href="#" style="display:inline-block;text-decoration:none;border: 1px solid lightgrey;width:20px;height:20px;background-color:grey;">1</a>
-    		<a href="#" style="display:inline-block;;text-decoration:none;border: 1px solid red;width:20px;height:20px;background-color:transparent;">2</a>
-    		<a href="#" style="display:inline-block;;text-decoration:none;border: 1px solid lightgrey;width:20px;height:20px;background-color:grey;">3</a>
-    	</div>	
+            	<div style="text-align:center;">
+            		<a href="#" style="display:inline-block;text-decoration:none;border: 1px solid lightgrey;width:20px;height:20px;background-color:grey;">1</a>
+            		<a href="#" style="display:inline-block;;text-decoration:none;border: 1px solid red;width:20px;height:20px;background-color:transparent;">2</a>
+            		<a href="#" style="display:inline-block;;text-decoration:none;border: 1px solid lightgrey;width:20px;height:20px;background-color:grey;">3</a>
+            	</div>	
 
 + 实现各向小三角
 
-    	<div style="border-style:solid;border-width: 50px; border-color: red green blue yellow; width:0;height:0;">
-    	</div>
-    	<div style="border-style:solid;border-width: 50px 50px 0px; border-color: red transparent transparent; width:0;height:0;">
-    	</div>
+        	<div style="border-style:solid;border-width: 50px; border-color: red green blue yellow; width:0;height:0;">
+        	</div>
+        	<div style="border-style:solid;border-width: 50px 50px 0px; border-color: red transparent transparent; width:0;height:0;">
+        	</div>
 
 ### 参考资料
 0. [使用css实现全兼容浏览器的三角形][1]
