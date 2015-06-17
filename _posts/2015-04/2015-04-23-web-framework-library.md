@@ -24,6 +24,7 @@ tags: [前端框架, Web框架]
 Exterminate all the bugs!][13]
 13. [功能自动化测试工具][14]
 14. [Selenium][15]
+15. [JavaScript框架比较](http://www.ibm.com/developerworks/cn/web/wa-jsframeworks/)
 
 [0]: http://www.w3cfuns.com/article-760-1.html "推荐几款Web前端框架"
 [1]: http://coolshell.cn/articles/91.html "十个开源的Javascript框架"

@@ -99,6 +99,7 @@ label 标签下面嵌套`<input type="file">`点击label会自动打开文件浏
 0. [22个很棒的jQuery文件上传插件][1]
 1. [15 个最好的 jQuery 文件上传插件][2]
 2. [7 款 JavaScript 的 Ajax 文件上传插件][3]
+3. [开源中国jQuery文件上传插件][20]
 
 [0]: http://ajax.open-open.com/Upload.htm "前端JavaScript上传组件插件"
 [1]: http://www.csdn.net/article/2011-08-04/302659 "22个很棒的jQuery文件上传插件"
@@ -120,3 +121,4 @@ label 标签下面嵌套`<input type="file">`点击label会自动打开文件浏
 [17]: http://lililucky1211.iteye.com/blog/1916129 "IE8 Label for input file 无效"
 [18]: http://chaping.github.io/plupload/demo/index4.html "plupload 实例"
 [19]: http://www.ruanyifeng.com/blog/2012/08/file_upload.html "文件上传的渐进式增强"
+[20]: http://www.oschina.net/project/tag/356/jquery-file-upload "开源中国jQuery文件上传插件"

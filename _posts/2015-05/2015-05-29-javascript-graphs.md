@@ -7,6 +7,7 @@ tags: [JavaScript画图,前端画图,JavaScript图表]
 
 
 ## 参考资料
+0. [开源中国jQuery图表插件][9]
 0. [JavaScript Charts][1]
 1. [jqPlot][2]
 2. [Raphael][3]
@@ -24,3 +25,4 @@ tags: [JavaScript画图,前端画图,JavaScript图表]
 [6]: http://www.flotcharts.org/ "Flot"
 [7]: http://morrisjs.github.io/morris.js/ "morris"
 [8]: http://bluff.jcoglan.com/ "Bluff"
+[9]: http://www.oschina.net/project/tag/275/jquery-chart "开源中国jQuery图表插件"
