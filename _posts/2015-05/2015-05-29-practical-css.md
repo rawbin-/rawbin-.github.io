@@ -12,20 +12,25 @@ tags: [CSS详解,CSS属性,CSS]
     + font
     
     font: font-style|font-variant|font-weight|font-size|line-height|font-family
+
     + margin 或 padding
     
     margin: margin-top|margin-right|margin-bottom|margin-left
     padding: padding-top|padding-right|padding-bottom|padding-left
     这种涉及到四个值的缩写属性有一个规则，写一个值是应用到四方；写两个值分别为上下和左右的值；写三个值为上、左右、下的值；写四个值依次为上、右、下、左的值。
+
     + border
     
     border:border-width|border-style|border-color
+
     + list-style
     
     list-style:list-style-type|list-style-position|list-style-image
+
     + background
     
     background:background-color|background-image|background-repeat|background-attachment|background-position
+
     + color
     
     六位十六进制可以缩写为三位，如果每两位都是相同的话。
@@ -56,7 +61,7 @@ repeat（默认）或者repeat-x或者repeat-y或者no-repeat,设置两个方向
 ### 应用实例
 + 实现进度条
 
-    	<div style="position:relative;width:100px;height:20px;border:solid 1px grey;">
+        <div style="position:relative;width:100px;height:20px;border:solid 1px grey;">
     		<div style="width:50px;height:18px;margin:1px;background-color:blue;"></div>
     		<span style="position:absolute;left:40%;top:0;">50%</span>
     	</div>
@@ -68,8 +73,7 @@ repeat（默认）或者repeat-x或者repeat-y或者no-repeat,设置两个方向
     		<div style="position:absolute;left:0;top:0;height:19px;z-index:1">
     			<span style="display:inline-block;width:18px;height:18px;cursor:pointer;"></span>
     		</div>
-    	</div>
-    
+    	</div>    
     	<div style="position:relative;width:120px;height:19px;background:url(star_both_five.png) 0 -18px no-repeat;">
     		<div style="height:19px;float:left;background:url(star_both_five.png) 0 0 no-repeat;width:70%;"></div>
     		<div style="position:absolute;left:0;top:0;height:19px;z-index:1">
@@ -79,15 +83,13 @@ repeat（默认）或者repeat-x或者repeat-y或者no-repeat,设置两个方向
     			<span style="display:inline-block;width:18px;height:18px;cursor:pointer;"></span>
     			<span style="display:inline-block;width:18px;height:18px;cursor:pointer;"></span>
     		</div>
-    	</div>
-        	
+    	</div>        	
     	<div style="position:relative;width:98px;height:19px;background:url(star_both_one.png) 0 -22px repeat-x;">
     		<div style="height:20px;float:left;background:url(star_both_one.png) 0 0 repeat-x;width:70%;"></div>
     		<div style="position:absolute;left:0;top:0;height:19px;z-index:1">
     			<span style="display:inline-block;width:18px;height:18px;cursor:pointer;"></span>
     		</div>
-    	</div>
-    
+    	</div>    
     	<div style="position:relative;width:98px;height:19px;background:url(star_dark.png) 0 2px repeat-x;">
     		<div style="height:20px;float:left;background:url(star_bright.png) repeat-x;width:70%;"></div>
     		<div style="position:absolute;left:0;top:0;height:19px;z-index:1">
@@ -157,6 +159,7 @@ border 依次设置宽度，样式和颜色，也可以通过border-width，bord
     			<li style="float:left;padding:4px;margin:1px; border-width: 1px;border-style: solid solid none; border-color:darkgrey;">页签三</li>
     		</ul>
     	</div>
+
 + 实现选中效果
 
     	<div style="text-align:center;">
@@ -164,6 +167,7 @@ border 依次设置宽度，样式和颜色，也可以通过border-width，bord
     		<a href="#" style="display:inline-block;;text-decoration:none;border: 1px solid red;width:20px;height:20px;background-color:transparent;">2</a>
     		<a href="#" style="display:inline-block;;text-decoration:none;border: 1px solid lightgrey;width:20px;height:20px;background-color:grey;">3</a>
     	</div>	
+
 + 实现各向小三角
 
     	<div style="border-style:solid;border-width: 50px; border-color: red green blue yellow; width:0;height:0;">
