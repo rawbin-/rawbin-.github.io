@@ -211,11 +211,11 @@ float 属性可以用来做文字环绕的效果，或者靠在靠右排列的�
 + 实现弹窗效果
 
         <div style="background-color:lightblue;border:1px solid grey;z-index 100;width:100px;height:100px;position:absolute;top:50%;left:50%;">
-	   </div>	
+	    </div>	
 
 + 实现进度条
 
-    	<div style="position:relative;width:100px;height:20px;border:solid 1px grey;">
+        <div style="position:relative;width:100px;height:20px;border:solid 1px grey;">
     		<div style="width:50px;height:18px;margin:1px;background-color:blue;"></div>
     		<span style="position:absolute;left:40%;top:0;">50%</span>
     	</div>
