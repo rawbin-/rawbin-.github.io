@@ -31,3 +31,4 @@ tags: [自动化测试,测试框架,JavaScript]
 11. [Intern Github Homepage](https://theintern.github.io/)
 12. [Intern JavaScript自动化测试也可以如此便捷](http://www.ibm.com/developerworks/cn/web/1412_zhongsq_intern/)
 13. [Tastacular Google开源的JavaScript测试执行过程管理工具](http://blog.jobbole.com/30134/)
+14. [JavaScript自动化测试 Selemium](http://saucelabs.com/)

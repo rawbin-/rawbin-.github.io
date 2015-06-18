@@ -28,6 +28,7 @@ tags: [JavaScript,模块化,模块加载器]
 13. [AMD Github](https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88)
 14. [Javascript模块化编程（二）：AMD规范](http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html)
 15. [CMD Github](https://github.com/cmdjs/specification)
+24. [CommonJS规范](http://javascript.ruanyifeng.com/nodejs/commonjs.html)
 16. [浏览器加载 CommonJS 模块的原理与实现](http://www.ruanyifeng.com/blog/2015/05/commonjs-in-browser.html)
 17. [CMD模块定义规范](http://www.cnblogs.com/hongchenok/p/3685677.html)
 18. [CMD模块定义规范](https://github.com/seajs/seajs/issues/242)
