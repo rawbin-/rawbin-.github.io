@@ -2,7 +2,7 @@
 layout: post
 title: "ECMAScript 2015 ES 6"
 categories: [开发技术]
-tags： [JavaScript,ECMAScript,ECMAScript2015, ECMAScript6, ES2015, ES6]
+tags: [JavaScript,ECMAScript,ECMAScript2015, ECMAScript6, ES2015, ES6]
 
 ---
 
