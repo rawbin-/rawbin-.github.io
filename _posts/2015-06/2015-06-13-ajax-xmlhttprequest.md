@@ -15,3 +15,4 @@ tags: [AJAX,XMLHTTPRequest,异步]
 5. [《JavaScript权威指南》学习笔记之二十---XMLHttpRequest和AJAX解决方案](http://blog.csdn.net/u011043843/article/details/32939033)
 6. [XML DOM - XMLHttpRequest 对象](《JavaScript权威指南》学习笔记之二十---XMLHttpRequest和AJAX解决方案)
 7. [XMLHttpRequest Snapshot](https://dvcs.w3.org/hg/xhr/raw-file/tip/Overview.html)
+8. [JavaScript Ajax](http://javascript.ruanyifeng.com/bom/ajax.html)

@@ -163,3 +163,4 @@ Firefox和Safari支持screenX和screenY
 14. [offsetLeft,Left,clientLeft的区别](http://www.cnblogs.com/panjun-Donet/articles/1294033.html)
 15. [用Javascript获取页面元素的位置](http://www.ruanyifeng.com/blog/2009/09/find_element_s_position_using_javascript.html)
 16. [JavaScript获取DOM元素位置和尺寸大小](http://www.cnblogs.com/dolphinX/archive/2012/11/19/2777756.html)
+17. [HTML DOM Element](http://javascript.ruanyifeng.com/dom/element.html)
