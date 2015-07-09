@@ -10,33 +10,42 @@ tags: [编辑器,开发工具]
 
 ### 就是一个列表
 + 记事本   
+
 不用说了，Windows自带，不支持大文件打开
 
-+ Visual Studio    
++ Visual Studio
+    
 一开始用的VC6，后面再没怎么用过，主要是安装起来太占空间
 
 + VIM   
 这个是Linux中必不可少的利器，当然Windows中也可以有，他可以做的很快
 
-+ Ecmas   
++ Ecmas 
+  
 这个没用过，听说和VIM最大的区别是，他让你做起来更简单
 
 + Eclipse， MyEclipse，IDEA   
+
 这个是Java相关开发的利器，当然可以做各种相关的定制，比如安装一个PHP的插件
 
 + Zend Studio, PHPEd， PHPStorm   
+
 调试起来简单好用
 
 + UltraEdit    
+
 功能强大，就是有点慢
 
 + Notepad++   
+
 开源免费，关键是快
 
 + Pycharm    
+
 Python Web开发利器
 
 + Brackets   
+
 Adobe 出品的前端开发IDE，更专注于前端
 
 + Sublime Text   
