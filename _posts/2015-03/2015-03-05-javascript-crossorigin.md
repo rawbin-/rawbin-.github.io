@@ -96,3 +96,4 @@ tags: [跨域,同源策略,CORS,Same Origin Policy,浏览器安全]
 [19]: http://blog.csdn.net/hfahe/article/details/7730944 " HTML5安全：CORS（跨域资源共享）简介"
 [20]: http://www.cnblogs.com/2050/p/3191744.html "js中几种实用的跨域方法原理详解"
 [21]: http://blog.csdn.net/sfdev/article/details/3887006 "Javascript跨域访问解决方案"
+[22]: http://www.cnblogs.com/JChen666/p/3399951.html "前端解决跨域问题的8种方案（最新最全）"
