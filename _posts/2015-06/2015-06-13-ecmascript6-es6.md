@@ -6,6 +6,65 @@ tags: [JavaScript,ECMAScript,ECMAScript2015, ECMAScript6, ES2015, ES6]
 
 ---
 
+# 特性介绍
+## 语法改进
+### 块级作用域 let
++ 只在声明的代码块中有效
++ 不存在声明提前
++ 不允许重复声明       
+
+### 解构赋值
++ 适合var，let，const
++ 适合字符串、数组、对象（可嵌套）、函数参数
++ 可带默认值
++ 用途
+    + 交换变量
+    + 函数返回多个值
+    + 函数参数定义及参数默认值
+    + 提取对象数据，JSON数据
+    + 遍历Map解包
+    + 模块部分加载
+
+### 扩展运算符
+
+
+### 生成器
++ 特性介绍
++ 应用举例
+
+## 函数
++ 支持参数解构赋值
++ 参数设置默认值（默认参数），默认参数的作用域是函数作用域,默认参数必须在最后
++ 扩展运算符
++ rest参数，rest参数必须是最后一个
++ 箭头函数（不能当构造，无arguments，this固定为定义时所在的对象）
++ 尾调用、尾递归优化
+
+## 数组
++ 增加from，of原型方法，
++ 增加entries，keys，values，includes实例方法
++ for of遍历
+
+## 对象
++ 属性、方法简写
++ is，assign，getPrototypeOf，setPrototypeOf原型方法
++ 新增对象Proxy， Reflect，Promise
++ Set，Map
+
+## 字符串
++ 简单模板字符串${JS表达式}
++ 多行字符串
++ 标签模板
++ 新增includes，startsWith，endsWith，repeat方法
+
+
+## 其他
++ const关键字申明常量
+
+
+
+# 使用方法
+
 
 
 ## 参考资料
