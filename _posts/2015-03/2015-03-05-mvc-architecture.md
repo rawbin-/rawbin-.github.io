@@ -111,3 +111,4 @@ MVVM跟MVP类似，区别在于MVVM包含了双向数据绑定，即V上的数�
 [8]: http://www.cnblogs.com/justrun1983/p/3679827.html "MVC, MVP, MVVM比较以及区别(上)"
 [9]: http://www.cnblogs.com/aaronjs/p/3149402.html "JavaScript富应用MVC MVVM框架"
 [10]: http://www.cnblogs.com/winter-cn/archive/2012/09/16/2687184.html "Web前端开发：为何选择MVVM而非MVC"
+[11]: http://segmentfault.com/a/1190000000693651 "MVC相关图"

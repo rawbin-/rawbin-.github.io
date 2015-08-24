@@ -8,6 +8,13 @@ tags: [JavaScript,ECMAScript,ECMAScript2015, ECMAScript6, ES2015, ES6]
 
 # 特性介绍
 ## 语法改进
+
+### 支持模块化语法
+# module,import,export
+
+### 支持面向对象语法
++ 类（class），继承（extends），静态方法（static），属性存取（getter,setter）
+
 ### 块级作用域 let
 + 只在声明的代码块中有效
 + 不存在声明提前
@@ -49,7 +56,7 @@ tags: [JavaScript,ECMAScript,ECMAScript2015, ECMAScript6, ES2015, ES6]
 + 属性、方法简写
 + is，assign，getPrototypeOf，setPrototypeOf原型方法
 + 新增对象Proxy， Reflect，Promise
-+ Set，Map
++ Set，Map,Generator,Iterator,Promise
 
 ## 字符串
 + 简单模板字符串${JS表达式}
