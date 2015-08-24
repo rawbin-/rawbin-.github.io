@@ -7,10 +7,17 @@ tags: [JavaScript，HTML，script，async，defer]
 ---
 
 
-## 外引用 script脚本加载过程
-### 
+## I. 外引用 script脚本加载过程
+### A. 普通script 引用（不带defer，async）
 
-## 行内script加载过程
+### B. 只带defer的script引用
+
+### C. 只带async的script引用
+
+### D. 同时带defer和async的script 引用
+
+
+## II. 行内script加载过程
 
 
 ### 参考资料
