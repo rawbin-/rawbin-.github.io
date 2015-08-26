@@ -20,6 +20,7 @@ Javascript中的this是当前执行上下文对象的一个属性，在创建执
 
 ### 有没有银弹？
 JavaScript中的this取决于函数的调用环境和调用方式，后者比前者更重要。
+
 #### JavaScript this 确定规则（从前到后优先级逐渐降低）
 + 如果使用了new 关键字，this 就是新创建的这个对象；
 + 如果使用了函数的abc方法（apply，bind，call），this即为这个明确指定的对象。
