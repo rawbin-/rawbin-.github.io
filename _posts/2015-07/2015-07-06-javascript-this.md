@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "JavaScript this 理解"
-categories: [Web前端，JavaScript，前端基础]
-tags: [JavaScript，this]
+categories: [开发技术]
+tags: [Web前端,JavaScript,前端基础]
 
 ---
 
