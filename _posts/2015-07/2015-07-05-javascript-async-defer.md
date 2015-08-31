@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "HTML script defer async 区别 对比"
-categories: [开发技术]
-tags: [JavaScript,Web前端,前端基础]
+categories: [开发技术,JavaScript]
+tags: [JavaScript,Web前端,前端基础,async,defer]
 
 ---
 
