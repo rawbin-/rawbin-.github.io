@@ -7,6 +7,7 @@ tags: [Web前端,前端基础,JavaScript,原型]
 ---
 
 ## 一些相关概念理解
+
 ### 相关概念
 + 对象
     + 哲学上万物皆对象，具体指人们要研究的客观事物及对其进行的主观抽象；
@@ -31,17 +32,21 @@ tags: [Web前端,前端基础,JavaScript,原型]
         + \_\_proto\_\_作为对象的属性指向他的原型，prototype作为函数的属性指向他的原型。函数也是对象，所以函数可能同时拥有这两个属性。
 
 ### 概念理解
+
 #### 一切皆为对象
 + JavaScript是弱类型的语言，会自动进行相应的类型转换（隐式类型转换）    
 在JavaScript中，原始值没有对应的方法，原始值在执行的过程中会被自动转换成对应类型的对象再进行运算和执行。比如字符串原始值"abcde"没有任何方法，会被转换成String对象，然后拥有String.prototype这个对象上定义的方法。
 + 函数也是对象（上面不是说了么，函数是可调用的对象）   
 看看构造器的定义，创建和初始化对象的函数。首先构造器是函数，构造器创建的是对象，那么Function构造器所创建的实例也是对象。
+
         typeof (new Function()) === 'function' // true 
         (new Function()) instanceof Function   // true
         (new Function()) instanceof Object     // true
         Function instanceof Object             // true 
+        
 + JavaScript对象继承树   
 所有对象都继承自Object.prototype
+
         Object.prototype.__proto__ // null
         Function.prototype.__proto__ === Object.prototype // true
 
@@ -53,6 +58,7 @@ tags: [Web前端,前端基础,JavaScript,原型]
 #### 对象构造过程
 + 一般对象创建过程  
 构造函数创建对象时，新建一个空对象，并将当前this值设置为这个对象的引用；同时将这个对象的\_\_proto\_\_属性设置为构造函数（构造器）的prototype 属性;设置对象的constructor属性为构造函数的原型的prototype属性;
+
         var proto = {name: 'first proto'};
         function Foo(){
             this.val = 'test val'
@@ -66,6 +72,7 @@ tags: [Web前端,前端基础,JavaScript,原型]
 #### 原型继承
 + 对象属性的访问   
 还是用上面的例子
+
         var proto = {name: 'first proto'};
         function Foo(){
             this.val = 'test val'
@@ -74,9 +81,11 @@ tags: [Web前端,前端基础,JavaScript,原型]
         var obj = new Foo();
         obj.val  // 'test val'
         obj.name // 'first proto'
+        
 对象的属性，一部分来自于本身构造函数中构建的属性，另一部分来自于构造函数的原型proto，这样我们通过构造函数的prototype属性实现了数据（proto）的复用。     
 JavaScript对象属性和方法的查找过程是先在对象本身的属性中查找，如果没找到就在对象原型（\_\_proto\_\_）中查找，直到找到属性或者找不下去（找到原型链末端\_\_proto\_\_ === null）为止。
 + 原型式继承
+
         function Creature(){
             this.tag = 'creature'
         }
@@ -116,6 +125,7 @@ JavaScript对象属性和方法的查找过程是先在对象本身的属性中�
         console.log(dog.type); // Dog
         dog.say(); //wang wang
         dog.tag // creature
+        
  + 原型链  
  在上例中存在一条访问路径   
  `dog.__proto__.__proto__.__proto__.__proto__.__proto__`  
