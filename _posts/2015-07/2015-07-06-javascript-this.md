@@ -27,7 +27,8 @@ JavaScript中的this取决于函数的调用环境和调用方式，后者比前
 + 默认，严格模式this为undefined，非严格模式为全局对象（ES6的箭头函数会默认使用外层作用域的this）
 
 #### 如何理解？（测试的结果）
-+ new关键字调用构造函数时，优先级最高，及时函数被明确绑定到对象上，也是会指向新创建的对象。    
++ new关键字调用构造函数时，优先级最高，及时函数被明确绑定到对象上，也是会指向新创建的对象。  
+  
         function foo(something) {
             this.a = something;
         }
@@ -39,7 +40,8 @@ JavaScript中的this取决于函数的调用环境和调用方式，后者比前
         console.log( obj1.a ); // 2
         console.log( baz.a ); // 3
 
-+ 明确绑定了对象的方法，使用的this就是该对象           
++ 明确绑定了对象的方法，使用的this就是该对象        
+   
         function foo() {
             console.log( this.a );
         }
@@ -84,7 +86,8 @@ JavaScript中的this取决于函数的调用环境和调用方式，后者比前
         };
         var a = "oops, global"; // `a` also property on global object
         doFoo( obj.foo ); // "oops, global"
-+ ES6 箭头函数调用，默认会使用当前环境中的局部this值，而不是全局this默认值            
++ ES6 箭头函数调用，默认会使用当前环境中的局部this值，而不是全局this默认值  
+          
         var count = 100;
         function foo(){
             this.count++;
