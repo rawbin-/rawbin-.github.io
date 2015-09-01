@@ -29,6 +29,8 @@ tags: [Web前端,前端基础,JavaScript,作用域,闭包]
 
 
 ## 参考资料
+0. [理解JavaScript系列](http://www.cnblogs.com/fool/category/264215.html)
+0. [深入理解JavaScript系列](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
 0. [JavaScript 变量作用域(续)](http://heroicyang.com/2013/07/22/javascript-scope-sequel/)
 1. [JavaScript 作用域链解析](http://xmuzyq.iteye.com/blog/1198717)
 1. [JavaScript变量作用域之殇](http://blog.jobbole.com/47296/)
