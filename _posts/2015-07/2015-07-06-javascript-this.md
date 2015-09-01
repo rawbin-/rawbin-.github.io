@@ -117,6 +117,8 @@ JavaScript中的this取决于函数的调用环境和调用方式，后者比前
 
 
 ### 参考资料
+0. [理解JavaScript系列](http://www.cnblogs.com/fool/category/264215.html)
+0. [深入理解JavaScript系列](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
 0. [深入理解JavaScript系列(13): This?Yes,this!](http://www.cnblogs.com/TomXu/archive/2012/01/17/2310479.html)
 0. [You Don't Know JS: this & Object Prototypes](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20&%20object%20prototypes/README.md#you-dont-know-js-this--object-prototypes)
 0. [JavaScript严格模式详解](http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html)
@@ -124,4 +126,8 @@ JavaScript中的this取决于函数的调用环境和调用方式，后者比前
 2. [深入浅出JavaScript中的this](http://www.ibm.com/developerworks/cn/web/1207_wangqf_jsthis/)
 3. [JavaScript的this用法](http://www.ruanyifeng.com/blog/2010/04/using_this_keyword_in_javascript.html)
 4. [MDN this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
-5. [javaScript this关键字详解](http://www.cnblogs.com/justany/archive/2012/11/01/the_keyword_this_in_javascript.html)
+5. [JavaScript this关键字详解](http://www.cnblogs.com/justany/archive/2012/11/01/the_keyword_this_in_javascript.html)
+6. [理解JavaScript Function Object](http://kb.cnblogs.com/page/77480/)
+7. [JavaScript 的Function与Object浅析](http://blog.csdn.net/sykent/article/details/8003343)
+8. [Javascript中Function,Object,Prototypes,__proto__等概念详解](http://anykoro.sinaapp.com/2012/01/31/javascript%E4%B8%ADfunctionobjectprototypes__proto__%E7%AD%89%E6%A6%82%E5%BF%B5%E8%AF%A6%E8%A7%A3/)
+9. [Js中Prototype、__proto__、Constructor、Object、Function关系介绍](http://www.blogjava.net/heavensay/archive/2013/10/20/405440.html)

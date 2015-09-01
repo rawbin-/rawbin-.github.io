@@ -136,6 +136,8 @@ JavaScript对象属性和方法的查找过程是先在对象本身的属性中�
 从上面可以看出，原型链长了不太合适，查找效率太低（尤其是对于那些根本不存在的属性，他们会遍历整条原型链而最终返回的还是undefined）。
             
 ## 参考资料
+0. [理解JavaScript系列](http://www.cnblogs.com/fool/category/264215.html)
+0. [深入理解JavaScript系列](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
 0. [What is Object?](https://en.wikipedia.org/wiki/Object)
 0. [You Don't Know JS: this & Object Prototypes](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20&%20object%20prototypes/README.md#you-dont-know-js-this--object-prototypes)
 0. [JavaScript Types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
