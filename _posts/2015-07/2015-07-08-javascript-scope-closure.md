@@ -29,6 +29,9 @@ tags: [Web前端,前端基础,JavaScript,作用域,闭包]
 
 
 ## 参考资料
+0. [了解JavaScript执行上下文](http://yanhaijing.com/javascript/2014/04/29/what-is-the-execution-context-in-javascript/)
+0. [深入理解JavaScript系列：JavaScript核心](http://www.cnblogs.com/tomxu/archive/2012/01/12/2308594.html)
+0. [JavaScript核心](http://weizhifeng.net/javascript-the-core.html)
 0. [理解JavaScript系列](http://www.cnblogs.com/fool/category/264215.html)
 0. [深入理解JavaScript系列](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
 0. [JavaScript 变量作用域(续)](http://heroicyang.com/2013/07/22/javascript-scope-sequel/)
@@ -44,3 +47,6 @@ tags: [Web前端,前端基础,JavaScript,作用域,闭包]
 7. [编程语言中的闭包](http://www.nowamagic.net/librarys/veda/detail/1696)
 8. [什么是闭包，我的理解](http://www.cnblogs.com/xiaotie/archive/2011/08/03/2126145.html)
 0. [什么是闭包](http://kb.cnblogs.com/page/111780/)
+0. [JavaScript执行过程](http://blog.csdn.net/cxiaokai/article/details/7552653)
+
+
