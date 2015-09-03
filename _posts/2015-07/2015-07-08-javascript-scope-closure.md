@@ -16,6 +16,9 @@ tags: [Web前端,前端基础,JavaScript,作用域,闭包]
 + 闭包是在其词法上下文中引用了自由变量的函数。
 + 在实现深约束时，需要创建一个能显式表示引用环境的东西，并将它与相关的子程序捆绑在一起，这样捆绑起来的整体被称为闭包。
 + 函数对象可以通过作用域链相互关联起来，函数体内部的变量都可以保存在函数作用域内，这种特性在计算机科学文献中成为“闭包”
++ This combination of a function object
+and a scope (a set of variable bindings) in which the function’s variables are resolved
+is called a closure in the computer science literature
 
 
 
