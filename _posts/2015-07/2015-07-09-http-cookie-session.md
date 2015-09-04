@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "HTTP cookie session详解和对比"
-categories: [开发技术]
-tags: [http, cookie, session]
+categories: [计算机基础,计算机体系结构,计算机网络,HTTP]
+tags: [HTTP, cookie, session]
 
 ---
 
