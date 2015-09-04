@@ -171,15 +171,82 @@ is called a closure in the computer science literature
 #### 什么是闭包
 上面看了这么多的概念，其实我们想要的是一个关键词，这里面有的关键词有:段落，函数，程序和环境，特性。还是很难区分哪。
 
-我们先来看看闭包产生的原因：
+我们先来看看闭包产生的原因：      
 + 首先是内部的作用域能引用外部作用域的数据，这是JavaScript词法作用域特性。
 + 其次是被引用的数据不能被回收，这是JavaScript的垃圾回收机制。
 + 再次函数作为数据传递，这里是一个数据保持的概念，闭包需要能保持本该被回收的数据，比如函数内部的变量。
 
 如上可以看出，闭包是一个在运行期的一个概念，是一个动态的概念。
 
-于是我们可以给闭包下一个定义：闭包是执行时具有独立上下文的词法结构及其关联的内部和外部数据组成的结构。
+于是我们可以给闭包下一个定义：闭包是执行时具有独立上下文的词法结构及其持有的内部和外部数据组成的结构。
 
+
+#### 闭包的使用陷阱
+需求：循环创建一组输出序号值的函数。      
+
+实现代码：
+    var funcs = [],i = 0;
+    for(i = 0; i < 5; i++){
+        funcs[i] = function(){
+            console.log(i)
+        }
+    }
+    
+    funcs[2](); // 5 出现这种情况的原因是，匿名函数内引用的是同一个变量i，在执行的时候i的值是循环后的最终值5
+    
+如何解决上面的问题，根据闭包的特性，这里的想要将各个循环状态的值保留下来，就需要创建一个执行上下文才能利用闭包的特性
+    
+    var funcs = [],i = 0;
+    for(i = 0; i < 5; i++){
+        funcs[i] = (function(i){
+            return function(){
+                console.log(i)
+            }
+        })(i);
+    }
+    
+    funcs[2](); // 2
+    
+或者可以使用下面的方式
+    
+    var funcs = [],i = 0;
+    for(i = 0; i < 5; i++){
+        funcs[i] = (function(){
+            var j = i;
+            return function(){
+                console.log(j)
+            }
+        })();
+    }
+    
+    funcs[2](); // 2
+    
+在ES6中，我们可以用let来避免多层闭包（这种方式还是比较low）
+
+    "use strict";
+    var funcs = [],i = 0;
+    for(i = 0; i < 5; i++){
+        let j = i;	
+        funcs[i] = function(){
+            console.log(j)
+        }
+    }
+    
+    funcs[2](); // 2
+
+当然，既然有ES6，我们就可以有更优雅的方式（注意看区别哈）。
+
+    "use strict";
+    var funcs = [];
+    for(let i = 0; i < 5; i++){
+        funcs[i] = function(){
+            console.log(i)
+        }
+    }
+    
+    funcs[2](); // 2
+    
+这应该就是我们最初的代码想实现的效果，然而在ES6之前基本都是词法作用域（除了try-catch算块作用域），所以无法达到我们想要的效果。在ES6中let 引入了块作用域，使得i本身是for循环块中的一个局部变量，在闭包中被保持。
 
 ## 参考资料
 0. [了解JavaScript执行上下文](http://yanhaijing.com/javascript/2014/04/29/what-is-the-execution-context-in-javascript/)
@@ -195,8 +262,7 @@ is called a closure in the computer science literature
 1. [JavaScript 作用域链解析](http://xmuzyq.iteye.com/blog/1198717)
 1. [JavaScript变量作用域之殇](http://blog.jobbole.com/47296/)
 2. [javascript 执行环境，变量对象，作用域链](http://segmentfault.com/a/1190000000533094)
-3. [理解Javascript_15_作用域分配与变量访问规则,再送个闭包]
-(http://www.cnblogs.com/fool/archive/2010/10/19/1855265.html)
+3. [理解Javascript_15_作用域分配与变量访问规则,再送个闭包](http://www.cnblogs.com/fool/archive/2010/10/19/1855265.html)
 0. [Closure](https://en.wikipedia.org/wiki/Closure)
 9. [闭包的概念、形式与应用](http://www.ibm.com/developerworks/cn/linux/l-cn-closure/)
 4. [学习JavaScript闭包](http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html)
