@@ -83,7 +83,9 @@ tags: [Web前端,前端基础,JavaScript,原型]
         obj.name // 'first proto'
         
 对象的属性，一部分来自于本身构造函数中构建的属性，另一部分来自于构造函数的原型proto，这样我们通过构造函数的prototype属性实现了数据（proto）的复用。     
+
 JavaScript对象属性和方法的查找过程是先在对象本身的属性中查找，如果没找到就在对象原型（\_\_proto\_\_）中查找，直到找到属性或者找不下去（找到原型链末端\_\_proto\_\_ === null）为止。
+
 + 原型式继承
 
         function Creature(){

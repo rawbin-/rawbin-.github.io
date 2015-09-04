@@ -153,6 +153,7 @@ JavaScript的全局代码是除函数内部代码之外的代码。他们确定�
 #### 作用域链
 
 INNER2_CONTEXT.OutterScope.OutterScope ===  GLOBAL_CONTEXT
+
 INNER2_CONTEXT.OutterScope.OutterScope.OutterScope ===  null
 
 像上面这种以OutterScope来访问外部作用域的访问路径，叫做作用域链。
