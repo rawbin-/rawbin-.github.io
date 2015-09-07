@@ -41,3 +41,4 @@ GET方式的请求会将参数拼接在URL中，所以能很容易的在浏览�
 0. [HTTP POST GET 本质区别详解](http://blog.csdn.net/gideal_wang/article/details/4316691)
 0. [不再以讹传讹，GET和POST的真正区别](http://www.nowamagic.net/librarys/veda/detail/1919)
 0. [关于GET和POST请求](http://www.cnblogs.com/xyang/archive/2012/07/06/2579383.html)
+0. [HTTP协议及其POST与GET操作差异 & C#中如何使用POST、GET等](http://www.cnblogs.com/skynet/archive/2010/05/18/1738301.html)
