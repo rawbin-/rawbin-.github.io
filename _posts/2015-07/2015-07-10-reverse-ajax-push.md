@@ -10,6 +10,9 @@ tags: [JavaScript,AJAX,服务器推]
 
 
 ### 参考资料
+0. [HTTP的长连接和短连接](http://www.cnblogs.com/cswuyg/p/3653263.html)
+0. [Web 通信 之 长连接、长轮询（long polling）](http://www.cnblogs.com/hoojo/p/longpolling_comet_jquery_iframe_ajax.html)
+0. [HTTP keep-alive](http://www.nowamagic.net/academy/detail/23350305)
 0. [Comet：基于 HTTP 长连接的“服务器推”技术](https://www.ibm.com/developerworks/cn/web/wa-lo-comet/)
 0. [Node.js原理——Reverse Ajax（反向Ajax）](http://www.ithao123.cn/content-868688.html)
 0. [Web端服务器推送技术原理分析及dwr框架简单的使用](http://blog.csdn.net/shimiso/article/details/8151362)
