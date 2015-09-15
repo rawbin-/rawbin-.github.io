@@ -31,7 +31,7 @@ tags: [计算机网络, OSI, TCP/IP]
 5. [TCP/IP数据包结构详解][5]
 6. [HTTP头信息解读][6]
 7. [OSI七层与TCP/IP五层网络架构详解][9]
-
+8. [以太网，IP,TCP,UDP数据包分析][11]
 
 
 
@@ -46,3 +46,4 @@ tags: [计算机网络, OSI, TCP/IP]
 [8]: http://blog.csdn.net/yaopeng_2005/article/details/7064869 "OSI七层模型详解"
 [9]: http://network.chinabyte.com/465/12756465.shtml "OSI七层与TCP/IP五层网络架构详解"
 [10]: http://www.2cto.com/net/201309/247111.html "OSI七层模式简单通俗理解"
+[11]: http://www.cnblogs.com/feitian629/archive/2012/11/16/2774065.html "以太网，IP,TCP,UDP数据包分析"
