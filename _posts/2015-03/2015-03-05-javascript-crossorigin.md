@@ -56,6 +56,9 @@ tags: [跨域,同源策略,CORS,Same Origin Policy,浏览器安全]
 ### 参考资料
 0. [Same Origin Policy-W3C][12]
 1. [JavaScript的同源策略][3]
+0. [Same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
+0. [Browser Security Handbook, part 2](https://code.google.com/p/browsersec/wiki/Part2)
+1. 0. [Google 同源策略及跨域方法](https://code.google.com/p/browsersec/wiki/Part2)
 0. [Same Origin Policy-0][11]
 1. [Same Origin Policy-1][9]
 2. [Same Origin Policy-2][10]
@@ -76,6 +79,7 @@ tags: [跨域,同源策略,CORS,Same Origin Policy,浏览器安全]
 11. [HTML5安全：CORS（跨域资源共享）简介][19]
 12. [js中几种实用的跨域方法原理详解][20]
 13. [Javascript跨域访问解决方案][21]
+
 
 
 
