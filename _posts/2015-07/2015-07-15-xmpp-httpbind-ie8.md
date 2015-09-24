@@ -67,11 +67,8 @@ P3P标准要求站点明确声明需要搜集哪些隐私信息和这些被搜�
 XMPP(Extensible Messaging and Prensence Protocal是一个网络即时通讯协议，它是基于TCP/IP来传输XML格式的文本。消息的XML内容中用一些特定的标志表示了消息的属性（从哪儿来，发哪儿去，谁发的，内容是什么等）。
 
 ### 浏览器安全模型
-
-
-[第三方Cookie的限制](https://code.google.com/p/browsersec/wiki/Part2#Third-party_cookie_rules)
-
-[IE内容分区模型](https://code.google.com/p/browsersec/wiki/Part3#Microsoft_Internet_Explorer_zone_model)
+IE 的安全模型（[IE内容分区模型](https://code.google.com/p/browsersec/wiki/Part3#Microsoft_Internet_Explorer_zone_model)）会将内容区分对待，并可能根据内容的可信度（[IE的不同安全等级](http://blogs.msdn.com/b/ieinternals/archive/2011/03/10/internet-explorer-beware-cookie-sharing-in-cross-zone-scenarios.aspx)）区分对待其中的Cookie，并且在没有明确指定P3P信息的时候，默认阻止第三方cookie的发送（[第三方Cookie的限制](https://code.google.com/p/browsersec/wiki/Part2#Third-party_cookie_rules)
+）。
 
 ### P3P
 P3P（Platform for Privacy Preference）是一个在线隐身保护的一个W3C标准，大致内容是对互联网访问时涉及到的隐私的一些约定：
@@ -95,6 +92,7 @@ P3P（Platform for Privacy Preference）是一个在线隐身保护的一个W3C�
 
 
 ## 实例演练（使用P3P）
+
 ### 环境配置
 修改本机host（屌丝必备技能哈）
 127.0.0.1 auth.test.com
@@ -195,6 +193,16 @@ P3P（Platform for Privacy Preference）是一个在线隐身保护的一个W3C�
 这样在IE8-11中再访问app.test.com 的这几个资源的时候，请求头中都会存在认证cookie信息。
 
 
+## 总结
++ 我们可以通过编程的方式，使用P3P规范，满足浏览器的隐私策略要求，从而解决第三方cookie共享的问题。
++ 推荐使用P3P的方式，设置HttpOnly的cookie来共享认证信息，这样更加规范。
++ 不推荐使用传递信息的方式，这样有些反人类，每次开发都会写一段处理信息的代码，而不是简单地发一个请求。
+
+## 引申
+如果是完全不同的域，比如是auth.testauth.com,和app.testapp.com，这样主域不相同的话。需要在认证成功之后，同时调用app.testapp.com下的一个请求，并将cookie信息传过去。这样就可以通过app.testapp.com域下的请求设置本域的cookie，然后再请求app.testapp.com下的页面就ok。 这里也是需要设置P3P头的，这里的原则是，谁设置第三方的cookie，谁就设置这个P3P头就行了。
+
+P3P的内容远比这里看到的丰富的多，详情参考[W3C P3P](http://www.w3.org/TR/P3P/)
+
 ### 参考资料
 0. [XMPP 官网](http://xmpp.org/)
 0. [XMPP Wiki](http://wiki.xmpp.org/web/Main_Page)
@@ -218,6 +226,7 @@ P3P（Platform for Privacy Preference）是一个在线隐身保护的一个W3C�
 0. [Cookie blocked/not saved in IFRAME in Internet Explorer](http://stackoverflow.com/questions/389456/cookie-blocked-not-saved-in-iframe-in-internet-explorer)
 
 0. [W3C P3P](http://www.w3.org/P3P/)
+0. [W3C P3P](http://www.w3.org/TR/P3P/)
 0. [Web Privacy with P3P](http://www.p3pbook.com/)
 0. [The P3P Implementation Guide](http://p3ptoolbox.org/guide/)
 0. [第三方cookie丢失解决方案-P3P](http://blog.csdn.net/lovingprince/article/details/5984449)
