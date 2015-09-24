@@ -2,15 +2,49 @@
 layout: post
 title: "XMPP HTTP bind ie8 session cookie"
 categories: [Web开发,前端开发]
-tags: [XMPP, HTTP-BIND, IE8, Cookie, Session]
+tags: [XMPP, HTTP-BIND, IE8, Cookie, Session, P3P]
 
 ---
 
 ## 问题描述
-### 
 
+### 场景
+一个简单的单点登录的场景，客户端需要访问`app.test.com`这个域，而app这个域要求客户端经过`auth.test.com`的认证，那么就需要向auth域发送一个认证请求，并在认证通过后设置认证相关信息的cookie，这个cookie需要是app域的，因为在访问app域的时候需要带上。浏览器的隐私策略可能在访问app这个域的时候，不会带上刚刚设置的这个认证信息的cookie[参考](https://code.google.com/p/browsersec/wiki/Part2#Third-party_cookie_rules), 甚至可以不执行这个认证cookie的设置（这个可以在浏览器的隐私策略中配置）。
 
+### 原因分析
+当然，这个问题主要是针对IE啦，谁让微软浏览器出那么早呢。同时目前还没看到通过编程的方式自动降低IE隐私策略的方法，即使有也难以登堂，因为用户不能同意。同时由于浏览器安全的要求，注定这样的方法不可能存在。
+
+先来看看IE几级隐私策略（从高到地，从严格到宽松，IE11，不同版本可能不一样）：
++ 阻止所有Cookie
+    + 阻止来自所有网站的所有Cookie
+    + 该计算机上已有的Cookie不能被网站读取
++ 高
+    + 阻止来自没有精简隐私策略的网站的所有Cookie
+    + 阻止没有经你明确同意就保存你的联系信息的第三方Cookie
++ 中高
+    + 阻止没有精简策略的第三方Cookie
+    + 阻止没有经你明确同意就保存你的联系信息的第三方Cookie
+    + 阻止没有经你默许就保存你的联系信息的第三方Cookie
++ 中
+    + 阻止没有精简策略的第三方Cookie
+    + 阻止没有经你明确同意就保存你的联系信息的第三方Cookie
+    + 限制没有经你默许就保存你的联系信息的第三方Cookie
++ 低                
+    + 阻止没有精简策略的第三方Cookie
+    + 限制没有经你默许就保存你的联系信息的第三方Cookie
++ 授权所有Cookie
+    + 保存来自任何网站的Cookie
+    + 该计算机上已有的Cookie可被创建他们的网站获取    
+
+从上面可以看出，`第三方Cookie`总是打击对象，而我们的认证信息Cookie就属于第三方。为了避免受打击，我们需要一些办法来保护我们的认证信息免受打击。
+
+### 解决办法
+
+#### 惹不起躲得起
+这是一个简单粗暴的解决办法，  
+    
 ##相关知识
+
 ### XMPP
 XMPP(Extensible Messaging and Prensence Protocal是一个网络即时通讯协议，它是基于TCP/IP来传输XML格式的文本。消息的XML内容中用一些特定的标志表示了消息的属性（从哪儿来，发哪儿去，谁发的，内容是什么等）。
 
@@ -23,6 +57,7 @@ XMPP(Extensible Messaging and Prensence Protocal是一个网络即时通讯协�
 
 ### P3P
 P3P（Platform for Privacy Preference）是一个在线隐身保护的一个W3C标准，大致内容是对互联网访问时涉及到的隐私的一些约定：
+
 #### 隐私信息的收集
 + 收集哪些信息，
 + 为什么收集这些信息
@@ -54,7 +89,6 @@ P3P（Platform for Privacy Preference）是一个在线隐身保护的一个W3C�
 0. [XMPP协议原理介绍](http://blog.csdn.net/wbw1985/article/details/5502272)
 0. [使用XMPP构建一个Web通知工具](http://www.ibm.com/developerworks/cn/xml/tutorials/x-realtimeXMPPtut/index.html)
 0. [实现可扩展消息传递和到场协议（XMPP）](http://www.ibm.com/developerworks/cn/xml/x-xmppintro/#major1)
-0. [](http://stackoverflow.com/questions/2952489/ie8-blocking-javascript-cookies)
 0. [Solved: browser cookies vanish in IE8 when opening a new window to a different sub-domain](http://rothmanshore.com/2012/10/04/solved-browser-cookies-vanish-in-ie8-when-opening-a-new-window-to-a-different-sub-domain/)
 0. [Beware Cookie Sharing in Cross-Zone Scenarios](http://blogs.msdn.com/b/ieinternals/archive/2011/03/10/internet-explorer-beware-cookie-sharing-in-cross-zone-scenarios.aspx)
 0. [IE8 losing session cookies in popup windows](http://stackoverflow.com/questions/1324181/ie8-losing-session-cookies-in-popup-windows)
