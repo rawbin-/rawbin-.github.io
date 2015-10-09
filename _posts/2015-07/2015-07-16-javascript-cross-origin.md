@@ -24,6 +24,7 @@ IE没有将端口作为同源的组成部分，原因是IE历史垄断的市场�
 同源策略是浏览器的核心安全策略，目的是将来自不同源的资源进行隔离，并控制不同源资源间的通信，从而减少安全威胁，增强安全性。
 
 #### 同源策略的规则
+
 ##### 不限制
 
 互联网的核心思想是资源共享，资源的相互访问应该被允许。
@@ -184,6 +185,124 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 + WebSocket
 
 ## 实例详解
+
+在本地玩起来，修改hosts文件增加如下的几个域名绑定作为测试:   
+
+    127.0.0.1 source.test.com
+    127.0.0.1 target.test.com
+    127.0.0.1 source.test.org
+    127.0.0.1 target.test.org
+
+
+### 动态不受限标签
+### JSONP
+### Form提交
+### document.domain
+### window.name
+### CORS
+### P3P
+### postMessage
+
+源域的页面嵌入加载了目标域的页面，并在两个域之间进行通信。
+
+#### 目标域 target.test.org/target.html 源代码:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>postMessage Test Source</title>
+        <script type="text/javascript">
+            window.addEventListener('message',function(evt){
+            console.log('target getmessage:',evt.data); 
+            });
+            window.parent.postMessage('##target message##','http://source.test.com');
+        </script>    
+    </head>
+    <body>
+        
+    </body>
+    </html>
+
+#### 源域 source.test.com/source.html 源代码：
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>postMessage Test Source</title>
+        <script type="text/javascript">
+            window.addEventListener('message',function(evt){
+            console.log('source getmessage:',evt.data); 
+            evt.source.postMessage('##source message##',evt.origin);
+            });
+        </script>    
+    </head>
+    <body>
+        <iframe src="http://target.test.org/target.html"></iframe>
+    </body>
+    </html>
+
+#### 操作方法
++ 将两个文件部署上
++ 浏览器打开源域的页面 
++ 在控制台可以看到两个页面交互的信息
+
+
+### WebSocket
+
+源域的页面中的脚本在页面加载时向目标域的服务发送信息，并接受服务返回的信息。 
+
+#### 目标域 target.test.org:9000 源代码：
+
+    var WebSocketServer = require('ws').Server;
+    var socketServer = new WebSocketServer({port:9000});
+    socketServer.on('connection',function(websocket){
+        websocket.on('message',function(message){
+        console.log(new Date().getTime(),' received ',message) 
+        websocket.send('###' + message + "###")
+        });
+    })
+
+#### 源域 source.test.com/index.html 源代码：
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>WebSocket Cross Origin Test</title>
+        <script type="text/javascript">
+            var websocket = new WebSocket("ws://target.test.org:9000");
+            websocket.onopen = function(){
+                console.log('websocket opened');
+                websocket.send('I am opened');
+            }
+            
+            websocket.onmessage = function(evt){
+                console.log('recevie message')
+                console.log(evt.data)
+            }
+            
+            websocket.onclose = function(){
+                console.log('websocket closed')
+            }
+            
+            websocket.onerror = function(){
+                console.log('websocket meets error')
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+    </html>
+
+#### 操作方式
++ npm install ws
++ node 启动目标域的socket server
++ 浏览器打开源域的页面
++ 在控制台可以看到客户端和服务端交互的消息
+
 
 ## 安全相关
 
