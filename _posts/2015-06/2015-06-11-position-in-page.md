@@ -145,6 +145,7 @@ Firefox和Safari支持screenX和screenY
 
 
 ## 参考资料
+0. [前端攻城狮学习笔记九：让你彻底弄清offset](http://www.cnblogs.com/jscode/archive/2012/09/03/2669299.html))
 0. [各个属性测试demo](http://shanmao.me/wp-content/uploads/2013/02/pageX-clientX.html)
 0. [各浏览器的鼠标位置测试](http://www.cnblogs.com/xesam/archive/2011/12/08/2280509.html)
 1. [pageX、clientX、screenX、offsetX、layerX、x](http://blog.sina.com.cn/s/blog_780a94270101kdgo.html)

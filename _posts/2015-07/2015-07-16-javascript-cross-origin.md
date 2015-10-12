@@ -196,33 +196,202 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 
 ### 动态不受限标签
 ### JSONP
-### Form提交
-### document.domain
-### window.name
-### CORS
-### P3P
-### postMessage
 
-源域的页面嵌入加载了目标域的页面，并在两个域之间进行通信。
-
-#### 目标域 target.test.org/target.html 源代码:
+#### 源域 source.test.com/source-client.html
 
     <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>postMessage Test Source</title>
+        <title>jsonp Test</title>
         <script type="text/javascript">
-            window.addEventListener('message',function(evt){
-            console.log('target getmessage:',evt.data); 
-            });
-            window.parent.postMessage('##target message##','http://source.test.com');
-        </script>    
+            
+            function JSONPCallback(){
+                console.log(arguments[0])
+            }
+            
+            function loadScript(url){
+                var script = document.createElement('script');      
+                script.src = url;
+                
+                document.head.appendChild(script);
+            }
+            
+            loadScript("http://target.test.org:9000/getData.do?callback=JSONPCallback")
+            
+        </script>
     </head>
     <body>
         
     </body>
     </html>
+    
+#### 目标域 target.test.org:9000
+
+    var http = require("http");
+    var url = require("url");
+    
+    var server = new http.Server();
+    server.listen(9000);
+    
+    server.on("request",function(request,response){
+        var paramDict = url.parse(request.url,true).query;
+        var callback = paramDict.callback
+        var retData = callback + '(' +'{"status":"success",data:{"name":"test JSONP"}}'  + ')';
+        response.end(retData);
+    });    
+    
+#### 操作方法
+
+打开源域页面，在控制台查看拿到的数据    
+
+### Form提交
+
+这个我不会写~
+
+### window.name
+
+#### 源域 source.test.com/source.html
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> window.name test</title> 
+        <script type="text/javascript">
+            window.name = "source shared windowname"
+            alert(window.name)
+            window.location.href = "http://target.test.org/target.html"
+        </script>  
+    </head>
+    <body>
+    
+    </body>
+    
+    </html>
+    
+#### 目标域 target.test.org/target.html
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>window.name test</title>
+        <script type="text/javascript">
+            alert(window.name)
+        </script>    
+    </head>
+    <body>
+    </body>
+    </html>    
+
+#### 操作 
+
+打开源域页面看 即使跳转到目标域 数据依然存在
+
+### document.domain
+
+#### 源域 source.test.com/source.html
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>document.domain test</title> 
+    </head>
+    <body>
+        <iframe src="http://target.test.com/target.html"></iframe>
+    </body>
+        <script type="text/javascript">
+            document.domain = "test.com";
+            window.onload = function(){
+                var doc = window.frames[0].document;
+                console.log(doc.getElementById('tid').outerHTML);
+                console.log(doc.body.innerHTML)
+                setTimeout(function(){
+                    doc.body.innerHTML = "data from source.test.com"
+                },3000)
+            }
+        </script>  
+    </html>
+
+#### 目标域 target.test.com/target.html
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>document.domain test</title>
+        <script type="text/javascript">
+            document.domain = "test.com"
+        </script>    
+    </head>
+    <body>
+        <p id="tid">data of target.test.com</p>
+    </body>
+    </html>
+
+#### 操作
+
+打开源域页面 查看源域操作目标域dom情况
+
+### CORS
+
+#### 源域 source.test.com/client.html 源代码
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>cross doamin resource sharing test</title>
+        <script type="text/javascript">
+            var xhr = new XMLHttpRequest();
+    
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    console.log(xhr.responseText)
+                }
+            }
+            
+            xhr.open('POST','http://target.test.org:9000/getInfo.json',true)
+            xhr.send();
+        </script>
+    </head>
+    <body>
+        
+    </body>
+    </html>
+
+#### 目标域 target.test.org:9000
+
+    var http = require("http");
+    
+    var server = new http.Server();
+    server.listen(9000);
+    
+    server.on("request",function(request,response){
+        //不加这个相应头，客户端会报错，无法跨越发请求
+        response.setHeader("Access-Control-Allow-Origin","http://source.test.com")
+        response.writeHead(200,{"Content-Type":"text/html;charset=UTF-8"});
+        response.write('msg: "cross origin by cors"');
+        response.end();
+    });
+
+    
+#### 操作方法
++ 将两个文件部署上
++ 浏览器打开源域的页面 
++ 在控制台和网络请求中查看交互数据
+    
+
+### P3P
+
+这个用的相对较少，直接参考[前面一篇](https://rawbin-.github.io/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/2015/07/15/xmpp-httpbind-ie8/)
+
+### postMessage
+
+源域的页面嵌入加载了目标域的页面，并在两个域之间进行通信。
+
 
 #### 源域 source.test.com/source.html 源代码：
 
@@ -240,6 +409,25 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
     </head>
     <body>
         <iframe src="http://target.test.org/target.html"></iframe>
+    </body>
+    </html>
+
+#### 目标域 target.test.org/target.html 源代码:
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>postMessage Test Source</title>
+        <script type="text/javascript">
+            window.addEventListener('message',function(evt){
+            console.log('target getmessage:',evt.data); 
+            });
+            window.parent.postMessage('##target message##','http://source.test.com');
+        </script>    
+    </head>
+    <body>
+        
     </body>
     </html>
 
@@ -321,6 +509,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 0. [[CORS：跨域资源共享] W3C的CORS Specification](http://www.cnblogs.com/artech/p/cors-4-asp-net-web-api-02.html)
 0. [JavaScript最全的10中跨域共享的方法](http://www.csdn.net/article/2011-01-27/290968)
 0. [前端解决跨域问题的8种方案](http://www.cnblogs.com/JChen666/p/3399951.html)
+0. [JSONP原理详解](http://www.cnblogs.com/dowinning/archive/2012/04/19/json-jsonp-jquery.html)
 0. [跨域方法汇总](http://www.udpwork.com/item/11695.html)
 0. [跨域方法汇总](http://www.raychase.net/2216)
 0. [父子页面跨域通信的方法](http://tid.tenpay.com/?p=4695)
