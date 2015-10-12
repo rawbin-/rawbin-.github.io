@@ -206,18 +206,45 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
         <title>jsonp Test</title>
         <script type="text/javascript">
             
-            function JSONPCallback(){
-                console.log(arguments[0])
-            }
+            // function JSONPCallback(){
+            //     console.log(arguments[0])
+            // }
             
-            function loadScript(url){
-                var script = document.createElement('script');      
-                script.src = url;
+            // function loadScript(url){
+            //     var script = document.createElement('script');      
+            //     script.src = url;
                 
+            //     document.head.appendChild(script);
+            // }
+            
+            // loadScript("http://target.test.org:9000/getData.do?callback=JSONPCallback")
+            
+            
+            
+            //下面这个是jQuery风格的JSONP,更容易理解
+            
+            function getJSON(url,callback){
+                var script = document.createElement('script');      
+                var callbackName = "ProxyFunc_" + (new Date().getTime())
+                
+                window[callbackName] = function(){
+                    callback(arguments[0]);
+                };
+                
+                script.onload = script.onratechange = function(){
+                    if(this.readyState == 'complete'){
+                    window[callbackName] = null;
+                    }
+                }
+                
+                script.src = url.replace("JSONPCallback",callbackName);
                 document.head.appendChild(script);
             }
             
-            loadScript("http://target.test.org:9000/getData.do?callback=JSONPCallback")
+            getJSON("http://target.test.org:9000/getData.do?callback=JSONPCallback",function(data){
+                console.log(data)
+            })
+            
             
         </script>
     </head>
