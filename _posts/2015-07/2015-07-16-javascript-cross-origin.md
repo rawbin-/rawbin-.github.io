@@ -193,7 +193,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
     127.0.0.1 source.test.org
     127.0.0.1 target.test.org
 
-本文所有实例都可以在 [这里](https://github.com/rawbin-/fe_practice/tree/master/cross_origin)，看到
+本文所有实例都可以在 [这里](https://github.com/rawbin-/fe_practice/tree/master/cross_origin) 下载
 
 ### 动态不受限标签
 ### JSONP
