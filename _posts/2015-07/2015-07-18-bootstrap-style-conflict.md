@@ -1,6 +1,6 @@
 ---
 layout: post
-title:"解决使用bootstrap时的CSS样式冲突问题"
+title: "解决使用bootstrap时的CSS样式冲突问题"
 categories: [开发技术,Web前端]
 tags: [bootstrap,css,样式冲突]
 
