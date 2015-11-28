@@ -165,3 +165,4 @@ Firefox和Safari支持screenX和screenY
 15. [用Javascript获取页面元素的位置](http://www.ruanyifeng.com/blog/2009/09/find_element_s_position_using_javascript.html)
 16. [JavaScript获取DOM元素位置和尺寸大小](http://www.cnblogs.com/dolphinX/archive/2012/11/19/2777756.html)
 17. [HTML DOM Element](http://javascript.ruanyifeng.com/dom/element.html)
+18. [javascript中top、clientTop、scrollTop、offsetTop的讲解](http://www.cnblogs.com/trlanfeng/archive/2012/11/04/2753280.html)
