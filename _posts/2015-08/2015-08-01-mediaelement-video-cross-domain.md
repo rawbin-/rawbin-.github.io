@@ -147,6 +147,10 @@ mediaelementjs 这个牛逼的组件就是为了给出一个统一的解决方�
      allowInsecureDomain 则允许HTTP协议下的资源访问HTTPS下的资源 
 
 #### 参考文档
+0. [Creating a cross-browser video player](https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/cross_browser_video_player)
+0. [Video on the Web](http://diveintohtml5.info/video.html)
+0. [MediaElement Github](https://github.com/johndyer/mediaelement)
+0. [MediaElement官网](http://mediaelementjs.com/)
 0. [MediaElement Issue](https://github.com/johndyer/mediaelement/issues/1657)
 0. [ActionScript ExternalInterface](http://help.adobe.com/zh_CN/FlashPlatform/reference/actionscript/3/flash/external/ExternalInterface.html)
 0. [ActionScript Security](http://help.adobe.com/zh_CN/FlashPlatform/reference/actionscript/3/flash/system/Security.html)
