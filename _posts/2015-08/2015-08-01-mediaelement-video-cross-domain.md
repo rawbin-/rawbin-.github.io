@@ -109,7 +109,7 @@ mediaelementjs 这个牛逼的组件就是为了给出一个统一的解决方�
         
     这个是swf加载后的回调需要用到的，默认的值是sameDomain，只允许访问相同域下的脚本，导致无法调用js回调。具体表现为在IE8下播放器样式无法正常渲染。这里配置的是flash的allowScriptAccess属性。           
 
-问题解决过程参考[MediaElement Issue](https://github.com/johndyer/mediaelement/issues/1657)
+    问题解决过程参考[MediaElement Issue](https://github.com/johndyer/mediaelement/issues/1657)
 
 0. 属性说明
     + allowScriptAccess
@@ -147,6 +147,7 @@ mediaelementjs 这个牛逼的组件就是为了给出一个统一的解决方�
      allowInsecureDomain 则允许HTTP协议下的资源访问HTTPS下的资源 
 
 #### 参考文档
+0. [MediaElement Issue](https://github.com/johndyer/mediaelement/issues/1657)
 0. [ActionScript ExternalInterface](http://help.adobe.com/zh_CN/FlashPlatform/reference/actionscript/3/flash/external/ExternalInterface.html)
 0. [ActionScript Security](http://help.adobe.com/zh_CN/FlashPlatform/reference/actionscript/3/flash/system/Security.html)
 0. [Flash跨域的完全解决方案](http://www.zystudios.cn/blog/post/51.Shtml)
