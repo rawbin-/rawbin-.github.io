@@ -121,3 +121,4 @@ tags: [JavaScript,打印机,剪贴板,复制,粘贴,部分打印,二维码]
 0. [实现JS复制、粘贴，Chrome/Firefox下可用](http://blog.csdn.net/hackersaillen/article/details/45694181)
 0. [Clipboard cut, copy and paste with JavaScript](http://www.geekpedia.com/tutorial126_Clipboard-cut-copy-and-paste-with-JavaScript.html)
 0. [Accessing the System Clipboard with JavaScript](https://brooknovak.wordpress.com/2009/07/28/accessing-the-system-clipboard-with-javascript/)
+0. [Javascript 在网页中实现读取剪贴板截图功能](http://www.jb51.net/article/50766.htm)
