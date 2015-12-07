@@ -258,9 +258,9 @@ HTML中属性的表示方式参考[SGML Attribute](http://www.w3.org/TR/html4/in
 
 >> In this example, the id attribute is set for an H1 element:
 
->>		<H1 id="section1">
+>>	<H1 id="section1">
 		This is an identified heading thanks to the id attribute
-		</H1> 
+	</H1> 
 >> By default, SGML requires that all attribute values be delimited using either double quotation marks (ASCII decimal 34) or single quotation marks (ASCII decimal 39). Single quote marks can be included within the attribute value when the value is delimited by double quote marks, and vice versa. Authors may also use numeric character references to represent double quotes (&#34;) and single quotes (&#39;). For double quotes authors can also use the character entity reference &quot;.
 
 >> In certain cases, authors may specify the value of an attribute without any quotation marks. The attribute value may only contain letters (a-z and A-Z), digits (0-9), hyphens (ASCII decimal 45), periods (ASCII decimal 46), underscores (ASCII decimal 95), and colons (ASCII decimal 58). We recommend using quotation marks even when it is possible to eliminate them.
@@ -278,49 +278,49 @@ HTML中属性的表示方式参考[SGML Attribute](http://www.w3.org/TR/html4/in
 
 将正则表达式做如下调整：
 	
-		var regexSrc = /(<script.*?src=(['"])([^'"\s]*?))(\.js\2[^>]*>)/ig;
-		var regexHref = /(<link.*?href=(['"])([^'"\s]*?))(\.css\2[^>]*>)/ig;
-		
+	var regexSrc = /(<script.*?src=(['"])([^'"\s]*?))(\.js\2[^>]*>)/ig;
+	var regexHref = /(<link.*?href=(['"])([^'"\s]*?))(\.css\2[^>]*>)/ig;
+	
 
 
-		var testStr = [
-		'<link rel="stylesheet" href="http://test.com/test1.css" type="text/css"/>',
-		'<link rel="stylesheet" type="text/css" href="http://test.com/test2.css"/>',
-		'<script type="text/javascript" src="http://test.com/test1.js"></script>',
-		'<script src="http://test.com/test2.js" type="text/javascript"></script>'
-		].join('');
-		
-		var regexSrc = /(<script.*?src=(['"])([^'"\s]*?))(\.js\2[^>]*>)/ig;
-		console.log(testStr.match(regexSrc));
-		console.log(regexSrc.exec(testStr));
-		
-		var regexHref = /(<link.*?href=(['"])([^'"\s]*?))(\.css\2[^>]*>)/ig;
-		console.log(testStr.match(regexHref));
-		console.log(regexHref.exec(testStr));
-		
-		function addVersion(input,regex,version){
-			input = input || "";
-			return input.replace(regex,function(){
-				//数星星
-				var left = arguments[1];
-				var right = arguments[4]
-				return [left,version,right].join('');
-			});
-		}
-		
-		var result;
-		var version = "@dev";
-		result = addVersion(testStr,regexSrc,version);
-		console.log(result);
-		result = addVersion(result,regexHref,version);
-		console.log(result);
+	var testStr = [
+	'<link rel="stylesheet" href="http://test.com/test1.css" type="text/css"/>',
+	'<link rel="stylesheet" type="text/css" href="http://test.com/test2.css"/>',
+	'<script type="text/javascript" src="http://test.com/test1.js"></script>',
+	'<script src="http://test.com/test2.js" type="text/javascript"></script>'
+	].join('');
+	
+	var regexSrc = /(<script.*?src=(['"])([^'"\s]*?))(\.js\2[^>]*>)/ig;
+	console.log(testStr.match(regexSrc));
+	console.log(regexSrc.exec(testStr));
+	
+	var regexHref = /(<link.*?href=(['"])([^'"\s]*?))(\.css\2[^>]*>)/ig;
+	console.log(testStr.match(regexHref));
+	console.log(regexHref.exec(testStr));
+	
+	function addVersion(input,regex,version){
+		input = input || "";
+		return input.replace(regex,function(){
+			//数星星
+			var left = arguments[1];
+			var right = arguments[4]
+			return [left,version,right].join('');
+		});
+	}
+	
+	var result;
+	var version = "@dev";
+	result = addVersion(testStr,regexSrc,version);
+	console.log("script result:",result);
+	result = addVersion(result,regexHref,version);
+	console.log("style result:",result);
 	
 	
 # 工具推荐
 0. [Regex Match Tracer](http://www.regexlab.com/zh/mtracer/)
 0. [Regex Match Tracer](http://www.regexlab.com/tools)
 0. [正则表达式测试工具](http://www.cnblogs.com/TianFang/archive/2009/02/07/1386000.html)
-0. [Regex Buddy | Regex Magic 测试调试工具](http://www.regular-expressions.info/tools.html)
+0. [Regex Buddy,Regex Magic 测试调试工具](http://www.regular-expressions.info/tools.html)
 
 # 参考资料
 0. [正则表达式30分钟入门教程](http://deerchao.net/tutorials/regex/regex.htm)
