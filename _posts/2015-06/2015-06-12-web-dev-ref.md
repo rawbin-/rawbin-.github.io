@@ -18,8 +18,12 @@ tags: [Web开发,前端开发,参考资料]
 7. [W3C HTML](http://www.w3chtml.com/)
 8. [易百教程](http://www.yiibai.com/)
 8. [JavaScript Kit](http://www.javascriptkit.com/)
+0. [哪本书是对程序员最有影响、每个程序员都该阅读的书？](http://www.vaikan.com/what-is-the-single-most-influential-book-every-programmer-should-read/)
+0. [我们真的缺前端工程师吗？](http://icodeit.org/2015/06/do-we-really-short-for-front-end-developer/)
+0. [齐全的前端开发项目集锦](http://www.open-open.com/lib/view/open1435023884857.html)
 
 ## JavaScript
+0. [我们程序员为什么要关注 JavaScript ？](http://www.codeceo.com/article/why-we-pay-attention-to-javascript.html)
 0. [我们应该如何去了解JavaScript引擎的工作原理](http://www.nowamagic.net/librarys/veda/detail/1579)
 4. [深入理解JavaScript系列](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
 0. [Douglas Crockford's Javascript](http://javascript.crockford.com/)
@@ -27,6 +31,7 @@ tags: [Web开发,前端开发,参考资料]
 1. [JavaScript对象参考手册](http://www.javascriptkit.com/jsref/)
 2. [JavaScript Code Style](http://jscs.info/)
 3. [You Donot Know JS](https://github.com/getify/You-Dont-Know-JS?utm_source=tuicool)
+0. [](http://www.jq22.com/daima)
 
 
 

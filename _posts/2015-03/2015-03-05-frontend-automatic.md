@@ -22,6 +22,7 @@ tags: [开发工具,自动构建]
 0. [自定义Yeoman生成器](http://www.jscon.co/coding/frontend/yeoman_generator.html)
 0. [Gulp， 比Grunt更好用的前端构建工具](http://blog.jobbole.com/81007/)
 0. [“流式”前端构建工具——gulp.js 简介](http://segmentfault.com/a/1190000000435599)
+0. [大公司里怎样开发和部署前端代码？](http://www.zhihu.com/question/20790576)
 
 
 [0]: http://segmentfault.com/a/1190000002491282 "前端构建工具对比Gulp vs Grunt"

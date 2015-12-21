@@ -250,6 +250,14 @@ float 属性可以用来做文字环绕的效果，或者靠在靠右排列的�
 7. [CSS使用技巧20则][8]
 8. [十大CSS技巧][9]
 9. [10个非常有用的CSS技巧][10]
+0. [纯CSS气泡框实现方法探究](http://www.cnblogs.com/daxiong/articles/3158630.html)
+0. [CSS布局奇淫巧计之-强大的负边距](http://www.cnblogs.com/2050/archive/2012/08/13/2636467.html)
+0. [负值之美：负margin在页面布局中的应用](http://www.cnblogs.com/jscode/archive/2012/08/28/2660078.html)
+0. [认识hasLayout——IE浏览器css bug的一大罪恶根源](http://neverned.blog.163.com/blog/static/1265524200933021130561/)
+0. [认识hasLayout——IE浏览器css bug的一大罪恶根源](http://www.cnblogs.com/ideaplusl/archive/2011/07/07/2099843.html)
+0. [CSS:haslayout知多少](http://blog.sina.com.cn/s/blog_51048da701018o29.html)
+0. [hasLayrou综合](https://www.qianduan.net/comprehensive-haslayout/)
+0. [hasLayout 介绍，以及其触发条件](http://blog.csdn.net/hedong37518585/article/details/6639263)
 
 
 [1]: http://www.bitscn.com/school/HTMLCSS/201410/337133.html "使用css实现全兼容浏览器的三角形"
