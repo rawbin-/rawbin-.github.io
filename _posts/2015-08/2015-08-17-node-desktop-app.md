@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "NodeJS 调试技术"
+title: "NodeJS 桌面应用开发"
 categories: [Web开发,前端开发]
 tags: [NodeJS,桌面应用,NW,node-webkit,robotjs,hex,tideSDK,appjs.AIR]
 
