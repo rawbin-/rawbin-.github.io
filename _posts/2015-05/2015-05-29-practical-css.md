@@ -258,7 +258,7 @@ float 属性可以用来做文字环绕的效果，或者靠在靠右排列的�
 0. [CSS:haslayout知多少](http://blog.sina.com.cn/s/blog_51048da701018o29.html)
 0. [hasLayrou综合](https://www.qianduan.net/comprehensive-haslayout/)
 0. [hasLayout 介绍，以及其触发条件](http://blog.csdn.net/hedong37518585/article/details/6639263)
-
+0. [关于IE6、IE7、IE8实现盒子阴影shadow的几个注意点](http://blog.sina.com.cn/s/blog_4c1e6a010101fvgw.html)
 
 [1]: http://www.bitscn.com/school/HTMLCSS/201410/337133.html "使用css实现全兼容浏览器的三角形"
 [2]: http://www.w3cplus.com/css/20-incredibly-useful-CSS-snippets-for-developers "20个实用的CSS技巧代码"
@@ -270,3 +270,4 @@ float 属性可以用来做文字环绕的效果，或者靠在靠右排列的�
 [8]: http://www.jb51.net/article/1187.htm "CSS使用技巧20则"
 [9]: http://blog.csdn.net/budinger/article/details/18086543 "十大CSS技巧"
 [10]: http://www.cnblogs.com/hnyei/archive/2011/11/12/hnyei.html "10个非常有用的CSS技巧"
+
