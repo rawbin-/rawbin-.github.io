@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "前端构建构建 前端自动化工具"
+title: "前端构建工具 前端自动化工具"
 catetories: [开发环境]
 tags: [开发工具,自动构建]
 ---
@@ -18,6 +18,10 @@ tags: [开发工具,自动构建]
 0. [停不下来的前端，自动化流程][8]
 0. [我的前端开发工作流 - 自动化篇][9]
 0. [Gulp.js—比Grunt更易用的前端构建工具][10]
+0. [前端工程构建工具——Yeoman](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureBrowsers)
+0. [自定义Yeoman生成器](http://www.jscon.co/coding/frontend/yeoman_generator.html)
+0. [Gulp， 比Grunt更好用的前端构建工具](http://blog.jobbole.com/81007/)
+0. [“流式”前端构建工具——gulp.js 简介](http://segmentfault.com/a/1190000000435599)
 
 
 [0]: http://segmentfault.com/a/1190000002491282 "前端构建工具对比Gulp vs Grunt"

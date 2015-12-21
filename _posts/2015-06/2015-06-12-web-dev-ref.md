@@ -22,6 +22,7 @@ tags: [Web开发,前端开发,参考资料]
 ## JavaScript
 0. [我们应该如何去了解JavaScript引擎的工作原理](http://www.nowamagic.net/librarys/veda/detail/1579)
 4. [深入理解JavaScript系列](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
+0. [Douglas Crockford's Javascript](http://javascript.crockford.com/)
 0. [JavaScript标准教程](http://javascript.ruanyifeng.com/)
 1. [JavaScript对象参考手册](http://www.javascriptkit.com/jsref/)
 2. [JavaScript Code Style](http://jscs.info/)

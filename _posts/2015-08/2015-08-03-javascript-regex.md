@@ -329,4 +329,4 @@ HTML中属性的表示方式参考[SGML Attribute](http://www.w3.org/TR/html4/in
 0. [MDN 正则表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
 0. [JavaScript正则表达式](http://www.cnblogs.com/rubylouvre/archive/2010/03/09/1681222.html)
 0. [JavaScript正则表达式](http://www.w3cfuns.com/article-5598591-1-1.html)
-0. [](http://www.regular-expressions.info/index.html)
+0. [Regex Expression Info](http://www.regular-expressions.info/index.html)
