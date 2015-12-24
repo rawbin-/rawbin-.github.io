@@ -113,6 +113,7 @@ tags: [JavaScript,打印机,剪贴板,复制,粘贴,部分打印,二维码]
 
 ## 其他参考文档
 0. [The Definitive Guide to Copying and Pasting in JavaScript](https://www.lucidchart.com/techblog/2014/12/02/definitive-guide-copying-pasting-javascript/)
+0. [Accessing the System Clipboard with JavaScript – A Holy Grail?](https://brooknovak.wordpress.com/2009/07/28/accessing-the-system-clipboard-with-javascript/)
 0. [JS获取剪贴板内容和设置剪贴板内容](http://blog.sina.com.cn/s/blog_7ccfeb360100xki1.html)
 0. [JavaScript get clipboard data on paste event (Cross browser)](http://stackoverflow.com/questions/2176861/javascript-get-clipboard-data-on-paste-event-cross-browser)
 0. [JavaScript 如何获得粘贴的内容](http://www.zhihu.com/question/20747877)
@@ -122,3 +123,20 @@ tags: [JavaScript,打印机,剪贴板,复制,粘贴,部分打印,二维码]
 0. [Clipboard cut, copy and paste with JavaScript](http://www.geekpedia.com/tutorial126_Clipboard-cut-copy-and-paste-with-JavaScript.html)
 0. [Accessing the System Clipboard with JavaScript](https://brooknovak.wordpress.com/2009/07/28/accessing-the-system-clipboard-with-javascript/)
 0. [Javascript 在网页中实现读取剪贴板截图功能](http://www.jb51.net/article/50766.htm)
+0. [How do I copy to the clipboard in JavaScript?](http://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript)
+
+
+
+
+
+
+### 临时其他
+
+    function getSelectedText(){
+        if(window.getSelection){
+            return window.getSelection().toString()
+        }else if(document.selection){
+            return document.selection.createRange().text
+        }
+       
+    }
