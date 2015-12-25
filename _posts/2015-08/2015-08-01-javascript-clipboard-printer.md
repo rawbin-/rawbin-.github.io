@@ -124,8 +124,9 @@ tags: [JavaScript,打印机,剪贴板,复制,粘贴,部分打印,二维码]
 0. [Accessing the System Clipboard with JavaScript](https://brooknovak.wordpress.com/2009/07/28/accessing-the-system-clipboard-with-javascript/)
 0. [Javascript 在网页中实现读取剪贴板截图功能](http://www.jb51.net/article/50766.htm)
 0. [How do I copy to the clipboard in JavaScript?](http://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript)
-
-
+0. [getData method (clipboardData)](http://help.dottoro.com/ljinpbdi.php)
+0. [Clipboard cut, copy and paste with JavaScript](http://www.geekpedia.com/tutorial126_Clipboard-cut-copy-and-paste-with-JavaScript.html)
+0. [Copy & Paste & The Web](https://css-tricks.com/copy-paste-the-web/)
 
 
 
