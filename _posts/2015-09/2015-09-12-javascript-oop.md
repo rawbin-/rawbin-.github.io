@@ -107,7 +107,47 @@ JavaScript特有的原型继承，就是基于上面的原型。
 调用john.say()时，编译器先查找john本身是否有say这个属性，发现没有；于是查找john.__proto__这个对象里面是否包含say这个属性，结果找到了就做一些检测，比如说是不是函数啊等，然后执行得到结果。
 当然调用的this始终是当前的对象。上面的查找过程，就是愚公移山的过程，子又生孙，孙又生子。。。。
 
-### 
+### 多级继承
+
+#### 一个多级继承的实例
+    
+    function Man(config){
+        this.sex = 'man'
+        Person.call(this,config);
+    }
+	
+	Man.prototype = Person.prototype;
+        
+    function Woman(config){
+        this.sex = 'woman'
+        Person.call(this,config)
+    }
+	
+	Woman.prototype = Person.prototype;
+	
+	var man = new Man({
+		name:'testMan'
+	});
+	
+	var woman = new Woman({
+		name:'testWoman'
+	});
+	
+	man.say();
+	woman.say();
+
+#### 需要修改的原型对象
+
+如果我们需要修改Man和Women的原型对象，分别加入Man和Women各自特有的属性和方法，那么上面的代码就不太适用，有如下问题：
++ 修改Man或Woman的原型都影响到了Woman或Man的原型
++ 修改Women和Man的原型影响到了Person的原型
++ 上面两句都是废话，因为他们三个引用的是同一个对象
+
+可以用如下方法解决，但这样之后，在查找say方法的过程中多了一次查找到person对象的过程，然后才找到Person.prototype,原型链多了一个层级：
+
+    Woman.prototype = new Person();
+    Woman.prototype = new Person();    
+
 
 ## 参考资料
 0. [JavaScript面向对象编程](http://rawbin-.github.io/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/javascript/2015/08/15/javascript-oop/)
