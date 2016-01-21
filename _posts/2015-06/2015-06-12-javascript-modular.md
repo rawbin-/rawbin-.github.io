@@ -25,7 +25,7 @@ tags: [JavaScript,模块化,模块加载器]
 10. [知乎-AMD和CMD的区别在哪里](http://www.zhihu.com/question/20351507/answer/14859415)
 11. [AMD规范与CMD规范的区别](http://www.cnblogs.com/tugenhua0707/p/3507957.html?utm_source=tuicool)
 12. [AMD浏览器中的模块规范](http://www.cnblogs.com/snandy/archive/2012/03/12/2390782.html)
-13. [AMD Github](https://github.com/amdjs/amdjs-api/wiki/AMD-(%E4%B8%AD%E6%96%87%E7%89%88)
+13. [AMD Github](https://github.com/amdjs/amdjs-api/wiki/AMD-\(%E4%B8%AD%E6%96%87%E7%89%88\))
 14. [Javascript模块化编程（二）：AMD规范](http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html)
 15. [CMD Github](https://github.com/cmdjs/specification)
 24. [CommonJS规范](http://javascript.ruanyifeng.com/nodejs/commonjs.html)
