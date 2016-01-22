@@ -49,6 +49,13 @@ JavaScript通过原型属性来实现继承，几个概念揉在了一起，咱�
 + 对象内部[[Prototype]]属性
 + 以上都叫原型 
 
+### 继承和重写
++ 继承就是要复用现有的代码
++ 可以通过原型的方式实现共享
++ 可以通过浅拷贝的方式进行共享
++ 通过深拷贝的方式实现重写
++ 有了上面这几条就可以变出各种姿势，如jQuery的深浅拷贝，ExtJS的原型继承+浅拷贝等
+
 ### 原型继承
 
 JavaScript特有的原型继承，就是基于上面的原型。
@@ -143,11 +150,99 @@ JavaScript特有的原型继承，就是基于上面的原型。
 + 修改Women和Man的原型影响到了Person的原型
 + 上面两句都是废话，因为他们三个引用的是同一个对象
 
-可以用如下方法解决，但这样之后，在查找say方法的过程中多了一次查找到person对象的过程，然后才找到Person.prototype,原型链多了一个层级：
+可以用如下方法解决：
 
-    Woman.prototype = new Person();
+    Man.prototype = new Person();
     Woman.prototype = new Person();    
 
+但这样之后：
++ 在查找say方法的过程中多了一次查找到person对象的过程，然后才找到Person.prototype,原型链多了一个层级
++ 在man 或woman对象中有一个name属性，在person中还有一个多余的name属性
+
+我们可以直接用一个空函数来代替作为衔接的构造函数Person,但Person构造函数还会被借用（作为基类构造函数），不能直接干掉。
+    
+    function TmpConstructor(){}
+    
+    TmpConstructor.prototype = Person.prototype;
+
+    Man.prototype = new TmpConstructor();
+    Woman.prototype = new TmpConstructor();    
+
+这样就解决了冗余熟悉的问题，但多一层原型链，在需要修改原型的需求中不能被干掉，干掉就回到上一步了，满足不了需求。
+
+
+#### 需要重写的原型属性
+
+如果是完全重写的属性或方法，直接在子类的原型中修改就行，这样就会在原型链查找的过程中出现短路的效果，从而无视原型中的同名属性。
+
+但如果只是想在原来的基础上做一些小的改动，增加特殊的操作，完全重写一遍总不是我们想要的，JavaScript没有提供直接访问父类的原型的途径（ES6中可以使用__proto__）
+还是方法借用，一个简单的方式是直接使用父类原型来访问。这个跟其他像Java这样的面向对象语言的super关键字不一样，只是单纯的方法借用，跟继承关系没有关联。
+
+    function Person(config) {
+        config = config || {};
+        this.name = config.name || 'defaultName';
+    }
+				
+    Person.prototype = {
+        say: function () {
+            console.log(this.name, 'say something')
+        }
+    }
+	
+    function Man(config){
+        this.sex = 'man'
+        Person.call(this,config);
+    }
+	
+      
+    function Woman(config){
+        this.sex = 'woman'
+        Person.call(this,config)
+    }
+
+	function TmpConstructor(){}
+    
+    TmpConstructor.prototype = Person.prototype;
+
+    Man.prototype = new TmpConstructor();
+	Man.prototype.say = function(){
+		console.log('a man:')
+		TmpConstructor.prototype.say.call(this);
+	}
+    Woman.prototype = new TmpConstructor();    
+	Woman.prototype.say = function(){
+		console.log('a woman:')
+		TmpConstructor.prototype.say.call(this);
+	}
+	
+	var man = new Man({
+		name:'testMan'
+	});
+	
+	var woman = new Woman({
+		name:'testWoman'
+	});
+	
+	man.say();
+	woman.say();
+	
+### 无招胜有招
+
+JavaScript的面向对象实现方式有些局限性，对面向对象的支持还在不断的完善，ES6中会直接提供相关的语法支持。
+
+然而对信息隐藏的支持还是有限，比如想提供一个私有变量，直接读取：
+
+    function Person(config){
+        config = config || {};
+        var secret = config.secret || 'mysecret';
+        this.getSecret = function(){
+            return secret;
+        }
+    }
+    
+这样secret作为一个私有变量，只能通过getSecret方法来访问，但这个访问方法每个对象会保存一份。
+    
+当然我们的目标是封装和代码复用，有了上面的道道，要用什么姿势，随你~
 
 ## 参考资料
 0. [JavaScript面向对象编程](http://rawbin-.github.io/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/javascript/2015/08/15/javascript-oop/)
