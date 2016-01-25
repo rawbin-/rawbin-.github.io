@@ -44,7 +44,7 @@ JavaScript通过原型属性来实现继承，几个概念揉在了一起，咱�
 函数对象（一切皆是对象，函数也不例外）的原型对象（是一个对象，一个对象）
 + 对象原型 obj.__proto__ 对象
 对象引用的构造器提供的原型，在ECMAScript规范中使用[[Prototype]]内部属性来表达，在IE中不知道是什么，在W3C浏览器中使用__proto__属性来表达，可直接访问。
-在ECMAScript5之前是非标准属性，在ECMAScript2016（ES6）中__proto__被标准化为一个对象的原型属性。
+在ECMAScript5之前是非标准属性，在ECMAScript2015（ES6）中__proto__被标准化为一个对象的原型属性。
 + 函数prototype 属性
 + 对象内部[[Prototype]]属性
 + 以上都叫原型 
