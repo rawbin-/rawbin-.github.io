@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "fekit 带中文文件的目录 页面内容渲染不全"
-categroies: [前端开发,Web开发,JavaScript]
+categories: [前端开发,Web开发]
 tags: [node-inspector,fekit,javascript]
 
 ---
