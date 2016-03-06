@@ -11,9 +11,8 @@ tags: [node-inspector,fekit,javascript]
 + 查看页面源代码，发现缺少了主题字段的路径
 
 ## 解决
-+　github目录搜索了一下 "assets/themes" 这个关键字
++ github目录搜索了一下 "assets/themes" 这个关键字
 + 原有的配置文件中默认添加主题名称的，但这里明星没有添加
-
 + 原来的配置文件
 
         # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
@@ -37,8 +36,7 @@ tags: [node-inspector,fekit,javascript]
         #   /assets
         #
         ASSET_PATH : /assets/themes/bootstrap3
-
-+　上传后就ok了
++ 上传后就ok了
 
 ## 参考资料
 0. [升级 Jekyll 3 之前你一定要注意的一件事情](https://rebornix.com/engineering/2015/11/16/Jekyll3Breaks/)
