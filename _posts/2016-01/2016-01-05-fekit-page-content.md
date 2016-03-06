@@ -44,3 +44,5 @@ connect目录在$FEKIT_HOME\node-modules\connect\中
 
 基本流程是读取一个静态模板，然后填充相应的内容。
 如果文件名存在中文，在计算相应长度的时候会存在问题（算少了），所以会出现页面看不到某些靠后的内容一样。
+
+原因是编码不一样，计算结果不一致，[参考](http://www.ruanyifeng.com/blog/2014/12/unicode.html)
