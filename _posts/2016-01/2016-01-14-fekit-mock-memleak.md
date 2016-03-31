@@ -22,9 +22,10 @@ fekit进程内存很快会涨到1G以上，基本上就是卡死状态，浏览�
    + 实测Node 0.10.42, Node 0.10.43, Node 5.9.0 无此问题
    + Node 4.3.0, 4,4.0, 0.12.12 有此问题
    + 推测，相关的大版本应该都有问题
-2. 小改fekit mock.js代码
+2.  简单调整fekit mock.js代码
    + 修改FEKIT_HOME/lib/middleware/mock.js 将sandbox 的定义提到闭包外面来
-3. 大改fekit mock.js代码
+3. 进一步优化fekit mock.js代码
+   + 修改FEKIT_HOME/lib/middleware/mock.js 将mock_file()的结果缓存起来，如果被更新了才进行重新计算。
 
 ### 原因分析
 
@@ -135,6 +136,36 @@ JavaScript虚拟机内存没有被释放，调用的次数又太多（每一个�
     
         //.......
     } 
+
+再来看看配合缓存结果，以空间换时间的方法：
+
+    module.exports = function(options) {
+        var mock_file,sandbox,lastMockConfig = "";
+        if (!(options.mock && utils.path.exists(options.mock))) {
+        return noop;
+        }
+        sandbox = {
+            module: {
+            exports: {}
+            }
+        };
+        utils.logger.log("成功加载 mock 配置 " + options.mock);
+        mock_file = utils.file.io.readbymtime(options.mock);
+        return function(req, res, next) {
+        var action, key, pattern, pieces, result, rule, rules, url, _i, _len, _ref;
+        var thisMockConfig = mock_file();
+        //读文件都有缓存，计算自然也可以有，重复计算也没有意义
+        if(thisMockConfig !== lastMockConfig){
+            lastMockConfig = thisMockConfig;
+            try {
+                vm.runInNewContext(exjson(thisMockConfig), sandbox);
+            } catch (err) {
+                sandbox.module.exports = {};
+                utils.logger.error("mock 配置文件出错 " + (err.toString()));
+            }
+        }
+        // ......
+    }
 
 于是这里的内存泄露问题得到解决。    
 
