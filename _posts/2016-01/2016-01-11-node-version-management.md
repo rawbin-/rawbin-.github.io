@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Node JS版本管理，多版本切换，多套开发环境"
-categories:[开发技术,前端开发,开发环境]
+categories: [开发技术,前端开发,开发环境]
 tags: [nvm,n,nvmw,node]
 
 ---
