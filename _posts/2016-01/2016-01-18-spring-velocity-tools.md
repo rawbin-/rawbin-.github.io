@@ -1,6 +1,6 @@
 ---
 layout: post
-title： "Spring 配置velocity tools"
+title: "Spring 配置velocity tools"
 categories: [开发技术,Java开发]
 tags: [Spring,Velocity,Velocity-tools,Java]
 ---

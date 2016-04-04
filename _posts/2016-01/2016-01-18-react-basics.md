@@ -1,6 +1,6 @@
 ---
 layout: post
-title："react 实战参考"
+title: "react 实战参考"
 categories: [Web开发,前端开发,JavaScript]
 tags: [JavaScript,React]
 ---
