@@ -8,6 +8,7 @@ tags: [NodeJS,桌面应用,NW,node-webkit,robotjs,hex,tideSDK,appjs.AIR]
 
 
 ## 参考资料
+0. [electron Atom Shell UI](https://github.com/atom/electron/tree/master/docs)
 0. [nw.js](http://nwjs.io/)
 0. [nw.js](https://github.com/nwjs/nw.js)
 0. [node-webkit 教程](http://www.cnblogs.com/xuanhun/tag/node-webkit/)

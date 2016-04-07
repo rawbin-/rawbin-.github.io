@@ -18,6 +18,7 @@ tags: [JavaScript,数值,int,float]
 
 
 ### Math对象
+
 #### Math.min
 
 #### Math.max
