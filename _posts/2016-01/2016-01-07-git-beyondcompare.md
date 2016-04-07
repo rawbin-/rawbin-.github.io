@@ -20,4 +20,5 @@ tags: [git,diff,merge,beyondcompare]
         path = C:\\Program Files\\Beyond Compare 4\\BCompare.exe
 
 
-[参考资料](http://www.scootersoftware.com/support.php?zz=kb_vcs#gitwindows)
+[Using Beyond Compare with Version Control Systems](http://www.scootersoftware.com/support.php?zz=kb_vcs#gitwindows)
+[Git下使用Beyond Compare作为比较和合并工具](http://sinojelly.blog.51cto.com/479153/633495/)
