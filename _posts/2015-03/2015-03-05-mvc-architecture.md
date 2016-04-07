@@ -24,6 +24,7 @@ MVC即Model-View-Controller，进行系统分层的一种架构模式。
 即View依赖于Controller，同时View和Controller都依赖于Model
 
 ##　MVC变种
+
 在不同的上下文中，有了不同的Controller的实现，MVC功能也有一些调整。
 
 ### MVC-1：

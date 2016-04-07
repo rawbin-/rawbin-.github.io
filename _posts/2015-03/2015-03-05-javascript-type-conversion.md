@@ -44,21 +44,21 @@ Object的成员叫对象，包括Array，Function，Math，Date，JSON，RegExp�
 [这里][3]有二维全部的类型转换表，可以看看。  
 也可以到[这里][4]看看单个的表格。
 
-####转换为原始类型
+#### 转换为原始类型
 + 当输入类型为Undefined,Null,String,Boolean,Number 则转换后的结果为原样
 + 当输入类型为Object时，转换方法如下：
     指定转换的方式为Number或者String两种方式，不指定默认为Number，日期类型特殊，即使不指定为String，默认也按照String的方式转换。
     如果转换为字符串，则优先调用toString方法，如果不存在则调用valueOf方法，如果还是不存在则抛出TypeError异常。
     如果转换为数字，则优先调用valueOf方法，如果不存在则调用toString方法，如果还是不存在则抛出TypeError异常。
     
-####转换为Boolean值
+#### 转换为Boolean值
 + 输入类型Undefined，Null转换为false
 + 输入类型为Boolean值，则结果为原样输入
 + 输入类型为Number，如果参数是+0,-0,,NaN结果为false，否则为true
 + 输入类型为字符串，如果为空字符串结果为false，否则为true
 + 输入类型为Object对象，始终为true
 
-####转换为Number
+#### 转换为Number
 + 输入类型为Undefined，返回NaN
 + 输入类型为Null，返回+0，即0
 + 输入类型为Boolean，如果是true，则返回1，否则返回0
@@ -66,14 +66,14 @@ Object的成员叫对象，包括Array，Function，Math，Date，JSON，RegExp�
 + 输入类型为String，如果全为数字则返回数字的值，否则返回NaN
 + 输入类型为Object，则先转换为原始值，再转换为Number，否则为NaN
 
-####转换为String
+#### 转换为String
 + 输入类型为Undefined，Null，则输出分别为他们的字符串值"undefined","null"
 + 输入类型为Boolean，则返回toString的结果"true"或者"false"
 + 输入类型为Number，则返回输入toString的结果
 + 输入类型为String，则返回原样输入
 + 输入类型为Object，则先将其转换为原始值，再返回toString的结果
 
-####转换为Object
+#### 转换为Object
 + 输入类型为Undefined，Null，则抛出TypeError异常
 + 输入类型为Boolean，则返回原始值为输入的Boolean对象
 + 输入类型为Number，则返回原始值为输入的Number对象
