@@ -123,9 +123,10 @@ mediaelementjs 这个牛逼的组件就是为了给出一个统一的解决方�
             </object>   
       
       allowScriptAccess 指定当前的Flash对象对外部环境（html）的脚本访问权限。  
-      + never 不允许当前Flash访问外部环境的脚本    
-      + sameDomain 只允许当前Flash访问外部环境中与当前Flash同域的脚本
-      + always 允许当前Flash访问外部环境所有脚本
+	  
+       + never 不允许当前Flash访问外部环境的脚本    
+       + sameDomain 只允许当前Flash访问外部环境中与当前Flash同域的脚本
+       + always 允许当前Flash访问外部环境所有脚本
         
     + allowDomain
     

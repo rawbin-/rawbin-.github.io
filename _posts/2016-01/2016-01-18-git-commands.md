@@ -86,9 +86,9 @@ git bisect good|bad 持续的给结果，最后会定位到一个版本，结果
 
 ##### 方法四
 
- ```
+```
 git blame FILE-NAME -L m,n 查看m到n行之间的最后一次变更的信息
- ```
+```
 
 
 

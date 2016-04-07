@@ -7,9 +7,11 @@ tags: [JavaScript,ECMAScript,ECMAScript2015, ECMAScript6, ES2015, ES6]
 ---
 
 # 特性介绍
+
 ## 语法改进
 
 ### 支持模块化语法
+
 # module,import,export
 
 ### 支持面向对象语法

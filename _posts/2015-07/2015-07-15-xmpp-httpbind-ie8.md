@@ -61,7 +61,7 @@ tags: [XMPP, HTTP-BIND, IE8, Cookie, Session, P3P]
 
 P3P标准要求站点明确声明需要搜集哪些隐私信息和这些被搜集的隐私信息的用途，一般浏览器在解析时看到这个声明，就不会出现类似上面的问题了，浏览器就是好骗哈。
     
-##相关知识
+## 相关知识
 
 ### XMPP
 XMPP(Extensible Messaging and Prensence Protocal是一个网络即时通讯协议，它是基于TCP/IP来传输XML格式的文本。消息的XML内容中用一些特定的标志表示了消息的属性（从哪儿来，发哪儿去，谁发的，内容是什么等）。

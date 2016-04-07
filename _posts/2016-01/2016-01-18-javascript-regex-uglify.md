@@ -36,8 +36,6 @@ tags: [JavaScript,正则表达式,移除注释]
 ### 参考资料
 
 1. [JavaScript正则表达式及其应用](http://rawbin-.github.io/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/javascript/2015/08/03/javascript-regex/)
-
-
 1. [Finding Comments in Source Code Using Regular Expressions](http://blog.ostermiller.org/find-comment)
 2. [Finding Comments in HTML Source Code Using Regular Expressions](http://blog.ostermiller.org/find-comments-html)
 3. [正则表达式匹配多行注释](http://nasta.is-programmer.com/posts/41249.html?utm_source=tuicool&utm_medium=referral)
