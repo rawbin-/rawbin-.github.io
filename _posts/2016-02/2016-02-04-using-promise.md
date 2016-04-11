@@ -10,11 +10,34 @@ tags: [JavaScript,Promise]
 + ECMA2015(ES6) 标准
 + 解决回调金字塔问题
 + 链式调用，表达更加直观
-+ ​
 + 逐步被各种库和浏览器实现
 
 
+### 实质是什么
 
++ 一种表达形式
++ 一个类（JavaScript函数对象），及其相关的属性和方法
++ 可以自定义实现
+
+
+
+###  如何使用
+
++ [什么是Promise](http://wiki.jikexueyuan.com/project/javascript-promise-mini-book/what-is-the-promise.html)
+
++ [Promise实战](http://wiki.jikexueyuan.com/project/javascript-promise-mini-book/how-to-write-promise.html)
+
+
+### 如何实现
+
++ [Promise实现原理](http://www.tuicool.com/articles/fe6Jbyz)
++ [闲话Promise机制](http://www.cnblogs.com/dojo-lzz/p/4340897.html)
++ [深入实现Promise A+规范](http://www.shaynegui.com/promise-aplus-implementation/)
++ [教你一步一步实现一个Promise](http://www.cnblogs.com/ygm125/p/3735677.html?utm_source=tuicool&utm_medium=referral)
+
+  ​
+
+  ​
 
 
 ### 参考资料
@@ -31,3 +54,4 @@ tags: [JavaScript,Promise]
 10. [JavaScript Promise启示录](http://www.csdn.net/article/2014-05-28/2819979-JavaScript-Promise)
 11. [JS魔法堂：剖析源码理解Promises/A规范](http://www.cnblogs.com/fsjohnhuang/p/4135149.html)
 12. [Promise/A的误区以及实践](http://www.infoq.com/cn/articles/promise-a-misunderstanding-and-practical)
+13. [es6-promise](https://github.com/stefanpenner/es6-promise)
