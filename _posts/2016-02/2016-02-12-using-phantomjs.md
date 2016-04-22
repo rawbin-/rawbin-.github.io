@@ -45,10 +45,97 @@ Node和npm的出现使得JavaScript的工具库出现了百花齐放、百家争
 一开始使用比较两个页面html的方式来判断页面差异，最后发现如下问题：
 
 + 页面中会有不少请求的url带上了时间戳，导致diff差异大；
-
 + 同时页面中有JS动态生成的内容，执行的时间差异会导致内容不一样；
-
 + 页面差异粒度太细，玩不下去了
+
+
+
+这部分的：
+
+```JavaScript
+byMinCode:function(){
+    function getPageContent(url){
+        var _page;
+        return phantomObj.then(function(ph){
+            return ph.createPage();
+        }).then(function(page){
+            _page = page;
+            return page.open(url)
+        }).then(function(status){
+            if(status === 'success'){
+                return _page.evaluate(function(){
+                    return document.documentElement.outerHTML;
+                });
+            }else{
+                throw new Error('fail to load page')
+            }
+        }).then(function(content){
+            return content;
+        }).catch(function(error){
+            console.log(error)
+        });
+    }
+
+    var pathMaps = this.config.pathMaps;
+    var tasks = [],tmpTask;
+    var taskResults = {};
+    pathMaps.forEach(function(pathMap,index){
+        var srcPath = pathMap[0];
+        var dstPath = pathMap[1];
+        var tmpResult = {
+            srcPath:srcPath,
+            dstPath:dstPath
+        };
+        taskResults[srcPath] = tmpResult;
+        tmpTask = Promise.all([getPageContent(srcPath),getPageContent(dstPath)]).then(function(results){
+            var minifiedResults = results.map(function(content){
+                return minifier(content,{
+                    minifyCSS:true,
+                    minifyJS:true,
+                    // collapseInlineTagWhitespace:true,
+                    // collapseWhitespace:true,
+                    // conservativeCollapse:true
+                });
+            });
+
+            tmpResult.srcContent = results[0];
+            tmpResult.dstContent = results[1];
+            tmpResult.isOriginEqual = tmpResult.srcContent === tmpResult.dstContent;
+
+            tmpResult.minSrcContent = minifiedResults[0];
+            tmpResult.minDstContent = minifiedResults[1];
+            tmpResult.isMinEqual = tmpResult.minSrcContent === tmpResult.minDstContent;
+
+            var dirName = sysPath.join(process.cwd(), 'output', 'mincode');
+            if(!sysFs.existsSync(dirName)){
+                mkdirp.sync(dirName);
+            }
+
+            sysFs.writeFileSync(sysPath.join(dirName, 'srcContent-' + index),tmpResult.srcContent,'utf-8');
+            sysFs.writeFileSync(sysPath.join(dirName, 'dstContent-' + index),tmpResult.dstContent,'utf-8');
+            sysFs.writeFileSync(sysPath.join(dirName, 'minSrcContent-' + index),tmpResult.minSrcContent,'utf-8');
+            sysFs.writeFileSync(sysPath.join(dirName, 'minDstContent-' + index),tmpResult.minDstContent,'utf-8');
+        }).catch(function(reason){
+            console.error(reason)
+        });
+
+        tasks.push(tmpTask);
+    });
+
+    Promise.all(tasks).then(function(){
+        Object.keys(taskResults).forEach(function(key){
+            var result = taskResults[key];
+            console.log(result.srcPath)
+            console.log(result.dstPath)
+            console.log(result.isOriginEqual)
+            console.log(result.isMinEqual)
+        });
+        process.exit();
+    });
+}
+```
+
+
 
 #### 渲染的图片比较
 
@@ -64,6 +151,103 @@ Node和npm的出现使得JavaScript的工具库出现了百花齐放、百家争
 + [resemble](https://www.npmjs.com/package/resemble)
 
 
+我们使用[node-resemble](https://www.npmjs.com/package/node-resemble) 来试试，然后这个包需要依赖[node-canvas](https://github.com/Automattic/node-canvas),然后就是神奇的依赖环境Windows，对于node-gyp和node-canvas来说都是很感人的，尤其是对于Win10来说。
+
++ 本身机子安装了Visual Studio Express 2013，玩不起来，安装node-canvas会报错。
++ 用Visual Studio Community 2015在线安装包，安装会报组件包找不到，怎么提供都不行。
+
+
++ 用小水管下 Visual Studio Community 2015 Update 1 完整ISO（将近4G），安装还是会报组件包找不到，怎么着都不行。。。
++ 用小水管继续下Visual Studio Community 2015 Update 2 完整ISO（将近7G），一路等待。
+
+
+
+安装环境小结：参考 [node-gyp](https://github.com/nodejs/node-gyp#installation) 和 [node-canvas](https://github.com/Automattic/node-canvas#installation) 的安装说明。
+
++ 安装Python 2.7
++ 安装Visual Studio Community 2015 最新版，选Visual C++
++ 配置环境变量 GYP_MSVS_VERSION=2015
++ 执行安装`npm install node-resemble --GTK_Root=D:\Applications\gtkplus-bundle-2.22.1-win64\`
+
+
+这部分的代码：
+
+```JavaScript
+bySnapShot:function(){
+    function getPageContent(url){
+        var _page;
+        return phantomObj.then(function(ph){
+            return ph.createPage();
+        }).then(function(page){
+            _page = page;
+            return page.open(url)
+        }).then(function(status){
+            if(status === 'success'){
+                return _page;
+            }else{
+                throw new Error('fail to load page')
+            }
+        }).catch(function(error){
+            console.log(error)
+        });
+    }
+
+    var pathMaps = this.config.pathMaps;
+    var tasks = [],tmpTask;
+    var taskResults = {};
+    pathMaps.forEach(function(pathMap,index){
+        var srcPath = pathMap[0];
+        var dstPath = pathMap[1];
+        var tmpResult = {
+            srcPath:srcPath,
+            dstPath:dstPath
+        };
+        taskResults[srcPath] = tmpResult;
+        tmpTask = Promise.all([getPageContent(srcPath),getPageContent(dstPath)]).then(function(results){
+            var srcPage = results[0];
+            var dstPage = results[1];
+            var dirName = sysPath.join(process.cwd(), 'output', 'snapshots');
+            if(!sysFs.existsSync(dirName)){
+                mkdirp.sync(dirName);
+            }
+
+            tmpResult.srcSnapshot = sysPath.join(dirName,'srcSnapshot-' + index + '.png');
+            tmpResult.dstSnapshot = sysPath.join(dirName,'dstSnapshot-' + index + '.png');
+            tmpResult.snapshotDiff = sysPath.join(dirName,'snapshotDiff-' + index + '.png');
+
+            //这个也是异步的
+            return Promise.all([srcPage.render(tmpResult.srcSnapshot),dstPage.render(tmpResult.dstSnapshot)]).then(function(){
+                return new Promise(function(resolve,reject){
+                    var srcSnapshotData = sysFs.readFileSync(tmpResult.srcSnapshot);
+                    var dstSnapshotData = sysFs.readFileSync(tmpResult.dstSnapshot);
+                    resemble(srcSnapshotData).compareTo(dstSnapshotData).onComplete(function(data){
+                        var dataUrl = data.getImageDataUrl();
+                        var prefix = "data:image/png;base64,";
+                        var base64Data = dataUrl.slice(prefix.length);
+                        var fileData = new Buffer(base64Data,'base64');
+                        sysFs.writeFileSync(tmpResult.snapshotDiff,fileData);
+                        resolve();
+                    });
+                });
+            });
+        }).catch(function(reason){
+            console.error(reason)
+        });
+
+        tasks.push(tmpTask);
+    });
+
+    Promise.all(tasks).then(function(){
+        Object.keys(taskResults).forEach(function(key){
+            var result = taskResults[key];
+            console.log(result.srcPath)
+            console.log(result.dstPath)
+        });
+
+        process.exit();
+    });
+}
+```
 
 
 
