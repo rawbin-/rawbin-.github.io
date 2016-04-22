@@ -5,7 +5,10 @@ categories: [Web开发,前端开发]
 tags: [phantomjs,nodejs,javascript]
 ---
 
+### 需求
 
+对一批页面进行了内容压缩，想要测试压缩后的结果和压缩前的结果内容是否一致。这时候人肉已经不满足日益增长的页面数量的需要了。需要进行部分自动化。
+希望可以得到一个类似于单元测试的结果输出，能直观看出前后的结果差异。
 
 ###  初步使用
 
@@ -30,20 +33,36 @@ tags: [phantomjs,nodejs,javascript]
 + 这个没法玩
 + 寻找其他的替代品
 
-于是就有了能在NodeJS平台中跑的phantom，[这里](https://github.com/alexscheelmeyer/node-phantom)有简单的区别说明,用法基本都差不多是PhantomJS的用法。
+于是就有了能在NodeJS平台中跑的phantom，[这里](https://github.com/alexscheelmeyer/node-phantom)有简单的区别说明,用法基本都差不多是PhantomJS的用法，这里我们使用phantomjs-node。
 
 + [phantomjs-node](https://github.com/amir20/phantomjs-node),
 + [node-phantom](https://github.com/alexscheelmeyer/node-phantom)
 
-
+Node和npm的出现使得JavaScript的工具库出现了百花齐放、百家争鸣的景象，同一个库有很多个实现（比如Promise），同时你也可以根据自己的需要对开放的模块进行改装。比如基于PhantomJS的各种不同的封装，PhantomJS是命令行工具，PhantomJS-Node则是可以在Node平台跑的PhantomJS工具。
 
 ####  代码比较
 
 一开始使用比较两个页面html的方式来判断页面差异，最后发现如下问题：
 
 + 页面中会有不少请求的url带上了时间戳，导致diff差异大；
+
 + 同时页面中有JS动态生成的内容，执行的时间差异会导致内容不一样；
+
 + 页面差异粒度太细，玩不下去了
+
+#### 渲染的图片比较
+
+刚说PhantomJS擅长浏览器模拟和截图，模拟上面我们已经试过了，这里看看截图功能的使用。
+在phantomjs-node中清一色的基于Promise的API，渲染图片的时候也是异步操作，跟PhantomJS中的使用有些差别。
+
+这样我们就能方便的获得处理前后的页面的页面截图了，然后需要进行图片比较。
+我们到[npmjs.org](https://www.npmjs.com/)，去查找类似于”image diff”或者“image compar”的关键字，在得到的列表中找出我们喜欢的模块，当然node平台下的有图有示例代码的自然是优先的。
+比如[resemblejs](https://www.npmjs.com/package/resemblejs),就不错但是基于浏览器HTML5 API的，然后有一些基于Node的修改版
++ [node-resemble-js](https://www.npmjs.com/package/node-resemble-js) 改了代码也改了文档
++ [node-resemble.js](https://www.npmjs.com/package/node-resemble.js) 改了代码没改文档
++ [node-resemble](https://www.npmjs.com/package/node-resemble) 改了代码和文档
++ [resemble](https://www.npmjs.com/package/resemble)
+
 
 
 
