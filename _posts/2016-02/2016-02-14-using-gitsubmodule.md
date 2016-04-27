@@ -41,6 +41,10 @@ git submodule跟这个类似，两个不同点：一个是默认不自动检出�
 
  `git rm --cached PATH_TO_SUBMODULE`然后删除.gitmodules和.git/config中响应的module的内容。
 
+或者
+
+`git submodule deinit PATH_TO_SUBMODULE` 然后删除.gitmodules中对应的module内容
+
 
 
 ### 应用
