@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title: "使用node-inpector 调试fekit 解决渲染velocity JS语法错误"
+title: "使用node-inspector 调试fekit 解决渲染velocity JS语法错误"
 categories: [前端开发,Web开发]
 tags: [node-inspector,fekit,velocity,javascript]
 
@@ -60,27 +60,27 @@ fekit 渲染velocity 在低版本使用的是`velocityjs`，从2015年8月中下
 ### 安装
 
 + 安装node-inspector: `npm install node-inspector -g`
-  
+
   ### 启动
-  
+
   #### 简单的启动方法：
-  
+
 + 第一个命令行窗口执行 `node-inspector`
-  
+
 + 第二个命令行窗口执行 `node-debug cmd params` (这里会自动打开浏览器并定位到相同地址)
 
 #### 完整的启动
 
 + 启动node-inspector 监听进程: `node-inspector` 
-  
+
   + 这里会输出调试地址 类似于 `http://127.0.0.1:8080/?port=5858`
-    
+
   + 启动node-inspector 监听的fekit进程
-    
+
     `node --debug-brk "C:\Users\liao.zhang\AppData\Roaming\nvm\v4.3.0\node_modules\fekit\bin\fekit" server`
-    
+
     这样会在服务器还没启动时断点在fekit 脚本中
-  
+
 + 浏览器打开调试地址
 
 #### 调试
@@ -103,23 +103,23 @@ fekit 渲染velocity 在低版本使用的是`velocityjs`，从2015年8月中下
 对compile.js中_render方法作如下更改，将JSON序列化的结果进行渲染而不是默认的toString：
 
       utils.forEach(asts, function(ast){
-		var tmpValue;
+    	var tmpValue;
         switch(ast.type) {
           case 'references':
-			//str += this.getReferences(ast, true);
-			tmpValue = this.getReferences(ast, true);
-			try{
-				if(typeof tmpValue === 'object'){
-					str += JSON.stringify(tmpValue);
-				}else{
-					str += tmpValue;
-				}
-			}catch(e){
-				str += tmpValue;
-			}	
+    		//str += this.getReferences(ast, true);
+    		tmpValue = this.getReferences(ast, true);
+    		try{
+    			if(typeof tmpValue === 'object'){
+    				str += JSON.stringify(tmpValue);
+    			}else{
+    				str += tmpValue;
+    			}
+    		}catch(e){
+    			str += tmpValue;
+    		}	
             
           break;
-          
+
 至此，我们就可以使用`fekit server -w`的情况下，将数据以JSON序列化的方式渲染到页面。          
 
 ### 修改velocity.java 
@@ -143,9 +143,9 @@ jar包路径是`$FEKIT_HOME\node-modules\velocity.java\bin\velocity-cli.jar`其�
 
         import com.fasterxml.jackson.databind.ObjectMapper;
         import com.fasterxml.jackson.databind.node.ObjectNode;
-
+      
         import java.io.IOException;
-
+      
         /**
         * Created by liao.zhang on 2016/2/21.
         */
@@ -155,7 +155,7 @@ jar包路径是`$FEKIT_HOME\node-modules\velocity.java\bin\velocity-cli.jar`其�
                 String json = new String(data.getBytes(), "UTF-8");
                 ObjectMapper mapper = new ObjectMapper();
                 ObjectNode node = (ObjectNode)mapper.readTree(json);
-
+      
                 String res = VelocityCli.render(node);
                 System.out.println(res);
             }
@@ -168,7 +168,7 @@ jar包路径是`$FEKIT_HOME\node-modules\velocity.java\bin\velocity-cli.jar`其�
             if(value != null) {
                 toString = value.toString();
             }
-
+      
             if(value != null && toString != null) {
                 if(context.getAllowRendering()) {
                     writer.write(this.escPrefix);

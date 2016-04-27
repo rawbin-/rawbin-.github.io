@@ -11,6 +11,8 @@ tags: [mocha,chai,单元测试]
 
 
 
+### NodeJS环境测试
+
 基本看一遍[Mocha官网](http://mochajs.org/)的说明，就可以玩起来了。
 
 + 先安装`npm install mocha -g`,这样就可以在命令行使用mocha命令了。
@@ -23,11 +25,21 @@ tags: [mocha,chai,单元测试]
   + describe 代表描述信息目录，it代表具体的用例
   + 注意引入断言库，要用it包含断言语句才会被当做case
 + 使用mocha命令执行刚刚的测试文件就ok。
++ 也可以在IDE中搞Mocha相关的插件
 
 
 
 
+### 浏览器环境测试
 
++ 使用mocha init PATH，初始化一个用于浏览器中展示Test Case的资源目录。
+
+  + 这里面有一个tests.js，在这里面引入上文说到的各个测试文件
+  + 然后执行`browserify tests.js>tests-browser.js` 转换浏览器中能执行的文件
+  + 将html中的tests.js改为转换后的
+  + 打开页面就可
+
+  ​
 
 
 ### 参考资料
