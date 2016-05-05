@@ -2,7 +2,7 @@
 layout: post
 title: "开始一个NodeJS项目"
 categories: [Web开发,前端开发]
-tags:[NodeJS,JavaScript]
+tags: [NodeJS,JavaScript]
 ---
 
 
