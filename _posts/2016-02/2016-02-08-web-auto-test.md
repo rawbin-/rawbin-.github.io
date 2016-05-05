@@ -38,6 +38,7 @@ tags: [自动化测试,浏览器]
 27. [前端自动化测试](http://rawbin-.github.io/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/2015/08/16/frontend-automatic-tests/)
 28. [从PhantomJS迁移到node-webkit：自动化测试框架简单比较](http://ourjs.com/detail/54792b570dad0fbb6d000005)
 29. [CSS Regression Testing](http://tldr.huddle.com/blog/css-testing/)
+0. [BackstopJS](https://github.com/garris/BackstopJS)
 30. [CSS Testing with PhantomCSS, PhantomJS, CasperJS and Grunt](https://www.phase2technology.com/blog/css-testing-with-phantomcss-phantomjs-casperjs-and-grunt/)
 31. [CSS回归测试与Resemble.js](http://drupalchina.cn/node/3157)
 32. [浏览器自动化测试初探 - 使用phantomjs与casperjs](http://imweb.io/topic/55e46d8d771670e207a16bdc)
