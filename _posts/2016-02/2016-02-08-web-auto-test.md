@@ -9,6 +9,7 @@ tags: [自动化测试,浏览器]
 
 ### 参考资料
 1. [在做自动化测试之前你需要知道的](http://www.cnblogs.com/fnng/p/3653793.html)
+0. [前端自动化测试探索](http://fex.baidu.com/blog/2015/07/front-end-test/)
 2. [如何进行前端自动化测试](http://www.zhihu.com/question/29922082)
 3. [Web自动化测试工具](http://blog.chinaunix.net/uid-20761674-id-3369112.html)
 4. [Web自动化测试原理](http://lovesoo.org/web-automation-testing-principle.html)
