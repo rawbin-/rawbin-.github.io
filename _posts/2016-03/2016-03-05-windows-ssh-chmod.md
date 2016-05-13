@@ -40,3 +40,4 @@ tags: [windows,ssh,chmod]
 5. [Bad owner or permissions on /Users/username/.ssh/config](https://github.com/ddollar/heroku-accounts/issues/15)
 6. [Why cannot chmod in cygwin on Windows 8 CP?](http://stackoverflow.com/questions/9561759/why-cannot-chmod-in-cygwin-on-windows-8-cp)
 7. [cygwin在windows8.1上的chmod无法修改权限](http://zengrong.net/post/2048.htm)
+8. [“Bad owner or permissions” error using Cygwin's ssh.exe](http://superuser.com/questions/348694/bad-owner-or-permissions-error-using-cygwins-ssh-exe)
