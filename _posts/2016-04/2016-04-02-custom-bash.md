@@ -97,6 +97,11 @@ tags: [Bash,Git,Git Bash]
   ```
   syntax on
   set nu
+  set tabstop=4
+  set softtabstop=4
+  set autoindent
+  set cindent
+  set ruler
   ```
 
   ​
