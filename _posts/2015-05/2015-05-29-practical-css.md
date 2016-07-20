@@ -5,36 +5,36 @@ categories: [开发技术]
 tags: [CSS详解,CSS属性,CSS]
 ---
 ## 基本规则
-+ 缩写和扩展写法
++   缩写和扩展写法
     + 扩展写法就是属性大类-属性小类的写法，比如background-color,border-top-width,margin-left,font-size等。
     + 缩写就是按照一定的规则将扩展写法写到一起，各个属性之间用空格隔开，比如background，font，margin，border等，由于各个属性之间的值比较容易区分，所以CSS解析器不容易混淆属性,对于不容易区分的需要用单撇号`/`分隔。
-+ 常见的缩写
++   常见的缩写
     + font
-    
+
     font: font-style|font-variant|font-weight|font-size|line-height|font-family
 
     + margin 或 padding
-    
+
     margin: margin-top|margin-right|margin-bottom|margin-left
     padding: padding-top|padding-right|padding-bottom|padding-left
     这种涉及到四个值的缩写属性有一个规则，写一个值是应用到四方；写两个值分别为上下和左右的值；写三个值为上、左右、下的值；写四个值依次为上、右、下、左的值。
 
     + border
-    
+
     border:border-width|border-style|border-color
 
     + list-style
-    
+
     list-style:list-style-type|list-style-position|list-style-image
 
     + background
-    
+
     background:background-color|background-image|background-repeat|background-attachment|background-position
 
     + color
-    
+
     六位十六进制可以缩写为三位，如果每两位都是相同的话。
-    
+
 
 ## 背景
 
@@ -98,14 +98,14 @@ repeat（默认）或者repeat-x或者repeat-y或者no-repeat,设置两个方向
     	</div>
 
 ### 参考资料
-0. [CSS背景属性background详解](http://www.chinaz.com/design/2009/0918/92150.shtml)
-1. [CSS背景属性详解](http://paranimage.com/css-background-attribute/)
-2. [CSS新属性及多背景](http://www.html5jscss.com/css3%E6%AC%B2%E9%80%9F%E5%88%99%E4%B8%8D%E8%BE%BE-background%E6%96%B0%E5%B1%9E%E6%80%A7%E4%BB%A5%E5%8F%8A%E5%A4%9A%E8%83%8C%E6%99%AF.html)
-3. [CSS3 background相关介绍](http://www.zhangxinxu.com/wordpress/2011/05/%e7%bf%bb%e8%af%91-css3-backgrounds%e7%9b%b8%e5%85%b3%e4%bb%8b%e7%bb%8d/)
-4. [CSS3 background属性介绍](http://www.cnblogs.com/ATree/archive/2011/05/10/CSS3-Backgrounds.html)
-5. [css background简写方式](http://www.webhek.com/the-background-shorthand-property-has-new-values/)
-6. [CSS中背景图片定位方法](http://www.ruanyifeng.com/blog/2008/05/css_background_image_positioning.html)
-7. [background-position 用法详细介绍](http://blog.csdn.net/jeamking/article/details/5617088)
+1. [CSS背景属性background详解](http://www.chinaz.com/design/2009/0918/92150.shtml)
+2. [CSS背景属性详解](http://paranimage.com/css-background-attribute/)
+3. [CSS新属性及多背景](http://www.html5jscss.com/css3%E6%AC%B2%E9%80%9F%E5%88%99%E4%B8%8D%E8%BE%BE-background%E6%96%B0%E5%B1%9E%E6%80%A7%E4%BB%A5%E5%8F%8A%E5%A4%9A%E8%83%8C%E6%99%AF.html)
+4. [CSS3 background相关介绍](http://www.zhangxinxu.com/wordpress/2011/05/%e7%bf%bb%e8%af%91-css3-backgrounds%e7%9b%b8%e5%85%b3%e4%bb%8b%e7%bb%8d/)
+5. [CSS3 background属性介绍](http://www.cnblogs.com/ATree/archive/2011/05/10/CSS3-Backgrounds.html)
+6. [css background简写方式](http://www.webhek.com/the-background-shorthand-property-has-new-values/)
+7. [CSS中背景图片定位方法](http://www.ruanyifeng.com/blog/2008/05/css_background_image_positioning.html)
+8. [background-position 用法详细介绍](http://blog.csdn.net/jeamking/article/details/5617088)
 
 ## 边距、边框
 
@@ -176,9 +176,9 @@ border 依次设置宽度，样式和颜色，也可以通过border-width，bord
         	</div>
 
 ### 参考资料
-0. [使用css实现全兼容浏览器的三角形][1]
-4. [用CSS代码绘制三角形 纯CSS绘制三角形的代码][5]
-5. [CSS创建三角形（小三角）的几种方法][6]
+1. [使用css实现全兼容浏览器的三角形][1]
+2. [用CSS代码绘制三角形 纯CSS绘制三角形的代码][5]
+3. [CSS创建三角形（小三角）的几种方法][6]
 
 ## 定位
 
@@ -215,7 +215,7 @@ float 属性可以用来做文字环绕的效果，或者靠在靠右排列的�
 + 实现弹窗效果
 
         <div style="background-color:lightblue;border:1px solid grey;z-index 100;width:100px;height:100px;position:absolute;top:50%;left:50%;">
-	    </div>	
+      </div>	
 
 + 实现进度条
 
@@ -226,48 +226,50 @@ float 属性可以用来做文字环绕的效果，或者靠在靠右排列的�
 
 
 ### 参考资料
-0. [W3School CSS Position](http://www.w3school.com.cn/css/css_positioning.asp)
-1. [CSS Position 博客园](http://www.cnblogs.com/polk6/archive/2013/07/26/3214847.html)
-2. [CSS 定位属性](http://paranimage.com/css-position-attribute/)
-3. [CSS浮动属性](http://paranimage.com/css-float-attribute/)
-4. [CSS属性float详解](http://blog.163.com/wangming_cn/blog/static/1464109320096611441538/)
-5. [图文详解CSS float](http://aqfy.net/561.html)
-6. [CSS float深入剖析](http://www.w3cplus.com/css/float.html)
-7. [CSS z-index用法](http://www.cnblogs.com/gisdream/archive/2010/06/10/1755891.html)
-8. [CSS遮罩层的实现](http://fansofjava.iteye.com/blog/1522126)
-9. [Bootstrap 模态框（Modal）插件](http://www.w3cschool.cc/bootstrap/bootstrap-modal-plugin.html)
-10. [DIV+CSS模拟弹层遮罩效果](http://sunshuaij2ee.iteye.com/blog/949113)
+1. [W3School CSS Position](http://www.w3school.com.cn/css/css_positioning.asp)
+2. [CSS Position 博客园](http://www.cnblogs.com/polk6/archive/2013/07/26/3214847.html)
+3. [CSS 定位属性](http://paranimage.com/css-position-attribute/)
+4. [CSS浮动属性](http://paranimage.com/css-float-attribute/)
+5. [CSS属性float详解](http://blog.163.com/wangming_cn/blog/static/1464109320096611441538/)
+6. [图文详解CSS float](http://aqfy.net/561.html)
+7. [CSS float深入剖析](http://www.w3cplus.com/css/float.html)
+8. [CSS z-index用法](http://www.cnblogs.com/gisdream/archive/2010/06/10/1755891.html)
+9. [CSS遮罩层的实现](http://fansofjava.iteye.com/blog/1522126)
+10. [Bootstrap 模态框（Modal）插件](http://www.w3cschool.cc/bootstrap/bootstrap-modal-plugin.html)
+11. [DIV+CSS模拟弹层遮罩效果](http://sunshuaij2ee.iteye.com/blog/949113)
 
 
-##参考资料
-0. [W3School在线教程](http://www.w3school.com.cn/)
-1. [W3CSchool菜鸟教程](http://www.w3cschool.cc/)
-2. [W3CHTMl教程](http://www.w3chtml.com/)
-1. [20个实用的CSS技巧代码][2]
-2. [CSS使用技巧][3]
-3. [CSS使用技巧收集，包含CSS2/CSS3][4]
-6. [CSS新手整理的CSS技巧][7]
-7. [CSS使用技巧20则][8]
-8. [十大CSS技巧][9]
-9. [10个非常有用的CSS技巧][10]
-0. [纯CSS气泡框实现方法探究](http://www.cnblogs.com/daxiong/articles/3158630.html)
-0. [CSS布局奇淫巧计之-强大的负边距](http://www.cnblogs.com/2050/archive/2012/08/13/2636467.html)
-0. [负值之美：负margin在页面布局中的应用](http://www.cnblogs.com/jscode/archive/2012/08/28/2660078.html)
-0. [认识hasLayout——IE浏览器css bug的一大罪恶根源](http://neverned.blog.163.com/blog/static/1265524200933021130561/)
-0. [认识hasLayout——IE浏览器css bug的一大罪恶根源](http://www.cnblogs.com/ideaplusl/archive/2011/07/07/2099843.html)
-0. [CSS:haslayout知多少](http://blog.sina.com.cn/s/blog_51048da701018o29.html)
-0. [hasLayrou综合](https://www.qianduan.net/comprehensive-haslayout/)
-0. [hasLayout 介绍，以及其触发条件](http://blog.csdn.net/hedong37518585/article/details/6639263)
-0. [关于IE6、IE7、IE8实现盒子阴影shadow的几个注意点](http://blog.sina.com.cn/s/blog_4c1e6a010101fvgw.html)
+## 参考资料
+0. [Flex布局语法](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
+1. [Flex布局实例](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
+1. [W3School在线教程](http://www.w3school.com.cn/)
+2. [W3CSchool菜鸟教程](http://www.w3cschool.cc/)
+3. [W3CHTMl教程](http://www.w3chtml.com/)
+4. [20个实用的CSS技巧代码][2]
+5. [CSS使用技巧][3]
+6. [CSS使用技巧收集，包含CSS2/CSS3][4]
+7. [CSS新手整理的CSS技巧][7]
+8. [CSS使用技巧20则][8]
+9. [十大CSS技巧][9]
+10. [10个非常有用的CSS技巧][10]
+11. [纯CSS气泡框实现方法探究](http://www.cnblogs.com/daxiong/articles/3158630.html)
+12. [CSS布局奇淫巧计之-强大的负边距](http://www.cnblogs.com/2050/archive/2012/08/13/2636467.html)
+13. [负值之美：负margin在页面布局中的应用](http://www.cnblogs.com/jscode/archive/2012/08/28/2660078.html)
+14. [认识hasLayout——IE浏览器css bug的一大罪恶根源](http://neverned.blog.163.com/blog/static/1265524200933021130561/)
+15. [认识hasLayout——IE浏览器css bug的一大罪恶根源](http://www.cnblogs.com/ideaplusl/archive/2011/07/07/2099843.html)
+16. [CSS:haslayout知多少](http://blog.sina.com.cn/s/blog_51048da701018o29.html)
+17. [hasLayrou综合](https://www.qianduan.net/comprehensive-haslayout/)
+18. [hasLayout 介绍，以及其触发条件](http://blog.csdn.net/hedong37518585/article/details/6639263)
+19. [关于IE6、IE7、IE8实现盒子阴影shadow的几个注意点](http://blog.sina.com.cn/s/blog_4c1e6a010101fvgw.html)
 
-[1]: http://www.bitscn.com/school/HTMLCSS/201410/337133.html "使用css实现全兼容浏览器的三角形"
-[2]: http://www.w3cplus.com/css/20-incredibly-useful-CSS-snippets-for-developers "20个实用的CSS技巧代码"
-[3]: http://www.ruanyifeng.com/blog/2010/03/css_cookbook.html "CSS使用技巧"
-[4]: http://www.shejidaren.com/css%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E6%94%B6%E9%9B%86-%E5%8C%85%E5%90%ABcss2-css3.html "CSS使用技巧收集，包含CSS2/CSS3"
-[5]: http://www.jb51.net/css/54994.html "用CSS代码绘制三角形 纯CSS绘制三角形的代码"
-[6]: http://www.daqianduan.com/4721.html "CSS创建三角形（小三角）的几种方法"
-[7]: http://www.duote.com/tech/1/1952.html "CSS新手整理的CSS技巧"
-[8]: http://www.jb51.net/article/1187.htm "CSS使用技巧20则"
-[9]: http://blog.csdn.net/budinger/article/details/18086543 "十大CSS技巧"
-[10]: http://www.cnblogs.com/hnyei/archive/2011/11/12/hnyei.html "10个非常有用的CSS技巧"
+[1]: http://www.bitscn.com/school/HTMLCSS/201410/337133.html	"使用css实现全兼容浏览器的三角形"
+[2]: http://www.w3cplus.com/css/20-incredibly-useful-CSS-snippets-for-developers	"20个实用的CSS技巧代码"
+[3]: http://www.ruanyifeng.com/blog/2010/03/css_cookbook.html	"CSS使用技巧"
+[4]: http://www.shejidaren.com/css%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E6%94%B6%E9%9B%86-%E5%8C%85%E5%90%ABcss2-css3.html	"CSS使用技巧收集，包含CSS2/CSS3"
+[5]: http://www.jb51.net/css/54994.html	"用CSS代码绘制三角形 纯CSS绘制三角形的代码"
+[6]: http://www.daqianduan.com/4721.html	"CSS创建三角形（小三角）的几种方法"
+[7]: http://www.duote.com/tech/1/1952.html	"CSS新手整理的CSS技巧"
+[8]: http://www.jb51.net/article/1187.htm	"CSS使用技巧20则"
+[9]: http://blog.csdn.net/budinger/article/details/18086543	"十大CSS技巧"
+[10]: http://www.cnblogs.com/hnyei/archive/2011/11/12/hnyei.html	"10个非常有用的CSS技巧"
 
