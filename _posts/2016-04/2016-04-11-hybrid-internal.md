@@ -17,4 +17,4 @@ tags: [Hybrid,Native,HTML5]
 5. [几种常见的hybrid通信方式](http://www.cnblogs.com/zhanganju/p/5459008.html)
 6. [Hybrid APP架构设计思路](http://my.oschina.net/hicms/blog/604039?p={{page}})
 7. [跨平台移动开发与Hybrid学习笔记](https://yq.aliyun.com/articles/27023)
-8. [](http://blog.csdn.net/jdsjlzx/article/details/51376739)
+8. [Android native和h5混合开发几种常见的hybrid通信方式](http://blog.csdn.net/jdsjlzx/article/details/51376739)
