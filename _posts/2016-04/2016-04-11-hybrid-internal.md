@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hybrid 实现原理"
-categories： [前端开发,Web开发]
+categories: [前端开发,Web开发]
 tags: [Hybrid,Native,HTML5]
 ---
 
