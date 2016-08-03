@@ -11,6 +11,15 @@ tags: ["Flux","Redux","React"]
 
 ### 参考资料
 
+####  入门理解
+
+1. [怎样理顺react，flux，redux这些概念的关系，开发中有必要使用它们吗?](http://gold.xitu.io/entry/576cb79a2e958a0078d08b67)
+2. [怎样理顺react，flux，redux这些概念的关系，开发中有必要使用它们吗?](https://www.zhihu.com/question/47686258)
+3. [浅谈 React、Flux 与 Redux](http://www.tuicool.com/articles/3AFJNbj)
+4. [浅谈 React、Flux 与 Redux](http://imweb.io/topic/57711e37f0a5487b05f325b5?utm_source=tuicool&utm_medium=referral)
+5. [[还在纠结 Flux 或 Relay，或许 Redux 更适合你](https://segmentfault.com/a/1190000003099895)](https://segmentfault.com/a/119000000309989)
+6. [react 有哪些最佳实践?](https://www.zhihu.com/question/36516604)
+
 1. [React中文](http://reactjs.cn/)
 2. [React中文版](http://wiki.jikexueyuan.com/project/react/)
 3. [React 官网](https://facebook.github.io/react/)
