@@ -5,7 +5,44 @@ categories: ["前端开发","Web开发"]
 tags: ["Flux","Redux","React"]
 ---
 
+### Flux
+#### 组织结构
+- constant
+  需要在各个模块中都使用的静态条目，比如操作的名称，状态的名称等
+- Component
+  各种拿数据进行渲染的视图函数，最普通的ReactClass，相关DOM的清理
+- Action 
+  定义操作函数，引入并调用Dispatcher的方法触发操作任务
+- Dispatcher
+  操作分发功能的定义模块，接收操作执行回调
+- Store
+  数据的操作中心，使用Dispatcher监听并处理数据和状态的变更，
+- App
+  渲染主应用，初始应用信息
+- Api
+  各种获取和发送数据的操作，不多可以直接放Store
 
+#### 基本流程 
+- 用户访问界面（View）
+- 用户操作View发出Action
+- Dispacher收到Action，调用Store回调进行相应的数据更新
+- Store更新数据后，触发View的change事件
+- View执行change操作，更新用户界面
+- 整体是View调用Action，Action调用Dispacher，Dispacher调用Store，Store更新View状态，View重新渲染
+
+#### 实现方式
+- View
+  - 绑定操作，在操作中执行对应的Action 
+  - 注册事件，在Store触发改变的时候更新状态
+- Action
+  - 调用Dispacher，执行对应的操作分发
+- Dispacher
+  - 注册相应的操作分发操作
+  - 调用Store的数据处理，并触发Store的更新行为
+- Store
+  - 实现Event Emitter
+  - 进行数据更新
+  - 触发View的更新行为	
 
 
 
