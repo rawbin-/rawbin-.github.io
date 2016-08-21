@@ -21,6 +21,7 @@ tags: [React,JavaScript]
 9. [React中文版](http://wiki.jikexueyuan.com/project/react/)
 10. [React资料专栏](https://zhuanlan.zhihu.com/purerender)
 11. [React中文导航](http://nav.react-china.org/)
+12. [深入浅出React系列](http://www.infoq.com/cn/dive-into-react)
 
 #### Flux
 

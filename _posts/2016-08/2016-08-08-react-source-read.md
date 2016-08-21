@@ -9,7 +9,9 @@ tags: [React,JavaScript]
 
 ### 参考资料
 
-[React中文文档](http://reactjs.cn/react/index.html)
+1. [react中文文档](http://reactjs.cn/react/docs/getting-started.html)
+2. [react英文文档](https://facebook.github.io/react/)
+3. [深入浅出React系列](http://www.infoq.com/cn/dive-into-react)
 
 #### 源码分析
 
