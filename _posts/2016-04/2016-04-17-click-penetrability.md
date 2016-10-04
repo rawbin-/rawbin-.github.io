@@ -7,6 +7,17 @@ tags: [点击穿透,滑动穿透,穿透]
 
 
 
+### 弹层滚动穿透解决步骤：
+
++ 在touchmove中阻止事件传播已经在chrome 中不好使了 硬伤！
++ 各种js的效果都需要记住滚动位置再进行还原 low！
++ 直接在弹层打开之前给html body 设置overflow hidden，此时的位置是会被记住的，顺滑！
++ 使用router 才是王道，页内弹层带入浏览器历史，位置被保持，前进后退的都能使，自然！
+
+
+
+
+
 ### 参考资料
 
 ####  点击穿透
@@ -23,6 +34,15 @@ tags: [点击穿透,滑动穿透,穿透]
 #### 滚动穿透 滑动穿透
 
 1. [移动页面滚动穿透解决方案（荐）](http://blog.csdn.net/qq_16559905/article/details/51333335)
+
 2. [移动端滚动穿透问题完美解决方案](https://segmentfault.com/a/1190000005617307)
+
 3. [移动页面滚动穿透如何解决](https://segmentfault.com/q/1010000002942948)
-4. [JS移动客户端--触屏滑动事件]
+
+4. [JS移动客户端--触屏滑动事件](http://www.cnblogs.com/mq0036/p/3934821.html)
+
+5. [移动端滚动穿透问题完美解决方案](http://www.cnblogs.com/sohighthesky/p/mobile-modal-scroll.html)
+
+6. [移动页面滚动穿透问题解决方案](http://www.cnblogs.com/GeniusLyzh/p/5808446.html)
+
+7. [h5页面弹窗滚动穿透的思考](http://www.cnblogs.com/pingfan1990/p/4899931.html)
