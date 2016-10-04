@@ -61,7 +61,7 @@ git stash pop [stash@{n}] 取出一个特定的暂存
 
 
 
-####查找某处变更是哪次提交生成的（bug是谁在什么时候写的~）
+#### 查找某处变更是哪次提交生成的（bug是谁在什么时候写的~）
 
 ##### 方法一
 
@@ -104,5 +104,4 @@ git blame FILE-NAME -L m,n 查看m到n行之间的最后一次变更的信息
 8. [github使用指南](https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97)
 9. [github中fork和更新原作者变更](http://my.oschina.net/u/2306127/blog/369167?fromerr=TmdohiO0)
 
-#### 
 

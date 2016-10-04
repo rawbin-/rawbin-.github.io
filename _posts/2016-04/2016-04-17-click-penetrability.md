@@ -38,7 +38,7 @@ tags: [点击穿透,滑动穿透,穿透]
 2. [移动端滚动穿透问题完美解决方案](https://segmentfault.com/a/1190000005617307)
 
 3. [移动页面滚动穿透如何解决](https://segmentfault.com/q/1010000002942948)
-
+4. [JS移动客户端--触屏滑动事件]
 4. [JS移动客户端--触屏滑动事件](http://www.cnblogs.com/mq0036/p/3934821.html)
 
 5. [移动端滚动穿透问题完美解决方案](http://www.cnblogs.com/sohighthesky/p/mobile-modal-scroll.html)
