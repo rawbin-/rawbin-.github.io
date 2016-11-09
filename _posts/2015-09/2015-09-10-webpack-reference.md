@@ -14,17 +14,17 @@ tags: [ES6,React,Webpack,JavaScript,CSS]
 ## Webpack相关文档
 
 1. [webpack on github](https://github.com/webpack)
-   
+
 2. [webpack 文档主页](http://webpack.github.io/)
-   
+
 3. [Webpack 官方文档](http://webpack.github.io/docs/)
-   
+
 4. [Webpack Github Wiki](https://github.com/webpack/docs/wiki/contents)
-   
+
 5. [webpack how-to](https://github.com/petehunt/webpack-howto)
-   
+
 6. [webpack compared](http://survivejs.com/webpack_react/webpack_compared/)
-   
+
    ​
 
 
@@ -37,6 +37,8 @@ tags: [ES6,React,Webpack,JavaScript,CSS]
 4. [How to choose a build system for javascript app](http://jamesknelson.com/which-build-system-should-i-use-for-my-javascript-app/?utm_source=tuicool&utm_medium=referral)
 5. [webpack compared](http://survivejs.com/webpack_react/webpack_compared/)
 6. [developing with webpack](http://survivejs.com/webpack_react/developing_with_webpack/)
+7. [入门webpack看这篇就够了](https://segmentfault.com/a/1190000006178770)
+8. [入门webpack看这篇就够了](http://blog.csdn.net/kun5706947/article/details/52596766)
 7. [Webpack 入门指迷](http://segmentfault.com/a/1190000002551952)
 8. [基于webpack搭建前端工程解决方案探索](http://segmentfault.com/a/1190000003499526)
 9. [基于webpack搭建前端工程解决方案探索](https://github.com/chemdemo/chemdemo.github.io/issues/10)
