@@ -30,6 +30,10 @@ tags: [点击穿透,滑动穿透,穿透]
 6. [移动端的touch事件处理](http://www.tuicool.com/articles/uyE3Ar)
 7. [移动页面【点击穿透】问题](http://blog.csdn.net/qq_29066959/article/details/50778076)
 8. [解读移动端事件穿透、Zepto tap穿透bug、移动端touch穿透](http://www.w3cfuns.com/notes/16843/1decc0aa63c9180ee564ffcd748165e8)
+9. [fastclick和zepto 解决click事件300ms延时区别](http://www.uedsc.com/fastclick-zepto-distinguish.html)
+10. [在手持设备上使用 touchstart 事件代替 click 事件是不是个好主意？](https://www.zhihu.com/question/20702822)
+11. [彻底解决TAP(点透)提升移动端点击响应速度](http://www.uedsc.com/fastclick-tap-point-of-penetration.html)
+12. [[【移动端兼容问题研究】javascript事件机制详解（涉及移动兼容）](http://www.cnblogs.com/yexiaochai/p/3462657.html)](http://www.cnblogs.com/yexiaochai/p/3462657.html)
 
 #### 滚动穿透 滑动穿透
 
@@ -38,7 +42,7 @@ tags: [点击穿透,滑动穿透,穿透]
 2. [移动端滚动穿透问题完美解决方案](https://segmentfault.com/a/1190000005617307)
 
 3. [移动页面滚动穿透如何解决](https://segmentfault.com/q/1010000002942948)
-4. [JS移动客户端--触屏滑动事件]
+
 4. [JS移动客户端--触屏滑动事件](http://www.cnblogs.com/mq0036/p/3934821.html)
 
 5. [移动端滚动穿透问题完美解决方案](http://www.cnblogs.com/sohighthesky/p/mobile-modal-scroll.html)

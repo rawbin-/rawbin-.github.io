@@ -38,12 +38,13 @@ tags: [JavaScript,Web前端,前端基础,async,defer]
 
 
 ### 参考资料
-0. [defer和async的区别](http://segmentfault.com/q/1010000000640869)
-1. [script的defer和async](http://www.cnblogs.com/henryhappier/archive/2013/02/22/2921478.html)
-2. [引用JavaScript文件时的两个属性defer和async](http://www.oseye.net/user/kevin/blog/53)
-3. [script的defer和async](http://www.kuqin.com/webpagedesign/20120208/317938.html)
-4. [Asynchronous and deferred JavaScript execution explained](http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/)
-5. [Asynchronous script execution and GPU Acceleration by default](http://peter.sh/2010/09/last-week-asynchronous-script-execution-and-gpu-acceleration-by-default/)
-6. [w3c html 4.01 script](http://www.w3.org/TR/html401/interact/scripts.html)
-7. [w3c html 5.01 script](http://www.w3.org/TR/html51/semantics.html#scripting-3)
-8. [一个defer async的测试](http://segmentfault.com/a/1190000002435922)
+0. [script的defer和async](http://ued.ctrip.com/blog/script-defer-and-async.html#)
+1. [defer和async的区别](http://segmentfault.com/q/1010000000640869)
+2. [script的defer和async](http://www.cnblogs.com/henryhappier/archive/2013/02/22/2921478.html)
+3. [引用JavaScript文件时的两个属性defer和async](http://www.oseye.net/user/kevin/blog/53)
+4. [script的defer和async](http://www.kuqin.com/webpagedesign/20120208/317938.html)
+5. [Asynchronous and deferred JavaScript execution explained](http://peter.sh/experiments/asynchronous-and-deferred-javascript-execution-explained/)
+6. [Asynchronous script execution and GPU Acceleration by default](http://peter.sh/2010/09/last-week-asynchronous-script-execution-and-gpu-acceleration-by-default/)
+7. [w3c html 4.01 script](http://www.w3.org/TR/html401/interact/scripts.html)
+8. [w3c html 5.01 script](http://www.w3.org/TR/html51/semantics.html#scripting-3)
+9. [一个defer async的测试](http://segmentfault.com/a/1190000002435922)
