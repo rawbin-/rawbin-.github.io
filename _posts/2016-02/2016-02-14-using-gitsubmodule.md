@@ -72,7 +72,9 @@ git ci -m "update submodule revision"
 ###　参考资料
 
 1. [Git Submodule使用完整教程](http://www.kafeitu.me/git/2012/03/27/git-submodule.html)
-2. [git submodule](https://www.kernel.org/pub/software/scm/git/docs/git-submodule.html)
-3. [git 子模块](https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
-4. [How to Remove Git Submodules](http://zanshin.net/2013/09/02/how-to-remove-git-submodules/)
-5. [git 子树合并](https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A0%91%E5%90%88%E5%B9%B6)
+2. [Git Submodule管理项目子模块](http://www.cnblogs.com/nicksheng/p/6201711.html)
+3. [git submodule 管理子工程](http://blog.csdn.net/u012390519/article/details/51356714)
+4. [git submodule](https://www.kernel.org/pub/software/scm/git/docs/git-submodule.html)
+5. [git 子模块](https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
+6. [How to Remove Git Submodules](http://zanshin.net/2013/09/02/how-to-remove-git-submodules/)
+7. [git 子树合并](https://git-scm.com/book/zh/v1/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A0%91%E5%90%88%E5%B9%B6)
