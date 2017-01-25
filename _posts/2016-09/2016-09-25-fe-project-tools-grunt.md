@@ -14,6 +14,7 @@ tags: [模块化,工程化,JavaScript,webpack,工作流]
 
 ### 参考资料
 
-0. ​
+0. [grunt 中文文档](http://www.gruntjs.net/getting-started)
+1. [grunt 英文文档](http://gruntjs.com/getting-started)
 
 

@@ -20,46 +20,46 @@ npm 在项目中的直接体现就是`package.json`
 +  通过`npm init`生成相应的配置文件 一个基本的样例，最重要和必不可少的是name 和version 字段
 
    ```json
-      {
-        "name": "algorithms-combined-js",
-        "version": "1.0.1",
-        "description": "algorithms for combined",
-        "main": "libs/index.js",
-        "scripts": {
-          "build":"babel src -d libs",
-          "prepublish":"npm run build",
-          "test": "echo \"Error: no test specified\" && exit 1"
-        },
-        "repository": {
-          "type": "git",
-          "url": "git+https://github.com/rawbin-/algorithms-combined-js.git"
-        },
-        "keywords": [
-          "algorithms",
-          "javascript",
-          "combination",
-          "arrangement"
-        ],
-        "author": "rawbin-",
-        "license": "ISC",
-        "bugs": {
-          "url": "https://github.com/rawbin-/algorithms-combined-js/issues"
-        },
-        "homepage": "https://github.com/rawbin-/algorithms-combined-js#readme",
-        "devDependencies": {
-          "babel-cli": "^6.18.0",
-          "babel-preset-es2015": "^6.18.0",
-          "babel-preset-stage-0": "^6.16.0"
-        },
-        "dependencies": {
-          "underscore": "^1.8.3"
-        }
-      }
+       {
+         "name": "algorithms-combined-js",
+         "version": "1.0.1",
+         "description": "algorithms for combined",
+         "main": "libs/index.js",
+         "scripts": {
+           "build":"babel src -d libs",
+           "prepublish":"npm run build",
+           "test": "echo \"Error: no test specified\" && exit 1"
+         },
+         "repository": {
+           "type": "git",
+           "url": "git+https://github.com/rawbin-/algorithms-combined-js.git"
+         },
+         "keywords": [
+           "algorithms",
+           "javascript",
+           "combination",
+           "arrangement"
+         ],
+         "author": "rawbin-",
+         "license": "ISC",
+         "bugs": {
+           "url": "https://github.com/rawbin-/algorithms-combined-js/issues"
+         },
+         "homepage": "https://github.com/rawbin-/algorithms-combined-js#readme",
+         "devDependencies": {
+           "babel-cli": "^6.18.0",
+           "babel-preset-es2015": "^6.18.0",
+           "babel-preset-stage-0": "^6.16.0"
+         },
+         "dependencies": {
+           "underscore": "^1.8.3"
+         }
+       }
    ```
 
 +  [依赖的版本配置](https://docs.npmjs.com/misc/semver)
 
-      版本的配置有讲究，经常的兼容性问题都出在这，比如node-sass，多版本react等
+       版本的配置有讲究，经常的兼容性问题都出在这，比如node-sass，多版本react等
 
    + 使用`>` `>=` `<` `<=` `=` 和 `||`来组合具体范围
    + 使用`-`来指定范围
@@ -103,6 +103,9 @@ npm 在项目中的直接体现就是`package.json`
 + `npm unpublish xxx`
 
 
+#### npm与yarn命令映射
+
++ [npm向yarn迁移](https://yarnpkg.com/en/docs/migrating-from-npm)
 
 ### 编码相关
 
@@ -118,5 +121,6 @@ npm 在项目中的直接体现就是`package.json`
 3. [sermver 版本说明](https://docs.npmjs.com/misc/semver)
 4. [开源协议说明 OpenSource](https://opensource.org/licenses/alphabetical)
 5. [开源协议说明 SPDX](https://spdx.org/licenses/)
+6. [yarn与npm对比](https://yarnpkg.com/en/docs/migrating-from-npm)
 
 
