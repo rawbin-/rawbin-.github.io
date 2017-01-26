@@ -30,5 +30,7 @@ tags: [模块化,工程化,JavaScript,webpack,打包工具]
 1. [webpack文档索引](http://webpack.github.io/)
 2. [webpack 1.x 文档](http://webpack.github.io/docs/)
 3. [webpack 2.x 文档](https://webpack.js.org/)
+4. [webpack入门看这篇就够了](http://www.jianshu.com/p/42e11515c10f)
+5. [webpack参考资料](http://rawbin-.github.io/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2015/09/10/webpack-reference/)
 
 
