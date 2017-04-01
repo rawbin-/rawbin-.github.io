@@ -15,15 +15,20 @@ tags: [React,JavaScript]
 
 #### 源码分析
 
-1. [React 源码剖析系列 － 解密 setState](https://zhuanlan.zhihu.com/p/20328570)
-2. [React源码剖析系列 － 生命周期的管理艺术](http://www.w3ctech.com/topic/1596)
-3. [React 源码剖析系列 － 生命周期的管理艺术](https://zhuanlan.zhihu.com/p/20312691)
-4. [React 源码剖析系列 － 不可思议的 react diff](https://zhuanlan.zhihu.com/p/20346379)
-5. [React源码剖析系列 － 不可思议的react diff](http://www.w3ctech.com/topic/1598)
-6. [React’s diff algorithm](http://calendar.perfplanet.com/2013/diff/)
-7. [ReactJS分析之入口函数render](http://www.cnblogs.com/accordion/p/4501118.html)
-8. [react-redux源码解析](http://www.cnblogs.com/dudeyouth/p/5391262.html)
-9. [React Native之底层源码分析篇](http://www.android100.org/html/201605/30/240267.html)
+1. [reactjs源码分析-上篇（首次渲染实现原理）](http://purplebamboo.github.io/2015/09/15/reactjs_source_analyze_part_one/)
+2. [reactjs源码分析-下篇（更新机制实现原理）](http://purplebamboo.github.io/2015/09/15/reactjs_source_analyze_part_two/)
+3. ​[深入理解react（源码分析）](http://www.open-open.com/lib/view/open1477289893960.html)
+4. [深入理解react（源码分析）](http://developer.51cto.com/art/201610/519981.htm)
+5. [React 源码剖析系列 － 解密 setState](https://segmentfault.com/a/1190000003969996)
+6. [React源码剖析系列 － 生命周期的管理艺术](http://www.w3ctech.com/topic/1596)
+7. [React 源码剖析系列 － 生命周期的管理艺术](https://zhuanlan.zhihu.com/p/20312691)
+8. [React 源码剖析系列 － 不可思议的 react diff](https://zhuanlan.zhihu.com/p/20346379)
+9. [React源码剖析系列 － 不可思议的react diff](http://www.w3ctech.com/topic/1598)
+10. [React’s diff algorithm](http://calendar.perfplanet.com/2013/diff/)
+11. [ReactJS分析之入口函数render](http://www.cnblogs.com/accordion/p/4501118.html)
+12. [react-redux源码解析](http://www.cnblogs.com/dudeyouth/p/5391262.html)
+13. [React Native之底层源码分析篇](http://www.android100.org/html/201605/30/240267.html)
+14. [React源码分析](http://www.html-js.com/article/JS-analysis-of-the-single-row-from-zero-reactjs-source-first-rendering-principle%203154)
 
 #### 虚拟DOM
 

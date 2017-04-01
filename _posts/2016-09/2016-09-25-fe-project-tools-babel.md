@@ -5,6 +5,9 @@ categories: [前端开发,Web开发,开发工具]
 tags: [模块化,工程化,JavaScript,Babel,ES6,代码转换]
 ---
 
+[TOC]
+{:toc}
+
 ### Babel
 
 #### 为什么要用这个？
