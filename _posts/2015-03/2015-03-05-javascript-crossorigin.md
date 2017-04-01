@@ -9,7 +9,7 @@ tags: [跨域,同源策略,CORS,Same Origin Policy,浏览器安全]
 
 网络访问部分：
 
-一般来说，禁止一个域从另一个域读取数据，然而，有些资源是允许的。比如说，允许一个域执行、渲染、应用从其他域获取到的脚本、图片、样式；同样，一个域可以展示从其他域获取的内容，比如在frame中显示html文档。网络资源也可以选择让其他域来读取自己的信息，比如使用Cross-Origin Resource Sharing，这种情况下访问权是单个域获取的。
+一般情况下，禁止一个域从另一个域读取数据，却可以使用某些从其他域拿到的资源。比如说，允许一个域执行、渲染、应用从其他域获取到的脚本、图片、样式；同样，一个域可以展示从其他域获取的内容，比如在frame中显示html文档。网络资源也可以选择性的让其他域来读取自己的信息，比如使用Cross-Origin Resource Sharing，这种情况下访问权是针对单个域授权的。
 
 同源策略允许向另一个域发送数据。但是，在网络上发送任意格式的数据是危险的。正因为如此，用户代理限制文档用指定的协议发送信息，比如说不带用户自定义头的HTTP请求。
 
@@ -45,10 +45,10 @@ tags: [跨域,同源策略,CORS,Same Origin Policy,浏览器安全]
 不严格的同源策略：
 
 + document.domain
-不同子域名之间的同源策略，如a.test.com与b.test.com之间的访问，可以使用Document对象的domain属性，这是一个可写的属性，可以将其设为test.com来实现子域名之间的不受同源策略约束的资源共享。
+  不同子域名之间的同源策略，如a.test.com与b.test.com之间的访问，可以使用Document对象的domain属性，这是一个可写的属性，可以将其设为test.com来实现子域名之间的不受同源策略约束的资源共享。
 
 + Cross-Origin Resource Sharing
-是W3C提出的方式，用新定义的"Origin"请求头和"Access-Control-Allow-Origin"相应头来扩展HTTP协议。它允许服务器用头信息显式的列出源或使用通配符*来匹配所有的源并允许由任何地址请求文件。这样可以解除同源策略对XMLHttpRequest的限制。
+  是W3C提出的方式，用新定义的"Origin"请求头和"Access-Control-Allow-Origin"相应头来扩展HTTP协议。它允许服务器用头信息显式的列出源或使用通配符*来匹配所有的源并允许由任何地址请求文件。这样可以解除同源策略对XMLHttpRequest的限制。
 
 + 跨文档消息
   允许来自一个文档的脚本发消息到另一个文档里的脚本，而不管脚本的来源是否不同，调用Window对象的postMessage()方法，可以异步传递消息事件（可以用onmessage事件句处理程序函数来处理它）到窗口的文档里。一个文档里的脚本还是不能调用其他文档里的方法和读取属性，但他们可以通过这种消息传递技术来实现安全的通信。
@@ -56,29 +56,29 @@ tags: [跨域,同源策略,CORS,Same Origin Policy,浏览器安全]
 ### 参考资料
 0. [Same Origin Policy-W3C][12]
 1. [JavaScript的同源策略][3]
-0. [Same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
-0. [Browser Security Handbook, part 2](https://code.google.com/p/browsersec/wiki/Part2)
-0. [Google 同源策略及跨域方法](https://code.google.com/p/browsersec/wiki/Part2)
-0. [Same Origin Policy-0][11]
-1. [Same Origin Policy-1][9]
-2. [Same Origin Policy-2][10]
-0. [JavaScript同源策略][7]
-0. [同源策略][0]
-0. [浅谈跨域][2]
-2. [JavaScript同源策略][4]
-2. [[CORS：跨域资源共享] W3C的CORS Specification][5]
-3. [[CORS：跨域资源共享] 同源策略与JSONP][1]
-4. [同源策略和跨域访问][6]
-5. [深入浅出JSONP--解决ajax跨域问题][8]
-6. [jQuery跨域请求，跨域Post提交数据的方法][13]
-7. [简单描述JSON跟JSONP的区别以及实战][15]
-7. [JavaScript系列----AJAX机制详解以及跨域通信][14]
-8. [详解js跨域问题][16]
-9. [优雅绝妙的Javascript跨域问题解决方案][17]
-10. [跨域方法汇总][18]
-11. [HTML5安全：CORS（跨域资源共享）简介][19]
-12. [js中几种实用的跨域方法原理详解][20]
-13. [Javascript跨域访问解决方案][21]
+2. [Same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
+3. [Browser Security Handbook, part 2](https://code.google.com/p/browsersec/wiki/Part2)
+4. [Google 同源策略及跨域方法](https://code.google.com/p/browsersec/wiki/Part2)
+5. [Same Origin Policy-0][11]
+6. [Same Origin Policy-1][9]
+7. [Same Origin Policy-2][10]
+8. [JavaScript同源策略][7]
+9. [同源策略][0]
+10. [浅谈跨域][2]
+11. [JavaScript同源策略][4]
+12. [[CORS：跨域资源共享] W3C的CORS Specification][5]
+13. [[CORS：跨域资源共享] 同源策略与JSONP][1]
+14. [同源策略和跨域访问][6]
+15. [深入浅出JSONP--解决ajax跨域问题][8]
+16. [jQuery跨域请求，跨域Post提交数据的方法][13]
+17. [简单描述JSON跟JSONP的区别以及实战][15]
+18. [JavaScript系列----AJAX机制详解以及跨域通信][14]
+19. [详解js跨域问题][16]
+20. [优雅绝妙的Javascript跨域问题解决方案][17]
+21. [跨域方法汇总][18]
+22. [HTML5安全：CORS（跨域资源共享）简介][19]
+23. [js中几种实用的跨域方法原理详解][20]
+24. [Javascript跨域访问解决方案][21]
 
 
 

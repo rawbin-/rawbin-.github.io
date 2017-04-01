@@ -8,6 +8,14 @@ tags: [前端,跨域]
 
 ## 同源与跨域
 
+### 基调
+
+一般情况下，禁止一个域从另一个域读取数据，却可以使用某些从其他域拿到的资源。比如说，允许一个域执行、渲染、应用从其他域获取到的脚本、图片、样式；同样，一个域可以展示从其他域获取的内容，比如在frame中显示html文档。网络资源也可以选择性的让其他域来读取自己的信息，比如使用Cross-Origin Resource Sharing，这种情况下访问权是针对单个域授权的。
+
+同源策略限制消息从一个域发送到另一个域。比如说同源策略允许域间的GET和POST方式的HTTP请求，却禁止域间的PUT和DELETE方式的请求。同时，域在发送请求到自己时可以自定义HTTP请求头，发送请求到其他域不能自定义请求头。
+
+同源策略的控制者是浏览器，浏览器可以控制不同域之间的资源的访问或相互操作，但不控制自己对不同域之间的资源的操作和访问。
+
 ### 什么是源
 RFC6454 规定一个资源的源由资源的URI中的（协议，主机，端口）这一个三元组来确定（IE中没有把端口纳入源的属性）。比如 https://www.test.com/test-script.js, 这个资源的源为（https, www.test.com, 80）。
 
@@ -46,9 +54,10 @@ IE没有将端口作为同源的组成部分，原因是IE历史垄断的市场�
 + 跨域发送请求不能使用PUT和DELETE方式，只能使用GET和POST
 + 脚本可以访问一个不同源窗口的整体，而不能访问窗口的内部信息
 + CORS可以改变跨域的情形Access-Control-Allow-Origin,同源策略不放宽，跨域请求正常工作（设置为例外），不包含用户名和密码，不包含cookie和token，，响应的cookie会被丢弃，如果需要这些信息，需要设置XMLHttpRequest的withCredentials=true
-  
+
 ##### 完全限制
 + 限制本地文件系统读写
++ 限制cookie的访问
 + 限制FileUpload元素的value属性，不能修改，甚至不能读取路径。
 + 限制脚本对来自不同服务器的文档的读写（同源策略）
 + 限制本地存储localStorage和sessionStorage和IndexedDB
@@ -92,31 +101,57 @@ Form提交不受限制，客户端可以以GET和POST的方式向服务端提交
 
 每一个窗体可以对当前窗体所属域进行微调，比如当前与名为`app.test.com`,则可以设置`document.domain`为`test.com`,也可以设置为`app.test.com`。通过将子域的`document.domain`属性均改为主域`test.com`,可以实现`test.com`下的任意子域`app.test.com`,`auth.test.com`,`img.test.com`等之间的通信。
 
++ 修改为主域之后，子域的访问会带上父域的cookie，反之则不然
++ `.test.com` 和 `test.com` 效果一样,写成`test.com` 浏览器会理解为`.test.com`
+
 #### window.name 
 
 window.name 在加载不同的页面后还会存在，可以通过使用同一个window来加载需要通信的页面，通过共享window.name来进行数据通信。
 
 #### CORS（Cross Origin Resource Sharing）
 
-通过自定义的HTTP Header让浏览器和服务端进行通信，来决定请求或者响应是否有效。
+通过协商的的HTTP Header让浏览器和服务端进行通信，来决定请求或者响应是否有效。
 
-#### P3P
-
-P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相应头的方式来通过浏览器对cookie的限制，解决第三方cookie传递的问题。
++ 默认情况下，浏览器发送跨域请求不带认证信息（比如cookie,证书,代理认证信息等），withCredentials属性值为false
++ 跨域需要withCredentials=true，同时服务端允许Access-Control-Allow-Credentials:true，同时Access-Control-Allow-Origin 值不能为*
 
 #### postMessage
 
 这个是HTML5新增的页面间通信的接口，能够很好的解决iframe之间通信的问题。
 
+### Fetch
+
+#### 带认证信息信息跨域
+
++ 请求设置 `credentials:true`
++ 响应设置`Access-Control-Allow-Origin:http://origin.to.cross`,`Access-Control-Allow-Credentials:true`
+
+
+
+#### 请求对象
+
+- `mode`值为`same-origin`,`cors`,`no-cors`(默认),`navigate`,`websocket` 
+- `credentials mode` 值为`omit`(默认),`same-origin`,`include`
+
+#### 响应对象
+
++ 同域响应`type`值为 `basic`,`cors`，`default`（默认）,`error`
++ 跨域响应`type`值为`opaque`,`opaqueredirect`,`error`
+
+#### P3P
+
+P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相应头的方式来通过浏览器对cookie的限制，解决第三方cookie传递的问题。
+
 #### WebSocket
 
 这也是HTML5新增的浏览器和服务端通信的非HTTP通信的机制，它不受同源策略的限制，是解决跨域数据传输的解决方案。
 
++ 在https的页面，无法发送ws://的请求，同http
 
 ## 不同角度看问题
 
 ### 本地页面间通信 VS Browser-Server通信
-  
+
 #### 本地页面间通信
 + 动态标签
 + postMessage
@@ -180,6 +215,14 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 + P3P
 
 #### 现代浏览器   
+
+- 动态标签
+- JSONP
+- Form提交
+- window.name
+- document.domain
+- P3P
+
 + CORS
 + postMessage
 + WebSocket
@@ -219,11 +262,11 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
             // }
             
             // loadScript("http://target.test.org:9000/getData.do?callback=JSONPCallback")
-            
-            
-            
+
+
+​            
             //下面这个是jQuery风格的JSONP,更容易理解
-            
+
             function getJSON(url,callback){
                 var script = document.createElement('script');      
                 var callbackName = "ProxyFunc_" + (new Date().getTime())
@@ -245,15 +288,15 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
             getJSON("http://target.test.org:9000/getData.do?callback=JSONPCallback",function(data){
                 console.log(data)
             })
-            
-            
+
+
         </script>
     </head>
     <body>
         
     </body>
     </html>
-    
+
 #### 目标域 target.test.org:9000
 
     var http = require("http");
@@ -268,7 +311,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
         var retData = callback + '(' +'{"status":"success",data:{"name":"test JSONP"}}'  + ')';
         response.end(retData);
     });    
-    
+
 #### 操作方法
 
 打开源域页面，在控制台查看拿到的数据    
@@ -297,7 +340,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
     </body>
     
     </html>
-    
+
 #### 目标域 target.test.org/target.html
 
     <!DOCTYPE html>
@@ -393,7 +436,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 #### 目标域 target.test.org:9000
 
     var http = require("http");
-    
+
     var server = new http.Server();
     server.listen(9000);
     
@@ -405,12 +448,12 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
         response.end();
     });
 
-    
+
 #### 操作方法
 + 将两个文件部署上
 + 浏览器打开源域的页面 
 + 在控制台和网络请求中查看交互数据
-    
+
 
 ### P3P
 
@@ -525,34 +568,37 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 
 
 ## 参考资料
+
 0. [RFC 6454 The Web Origin Concept](http://tools.ietf.org/html/rfc6454)
-0. [同源策略和跨域访问](http://blog.csdn.net/shimiso/article/details/21830313)
-0. [W3C 同源策略](http://www.w3.org/Security/wiki/Same_Origin_Policy)
-0. [JavaScript的同源策略](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
-0. [Same Origin Policy Part 0: Origins](http://blogs.msdn.com/b/ieinternals/archive/2014/03/13/explaining-same-origin-policy-part-0-origins.aspx)
-0. [Same Origin Policy Part 1: No Peeking](http://blogs.msdn.com/b/ieinternals/archive/2009/08/28/explaining-same-origin-policy-part-1-deny-read.aspx)
-0. [Same Origin Policy Part 2: Limited Write](http://blogs.msdn.com/b/ieinternals/archive/2012/04/03/explaining-same-origin-policy-part-2-limited-write.aspx)
-0. [同源策略](http://www.cnblogs.com/dsky/archive/2012/04/06/2434010.html)
-0. [同源策略理解](https://rawbin-.github.io/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/2015/03/05/javascript-crossorigin/)
-0. [[CORS：跨域资源共享] W3C的CORS Specification](http://www.cnblogs.com/artech/p/cors-4-asp-net-web-api-02.html)
-0. [JavaScript最全的10中跨域共享的方法](http://www.csdn.net/article/2011-01-27/290968)
-0. [前端解决跨域问题的8种方案](http://www.cnblogs.com/JChen666/p/3399951.html)
-0. [JSONP原理详解](http://www.cnblogs.com/dowinning/archive/2012/04/19/json-jsonp-jquery.html)
-0. [跨域方法汇总](http://www.udpwork.com/item/11695.html)
-0. [跨域方法汇总](http://www.raychase.net/2216)
-0. [父子页面跨域通信的方法](http://tid.tenpay.com/?p=4695)
-0. [父子页面跨域解决办法](http://www.ttlsa.com/web/cross-domain-solutions/)
-0. [优雅绝妙的Javascript跨域问题解决方案](http://blog.csdn.net/sfdev/article/details/5807045)
-0. [JavaScript跨域访问解决方案](http://blog.csdn.net/sfdev/article/details/3887006)
-0. [JS几种实用的跨域方法原理详解](http://www.cnblogs.com/2050/p/3191744.html)
-0. [JavaScript跨域总结与解决办法](http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html)
-0. [JavaScript跨域解决方法大全](http://blog.csdn.net/freshlover/article/details/40827207)
-0. [近乎完美的简单JS跨域解决方法](http://rubel.iteye.com/blog/901182)
-0. [Post方式跨域上传文件](http://blog.csdn.net/black_ox/article/details/20645957)
-0. [AJAX机制详解及跨域通信](http://www.cnblogs.com/renlong0602/p/4414872.html)
-0. [跨域数据传输方法](http://www.cnblogs.com/GodIsBoy/p/3563865.html?utm_source=tuicool)
-0. [异步上传文件并获得返回值（完全跨域）](http://blog.csdn.net/lrz1011/article/details/7913992)
-0. [异步上传文件并获得返回值（完全跨域）](http://my.oschina.net/whynotAZ/blog/206871#OSC_h2_1)
-0. [同源策略以及cookie安全策略](http://blog.csdn.net/turkeyzhou/article/details/8818173)
-0. [Google浏览器安全策略](https://code.google.com/p/browsersec/wiki/Main)
-0. [同源策略详解及绕过](http://www.freebuf.com/articles/web/65468.html)
+1. [同源策略和跨域访问](http://blog.csdn.net/shimiso/article/details/21830313)
+2. [W3C 同源策略](http://www.w3.org/Security/wiki/Same_Origin_Policy)
+3. [你真的会使用XMLHttpRequest吗？](https://segmentfault.com/a/1190000004322487)
+4. [跨域资源共享 CORS 详解](http://www.ruanyifeng.com/blog/2016/04/cors.html)
+5. [JavaScript的同源策略](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)
+6. [Same Origin Policy Part 0: Origins](http://blogs.msdn.com/b/ieinternals/archive/2014/03/13/explaining-same-origin-policy-part-0-origins.aspx)
+7. [Same Origin Policy Part 1: No Peeking](http://blogs.msdn.com/b/ieinternals/archive/2009/08/28/explaining-same-origin-policy-part-1-deny-read.aspx)
+8. [Same Origin Policy Part 2: Limited Write](http://blogs.msdn.com/b/ieinternals/archive/2012/04/03/explaining-same-origin-policy-part-2-limited-write.aspx)
+9. [同源策略](http://www.cnblogs.com/dsky/archive/2012/04/06/2434010.html)
+10. [同源策略理解](https://rawbin-.github.io/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/2015/03/05/javascript-crossorigin/)
+11. [[CORS：跨域资源共享] W3C的CORS Specification](http://www.cnblogs.com/artech/p/cors-4-asp-net-web-api-02.html)
+12. [JavaScript最全的10中跨域共享的方法](http://www.csdn.net/article/2011-01-27/290968)
+13. [前端解决跨域问题的8种方案](http://www.cnblogs.com/JChen666/p/3399951.html)
+14. [JSONP原理详解](http://www.cnblogs.com/dowinning/archive/2012/04/19/json-jsonp-jquery.html)
+15. [跨域方法汇总](http://www.udpwork.com/item/11695.html)
+16. [跨域方法汇总](http://www.raychase.net/2216)
+17. [父子页面跨域通信的方法](http://tid.tenpay.com/?p=4695)
+18. [父子页面跨域解决办法](http://www.ttlsa.com/web/cross-domain-solutions/)
+19. [优雅绝妙的Javascript跨域问题解决方案](http://blog.csdn.net/sfdev/article/details/5807045)
+20. [JavaScript跨域访问解决方案](http://blog.csdn.net/sfdev/article/details/3887006)
+21. [JS几种实用的跨域方法原理详解](http://www.cnblogs.com/2050/p/3191744.html)
+22. [JavaScript跨域总结与解决办法](http://www.cnblogs.com/rainman/archive/2011/02/20/1959325.html)
+23. [JavaScript跨域解决方法大全](http://blog.csdn.net/freshlover/article/details/40827207)
+24. [近乎完美的简单JS跨域解决方法](http://rubel.iteye.com/blog/901182)
+25. [Post方式跨域上传文件](http://blog.csdn.net/black_ox/article/details/20645957)
+26. [AJAX机制详解及跨域通信](http://www.cnblogs.com/renlong0602/p/4414872.html)
+27. [跨域数据传输方法](http://www.cnblogs.com/GodIsBoy/p/3563865.html?utm_source=tuicool)
+28. [异步上传文件并获得返回值（完全跨域）](http://blog.csdn.net/lrz1011/article/details/7913992)
+29. [异步上传文件并获得返回值（完全跨域）](http://my.oschina.net/whynotAZ/blog/206871#OSC_h2_1)
+30. [同源策略以及cookie安全策略](http://blog.csdn.net/turkeyzhou/article/details/8818173)
+31. [Google浏览器安全策略](https://code.google.com/p/browsersec/wiki/Main)
+32. [同源策略详解及绕过](http://www.freebuf.com/articles/web/65468.html)
