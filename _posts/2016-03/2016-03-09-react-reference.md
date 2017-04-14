@@ -11,17 +11,18 @@ tags: [React,JavaScript]
 
 #### React 资料
 1. [一看就懂的ReactJs入门教程（精华版）](http://www.cocoachina.com/webapp/20150721/12692.html)
-2. [React 入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html)
-3. [使用React框架遇到的坑及解决方法](http://www.open-open.com/lib/view/open1430887625866.html)
-4. [React 文档翻译](http://www.css88.com/react/docs/getting-started.html)
-5. [React Document](http://facebook.github.io/react/)
-6. [Ant Design](http://ant.design/#/docs/spec/introduce)
-7. [ECMA Script入门](http://es6.ruanyifeng.com/)
-8. [React入门教程](http://wiki.jikexueyuan.com/project/react-tutorial/)
-9. [React中文版](http://wiki.jikexueyuan.com/project/react/)
-10. [React资料专栏](https://zhuanlan.zhihu.com/purerender)
-11. [React中文导航](http://nav.react-china.org/)
-12. [深入浅出React系列](http://www.infoq.com/cn/dive-into-react)
+2. [React技术栈资料](http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html)
+3. [React 入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html)
+4. [使用React框架遇到的坑及解决方法](http://www.open-open.com/lib/view/open1430887625866.html)
+5. [React 文档翻译](http://www.css88.com/react/docs/getting-started.html)
+6. [React Document](http://facebook.github.io/react/)
+7. [Ant Design](http://ant.design/#/docs/spec/introduce)
+8. [ECMA Script入门](http://es6.ruanyifeng.com/)
+9. [React入门教程](http://wiki.jikexueyuan.com/project/react-tutorial/)
+10. [React中文版](http://wiki.jikexueyuan.com/project/react/)
+11. [React资料专栏](https://zhuanlan.zhihu.com/purerender)
+12. [React中文导航](http://nav.react-china.org/)
+13. [深入浅出React系列](http://www.infoq.com/cn/dive-into-react)
 
 #### Flux
 
