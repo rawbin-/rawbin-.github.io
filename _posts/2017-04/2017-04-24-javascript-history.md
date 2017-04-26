@@ -43,17 +43,18 @@ JavaScript 语言是在参考Java，Perl，Scheme，Self等先前语言语法的
 ### 参考资料
 
 1. [JavaScript语言的历史](http://javascript.ruanyifeng.com/introduction/history.html)
-2. 《全端Web开发：使用JavaScript和Java》
-3. 《JavaScript高级程序设计》
-4. 《JavaScript权威指南》
-5. 《JavaScript语言精髓与编程实践》
-6. 《JavaScript编程全解》
-7. 《NodeJS开发指南》
-8. 《JavaScript面向对象编程指南》
-9. 《JavaScript应用开发实践指南》
-10. 《JavaScript核心概念及实践》
-11. [《ES6 标准入门（第二版）》](http://es6.ruanyifeng.com/)
-12. [Javascript诞生记](http://www.ruanyifeng.com/blog/2011/06/birth_of_javascript.html)
-13. [还原JavaScript的真实历史](http://kb.cnblogs.com/page/140721/)
-14. [迟来的真相：关于JavaScript的历史](http://blog.csdn.net/aimingoo/article/details/7383338)
-15. [详图实证：再谈JavaScript的语源问题](http://blog.csdn.net/aimingoo/article/details/6654742)
+2. [JavaScript版本迷局](http://www.cnblogs.com/lhb25/archive/2011/01/16/1936669.html)
+3. 《全端Web开发：使用JavaScript和Java》
+4. 《JavaScript高级程序设计》
+5. 《JavaScript权威指南》
+6. 《JavaScript语言精髓与编程实践》
+7. 《JavaScript编程全解》
+8. 《NodeJS开发指南》
+9. 《JavaScript面向对象编程指南》
+10. 《JavaScript应用开发实践指南》
+11. 《JavaScript核心概念及实践》
+12. [《ES6 标准入门（第二版）》](http://es6.ruanyifeng.com/)
+13. [Javascript诞生记](http://www.ruanyifeng.com/blog/2011/06/birth_of_javascript.html)
+14. [还原JavaScript的真实历史](http://kb.cnblogs.com/page/140721/)
+15. [迟来的真相：关于JavaScript的历史](http://blog.csdn.net/aimingoo/article/details/7383338)
+16. [详图实证：再谈JavaScript的语源问题](http://blog.csdn.net/aimingoo/article/details/6654742)
