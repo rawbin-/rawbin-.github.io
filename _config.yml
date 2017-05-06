@@ -8,7 +8,7 @@ highlighter: pygments
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : 钌子_rawbin
+title : 堆栈HeapStack
 tagline: Site Tagline
 author :
   name : 钌子_rawbin
