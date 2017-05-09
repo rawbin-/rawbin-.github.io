@@ -202,7 +202,7 @@ optmize index: 74.80517578125ms
 optmize compare: 378.320068359375ms
 ```
 
-早`NodeJS 7.9.0`下的运行结果（不太稳定）:
+在`NodeJS 7.9.0`下的运行结果（不太稳定）:
 
 ```
 origin: 110.480ms
