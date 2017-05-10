@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 主页
+title: 堆栈HeapStack
 tagline: 文章列表
 ---
 {% include JB/setup %}
