@@ -327,31 +327,35 @@ opt_cmp:2.95980300
 
 1.  《Compiled Compiler Templates for V8》
 
-2.  《Static Single Assignment Book》
+2. 《Static Single Assignment Book》
 
-3.  [V8源码](https://github.com/v8/v8/blob/master/src/crankshaft/hydrogen-instructions.h)
+3. [V8源码](https://github.com/v8/v8/blob/master/src/crankshaft/hydrogen-instructions.h)
 
-4.  [IRHydra](http://mrale.ph/irhydra/)
+4. [IRHydra](http://mrale.ph/irhydra/)
 
-5.  [IRHydra github](https://github.com/mraleph/irhydra)
+5. [IRHydra github](https://github.com/mraleph/irhydra)
 
-6.  [v8: a tale of two compilers](https://wingolog.org/archives/2011/07/05/v8-a-tale-of-two-compilers)
+6. [v8: a tale of two compilers](https://wingolog.org/archives/2011/07/05/v8-a-tale-of-two-compilers)
 
-7.   [Optimizing for V8 - Hydrogen](https://floitsch.blogspot.com/2012/03/optimizing-for-v8-hydrogen.html)
+7. [Optimizing for V8 - Hydrogen](https://floitsch.blogspot.com/2012/03/optimizing-for-v8-hydrogen.html)
 
-8.  [A tour of V8: Crankshaft, the optimizing compiler](http://jayconrod.com/posts/54/a-tour-of-v8-crankshaft-the-optimizing-compiler)
+8. [v8-bailout-reasons](https://github.com/vhf/v8-bailout-reasons)
 
-9.  [V8 之旅：优化编译器 ](http://newhtml.net/v8-crankshaft-the-optimizing-compiler/)
+9. [Optimization-Killers](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers)
 
-10.   [[WebKit\] JavaScriptCore解析--高级篇(一) SSA (static single assignment)](http://blog.csdn.net/horkychen/article/details/9075827)
+10. [A tour of V8: Crankshaft, the optimizing compiler](http://jayconrod.com/posts/54/a-tour-of-v8-crankshaft-the-optimizing-compiler)
 
-11.  [GNU Compiler Collection (GCC) Internals](https://gcc.gnu.org/onlinedocs/gccint/index.html#Top)
+11. [V8 之旅：优化编译器 ](http://newhtml.net/v8-crankshaft-the-optimizing-compiler/)
 
-12.  [Analysis and Optimization of GIMPLE tuples](https://gcc.gnu.org/onlinedocs/gccint/Tree-SSA.html#Tree-SSA)
+12. [[WebKit\] JavaScriptCore解析--高级篇(一) SSA (static single assignment)](http://blog.csdn.net/horkychen/article/details/9075827)
 
-13.  [static single assignment for functional programmers](https://wingolog.org/archives/2011/07/12/static-single-assignment-for-functional-programmers)
+13. [GNU Compiler Collection (GCC) Internals](https://gcc.gnu.org/onlinedocs/gccint/index.html#Top)
 
-14.  [a closer look at crankshaft, v8's optimizing compiler](https://wingolog.org/archives/2011/08/02/a-closer-look-at-crankshaft-v8s-optimizing-compiler)
+14. [Analysis and Optimization of GIMPLE tuples](https://gcc.gnu.org/onlinedocs/gccint/Tree-SSA.html#Tree-SSA)
+
+15. [static single assignment for functional programmers](https://wingolog.org/archives/2011/07/12/static-single-assignment-for-functional-programmers)
+
+16. [a closer look at crankshaft, v8's optimizing compiler](https://wingolog.org/archives/2011/08/02/a-closer-look-at-crankshaft-v8s-optimizing-compiler)
 
      ​
 
