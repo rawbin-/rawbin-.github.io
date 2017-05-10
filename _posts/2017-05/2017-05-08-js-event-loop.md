@@ -20,5 +20,4 @@ tags: [JavaScript,事件循环,event-loop]
 7.  [神之门V8-----Event loop的舞池盛宴(2)](http://blog.csdn.net/u013700510/article/details/53401838)
 8.  [神之门V8-----Event loop的舞池盛宴(3)](http://blog.csdn.net/u013700510/article/details/53413828)
 9.  [Understanding the Node.js Event Loop](https://blog.risingstack.com/node-js-at-scale-understanding-node-js-event-loop/)
-10.  源码
 
