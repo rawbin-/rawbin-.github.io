@@ -76,8 +76,9 @@ Promise能使依赖回调扁平化。
 
 ### 参考资料
 
-1. 《JavaScript异步编程-设计快速响应的网络应用》
-2. 《You Don't Know JS-Async & Performance》
-3. [You Don't Know JS: Async & Performance](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance)
-4. 《ES6标准入门》
-5. [ES6入门](http://es6.ruanyifeng.com/)
+1.  《深入浅出NodeJS》
+2. 《JavaScript异步编程-设计快速响应的网络应用》
+3. 《You Don't Know JS-Async & Performance》
+4. [You Don't Know JS: Async & Performance](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance)
+5. 《ES6标准入门》
+6. [ES6入门](http://es6.ruanyifeng.com/)
