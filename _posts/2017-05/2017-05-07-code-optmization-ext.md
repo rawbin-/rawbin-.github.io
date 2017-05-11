@@ -315,6 +315,24 @@ opt_cmp:2.95980300
 
 
 
+#### 也可以使用node自带的工具来看
+
++ 执行命令
+
+```
+node --prof perf-opt.js
+```
+
++ 转换结果
+
+```
+node --prof-process isolate-xxx-v8.log > processed.log
+```
+
++ 查看`processed.log`
+
+
+
 ### 结论
 
 + 某些优化规则在不同的编译环境下，不一定能得到一致的效果
