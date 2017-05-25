@@ -602,3 +602,5 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 30. [同源策略以及cookie安全策略](http://blog.csdn.net/turkeyzhou/article/details/8818173)
 31. [Google浏览器安全策略](https://code.google.com/p/browsersec/wiki/Main)
 32. [同源策略详解及绕过](http://www.freebuf.com/articles/web/65468.html)
+33. [理解 CORS (Cross-Origin Resource Sharing)](http://huang-jerryc.com/2016/05/15/%E7%90%86%E8%A7%A3%20CORS%20(Cross-Origin%20Resource%20Sharing)/)
+

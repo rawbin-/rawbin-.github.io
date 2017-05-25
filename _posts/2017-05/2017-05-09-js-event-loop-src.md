@@ -12,6 +12,8 @@ tags: [JavaScript,事件循环,event-loop,源码]
 + [`libuv` 设计文档](http://docs.libuv.org/en/v1.x/design.html)
 + [`libuv` API](http://docs.libuv.org/en/v1.x/api.html)
 
+
+
 ###   `libuv`中的事件阶段
 
 + 执行到点的定时器
@@ -25,7 +27,31 @@ tags: [JavaScript,事件循环,event-loop,源码]
 
 
 
-### 源码分析`libuv `分平台`core.c`
+### 源码分析
+
+#### `nodejs` 主文件`/src/node.cc`
+
+```
+do {
+      v8_platform.PumpMessageLoop(isolate);
+      more = uv_run(env.event_loop(), UV_RUN_ONCE);
+
+      if (more == false) {
+        v8_platform.PumpMessageLoop(isolate);
+        EmitBeforeExit(&env);
+
+        // Emit `beforeExit` if the loop became alive either after emitting
+        // event, or after running some callbacks.
+        more = uv_loop_alive(env.event_loop());
+        if (uv_run(env.event_loop(), UV_RUN_NOWAIT) != 0)
+          more = true;
+      }
+    } while (more == true);
+```
+
+
+
+#### `libuv `分平台`/deps/uv/src/unix/core.c`
 
 ```
 int uv_run(uv_loop_t* loop, uv_run_mode mode) {
@@ -84,11 +110,16 @@ int uv_run(uv_loop_t* loop, uv_run_mode mode) {
 
 
 
-
 ### 参考资料
 
-1.  [libevent github](https://github.com/libevent/libevent)
-2.  [libevent org](http://libevent.org/)
-3.  [libuv github](https://github.com/libuv/libuv)
-4.  [libuv org](http://libuv.org/)
+1.  《深入浅出NodeJS》
+2.  [深入理解Node.js：核心思想与源码分析](https://github.com/yjhjstz/deep-into-node)
+3.  [深入理解Node.js：核心思想与源码分析](https://yjhjstz.gitbooks.io/deep-into-node/)
+4.  [node源码详解（二 ）—— 运行机制 、整体流程](https://cnodejs.org/topic/56e3be21f5d830306e2f0fd3)
+5.  [Event loop in JavaScript](https://acemood.github.io/2016/02/01/event-loop-in-javascript/)
+6.  [libevent github](https://github.com/libevent/libevent)
+7.  [libevent org](http://libevent.org/)
+8.  [libuv github](https://github.com/libuv/libuv)
+9.  [libuv org](http://libuv.org/)
+10.  [Node.js挖掘系列](https://cnodejs.org/topic/5594ada26ba28efa30a604e2)
 
