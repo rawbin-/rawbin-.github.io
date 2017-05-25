@@ -77,7 +77,7 @@ IE没有将端口作为同源的组成部分，原因是IE历史垄断的市场�
 
 ### 惹不起躲得起
 
-如果可以的话，可以将Web应用部署在同一个域下，这样可以很好的回避跨域的问题。
+如果可以的话，可以将Web应用部署在同一个域下，这样可以很好的回避跨域的问题，我们常用的通过本域的后端接口包装，避免跨域的问题。
 
 ### 使用反向代理
 
@@ -167,12 +167,14 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 + CORS 
 + P3P
 + WebSocket
++ fetch
 
 ##### POST
 + Form提交
 + CORS
 + P3P
 + WebSocket
++ fetch
 
 ### 单向通信 VS 双向通信
 
@@ -182,6 +184,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 + Form提交
 + CORS 
 + P3P
++ fetch
 
 #### 双向通信
 + window.name
@@ -196,6 +199,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 + window.name
 + document.domain
 + postMessage
++ fetch
 
 #### 需要后端配合
 + JSONP
@@ -226,6 +230,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 + CORS
 + postMessage
 + WebSocket
++ fetch
 
 ## 实例详解
 
