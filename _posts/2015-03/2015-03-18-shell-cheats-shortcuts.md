@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Bash Shell Linux命令行操作快捷键"
-categories: [编程语言]
+title:  "Bash Shell 命令行操作快捷键"
+categories: [开发环境,开发工具,编程语言]
 tags: [Linux, Shell,快捷键]
 ---
 
@@ -9,7 +9,7 @@ tags: [Linux, Shell,快捷键]
 
 快速、高效 ^_^
 
---- 
+---
 
 ## 方向移动
 + **Ctrl+A** 光标移动到行首，相当于Home键
@@ -48,36 +48,44 @@ tags: [Linux, Shell,快捷键]
 
 ## 命令相关快捷操作
 + !! 执行上一条命令
-+ 
-        apt-get install xxx
-        sudo !! #equals 'sudo apt-get install xxx'
+```
+apt-get install xxx
+sudo !! #equals 'sudo apt-get install xxx'
+```
 
 + !xxx 执行最近的以xxx开头的命令
 + !xxx:p 打印最近的以xxx开头的命令
 + !$ 上一条命令的最后一个参数
-+ 
-        cat /etc/passwd
-        vim !$ #equals 'vim /etc/passwd'
+```
+cat /etc/passwd
+vim !$ #equals 'vim /etc/passwd'
+```
 + !$:p 打印上一条命令的最后一个参数
 + !* 上一条命令的所有参数
 + !*:p 打印上一条命令的所有参数
 + ^xxx 删除上一条命令中的第一个xxx并执行
-        
-        cat /etc/password
-        ^or #equals 'cat /etc/passwd'
+```
+cat /etc/password
+^or #equals 'cat /etc/passwd'
+```
 + ^xxx^yyy 将上一条命令中的第一个xxx替换为yyy并执行                 
 + ^xxx^yyy^ 将上一条命令中的所有xxx替换为yyy并执行
 
 ## 其他
+
 + **Ctrl+S** 锁定终端
 + **Ctrl+Q** 解锁终端
 + **Ctrl+I** 自动补全，相当于Tab键
 + **Ctrl+J** 相当于Enter
 + **Ctrl+O** 相当于Enter
++ [explainshell.com shell命令文档解释](https://explainshell.com/)
 
 ## 参考文档：
-0. [Linux Shell 快捷键1][1]
-0. [Linux Shell 快捷键2][2]
+0. [高级Bash编程指南](http://tldp.org/LDP/abs/html/index.html)
+1. 《Linux与Unix Shell编程指南》
+2. 《Linux 命令行和Shell脚本编程宝典》
+3. [Linux Shell 快捷键1][1]
+4. [Linux Shell 快捷键2][2]
 
 
 [1]: http://blog.chinaunix.net/uid-361890-id-342066.html Linux Shell 快捷键

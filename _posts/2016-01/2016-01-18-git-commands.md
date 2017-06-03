@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "git操作命令小结"
+title: "Git常用操作命令梳理"
 categories: [开发技术,开发环境,Git]
 tags: [git,github]
 ---
@@ -66,13 +66,13 @@ git stash pop [stash@{n}] 取出一个特定的暂存
 ##### 方法一
 
 ```
-git log -L m,n:FILE-NAME 	查看文件的m到n行之间的变化
+git blame FILE-NAME -L m,n 查看m到n行之间的最后一次变更的信息
 ```
 
 ##### 方法二
 
 ```
-git show :/KEY-WORD 查找关键信息的变更，这里给出的是一个大致信息，比如是在其他分支做出的改动
+git log -L m,n:FILE-NAME 	查看文件的m到n行之间的变化
 ```
 
 ##### 方法三
@@ -87,21 +87,90 @@ git bisect good|bad 持续的给结果，最后会定位到一个版本，结果
 ##### 方法四
 
 ```
-git blame FILE-NAME -L m,n 查看m到n行之间的最后一次变更的信息
+git show :/KEY-WORD 查找关键信息的变更，这里给出的是一个大致信息，比如是在其他分支做出的改动
 ```
+
+
+
+### 修改历史
+
++ 版本信息的引用
+
+  + 相对一个版本 比如 HEAD^
+  + 相对N个版本 比如 HEAD@{10}
+  + 相对N个版本 比如 HEAD~10
+  + 相对N个版本 比如 HEAD@{5}^~5
+
++ 版本区间 
+
+  + A..B, A不可达&&B可达的的范围，如果是同一条主线上，则是前开后闭区间，否则视情况而定
+  + ^A B 等同于 A..B
+  + B —not A 等同于 A..B
+  + A…B  A可达&&B可达除掉AB都可达的范围，前后闭区间
+
+  ​
+
+#### 修改已经提交的log信息
+
+##### 修改上次的log
+
+```
+git commit --amend
+git push -f 谨慎谨慎，只有提交了远端仓库才需要这个
+```
+
+##### 合并上几次的log,原来五条
+
+```
+git reset HEAD^^~3 在当前分支回退五个版本的提交历史
+git commit -m "combined commit" 
+git push -f git push -f 谨慎谨慎，只有提交了远端仓库才需要这个
+```
+
+#### 修改提交内容的历史
+
++ 现有的版本A,B,C,D,E
++ 删掉C的提交内容
+
+##### 使用revert
+
+```
+git revert C 简单，但会增加一次提交，而且C原来的提交也会留在历史中
+```
+
+##### 使用rebase
+
+```
+git rebase -i B  删掉想要删掉的C提交，然后保存
+```
+
+##### 使用cherry-pick
+
+```
+git checkout B 先切到D之前的提交
+git cherry-pick C..E 将后面的提交再拉进来
+git checkout -b xxx 放入新的分支中
+```
+
+
 
 
 
 ### 参考资料
 
 1. [git docs](https://git-scm.com/docs)
-2. [github漫游指南](http://github.phodal.com/)
-3. [github漫游指南](https://github.com/phodal/github-roam)
-4. [github秘籍](http://blog.csdn.net/x805433354/article/details/41214895)
-5. [git工作流指南](http://blog.jobbole.com/76843/)
-6. [github help](https://help.github.com/)
-7. [怎样使用github](http://www.zhihu.com/question/20070065)
-8. [github使用指南](https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97)
-9. [github中fork和更新原作者变更](http://my.oschina.net/u/2306127/blog/369167?fromerr=TmdohiO0)
+2. [Pro Git 2nd](https://git-scm.com/book/en/v2)
+3. [git community book中文](http://git.seyren.com/index.html)
+4. 《Git权威指南》
+5. 《版本控制之道-使用Git》
+6. [git 相关书籍](https://git-scm.com/doc/ext)
+7. [github漫游指南](http://github.phodal.com/)
+8. [github漫游指南](https://github.com/phodal/github-roam)
+9. [github秘籍](http://blog.csdn.net/x805433354/article/details/41214895)
+10. [git工作流指南](http://blog.jobbole.com/76843/)
+11. [github help](https://help.github.com/)
+12. [怎样使用github](http://www.zhihu.com/question/20070065)
+13. [github使用指南](https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97)
+14. [github中fork和更新原作者变更](http://my.oschina.net/u/2306127/blog/369167?fromerr=TmdohiO0)
 
 
