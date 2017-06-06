@@ -44,14 +44,18 @@ tags: [JavaScript, Selenium, Headless Chrome]
 
 ### Web自动化的需求
 
-- 自动化页面加载爬取
-- 自动化也没回归测试
+- 自动化页面加载、爬取、执行
+  - 数据抓取
+  - 页面检测
+- 自动化页面测试
+  - 功能测试
+  - 回归测试
 
 
 
 ### 举步维艰的PhantomJS
 
-#### [PhantomJS](http://phantomjs.org/)做什么 
+#### [PhantomJS](http://phantomjs.org/)做什么
 
 + [配合各种测试框架（Jasmine、QUnit、Mocha、WebDriver等）进行功能测试](http://phantomjs.org/headless-testing.html)
 + [可编程页面内容截图和图片获取](http://phantomjs.org/screen-capture.html)
@@ -81,6 +85,19 @@ tags: [JavaScript, Selenium, Headless Chrome]
   + 在没有物理输入和显示设备的机器上运行
   + 这里可以简单理解为 虚拟显示器或者显示器模拟器
 + 也支持Headless实现，实现跟Web标准有差异
++ 通过[ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/)(WebDriver的Chrome实现)的来操作Chrome，需要依赖ChromeDriver的更新
+  + 可以在[ChromeDriver下载](https://sites.google.com/a/chromium.org/chromedriver/downloads)查看支持的Chrome版本
+  + 目前支持Chrome v56-58，而Headless Chrome在Chrome 59才支持
+
+
+
+### [其他类似的实现](https://github.com/dhamaniasad/HeadlessBrowsers)
+
++ PhantomJS 基于Webkit
++ SlimerJS 基于Gecko
++ CasperJS 驱动PhantomJS 和 SlimerJS
++ trifleJS 使用V8和.Net WebBrowser实现的无界面 IE
++ 其他自行实现类浏览器功能的库
 
 
 
@@ -125,3 +142,4 @@ tags: [JavaScript, Selenium, Headless Chrome]
 26. [Headless Browser Testing with Chrome and Firefox](http://fgimian.github.io/blog/2014/04/06/headless-browser-testing-with-chrome-and-firefox/)
 27. [X Window System](https://en.wikipedia.org/wiki/X_Window_System)
 28. [HTMLUnitDriver & PhantomJS for Selenium Headless Testing](http://www.guru99.com/selenium-with-htmlunit-driver-phantomjs.html)
+29. [RUNNING SELENIUM WITH THE NEW HEADLESS CHROME](https://intoli.com/blog/running-selenium-with-headless-chrome/)
