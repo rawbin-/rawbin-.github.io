@@ -19,4 +19,5 @@ tags: [性能优化,性能调优]
 3. [使用HTML5监测网站性能](https://www.biaodianfu.com/html5-performance.html)
 4. [关于web性能的思考与分享［08］雅虎14条军规—高性能网站建设指南](http://blog.csdn.net/ImagineCode/article/details/50360368)
 5. [关于web性能的思考与分享［03］——常用性能分析工具](http://blog.csdn.net/ImagineCode/article/details/49404065)
+6. [Effective前端10：用好Chrome devtools](http://www.renfed.com/2017/05/02/effectiv-chrome-devtools/)
 

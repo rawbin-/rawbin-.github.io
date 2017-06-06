@@ -13,13 +13,15 @@ tags: [JavaScript, selenium, appium,phantomjs,slimerjs,casperjs]
 
 +  [selenium](https://github.com/SeleniumHQ/selenium)
 +  [appium](https://github.com/appium/appium)
-+ [dalekjs](http://dalekjs.com/)
++  [dalekjs](http://dalekjs.com/)
 
-#### 无界面浏览器 [参考](https://github.com/dhamaniasad/HeadlessBrowsers)
+#### 无界面浏览器 [参考](https://github.com/dhamaniasad/HeadlessBrowsers) 
 
 + [phantomjs](https://github.com/ariya/phantomjs) Webkit (维护难度大)
 
 + [slimerjs](https://github.com/laurentj/slimerjs) Gecko
+
++ [triilejs](http://triflejs.org/) V8
 
 + [casperjs](https://github.com/casperjs/casperjs) Webkit + Gecko
 
@@ -128,5 +130,7 @@ tags: [JavaScript, selenium, appium,phantomjs,slimerjs,casperjs]
 26. [travis CI](https://docs.travis-ci.com/)
 
 27. [teamcity](https://www.jetbrains.com/teamcity/)
+
+28. [HTMLUnitDriver & PhantomJS for Selenium Headless Testing](http://www.guru99.com/selenium-with-htmlunit-driver-phantomjs.html)
 
     ​
