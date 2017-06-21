@@ -123,7 +123,7 @@ optmize compare: 383.104ms
 
 #### 找工具
 
-+ 搜索`v8 perf tool`  Google 第一条得到一个工具列表
++ 搜索`v8 perf tool`  Google 第一条得到一个[工具列表](https://github.com/thlorenz/v8-perf/issues/4)
 + 筛选掉其中内存和CPU相关的，剩下`irhydra`可以做中间代码分析的
 + 我们就是想看看咱们的源码被转成什么样的代码来执行了
 
@@ -347,33 +347,35 @@ node --prof-process isolate-xxx-v8.log > processed.log
 
 2. 《Static Single Assignment Book》
 
-3. [V8源码](https://github.com/v8/v8/blob/master/src/crankshaft/hydrogen-instructions.h)
+3. [V8 perf tool](https://github.com/thlorenz/v8-perf/issues/4)
 
-4. [IRHydra](http://mrale.ph/irhydra/)
+4. [V8源码](https://github.com/v8/v8/blob/master/src/crankshaft/hydrogen-instructions.h)
 
-5. [IRHydra github](https://github.com/mraleph/irhydra)
+5. [IRHydra](http://mrale.ph/irhydra/)
 
-6. [v8: a tale of two compilers](https://wingolog.org/archives/2011/07/05/v8-a-tale-of-two-compilers)
+6. [IRHydra github](https://github.com/mraleph/irhydra)
 
-7. [Optimizing for V8 - Hydrogen](https://floitsch.blogspot.com/2012/03/optimizing-for-v8-hydrogen.html)
+7. [v8: a tale of two compilers](https://wingolog.org/archives/2011/07/05/v8-a-tale-of-two-compilers)
 
-8. [v8-bailout-reasons](https://github.com/vhf/v8-bailout-reasons)
+8. [Optimizing for V8 - Hydrogen](https://floitsch.blogspot.com/2012/03/optimizing-for-v8-hydrogen.html)
 
-9. [Optimization-Killers](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers)
+9. [v8-bailout-reasons](https://github.com/vhf/v8-bailout-reasons)
 
-10. [A tour of V8: Crankshaft, the optimizing compiler](http://jayconrod.com/posts/54/a-tour-of-v8-crankshaft-the-optimizing-compiler)
+10. [Optimization-Killers](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers)
 
-11. [V8 之旅：优化编译器 ](http://newhtml.net/v8-crankshaft-the-optimizing-compiler/)
+11. [A tour of V8: Crankshaft, the optimizing compiler](http://jayconrod.com/posts/54/a-tour-of-v8-crankshaft-the-optimizing-compiler)
 
-12. [[WebKit\] JavaScriptCore解析--高级篇(一) SSA (static single assignment)](http://blog.csdn.net/horkychen/article/details/9075827)
+12. [V8 之旅：优化编译器 ](http://newhtml.net/v8-crankshaft-the-optimizing-compiler/)
 
-13. [GNU Compiler Collection (GCC) Internals](https://gcc.gnu.org/onlinedocs/gccint/index.html#Top)
+13. [[WebKit\] JavaScriptCore解析--高级篇(一) SSA (static single assignment)](http://blog.csdn.net/horkychen/article/details/9075827)
 
-14. [Analysis and Optimization of GIMPLE tuples](https://gcc.gnu.org/onlinedocs/gccint/Tree-SSA.html#Tree-SSA)
+14. [GNU Compiler Collection (GCC) Internals](https://gcc.gnu.org/onlinedocs/gccint/index.html#Top)
 
-15. [static single assignment for functional programmers](https://wingolog.org/archives/2011/07/12/static-single-assignment-for-functional-programmers)
+15. [Analysis and Optimization of GIMPLE tuples](https://gcc.gnu.org/onlinedocs/gccint/Tree-SSA.html#Tree-SSA)
 
-16. [a closer look at crankshaft, v8's optimizing compiler](https://wingolog.org/archives/2011/08/02/a-closer-look-at-crankshaft-v8s-optimizing-compiler)
+16. [static single assignment for functional programmers](https://wingolog.org/archives/2011/07/12/static-single-assignment-for-functional-programmers)
+
+17. [a closer look at crankshaft, v8's optimizing compiler](https://wingolog.org/archives/2011/08/02/a-closer-look-at-crankshaft-v8s-optimizing-compiler)
 
      ​
 
