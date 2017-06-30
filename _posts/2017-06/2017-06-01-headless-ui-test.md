@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Headless UI 自动化测试实践"
-categories: [Web开发,前端开发,JavaScript]
-tags: [JavaScript, Selenium, Headless Chrome]
+categories: [Web开发,前端开发,JavaScript,自动化]
+tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
 ---
 
 [TOC]
@@ -90,7 +90,6 @@ tags: [JavaScript, Selenium, Headless Chrome]
   + 目前支持Chrome v56-58，而Headless Chrome在Chrome 59才支持
 
 
-
 ### [其他类似的实现](https://github.com/dhamaniasad/HeadlessBrowsers)
 
 + PhantomJS 基于Webkit
@@ -116,34 +115,35 @@ tags: [JavaScript, Selenium, Headless Chrome]
 
 1. [Headless Chrome ReadMe](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
 2. [Getting Started with Headless Chrome](https://developers.google.cn/web/updates/2017/04/headless-chrome)
-3. [相关工具 awesome-chrome-devtools](https://github.com/ChromeDevTools/awesome-chrome-devtools)
-4. [技能树升级——Chrome Headless模式](https://segmentfault.com/a/1190000009071883)
-5. [Headless Chrome入门](https://baijiahao.baidu.com/po/feed/share?wfr=spider&for=pc&context=%7B%22sourceFrom%22%3A%22bjh%22%2C%22nid%22%3A%22news_3637406010040831860%22%7D)
-6. [初探Headless Chrome](https://zhuanlan.zhihu.com/p/27100187)
-7. [Lighthouse](https://developers.google.cn/web/tools/lighthouse/)
-8. [Showcase Chrome Debugging Protocol Clients](https://developer.chrome.com/devtools/docs/debugging-clients)
-9. [依赖chrome-remote-interface的项目](https://www.npmjs.com/browse/depended/chrome-remote-interface)
-10. [ChromeDevToolsProtocol](https://github.com/ChromeDevTools/devtools-protocol)
-11. [chrome devtool protocol](https://chromedevtools.github.io/devtools-protocol/)
-12. [Chrome DevTools Protocol wiki](https://sourceforge.net/p/chromedevtools/wiki/ChromeDevToolsProtocol/)
-13. [chrome-remote-interface](https://github.com/cyrus-and/chrome-remote-interface/)
-14. [WebKitProtocol](https://sourceforge.net/p/chromedevtools/wiki/WebKitProtocol/)
-15. [5 Reasons I Chose Selenium over PhantomJS](http://www.chrisle.me/2013/08/5-reasons-i-chose-selenium-over-phantomjs/)
-16. [Running Headless Selenium with Chrome](http://www.chrisle.me/2013/08/running-headless-selenium-with-chrome/)
-17. [Headless Chrome Architecture](https://docs.google.com/document/d/11zIkKkLBocofGgoTeeyibB2TZ_k7nR78v7kNelCatUE/edit#heading=h.1mcyhpdqtjob)
-18. [vagrant](https://www.vagrantup.com/)
-19. [Vagrant 基础全面解析](http://www.cnblogs.com/kelsen/p/6247005.html)
-20. [实战Chrome Headless数据抓取](http://www.aichengxu.com/wangluo/24649358.htm)
-21. [使用 Headless Chrome 进行页面渲染](https://zhuanlan.zhihu.com/p/26810049)
-22. [Google 工程师带你入门 Headless Chrome](http://qkxue.net/info/216803/Google-Headless-Chrome)
-23. [FEX Chrome 远程调试协议分析与实战](http://fex.baidu.com/blog/2014/06/remote-debugging-protocol/)
-24. [【翻译】怎么在 macOS 上安装和使用 Headless Chrome](http://www.jianshu.com/p/8b1a9d465ae4)
-25. [How to install and use Headless Chrome on OSX](https://objectpartners.com/2017/04/13/how-to-install-and-use-headless-chrome-on-osx/)
-26. [Chromium 命令行参数说明文档](http://www.chromium.org/developers/how-tos/run-chromium-with-flags)
-27. [Chromium 命令行参数列表](http://peter.sh/experiments/chromium-command-line-switches/)
-28. [Chrome 命令行参数开关源码](https://cs.chromium.org/chromium/src/chrome/common/chrome_switches.cc?q=chrome_switches.cc&sq=package:chromium&type=cs)
-29. [Headless Browser Testing With Xvfb](http://tobyho.com/2015/01/09/headless-browser-testing-xvfb/)
-30. [Headless Browser Testing with Chrome and Firefox](http://fgimian.github.io/blog/2014/04/06/headless-browser-testing-with-chrome-and-firefox/)
-31. [X Window System](https://en.wikipedia.org/wiki/X_Window_System)
-32. [HTMLUnitDriver & PhantomJS for Selenium Headless Testing](http://www.guru99.com/selenium-with-htmlunit-driver-phantomjs.html)
-33. [RUNNING SELENIUM WITH THE NEW HEADLESS CHROME](https://intoli.com/blog/running-selenium-with-headless-chrome/)
+3. [Headless Browsers](https://github.com/dhamaniasad/HeadlessBrowsers)
+4. [相关工具 awesome-chrome-devtools](https://github.com/ChromeDevTools/awesome-chrome-devtools)
+5. [技能树升级——Chrome Headless模式](https://segmentfault.com/a/1190000009071883)
+6. [Headless Chrome入门](https://baijiahao.baidu.com/po/feed/share?wfr=spider&for=pc&context=%7B%22sourceFrom%22%3A%22bjh%22%2C%22nid%22%3A%22news_3637406010040831860%22%7D)
+7. [初探Headless Chrome](https://zhuanlan.zhihu.com/p/27100187)
+8. [Lighthouse](https://developers.google.cn/web/tools/lighthouse/)
+9. [Showcase Chrome Debugging Protocol Clients](https://developer.chrome.com/devtools/docs/debugging-clients)
+10. [依赖chrome-remote-interface的项目](https://www.npmjs.com/browse/depended/chrome-remote-interface)
+11. [ChromeDevToolsProtocol](https://github.com/ChromeDevTools/devtools-protocol)
+12. [chrome devtool protocol](https://chromedevtools.github.io/devtools-protocol/)
+13. [Chrome DevTools Protocol wiki](https://sourceforge.net/p/chromedevtools/wiki/ChromeDevToolsProtocol/)
+14. [chrome-remote-interface](https://github.com/cyrus-and/chrome-remote-interface/)
+15. [WebKitProtocol](https://sourceforge.net/p/chromedevtools/wiki/WebKitProtocol/)
+16. [5 Reasons I Chose Selenium over PhantomJS](http://www.chrisle.me/2013/08/5-reasons-i-chose-selenium-over-phantomjs/)
+17. [Running Headless Selenium with Chrome](http://www.chrisle.me/2013/08/running-headless-selenium-with-chrome/)
+18. [Headless Chrome Architecture](https://docs.google.com/document/d/11zIkKkLBocofGgoTeeyibB2TZ_k7nR78v7kNelCatUE/edit#heading=h.1mcyhpdqtjob)
+19. [vagrant](https://www.vagrantup.com/)
+20. [Vagrant 基础全面解析](http://www.cnblogs.com/kelsen/p/6247005.html)
+21. [实战Chrome Headless数据抓取](http://www.aichengxu.com/wangluo/24649358.htm)
+22. [使用 Headless Chrome 进行页面渲染](https://zhuanlan.zhihu.com/p/26810049)
+23. [Google 工程师带你入门 Headless Chrome](http://qkxue.net/info/216803/Google-Headless-Chrome)
+24. [FEX Chrome 远程调试协议分析与实战](http://fex.baidu.com/blog/2014/06/remote-debugging-protocol/)
+25. [【翻译】怎么在 macOS 上安装和使用 Headless Chrome](http://www.jianshu.com/p/8b1a9d465ae4)
+26. [How to install and use Headless Chrome on OSX](https://objectpartners.com/2017/04/13/how-to-install-and-use-headless-chrome-on-osx/)
+27. [Chromium 命令行参数说明文档](http://www.chromium.org/developers/how-tos/run-chromium-with-flags)
+28. [Chromium 命令行参数列表](http://peter.sh/experiments/chromium-command-line-switches/)
+29. [Chrome 命令行参数开关源码](https://cs.chromium.org/chromium/src/chrome/common/chrome_switches.cc?q=chrome_switches.cc&sq=package:chromium&type=cs)
+30. [Headless Browser Testing With Xvfb](http://tobyho.com/2015/01/09/headless-browser-testing-xvfb/)
+31. [Headless Browser Testing with Chrome and Firefox](http://fgimian.github.io/blog/2014/04/06/headless-browser-testing-with-chrome-and-firefox/)
+32. [X Window System](https://en.wikipedia.org/wiki/X_Window_System)
+33. [HTMLUnitDriver & PhantomJS for Selenium Headless Testing](http://www.guru99.com/selenium-with-htmlunit-driver-phantomjs.html)
+34. [RUNNING SELENIUM WITH THE NEW HEADLESS CHROME](https://intoli.com/blog/running-selenium-with-headless-chrome/)

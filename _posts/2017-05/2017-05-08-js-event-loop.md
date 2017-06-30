@@ -99,5 +99,12 @@ tags: [JavaScript,事件循环,event-loop]
 8.  [神之门V8-----Event loop的舞池盛宴(2)](http://blog.csdn.net/u013700510/article/details/53401838)
 9.  [神之门V8-----Event loop的舞池盛宴(3)](http://blog.csdn.net/u013700510/article/details/53413828)
 10.  [Understanding the Node.js Event Loop](https://blog.risingstack.com/node-js-at-scale-understanding-node-js-event-loop/)
-10.  [v8 posts](http://wingolog.org/tags/v8)
+11.  [v8 posts](http://wingolog.org/tags/v8)
+12.  [【翻译】Promises/A+规范](http://www.ituring.com.cn/article/66566)
+13.  [协程与事件循环](http://www.ituring.com.cn/article/207808)
+14.  [Promise的队列与setTimeout的队列有何关联？](https://www.zhihu.com/question/36972010/answer/71338002)
+15.  [Promise 的队列与 setTimeout 的队列的有何关联？](https://juejin.im/entry/5779bb0ac4c971005572ba29)
+16.  [理解Promise简单实现的背后原理](http://bupt-hjm.github.io/2017/03/23/study-promise/)
+17.  [理解 Promise 简单实现的背后原理](http://www.open-open.com/lib/view/open1490320540006.html)
+18.  [Promise介绍--异步篇](https://segmentfault.com/a/1190000007936922)
 

@@ -77,8 +77,15 @@ Promise能使依赖回调扁平化。
 ### 参考资料
 
 1.  《深入浅出NodeJS》
-2. 《JavaScript异步编程-设计快速响应的网络应用》
-3. 《You Don't Know JS-Async & Performance》
-4. [You Don't Know JS: Async & Performance](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance)
-5. 《ES6标准入门》
-6. [ES6入门](http://es6.ruanyifeng.com/)
+2.  《JavaScript异步编程-设计快速响应的网络应用》
+3.  《You Don't Know JS-Async & Performance》
+4.  [You Don't Know JS: Async & Performance](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20&%20performance/README.md#you-dont-know-js-async--performance)
+5.  《ES6标准入门》
+6.  [ES6入门](http://es6.ruanyifeng.com/)
+7.  [【翻译】Promises/A+规范](http://www.ituring.com.cn/article/66566)
+8.  [协程与事件循环](http://www.ituring.com.cn/article/207808)
+9.  [Promise的队列与setTimeout的队列有何关联？](https://www.zhihu.com/question/36972010/answer/71338002)
+10.  [Promise 的队列与 setTimeout 的队列的有何关联？](https://juejin.im/entry/5779bb0ac4c971005572ba29)
+11.  [理解Promise简单实现的背后原理](http://bupt-hjm.github.io/2017/03/23/study-promise/)
+12.  [理解 Promise 简单实现的背后原理](http://www.open-open.com/lib/view/open1490320540006.html)
+13.  [Promise介绍--异步篇](https://segmentfault.com/a/1190000007936922)
