@@ -107,4 +107,5 @@ tags: [JavaScript,事件循环,event-loop]
 16.  [理解Promise简单实现的背后原理](http://bupt-hjm.github.io/2017/03/23/study-promise/)
 17.  [理解 Promise 简单实现的背后原理](http://www.open-open.com/lib/view/open1490320540006.html)
 18.  [Promise介绍--异步篇](https://segmentfault.com/a/1190000007936922)
+19.  [前端基础进阶（十二）：深入核心，详解事件循环机制](http://www.jianshu.com/p/12b9f73c5a4f)
 
