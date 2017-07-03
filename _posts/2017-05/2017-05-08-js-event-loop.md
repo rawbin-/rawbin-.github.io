@@ -108,4 +108,8 @@ tags: [JavaScript,事件循环,event-loop]
 17.  [理解 Promise 简单实现的背后原理](http://www.open-open.com/lib/view/open1490320540006.html)
 18.  [Promise介绍--异步篇](https://segmentfault.com/a/1190000007936922)
 19.  [前端基础进阶（十二）：深入核心，详解事件循环机制](http://www.jianshu.com/p/12b9f73c5a4f)
+20.  [深入理解Node.js：核心思想与源码分析](https://yjhjstz.gitbooks.io/deep-into-node/content/)
+21.  [事件循环](https://yjhjstz.gitbooks.io/deep-into-node/content/chapter5/chapter5-1.html)
+22.  [Timer解读](https://yjhjstz.gitbooks.io/deep-into-node/content/chapter3/chapter3-1.html)
+23.  [Yield魔法](https://yjhjstz.gitbooks.io/deep-into-node/content/chapter3/chapter3-2.html)
 

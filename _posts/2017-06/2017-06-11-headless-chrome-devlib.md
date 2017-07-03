@@ -10,7 +10,6 @@ tags: [JavaScript, Lighthouse, chrome-launcher, Headless Chrome]
 ### 命令行运行Headless Chrome
 
 #### Chrome 安装（需要带梯子）
-
 + [下载地址](https://www.chromium.org/getting-involved/dev-channel)
 + 几个版本的比较
   + Chromium 不是Chrome，但Chrome的内容基本来源于Chromium，这个是开源的版本，小时级别的更新

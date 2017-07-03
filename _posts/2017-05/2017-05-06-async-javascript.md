@@ -89,3 +89,5 @@ Promise能使依赖回调扁平化。
 11.  [理解Promise简单实现的背后原理](http://bupt-hjm.github.io/2017/03/23/study-promise/)
 12.  [理解 Promise 简单实现的背后原理](http://www.open-open.com/lib/view/open1490320540006.html)
 13.  [Promise介绍--异步篇](https://segmentfault.com/a/1190000007936922)
+14.  [Timer解读](https://yjhjstz.gitbooks.io/deep-into-node/content/chapter3/chapter3-1.html)
+15.  [Yield魔法](https://yjhjstz.gitbooks.io/deep-into-node/content/chapter3/chapter3-2.html)
