@@ -112,4 +112,6 @@ tags: [JavaScript,事件循环,event-loop]
 21.  [事件循环](https://yjhjstz.gitbooks.io/deep-into-node/content/chapter5/chapter5-1.html)
 22.  [Timer解读](https://yjhjstz.gitbooks.io/deep-into-node/content/chapter3/chapter3-1.html)
 23.  [Yield魔法](https://yjhjstz.gitbooks.io/deep-into-node/content/chapter3/chapter3-2.html)
+24.  [从setTimeout说事件循环模型](http://web.jobbole.com/83883/)
+25.  [js: 从setTimeout说事件循环模型](http://www.cnblogs.com/Medeor/p/4945687.html)
 
