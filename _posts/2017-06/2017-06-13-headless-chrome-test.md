@@ -15,3 +15,4 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
 1. [使用HeadlessChrome做单页应用SEO](https://github.com/gwuhaolin/blog/issues/8)
 2. [基于HeadlessChrome的网页自动化测试系统-FinalTest](https://github.com/gwuhaolin/blog/issues/7)
 3. [使用 headless chrome进行测试](http://www.ctolib.com/topics-116159.html)
+4. [UI自动化测试之Headless browser容器化](http://www.jianshu.com/p/4a830d22614d)
