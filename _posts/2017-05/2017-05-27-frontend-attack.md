@@ -23,7 +23,14 @@ tags: [Web安全,前端攻防]
 
 7. [XSS 攻击的处理](https://blog.alswl.com/2017/05/xss/)
 
-8. ​
+8. [\[聊一聊系列\]聊一聊WEB前端安全那些事儿](https://segmentfault.com/a/1190000006672214)
 
-   ​
+9. [\[聊一聊系列\]聊一聊WEB前端安全那些事儿](https://segmentfault.com/a/1190000006672214)
+
+  ​
+
+  ​
+
+  ​
+
 

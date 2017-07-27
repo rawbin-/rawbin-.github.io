@@ -103,4 +103,5 @@ tags: ["Flux","Redux","React"]
 28. [redux github](https://github.com/reactjs/redux)
 29. [react-redux github](https://github.com/reactjs/react-redux)
 30. [NB的React](https://github.com/enaqx/awesome-react)
+31. [Redux从设计到源码](https://tech.meituan.com/redux-design-code.html?hmsr=toutiao.io&utm_medium=toutiao.io&utm_source=toutiao.io)
 
