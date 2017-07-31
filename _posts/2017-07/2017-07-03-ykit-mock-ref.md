@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "YKit简明参考手册"
+title: "YKit Mock 简明参考手册"
 categories: [Web开发,前端开发,前端工程化,开发工具]
 tags: [YKit,Mock,模拟数据,测试数据]
 ---
@@ -30,17 +30,17 @@ tags: [YKit,Mock,模拟数据,测试数据]
 
 + 可以自定义配置文件的路径，在YKit的配置文件`ykit.js`或者`ykit-xxx.js`中修改
 
-  ```javascript
-  module.exports = {
-      plugins: [{
-          name: 'mock',
-          options: {
-              confPath: './tests/mockdata/mockconf.js'
-          }
-      }],
-      // ...
-  };
-  ```
+    ```javascript
+    module.exports = {
+        plugins: [{
+            name: 'mock',
+            options: {
+                confPath: './tests/mockdata/mockconf.js'
+            }
+        }],
+        // ...
+    };
+    ```
 
   ​
 
@@ -96,27 +96,54 @@ tags: [YKit,Mock,模拟数据,测试数据]
 
     + mockjson的数据有些区别，如下
 
-      ```json
-      {
-        "ret|0-1":true,
-        "data|2-5":[{
-          "name":"@last @first",
-          "email":"@email",
-          "registerDateTime": "@date('yyyy-MM-dd') @time('HH:mm:ss')"
-        },{
-          "name":"@last @first",
-          "email":"@email",
-          "registerDateTime": "@date('yyyy-MM-dd') @time('HH:mm:ss')"
-        }]
-      }
-      ```
+        ```json
+        {
+          "ret|0-1":true,
+          "data|2-5":[{
+            "name":"@last @first",
+            "email":"@email",
+            "registerDateTime": "@date('yyyy-MM-dd') @time('HH:mm:ss')"
+          },{
+            "name":"@last @first",
+            "email":"@email",
+            "registerDateTime": "@date('yyyy-MM-dd') @time('HH:mm:ss')"
+          }]
+        }
+        ```
 
       ​
 
-+ 目前(2017-07)`ykit-config-mock`插件还不支持jsonp的mock配置
++ YKit对jsonp和直接函数的支持
+
+    ```json
+    module.exports = [{
+         pattern: '/api/list.json',
+         responder:function(req,res){ //两个参数
+             //这里可以有更多其他的处理过程
+                res.end(JSON.stringify({
+                    "ret": true,
+                    "data": [{
+                        "name": "Li Lei",
+                        "email": "lilei@test.com",
+                        "registerDateTime": "2020-10-01 22:11:11"
+                    }, {
+                        "name": "Han Meimei",
+                        "email": "hanmeimei@test.com",
+                        "registerDateTime": "2020-10-01 22:11:11"
+                    }]
+                }))
+         }
+    },{
+         pattern: '/api/list.json',
+         responder: './data/listData.json',
+         jsonp:'jsCallback'  //配置callbackKey
+    }]
+    ```
+
+  ​
+
 
 + YKit Mock比 FEKit Mock强大的地方
-
   + 可以支持多个工程的mock文件，fekit只能同时用一个
   + YKit匹配的URL支持正则匹配到数据路径，这样可以批量造数据而配置一个规则，不用一个一个配
   + Mockjs 比 MockJSON强大得多，支持中文mock数据，可谓青出于蓝而胜于蓝
