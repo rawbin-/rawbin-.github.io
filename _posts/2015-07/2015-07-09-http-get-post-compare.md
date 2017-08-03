@@ -7,12 +7,12 @@ tags: [HTTP,GET,POST]
 ---
 
 
-### GET和POST对比
+### 1 GET和POST对比
 
-#### 相同点
+#### 1.1 相同点
 + 都是HTTP的请求方法，都能携带数据
 
-#### 不同点
+#### 1.2 不同点
 + 职责    
 在HTTP的定义中，GET被用来做只读信息请求，POST用来写数据（这是HTTP协议对协议实现的建议），后来的REST风格也是基于这样的建议来表达的。     
 但这样的建议不是一个强制的要求，所以现有HTTP的使用也是各式各样，使用GET同时做读写数据也行，完全是协议使用者的习惯。
@@ -31,7 +31,7 @@ GET方式的请求会将参数拼接在URL中，所以能很容易的在浏览�
 
 
 
-### 参考资料
+### 2 参考资料
 0. [HTTP 方法：GET 对比 POST](http://www.w3school.com.cn/tags/html_ref_httpmethods.asp)
 0. [浅谈HTTP中Get与Post的区别](http://www.cnblogs.com/hyddd/archive/2009/03/31/1426026.html)
 0. [GET和POST有什么区别？](http://kb.cnblogs.com/page/188928/)

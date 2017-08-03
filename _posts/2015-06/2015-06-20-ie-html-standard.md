@@ -7,7 +7,7 @@ tags: [IE,Internet Explorer, W3C, HTML4]
 ---
 
 
-## 参考资料
+## 1 参考资料
 0. [W3C HTML Link](http://www.w3.org/TR/html401/struct/links.html#linksandss)
 0. [W3C HTML Style](http://www.w3.org/TR/html401/present/styles.html#h-14.2.3)
 0. [Help! My CSS Isn't Working!](http://meyerweb.com/eric/articles/webrev/199904.html)

@@ -11,7 +11,7 @@ tags: [Git]
 
 
 
-###  参考资料
+### 1 参考资料
 
 1. [图解Git](http://marklodato.github.io/visual-git-guide/index-zh-cn.html)
 2. [Pro Git v2中文](https://git-scm.com/book/zh/v2)

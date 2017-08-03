@@ -7,15 +7,15 @@ tags: [Web安全,浏览器]
 
 [TOC]
 
-### 同源策略
+### 1 同源策略
 
 
 
-### 同源策略作用范围
+### 2 同源策略作用范围
 
 
 
-### 参考资料
+### 3 参考资料
 
 1. [扒一扒浏览器的安全机制](https://mp.weixin.qq.com/s?__biz=MjM5NjA0NjgyMA==&mid=2651061832&idx=2&sn=233869f7e47291aa9d7cde78f0d02599&scene=0#wechat_redirect)
 2. 《WEB之困 现代WEB应用安全指南》

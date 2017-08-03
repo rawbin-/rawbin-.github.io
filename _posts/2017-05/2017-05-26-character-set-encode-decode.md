@@ -9,7 +9,7 @@ tags: [Web安全,字符集,编码解码]
 
 
 
-###　参考资料
+### 1 参考资料
 
 1. [字符，字节和编码](http://www.regexlab.com/zh/encoding.htm)
 

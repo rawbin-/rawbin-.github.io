@@ -6,12 +6,12 @@ tags: [JavaScript,兼容性,浏览器]
 
 ---
 
-## 浏览器特性检测
+## 1 浏览器特性检测
 
 绝大部分通过User-Agent的检测方式已经一去不复返了，越来越分不清楚了；特性检测成为现有的JS类库推行的方式，将浏览器分为支持W3C标准的现代浏览器和非标准浏览器。
 下面看看一些特性的坑：
 
-### document.all
+### 1.1 document.all
 
 执行代码：
 
@@ -33,7 +33,7 @@ tags: [JavaScript,兼容性,浏览器]
 + 用document.all 来判断是IE已经不是一个靠谱的方法了
 
 
-### ActiveXObject
+### 1.2 ActiveXObject
 
 执行代码：
 
@@ -78,7 +78,7 @@ tags: [JavaScript,兼容性,浏览器]
     
 在上述浏览器中可以获得正确的结果。    
 
-## 参考资料
+## 2 参考资料
 0. [Can I Use](http://caniuse.com/)
 0. [W3Help兼容性](http://www.w3help.org/zh-cn/causes/index.html)
 0. [W3Help主页](http://www.w3help.org/zh-cn/home/forum.html)

@@ -7,7 +7,7 @@ tags: [JavaScript,asynchronous,promise]
 
 ---
 
-## 参考资料
+## 1 参考资料
 0. [谈谈JavaScript的异步实现](http://blog.csdn.net/a1003671336/article/details/17631131)
 0. [Javascript异步编程的4种方法](http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html)
 0. [探索Javascript异步编程](http://my.oschina.net/taogang/blog/267707)

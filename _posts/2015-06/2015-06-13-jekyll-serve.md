@@ -5,11 +5,11 @@ categories: [开发技术]
 tags: [jekyll,中文路径,中文路径,ruby,webrick,本地预览]
 ---
 
-## 问题描述
+## 1 问题描述
 使用bootstrap jekyll 搭建github blog，想使用`jekyll serve`实现本地预览
 然而预览过程中在浏览器中输入`http://localhost:4000/计算机基础/`,得到的结果是`Sorry this page does not exist =( `,然而输入 `http://localhost:4000/编程语言/`,却能得到正确的file index页面。
 
-## 解决过程
+## 2 解决过程
 在ruby 安装目录下 webrick\httpservlet\filehandler.rb 这个文件中:
 
 调整整个URL Path部分的编码：
@@ -67,7 +67,7 @@ tags: [jekyll,中文路径,中文路径,ruby,webrick,本地预览]
 
 待续...
 
-## 参考资料
+## 3 参考资料
 1. [Jekyll编译中文文件名的网页的本地预览问题](http://www.oschina.net/question/1396651_132154)
 2. [在Windows的CMD中如何设置支持UTF8编码?](http://blog.useasp.net/archive/2012/04/24/how_to_use_UTF8_encoding_in_Windows_CMD.aspx)
 3. [文件编码转换与中文路径的那些事儿](https://ruby-china.org/topics/101)

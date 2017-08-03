@@ -5,14 +5,14 @@ categories: [前端开发,Web开发,开发工具]
 tags: [模块化,工程化,JavaScript,webpack,工作流]
 ---
 
-### 简介
+### 1 简介
 
 + ​
 
 
 
 
-### 参考资料
+### 2 参考资料
 
 0. [grunt 中文文档](http://www.gruntjs.net/getting-started)
 1. [grunt 英文文档](http://gruntjs.com/getting-started)

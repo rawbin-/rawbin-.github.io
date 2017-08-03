@@ -5,10 +5,10 @@ categories: [操作系统]
 tags: [动态链接库, IA32]
 ---
 
-### 解决的问题
+### 1 解决的问题
 在64位linux运行可执行文件的时候，出现no such file or directory，文件明明存在，肯定有其他问题。
 
-### 解决路径
+### 2 解决路径
 + 查看文件的依赖: `ldd xxx` [ldd][0]，发现找不到动态链接库
 + 查看文件信息： `file xxx` [file][4]，发现时32位环境编译的
 + 查看文件加载信息： `readelf -l xxx |grep interpreter` [readelf][4]，发现是存在的
@@ -22,7 +22,7 @@ tags: [动态链接库, IA32]
 
 
 
-### 参考
+### 3 参考
 0. [ bash: ***: No such file or directory][2]
 1. [cannot open shared object file: No such file or directory解决][1]
 2. [Linux 共享库][6]

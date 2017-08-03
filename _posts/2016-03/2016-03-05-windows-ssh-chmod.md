@@ -5,14 +5,14 @@ categories: [开发环境,开发技术,应用技术]
 tags: [windows,ssh,chmod]
 ---
 
-### 错误提示
+### 1 错误提示
 
 在rsync使用过程中，配置相关SSH信息的时候得到的错误信息：
 
 + Permissions are too open
 + Bad owner or permissions
 
-### 解决办法
+### 2 解决办法
 
 在windows 中各种chmod 不好使。
 
@@ -31,7 +31,7 @@ tags: [windows,ssh,chmod]
 
 
 
-### 参考资料
+### 3 参考资料
 
 1. [SSH Keys](http://bodhizazen.net/Tutorials/SSH_keys)
 2. [ssh “permissions are too open” error [closed]](http://stackoverflow.com/questions/9270734/ssh-permissions-are-too-open-error)

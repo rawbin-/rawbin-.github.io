@@ -7,7 +7,7 @@ tags: [JavaScript,React]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [React官方文档](http://facebook.github.io/react/docs/getting-started.html)
 2. [React中文文档](http://reactjs.cn/react/docs/getting-started.html)

@@ -15,7 +15,7 @@ tags: [NodeJS,JavaScript,图片识别]
 
 
 
-### 参考资料
+### 1 参考资料
 
 0. [用node.js实现验证码简单识别](http://think2011.net/2016/01/31/node-ocr/)
 1. [腾讯优图github](https://github.com/TencentYouTu/nodejs_sdk)

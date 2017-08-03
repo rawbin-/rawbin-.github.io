@@ -10,29 +10,29 @@ tags: [GitHub, Jekyll ,博客, 站点, Jekyll Bootstrap]
 
 我喜欢这一点的一个很大的原因是，不需要一张一张的向网页上插图了，直接放入目录，一次提交就完成。
 
-### 大致原理是：  
+### 1 大致原理是：  
 1. github pages 用来给用户或者项目建主页的  
 2. github pages 是用jekyll 这个引擎来解析的  
 3. 我们可以利用这个来解析我们自己的markdown  
 4. 通过jekyll 可以配置一些自动生成的样式和模板  
 
-### 基本部署过程
+### 2 基本部署过程
 
-#### 普通的过程：  
+#### 2.1 普通的过程：  
 1. 安装Ruby，Devkit，Jekyll [参考][5]
 2. 用jekyll 自动生成一个目录结构  (jekyll new xxx)
 3. 将你的md 文件按照_post下的文件命名方式重命名  
 4. 将整个目录一并提交到github  
 5. 通过github pages访问你的博客  
 
-#### 定制页面分隔（带归档分类）
+#### 2.2 定制页面分隔（带归档分类）
 1. 安装Ruby，Devkit，Jekyll [参考][5]  [切换国内淘宝源](https://ruby.taobao.org/)
 2. 部署 Jekyll Bootstrap,参考[Jekyll Bootstrap][11]
 Jekyll Bootstrap 附带了几个实用的命令，可以用rake来构建，具体可参考主目录下的Rakefile
 这样就可以得到一个，能加标签和分类并能分类展示的博客。
 3. 同样是提交到username.github.io这个代码库中
 
-### 参考文档：
+### 3 参考文档：
 0. [github pages jekyll][-1]
 1. [github pages help][0]
 2. [github pages wizard][1]

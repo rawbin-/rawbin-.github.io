@@ -13,7 +13,7 @@ TCP的keep-alive表示检测当前TCP连接状态的配置，看看当前连接�
 
 两者同名，但没有任何关系。不存在说HTTP的keep-alive就是使用底层TCP的keep-alive的说法。因为没有HTTP，TCP照样使用keep-alive。
 
-### 参考资料
+### 1 参考资料
 
 1. [HTTP长连接和短连接原理浅析](http://www.codeceo.com/article/http-long-connect.html)
 2. [ 误人子弟的网络，谈谈HTTP协议中的短轮询、长轮询、长连接和短连接](http://www.mamicode.com/info-detail-1279085.html) 

@@ -7,28 +7,28 @@ tags: [MediaElement,HTML5,Video,Flash,跨域]
 ---
 
 
-### 说明
+### 1 说明
 
 网页中的音视频媒体格式众多，同时在不同的浏览器中的表现经常不一致
 
 mediaelementjs 这个牛逼的组件就是为了给出一个统一的解决方案，来使得不同的浏览器环境尽量做到同样的输出。
 
 
-### 参考：
+### 2 参考：
 + [官方网站](http://mediaelementjs.com/)
 + [github](https://github.com/johndyer/mediaelement)
 
 
-### 资源说明
+### 3 资源说明
 
 + swf文件，用来模拟视频播放界面的
 + svg png gif文件 界面交互相关展示的元素
 + css 
 + js 
 
-### 操作方法
+### 4 操作方法
 
-#### 部署资源
+#### 4.1 部署资源
 
 将上面的几部分资源分别部署到可以访问的位置，根据视频兼容性和经验建议，将视频转为MP4格式将减少许多麻烦,同时MP4的编码格式必须是AVC(H.264),否则看不到图像。
 
@@ -47,7 +47,7 @@ mediaelementjs 这个牛逼的组件就是为了给出一个统一的解决方�
     
     这些都放在本工程下了，看着改吧    
 
-#### 资源引用
+#### 4.2 资源引用
 
 0. 将如下代码放入页面 \( 最好是head区域，[参考](http://mediaelementjs.com/) \)
     
@@ -71,7 +71,7 @@ mediaelementjs 这个牛逼的组件就是为了给出一个统一的解决方�
             }
         });
         
-#### 使用方法
+#### 4.3 使用方法
 
 0. 使用跨域的代码:
 
@@ -147,7 +147,7 @@ mediaelementjs 这个牛逼的组件就是为了给出一个统一的解决方�
      allowDomain 允许参数中指定的域下的脚本或SWF访问当前SWF（加载XML策略文件的或者设置allowDomain的Flash文件）的对象和变量,这种权限开放是单向的。  
      allowInsecureDomain 则允许HTTP协议下的资源访问HTTPS下的资源 
 
-#### 参考文档
+#### 4.4 参考文档
 0. [Creating a cross-browser video player](https://developer.mozilla.org/en-US/Apps/Build/Audio_and_video_delivery/cross_browser_video_player)
 0. [Video on the Web](http://diveintohtml5.info/video.html)
 0. [MediaElement Github](https://github.com/johndyer/mediaelement)

@@ -13,7 +13,7 @@ tags: [复制,粘贴,JavaScript,浏览器,clipboard,copy,paste]
 
 
 
-## 参考资料
+## 1 参考资料
 
 1. [windlow.clipboardData兼容性](http://w3help.org/zh-cn/causes/BX2001)
 2. [检测浏览器是否支持HTML5功能](http://www.ituring.com.cn/article/48985)

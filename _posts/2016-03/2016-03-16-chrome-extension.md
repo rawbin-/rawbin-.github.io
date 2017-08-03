@@ -7,7 +7,7 @@ tags: [chrome,扩展,JavaScript]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [chrome extension dev](https://developer.chrome.com/extensions/getstarted)
 2. [如何从零开始写一个 Chrome 扩展？](http://www.zhihu.com/question/20179805)

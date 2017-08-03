@@ -8,7 +8,7 @@ tags: [前端,加载,部署,优化]
 
 
 
-## 参考资料
+## 1 参考资料
 0. [大公司里怎样开发和部署前端代码？](http://www.zhihu.com/question/20790576)
 1. [前端性能优化指南](http://segmentfault.com/a/1190000003646305?utm_source=tuicool)
 2. [前端性能优化](http://rawbin-.github.io/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/2015/03/05/web-performance/)

@@ -9,16 +9,16 @@ tags: [FEKit,Mock,模拟数据,测试数据]
 
 [TOC]
 
-### FEKit Mock 配置
+### 1 FEKit Mock 配置
 
-#### FEKit Mock 启动方式
+#### 1.1 FEKit Mock 启动方式
 
 + FEkit Mock是`fekit server`的一个额外功能
 + 在工程目录的上一级目录启动
 + `fekit server -m ./projectA/path/to/mockconf.js` 启动mock server。	
 + 可以通过`fekit server -h` 查看相应的帮助，`-m`参数跟`--mock`一致
 
-#### FEKit Mock配置文件
+#### 1.2 FEKit Mock配置文件
 
 + 配置文件后缀可以自己定义，比如常见的`.conf` 或者`.js`，推荐使用`.js`这样在各大编辑器里面能得到更好的高亮支持。
 + 配置规则支持两种方式
@@ -39,7 +39,7 @@ module.exports = {
 }
 ```
 
-#### FEKit Mock支持的Mock数据类型及配置方式
+#### 1.3 FEKit Mock支持的Mock数据类型及配置方式
 
 这里我们通过不同的支持方式来模拟一个list接口(`/api/list.json `)的数据(`listData.json`)，数据如下:
 
@@ -58,7 +58,7 @@ module.exports = {
 }
 ```
 
-##### 对于URL（`/api/list.json`）的匹配规则的配置
+##### 1.3.1 对于URL（`/api/list.json`）的匹配规则的配置
 
 **以下四种任意一种配置方式都可以匹配到这个规则：**
 
@@ -76,7 +76,7 @@ module.exports = {
 }
 ```
 
-##### jsonp规则的配置
+##### 1.3.2 jsonp规则的配置
 
 + 在mock的规则中需要处理jsonp的配置默认为`callback`，可以自定义
 + 在请求的url中需要增加相关的参数`callback`,这两者需要一致
@@ -123,13 +123,13 @@ module.exports = {
 
 
 
-##### 对于数据匹配规则的配置
+##### 1.3.3 对于数据匹配规则的配置
 
-###### json 规则
+###### 1.3.3.1 json 规则
 
 直接返回原数据文件(`listData.json`)内容
 
-###### mockjson 规则
+###### 1.3.3.2 mockjson 规则
 
 参考[mockJSON github](https://github.com/mennovanslooten/mockJSON),网站挂掉了，直接`clone`代码看文档，这个可以更加灵活的配置数据模板，根据模板动态生成随机数据，比如我们这里的规则（`listData.mockjson`）如下:
 
@@ -148,7 +148,7 @@ module.exports = {
 }
 ```
 
-###### js规则
+###### 1.3.3.3 js规则
 
 直接控制`response`对象传入数据，这里可以有更灵活的处理
 
@@ -170,7 +170,7 @@ module.exports = function (req, res, context) {
 }
 ```
 
-###### http 数据转发规则
+###### 1.3.3.4 http 数据转发规则
 
 通过直接获取远端接口数据并将数据作为mock数据返回，这里只支持http，不支持https，因为没有考虑相关的证书输入。
 
@@ -217,7 +217,7 @@ module.exports = {
 
 
 
-### FEKit Proxy 代理配置
+### 2 FEKit Proxy 代理配置
 
 + 配置文件在~/fekit.hosts，使用`fekit server -o `启动代理，会有相应的提示
 
@@ -242,7 +242,7 @@ module.exports = {
 
 
 
-### 参考资料
+### 3 参考资料
 
 ---
 0. [FEKit Mock 文档](https://github.com/rinh/fekit/tree/master/docs/mock)

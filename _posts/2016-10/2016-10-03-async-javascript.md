@@ -15,7 +15,7 @@ tags: [异步,JavaScript,NodeJS]
 
 
 
-### 参考资料
+### 1 参考资料
 
 0. [Node.js的事件驱动模型](http://www.edwardesire.com/2015/05/09/nodejs-event-model/)
 1. [Nodejs的事件驱动模型](http://www.tuicool.com/articles/6FjM3ai)

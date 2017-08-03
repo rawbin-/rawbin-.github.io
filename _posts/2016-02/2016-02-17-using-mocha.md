@@ -11,7 +11,7 @@ tags: [mocha,chai,单元测试]
 
 
 
-### NodeJS环境测试
+### 1 NodeJS环境测试
 
 基本看一遍[Mocha官网](http://mochajs.org/)的说明，就可以玩起来了。
 
@@ -30,7 +30,7 @@ tags: [mocha,chai,单元测试]
 
 
 
-### 浏览器环境测试
+### 2 浏览器环境测试
 
 + 使用mocha init PATH，初始化一个用于浏览器中展示Test Case的资源目录。
 
@@ -42,7 +42,7 @@ tags: [mocha,chai,单元测试]
   ​
 
 
-### 参考资料
+### 3 参考资料
 
 1. [Web页面自动化测试](http://rawbin-.github.io/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/2016/02/08/web-auto-test/)
 2. [JavaScript自动化测试，测试框架](http://rawbin-.github.io/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/2015/06/11/javascript-testing-framework/)

@@ -7,7 +7,7 @@ tags: [node-inspector,fekit,velocity,javascript]
 
 ---
 
-## fekit velocity 渲染结果不理想
+## 1 fekit velocity 渲染结果不理想
 
 fekit 渲染velocity 在低版本使用的是`velocityjs`，从2015年8月中下旬开始的版本开始也使用`velocity.java`
 
@@ -55,9 +55,9 @@ fekit 渲染velocity 在低版本使用的是`velocityjs`，从2015年8月中下
 
 看起来很好改的样子，尤其是对于js来说。
 
-## 使用node-inspector调试fekit 进程
+## 2 使用node-inspector调试fekit 进程
 
-### 安装
+### 2.1 安装
 
 + 安装node-inspector: `npm install node-inspector -g`
 
@@ -69,7 +69,7 @@ fekit 渲染velocity 在低版本使用的是`velocityjs`，从2015年8月中下
 
 + 第二个命令行窗口执行 `node-debug cmd params` (这里会自动打开浏览器并定位到相同地址)
 
-#### 完整的启动
+#### 2.1.1 完整的启动
 
 + 启动node-inspector 监听进程: `node-inspector` 
 
@@ -83,7 +83,7 @@ fekit 渲染velocity 在低版本使用的是`velocityjs`，从2015年8月中下
 
 + 浏览器打开调试地址
 
-#### 调试
+#### 2.1.2 调试
 
 + 切换到刚打开的调试地址
   + 闭上眼睛，默念30遍“一定能出来”，然后等啊等啊等。。。心诚则灵，第一次总不是那么容易~
@@ -93,9 +93,9 @@ fekit 渲染velocity 在低版本使用的是`velocityjs`，从2015年8月中下
 + 打响应位置的断点，比如我们要调试的velocity.js中的某处
 + 下次刷新要调试页面就可到断点处
 
-## 修改相应的源代码
+## 3 修改相应的源代码
 
-### 修改velocityjs 
+### 3.1 修改velocityjs 
 
 代码路径在 `$FEKIT_HOME\node-modules\velocityjs`
 
@@ -122,7 +122,7 @@ fekit 渲染velocity 在低版本使用的是`velocityjs`，从2015年8月中下
 
 至此，我们就可以使用`fekit server -w`的情况下，将数据以JSON序列化的方式渲染到页面。          
 
-### 修改velocity.java 
+### 3.2 修改velocity.java 
 
 代码路径在 `$FEKIT_HOME\node-modules\velocity.java`
 

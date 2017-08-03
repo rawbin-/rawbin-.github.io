@@ -7,7 +7,7 @@ tags: [JavaScript,Node]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [C/C++ Addons](https://nodejs.org/api/addons.html)
 2. [Node.js调用C/C++](http://www.jianshu.com/p/857b4d38aba1)

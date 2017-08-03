@@ -6,7 +6,7 @@ categories: [开发环境]
 tags: [VSS, RSS, PSS, USS, 内存占用参数]
 ---
 
-## 参考
+## 1 参考
 0. [内存耗用：VSS/RSS/PSS/USS][0]
 1. [进程实际内存占用: 私有驻留内存数(Private RSS)介绍 ][1]
 2. [内存耗用：VSS/RSS/PSS/USS][2]

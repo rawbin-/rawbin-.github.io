@@ -16,7 +16,7 @@ JavaScript优化编译器
 + Ignition and TurboFan （ES2015+）
 
 
-### 参考资料
+### 1 参考资料
 
 1.  [WebAssembly与程序编译](http://www.renfed.com/2017/05/21/webassembly/)
 2.  [如何评论浏览器最新的 WebAssembly 字节码技术？](https://www.zhihu.com/question/31415286)

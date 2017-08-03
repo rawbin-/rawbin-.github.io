@@ -7,9 +7,9 @@ tags: [JavaScript, Lighthouse, chrome-launcher, Headless Chrome]
 
 
 
-### 命令行运行Headless Chrome
+### 1 命令行运行Headless Chrome
 
-#### Chrome 安装（需要带梯子）
+#### 1.1 Chrome 安装（需要带梯子）
 + [下载地址](https://www.chromium.org/getting-involved/dev-channel)
 + 几个版本的比较
   + Chromium 不是Chrome，但Chrome的内容基本来源于Chromium，这个是开源的版本，小时级别的更新
@@ -22,7 +22,7 @@ tags: [JavaScript, Lighthouse, chrome-launcher, Headless Chrome]
   + Chromium 、Chrome Canary 和 剩下的任意一个可共存 
 + Windows平台下载下来的可能只是一个在线安装的程序，下载离线版在下载页面的URL里面加参数`standalone=1`
 
-#### 命令行快捷配置（Mac环境）
+#### 1.2 命令行快捷配置（Mac环境）
 
 在`~/.bashrc` 中加入
 
@@ -33,7 +33,7 @@ alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Goo
 
 重新打开终端，我们就可以直接通过 `chrome`打开稳定版的Chrome，`chrome-canary`打开试验版的Chrome了。
 
-#### 命令行启动Chrome 
+#### 1.3 命令行启动Chrome 
 
 + 参考[官方说明](http://www.chromium.org/developers/how-tos/run-chromium-with-flags), Headless模式需要Chrome Version >= 59
 
@@ -75,7 +75,7 @@ alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Goo
 
 + 参考 [Chrome命令行参数列表](http://peter.sh/experiments/chromium-command-line-switches/)
 
-#### 命令行操作Headless Chrome
+#### 1.4 命令行操作Headless Chrome
 
 + 确保已经启动Headless Chrome,并启用了调试Server
 
@@ -134,9 +134,9 @@ alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Goo
 
   ​
 
-### 可编程方式运行Headless Chrome
+### 2 可编程方式运行Headless Chrome
 
-#### 直接通过代码调用命令行启动Chrome 调试Server
+#### 2.1 直接通过代码调用命令行启动Chrome 调试Server
 
 可以通过系统调用的方式直接调用上面的命令行执行方式。这种方式在跨平台的情况下会有一些工作需要做。
 
@@ -160,7 +160,7 @@ chromeLauncher.launch({
 
 
 
-#### 通过客户端的封装组件进行浏览器交互
+#### 2.2 通过客户端的封装组件进行浏览器交互
 
 实现了`ChromeDevTools`协议的[工具库有很多](https://github.com/ChromeDevTools/awesome-chrome-devtools#chrome-devtools-protocol)，`chrome-remote-interface`是NodeJS的实现。
 

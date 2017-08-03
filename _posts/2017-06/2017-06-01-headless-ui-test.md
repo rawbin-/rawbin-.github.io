@@ -7,13 +7,13 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
 
 [TOC]
 
-### 介绍
+### 1 介绍
 
 [Headless](https://en.wikipedia.org/wiki/Headless_software) Chrome是Chrome的无界面模式，提供不带浏览器界面的页面加载，信息抽取，页面内容截图等
 
 操作Chrome使用 Chrome DevTools Protocol，它是Chrome DevTool使用的协议，可以允许通过API来操作Chromium、Chrome和其他基于Blink（基于Webkit）引擎的浏览器，Chrome DevTool团队维护这个API。
 
-#### 现在使用Chrome DevTools Protocol的项目 https://github.com/ChromeDevTools/awesome-chrome-devtools：
+#### 1.1 现在使用Chrome DevTools Protocol的项目 https://github.com/ChromeDevTools/awesome-chrome-devtools：
 
 + ChromeDriver 官方的Selenium/WebDriver的Chrome 实现
 
@@ -42,7 +42,7 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
   + 行为符合Web规范、版本能自动更新
   + Chronium/Chrome团队维护
 
-### Web自动化的需求
+### 2 Web自动化的需求
 
 - 自动化页面加载、爬取、执行
   - 数据抓取
@@ -53,9 +53,9 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
 
 
 
-### 举步维艰的PhantomJS
+### 3 举步维艰的PhantomJS
 
-#### [PhantomJS](http://phantomjs.org/)做什么
+#### 3.1 [PhantomJS](http://phantomjs.org/)做什么
 
 + [配合各种测试框架（Jasmine、QUnit、Mocha、WebDriver等）进行功能测试](http://phantomjs.org/headless-testing.html)
 + [可编程页面内容截图和图片获取](http://phantomjs.org/screen-capture.html)
@@ -64,7 +64,7 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
 
 
 
-#### PhantomJS 问题
+#### 3.2 PhantomJS 问题
 
 + 使用老版本的Webkit，不支持新的Web标准，跟真实浏览器存在差异
 
@@ -76,7 +76,7 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
 
   ​
 
-### 效率低下的Selenium
+### 4 效率低下的Selenium
 
 + 使用[WebDriver](https://www.w3.org/TR/webdriver/)接口和浏览器驱动来操作真实浏览器，速度慢
 + 需要有图形界面，显示设备的支持
@@ -90,7 +90,7 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
   + 目前支持Chrome v56-58，而Headless Chrome在Chrome 59才支持
 
 
-### [其他类似的实现](https://github.com/dhamaniasad/HeadlessBrowsers)
+### 5 [其他类似的实现](https://github.com/dhamaniasad/HeadlessBrowsers)
 
 + PhantomJS 基于Webkit
 + SlimerJS 基于Gecko
@@ -100,7 +100,7 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
 
 
 
-### 相关开发项目
+### 6 相关开发项目
 
 + [Chrome DevTools Protocol 文档](https://chromedevtools.github.io/devtools-protocol/)
 
@@ -111,7 +111,7 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
 
 
 
-### 参考资料
+### 7 参考资料
 
 1. [Headless Chrome ReadMe](https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md)
 2. [Getting Started with Headless Chrome](https://developers.google.cn/web/updates/2017/04/headless-chrome)

@@ -7,22 +7,22 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
 
 
 
-### API 概览 && 编码Tips
+### 1 API 概览 && 编码Tips
 
-#### 文档地址
+#### 1.1 文档地址
 
 + [github Chrome DevTools Protocol](https://github.com/ChromeDevTools/devtools-protocol)  协议本身的仓库 有问题可以在这里提issue
 + [github debugger-protocol-viewer](https://github.com/ChromeDevTools/debugger-protocol-viewer)  协议API文档的仓库
 + [API 文档地址](https://chromedevtools.github.io/devtools-protocol/) API展示的地方，这个经常用
 
-#### 常用API
+#### 1.2 常用API
 
 + Network 网络请求、Cookie、缓存、证书等相关内容
 + Page 页面的加载、资源内容、弹层、截图、打印等相关内容
 + DOM 文档DOM的获取、修改、删除、查询等相关内容
 + Runtime JavaScript代码的执行，这里面我们可以搞事情~~
 
-#### 编码Tips
+#### 1.3 编码Tips
 
 + 我们这里不会直接调用Websocket相关的内容来调用chrome的调试命令，而是用[chrome-remote-interface](https://github.com/cyrus-and/chrome-remote-interface) 这个封装的库来做，它是基于Promise风格的
 + 每一个功能块成为一个单独的`domain`,像Network，Page，DOM等都是不同的`domain`
@@ -33,7 +33,7 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
 
 
 
-### 编码实例
+### 2 编码实例
 
 首先做一个简单的封装，准备API的执行环境，具体可参考前一篇关于工具库的。
 
@@ -67,7 +67,7 @@ const prepareAPI = (config = {}) => {
 
 
 
-#### 打开百度，获取页面性能数据，参考 [Navigation Timing W3C规范](https://www.w3.org/TR/navigation-timing/)
+#### 2.1 打开百度，获取页面性能数据，参考 [Navigation Timing W3C规范](https://www.w3.org/TR/navigation-timing/)
 
 ```javascript
 const wrapper = require('the-wrapper-module');
@@ -123,7 +123,7 @@ wrapper.prepareAPI().then(([chromeInstance, remoteInterface]) => {
 
 
 
-#### 打开百度 搜索`Web自动化 headless chrome`，并爬取首屏结果链接
+#### 2.2 打开百度 搜索`Web自动化 headless chrome`，并爬取首屏结果链接
 
 ```javascript
 const wrapper = require('the-wrapper-module');

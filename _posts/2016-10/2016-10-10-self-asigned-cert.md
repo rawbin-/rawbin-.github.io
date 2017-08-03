@@ -7,7 +7,7 @@ tags: [证书,自签名证书,openssl]
 
 [TOC]
 
-### 证书生成过程介绍
+### 1 证书生成过程介绍
 
 证书的目的是建立特定密钥对与特定实体之间的联系。
 
@@ -28,15 +28,15 @@ tags: [证书,自签名证书,openssl]
 
 
 
-### 常用指令
+### 2 常用指令
 
-#### req 指令
+#### 2.1 req 指令
 
 `req`指令既可以直接生成一个新的自签名证书，也可以根据现有的证书请求和其相应私钥生成自签名根证书。如果是根据现有证书请求生成自签名根证书，那么一定要`-key`选项指定相应的私钥指令才能执行成功。
 
 `req` 指令也可以生成密钥对，但在使用`req` 同时生成密钥对是对密钥对保存和格式有限制（只能是PEM编码，DES3-CBC模式加密）。如果需要更灵活的处理，可以使用`genrsa`或者`gendsa`先生成密钥然后使用`-key`选项指定。
 
-##### 参数选项
+##### 2.1.1 参数选项
 
 + `-new` 指定执行生成新的证书请求，此时会忽略`-in` 指定的内容
 + `-x509` 根据现有的证书请求生成自签名根证书（要求使用`-key`指定证书请求里面的公钥相应的私钥，以便对自签名根证书进行签名）
@@ -68,7 +68,7 @@ tags: [证书,自签名证书,openssl]
 
 
 
-##### 使用实例
+##### 2.1.2 使用实例
 
 + 生成一个新的证书请求，使用新的`rsa`2048位密钥，输出证书请求到`request.pem`，密钥到`private.pem`,私钥口令为`12345678`
 
@@ -96,11 +96,11 @@ openssl req -text -in fd.csr -noout
 
 
 
-#### ca 指令
+#### 2.2 ca 指令
 
 `ca`指令模拟一个完整的CA服务器，它包括签发用户证书，吊销证书，产生CRL及更新证书库等管理操作
 
-##### 参数选项
+##### 2.2.1 参数选项
 
 + `-config` 指定要使用的配置文件，如果没有此选项，则会先查找`OPENSSL_CONF`或者`SSLEAY_CONF`定义的文件名，如果这两个环境变量都没有定义，就使用OpenSSL安装的默认路径，一般是`/usr/local/openssl/openssl.cnf`，具体看安装配置
 + `-startdate` 设置证书的生效时间 格式为`YYMMDDHHMMSSZ`指定`年月日时分秒`，如果没有则使用主配置文件中的`default_startdate`
@@ -119,11 +119,11 @@ openssl req -text -in fd.csr -noout
 + `-out` 选项指定了输出签发好的证书或者新生成的CRL的文件，如果没有使用`-notext`选项，那么证书的明文信息也会输出到`-out`选项指定的文件中
 + `-outdir`选项指定了新生成的证书的输出目录，默认输出到`newecerts`目录，并使用`.pem`作为后缀，都是PEM编码。
 
-#### x509
+#### 2.3 x509
 
 `x509`指令能已各种方式显示一个证书的内容，也可以对一个证书的格式进行转换，还可以签发证书
 
-##### 参数选项
+##### 2.3.1 参数选项
 
 + `-in`
 + `-inform`
@@ -139,7 +139,7 @@ openssl req -text -in fd.csr -noout
 + `-pubkey`
 + `-noout`
 
-##### 使用实例
+##### 2.3.2 使用实例
 
 + 使用现有证书生成证书请求文件 
 
@@ -161,11 +161,11 @@ openssl x509 -text -in fd.crt -noout
 
 
 
-#### crl指令
+#### 2.4 crl指令
 
 `crl`指令用于显示、处理和验证CRL文件信息
 
-##### 参数选项
+##### 2.4.1 参数选项
 
 + `-in`
 + `-inform`
@@ -175,9 +175,9 @@ openssl x509 -text -in fd.crt -noout
 
 
 
-### 开发测试使用自签名证书实例
+### 3 开发测试使用自签名证书实例
 
-#### 生成认证私钥 私钥 私钥
+#### 3.1 生成认证私钥 私钥 私钥
 
 要输入密码
 
@@ -193,11 +193,11 @@ openssl rsa -in qunarzz-dev-enc.key -out qunarzz-dev.key
 
 
 
-#### 生成带有SAN(Subject Alt Name)的自签名证书
+#### 3.2 生成带有SAN(Subject Alt Name)的自签名证书
 
-#### 生成对多个主机有效的自签名证书
+#### 3.3 生成对多个主机有效的自签名证书
 
-#### missing_subjectAltName 问题解决
+#### 3.4 missing_subjectAltName 问题解决
 
 原有的简单自签名证书在chrome里面不好使了，提示 `missing_subjectAltName`
 
@@ -231,7 +231,7 @@ emailAddress => main administrative point of contact for the certificate
 
 
 
-### 参考资料
+### 4 参考资料
 
 0. 《OpenSSL与网络信息安全-基础、结构和指令》
 1. 《OpenSSL攻略》

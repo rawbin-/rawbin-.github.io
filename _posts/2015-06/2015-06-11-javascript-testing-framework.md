@@ -6,7 +6,7 @@ tags: [自动化测试,测试框架,JavaScript]
 ---
 
 
-## 常用的列表
+## 1 常用的列表
 + Intern
 + QUnit
 + Mocha
@@ -16,7 +16,7 @@ tags: [自动化测试,测试框架,JavaScript]
 + Selenium
 + PhantomJS
 
-## 参考资料
+## 2 参考资料
 1. [8个实用的JavaScript测试及校验工具](http://www.daqianduan.com/1845.html)
 2. [寻找更好地JavaScript单元测试工具](http://blog.jobbole.com/30738/)
 3. [JavaScript单元测试](http://www.cnblogs.com/frostbelt/archive/2012/08/03/2622302.html)

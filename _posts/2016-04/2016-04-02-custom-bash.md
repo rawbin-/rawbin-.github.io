@@ -5,7 +5,7 @@ categories: [操作系统,开发环境]
 tags: [Bash,Git,Git Bash]
 ---
 
-### Git命令自动补全
+### 1 Git命令自动补全
 
 - 找到 git-completion.bash
 
@@ -30,7 +30,7 @@ tags: [Bash,Git,Git Bash]
 
 -  [参考资料中文](https://git-scm.com/book/zh/v2/%E5%85%B6%E5%AE%83%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%9A%84-Git-Bash-%E4%B8%AD%E7%9A%84-Git) [参考资料英文](https://git-scm.com/book/en/v2/Git-in-Other-Environments-Git-in-Bash)
 
-### Git显示分支信息
+### 2 Git显示分支信息
 
 - 同样的方法和路径找到git-prompt.sh
 
@@ -55,7 +55,7 @@ tags: [Bash,Git,Git Bash]
 
 
 
-### Bash 终端设置显示颜色
+### 3 Bash 终端设置显示颜色
 
 - 执行命令
 
@@ -90,7 +90,7 @@ tags: [Bash,Git,Git Bash]
 
 
 
-### VIM 设置
+### 4 VIM 设置
 
 - 编辑.vimrc
 
@@ -106,7 +106,7 @@ tags: [Bash,Git,Git Bash]
 
   ​
 
-### Bash 命令提示符显示颜色
+### 5 Bash 命令提示符显示颜色
 
  习惯了gitbash 的彩色，在这里面用着总是不舒服，设置一个彩色的命令提示符。
 

@@ -7,9 +7,9 @@ tags: [React,JavaScript]
 
 
 
-### 参考资料
+### 1 参考资料
 
-#### React 资料
+#### 1.1 React 资料
 1. [一看就懂的ReactJs入门教程（精华版）](http://www.cocoachina.com/webapp/20150721/12692.html)
 2. [React技术栈资料](http://www.ruanyifeng.com/blog/2016/09/react-technology-stack.html)
 3. [React 入门实例教程](http://www.ruanyifeng.com/blog/2015/03/react.html)
@@ -24,7 +24,7 @@ tags: [React,JavaScript]
 12. [React中文导航](http://nav.react-china.org/)
 13. [深入浅出React系列](http://www.infoq.com/cn/dive-into-react)
 
-#### Flux
+#### 1.2 Flux
 
 1. [Redux](http://redux.js.org/)
 2. [详解React Flux架构工作方式](http://www.csdn.net/article/2015-08-31/2825587-react-flux)
@@ -35,14 +35,14 @@ tags: [React,JavaScript]
 7. [React JS 和 FLUX](http://www.gbtags.com/gb/share/3848.htm)
 8. [Flux Redux](https://hulufei.gitbooks.io/react-tutorial/content/data-flow.html)
 
-#### React Native资料   ​
+#### 1.3 React Native资料   ​
 
 1. [React Native Document](http://facebook.github.io/react-native/)
 2. [react-native-lesson](https://github.com/vczero/react-native-lesson)
 3. [React Native入门指南](http://wiki.jikexueyuan.com/project/react-native-lesson/)
 4. [React Native中文版](http://wiki.jikexueyuan.com/project/react-native/)
 
-#### React源码分析
+#### 1.4 React源码分析
 
 1. [React 源码剖析系列 － 解密 setState](https://zhuanlan.zhihu.com/p/20328570)
 2. [React源码剖析系列 － 生命周期的管理艺术](http://www.w3ctech.com/topic/1596)
@@ -51,7 +51,7 @@ tags: [React,JavaScript]
 5. [React源码剖析系列 － 不可思议的react diff](http://www.w3ctech.com/topic/1598)
 6. [React’s diff algorithm](http://calendar.perfplanet.com/2013/diff/)
 
-#### 虚拟DOM
+#### 1.5 虚拟DOM
 
 1.  [怎么更好的理解虚拟DOM?](http://www.zhihu.com/question/29504639?sort=created)
 2.  [全面理解虚拟DOM，实现虚拟DOM](http://www.ituring.com.cn/article/211352)

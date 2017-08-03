@@ -9,7 +9,7 @@ tags: [JavaScript,Selection,Range]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [JS Range HTML文档/文字内容选中、库及应用介绍](http://www.zhangxinxu.com/wordpress/2011/04/js-range-html%e6%96%87%e6%a1%a3%e6%96%87%e5%ad%97%e5%86%85%e5%ae%b9%e9%80%89%e4%b8%ad%e3%80%81%e5%ba%93%e5%8f%8a%e5%ba%94%e7%94%a8%e4%bb%8b%e7%bb%8d/)
 2. [SD9031: 各浏览器对 Range 接口的实现存在差异](http://www.w3help.org/zh-cn/causes/SD9031)

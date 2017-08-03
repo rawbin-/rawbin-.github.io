@@ -7,7 +7,7 @@ tags: [bigpipe,pipeline,http]
 
 ---
 
-## 参考资料
+## 1 参考资料
 0. [HTTP/1.1 Pipelining FAQ](http://www-archive.mozilla.org/projects/netlib/http/pipelining-faq.html)
 0. [Pipeline模式](http://www.cnblogs.com/xiaomin/archive/2011/06/17/2084028.html)
 0. [HTTP Pipeline](http://1023mmmm.blog.163.com/blog/static/3884022520114632021199/)

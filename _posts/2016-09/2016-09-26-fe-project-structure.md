@@ -5,45 +5,45 @@ categories: [前端开发,Web开发,开发工具]
 tags: [模块化,工程化,JavaScript,webpack,打包工具]
 ---
 
-### 项目中经常出现的结构和文件
+### 1 项目中经常出现的结构和文件
 
-#### src
+#### 1.1 src
 
 + 源代码所在目录
 
-#### doc/docs
+#### 1.2 doc/docs
 
 + 设计文档/API等所在目录 
 
-#### dist
+#### 1.3 dist
 
 + 生成的发布文件所在目录
 
-#### test/tests
+#### 1.4 test/tests
 
 + 测试用例,单元测试所在目录
 
-#### demo/example/expmples
+#### 1.5 demo/example/expmples
 
 + 可运行的功能使用样例代码所在目录
 
-#### package.json
+#### 1.6 package.json
 
 + npm项目的主配置文件
 
-#### bower.json
+#### 1.7 bower.json
 
 + 使用bower管理的node项目的包依赖配置文件
 
-#### ChangeLog/ChangeLog.md/CHANGELOG
+#### 1.8 ChangeLog/ChangeLog.md/CHANGELOG
 
 + 项目的版本发布流水账
 
-#### ReadMe/ReadMe.md/README
+#### 1.9 ReadMe/ReadMe.md/README
 
 + 项目的整体概要说明文件，比如说明项目的特性，如何部署，如何使用等
 
-#### `.babelrc`
+#### 1.10 `.babelrc`
 
 + babel转换工具的配置文件，[参考](http://babeljs.io/docs/usage/babelrc/)
 
@@ -62,7 +62,7 @@ tags: [模块化,工程化,JavaScript,webpack,打包工具]
 
 
 
-#### `.npmignore`
+#### 1.11 `.npmignore`
 
 + 在发布到npm源上需要忽略的文件
 
@@ -85,7 +85,7 @@ tags: [模块化,工程化,JavaScript,webpack,打包工具]
 
   ​
 
-#### LICENCE/LICENSE
+#### 1.12 LICENCE/LICENSE
 
 + 项目支持的开源协议许可
 
@@ -105,7 +105,7 @@ tags: [模块化,工程化,JavaScript,webpack,打包工具]
 
   ​
 
-#### `.gitignore`
+#### 1.13 `.gitignore`
 
 + 是git用来区分哪些文件需要不加入版本库（被忽略）的配置文件，只影响未加入版本库的文件，所以这个最好在项目开始就搞好。
 
@@ -262,7 +262,7 @@ tags: [模块化,工程化,JavaScript,webpack,打包工具]
 
   ​
 
-#### `.editorconfig`
+#### 1.14 `.editorconfig`
 
 + 是用来维护同一套代码在不同的编辑环境中的代码风格一致性的配置文件。
 
@@ -322,7 +322,7 @@ tags: [模块化,工程化,JavaScript,webpack,打包工具]
 
 
 
-### 参考资料
+### 2 参考资料
 
 0. [git ignore files](https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#Ignoring-Files)
 1. [gitignore ](https://github.com/github/gitignore)

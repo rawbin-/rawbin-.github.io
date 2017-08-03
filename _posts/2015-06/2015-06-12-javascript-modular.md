@@ -9,7 +9,7 @@ tags: [JavaScript,模块化,模块加载器]
 
 
 
-## 参考资料
+## 1 参考资料
 0. [回顾：前端模块化和AMD、CMD规范（全）](http://www.cnblogs.com/highsea90/p/4383895.html)
 1. [知乎-JS模块加载器加载原理是怎样的?](http://www.zhihu.com/question/21157540)
 2. [前端模块化开发的价值 ](https://github.com/seajs/seajs/issues/547)

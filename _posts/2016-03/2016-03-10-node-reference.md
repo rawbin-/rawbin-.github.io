@@ -7,7 +7,7 @@ tags: [JavaScript,ES6,ECMAScript]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [JavaScript资料](http://www.ruanyifeng.com/blog/javascript/)
 2. [nodejs.org](https://nodejs.org/en/)

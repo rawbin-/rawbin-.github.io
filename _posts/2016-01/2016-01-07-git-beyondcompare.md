@@ -8,7 +8,7 @@ tags: [git,diff,merge,beyondcompare]
 ---
 
 
-### 直接修改.gitconfig 一般修改全局路径下的
+### 1 直接修改.gitconfig 一般修改全局路径下的
     
     [diff]
         tool = bc

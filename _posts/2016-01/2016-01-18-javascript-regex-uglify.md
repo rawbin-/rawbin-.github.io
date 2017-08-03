@@ -5,18 +5,18 @@ categories: [前端开发,Web开发,JavaScript]
 tags: [JavaScript,正则表达式,移除注释]
 ---
 
-### 使用JavaScript正则表达式匹配注释
+### 1 使用JavaScript正则表达式匹配注释
 
-#### 匹配velocity注释
+#### 1.1 匹配velocity注释
 
 + 单行注释 `/##[^\r\n]*/g`
 + 多行注释 `/#*[\s\S]*?*#/g`
 
-#### 匹配HTML注释
+#### 1.2 匹配HTML注释
 
 + 匹配HTML注释保护IE条件注释 `/<!--(?!\s*\[if)[\s\S]*?-->/g`
 
-#### 匹配CSS
+#### 1.3 匹配CSS
 
 + 匹配CSS 标签 `/<(style)[\w\W]*?\1/g`
 
@@ -33,7 +33,7 @@ tags: [JavaScript,正则表达式,移除注释]
 
   ​
 
-### 参考资料
+### 2 参考资料
 
 1. [JavaScript正则表达式及其应用](http://rawbin-.github.io/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/javascript/2015/08/03/javascript-regex/)
 1. [Finding Comments in Source Code Using Regular Expressions](http://blog.ostermiller.org/find-comment)

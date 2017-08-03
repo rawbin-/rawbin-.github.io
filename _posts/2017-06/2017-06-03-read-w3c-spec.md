@@ -12,7 +12,7 @@ tags: [规范,W3C]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [W3C标准](http://www.chinaw3c.org/standards.html)
 2. [W3c标准流程](https://www.w3.org/2017/Process-20170301/#Rectrac-nodeWD)

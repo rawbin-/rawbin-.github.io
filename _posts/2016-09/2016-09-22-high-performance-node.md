@@ -8,7 +8,7 @@ tags: [NodeJS,JavaScript,高性能]
 
 
 
-### 参考资料
+### 1 参考资料
 
 0. [NodeJS的线程和进程](http://www.admin10000.com/document/4196.html)
 1. [node.js cluster多进程、负载均衡和平滑重启](http://www.cnblogs.com/kenkofox/p/5431643.html)

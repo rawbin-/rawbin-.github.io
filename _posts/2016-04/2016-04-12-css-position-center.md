@@ -7,7 +7,7 @@ tags: [CSS,HTML,垂直水平居中]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [盘点8种CSS实现垂直居中水平居中的绝对定位居中技术](http://blog.csdn.net/freshlover/article/details/11579669)
 2. [解读 CSS 布局之水平垂直居中](http://www.tuicool.com/articles/FZzQreV)

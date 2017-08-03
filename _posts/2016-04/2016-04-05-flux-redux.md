@@ -5,9 +5,9 @@ categories: ["前端开发","Web开发"]
 tags: ["Flux","Redux","React"]
 ---
 
-### Flux
+### 1 Flux
 
-#### 组织结构
+#### 1.1 组织结构
 - constant    
   需要在各个模块中都使用的静态条目，比如操作的名称，状态的名称等
 - Component   
@@ -23,7 +23,7 @@ tags: ["Flux","Redux","React"]
 - Api  
   各种获取和发送数据的操作，不多可以直接放Store
 
-#### 基本流程 
+#### 1.2 基本流程 
 - 用户访问界面（View）
 - 用户操作View发出Action
 - Dispacher收到Action，调用Store回调进行相应的数据更新
@@ -31,7 +31,7 @@ tags: ["Flux","Redux","React"]
 - View执行change操作，更新用户界面
 - 整体是View调用Action，Action调用Dispacher，Dispacher调用Store，Store更新View状态，View重新渲染
 
-#### 实现方式
+#### 1.3 实现方式
 - View
   - 绑定操作，在操作中执行对应的Action 
   - 注册事件，在Store触发改变的时候更新状态
@@ -46,9 +46,9 @@ tags: ["Flux","Redux","React"]
   - 触发View的更新行为
 
 
-### Redux
+### 2 Redux
 
-#### 实现方式 
+#### 2.1 实现方式 
 - Action
   - 对应一个个的用户操作，及操作相关的数据
 - Store
@@ -58,7 +58,7 @@ tags: ["Flux","Redux","React"]
 - View
   - 根据状态变更
 
-### Redux 与 Flux的区别
+### 3 Redux 与 Flux的区别
 - Redux干掉了 Flux 中的Dispacher，功能揉到了Store里
 - Redux 单一的Store，Flux 多个Store
 - Redux 内层组件全部用props，state有最外层组件统一管理
@@ -69,9 +69,9 @@ tags: ["Flux","Redux","React"]
 
 
 
-### 参考资料
+### 4 参考资料
 
-####  入门理解
+#### 4.1 入门理解
 
 1. [怎样理顺react，flux，redux这些概念的关系，开发中有必要使用它们吗?](http://gold.xitu.io/entry/576cb79a2e958a0078d08b67)
 2. [怎样理顺react，flux，redux这些概念的关系，开发中有必要使用它们吗?](https://www.zhihu.com/question/47686258)

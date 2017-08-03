@@ -5,7 +5,7 @@ categories: [开发技术]
 tags: [MVC,MVVM,MVP,前端框架]
 ---
 
-## 基础MVC
+## 1 基础MVC
 MVC即Model-View-Controller，进行系统分层的一种架构模式。
 + M即Model 指的是业务层
   该层是应用程序的主体部分，应用程序中的业务数据和业务逻辑都在该层实现。
@@ -23,11 +23,11 @@ MVC即Model-View-Controller，进行系统分层的一种架构模式。
 
 即View依赖于Controller，同时View和Controller都依赖于Model
 
-##　MVC变种
+## 2 MVC变种
 
 在不同的上下文中，有了不同的Controller的实现，MVC功能也有一些调整。
 
-### MVC-1：
+### 2.1 MVC-1：
 + M即Model 指的是业务层
   + 封装应用程序的数据
   + 代表应用程序的状态
@@ -54,7 +54,7 @@ MVC即Model-View-Controller，进行系统分层的一种架构模式。
 流程为：View发送用户事件给Controller，Controller接收用户事件，将其转发给Model，Model处理事件，并通知View更新。
 这种方式无疑增加了View和Model的耦合度，于是为了解耦，有了下面的变种。
 
-### MVC-2
+### 2.2 MVC-2
 + M即Model 指的是业务层
   + 封装应用程序的数据
   + 实现业务功能
@@ -78,15 +78,15 @@ MVC即Model-View-Controller，进行系统分层的一种架构模式。
 流程是：用户交互事件通过Controller来操作Model，Model也通过Controller来控制数据更新。
 这是分层模式想要达到的效果，真正的解耦。
 
-### MVP(Model-View-Presenter)
+### 2.3 MVP(Model-View-Presenter)
 MVP跟MVC-2类似，仅仅是Controller被Presenter替换掉
 
-### MVVM（Model-View-ViewModel）
+### 2.4 MVVM（Model-View-ViewModel）
 MVVM跟MVP类似，区别在于MVVM包含了双向数据绑定，即V上的数据变化会直接反映到（同步到）VM上，反之亦然。
 
 
 
-## 参考资料
+## 3 参考资料
 0. [MVVM模式原理分析及实践][0]
 1. [MVVM架构][1]
 2. [12个JavaScript MVC框架评估][2]

@@ -5,12 +5,12 @@ categories: [Web开发,前端开发,JavaScript]
 tags: [JavaScript,async]
 ---
 
-### 引言
+### 1 引言
 JavaScript除了最常用的回调方式之外，还有好几个语言特性为异步编程提供方便的支持。
 
 
 
-###  Callbacks 回调方式
+### 2 Callbacks 回调方式
 
 + 时间相关
   +  setTimeout/ setInterval 
@@ -37,7 +37,7 @@ Promise能使依赖回调扁平化。
 
 
 
-###  Promise 对将来状态的许诺
+### 3 Promise 对将来状态的许诺
 
 + 链式调用方式，避免回调金字塔
 + 状态可预期(`pending`,`resolved`,`rejected`)
@@ -49,7 +49,7 @@ Promise能使依赖回调扁平化。
 
 
 
-###  Generators 生成器 (协程的实现)
+### 4 Generators 生成器 (协程的实现)
 
 + 使用`*`和`yield`实现代码受控执行
 + 应用程序控制代码执行的调度和切换
@@ -63,7 +63,7 @@ Promise能使依赖回调扁平化。
 
 
 
-### async 函数（ES7）
+### 5 async 函数（ES7）
 
 + 使用`async`和`await`实现流程管理
 + 包装好了的生成器函数，不需要额外的包装代码
@@ -74,7 +74,7 @@ Promise能使依赖回调扁平化。
 
 
 
-### 参考资料
+### 6 参考资料
 
 1.  《深入浅出NodeJS》
 2.  《JavaScript异步编程-设计快速响应的网络应用》

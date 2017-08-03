@@ -6,13 +6,13 @@ tags: [JavaScript,加密,混淆]
 
 ---
 
-### 代码混淆
+### 1 代码混淆
 + 删除注释和多于的空格换行等分隔符
 + 变量和函数名称替换为较短的a,b,c等
 + 压缩代码体积减少流量和提高页面加载性能
 + 降低代码可读性，在一定程度上保护代码、增加攻击难度、提高安全性
 
-### 代码加密
+### 2 代码加密
 + 通过字符串分隔、替换、拼接等方式生成JavaScript源代码文本
 + 通过将代码转换为十进制、十六进制，进行编码等方式来进行加密
 + 通过eval和Function来执行生成的JavaScript源代码文本
@@ -21,18 +21,18 @@ tags: [JavaScript,加密,混淆]
 + 最终始终会生成能被JavaScript引擎解析的JavaScript代码
 + 重要的事情说三遍
 
-### 解决办法
+### 3 解决办法
 
-#### 代码混淆
+#### 3.1 代码混淆
 + 直接通过各大浏览器的　“{}” 代码美化工具进行格式化
 + 通过各种在线的代码美化、格式化工具进行格式化
 
-#### 代码加密
+#### 3.2 代码加密
 + 直接避开加密算法，在代码生成之后在浏览器调试工具中中进行获取
 + 研究下代码加密方法，然后在生成后浏览器调试工具中进行获取
 + 写解密方法，获取代码
 
-### 实例
+### 4 实例
 
 [My97DatePicker](http://www.my97.net/dp/demo/index.htm) 是一个老牌的日期时间选择器，简约而不简单。
 
@@ -162,7 +162,7 @@ My97DatePicker
 
 
 
-### 参考文档
+### 5 参考文档
 0. [使用 estools 辅助反混淆 Javascript](http://blog.knownsec.com/2015/08/use-estools-aid-deobfuscate-javascript/)
 0. [JS混淆还原](http://www.ralap.net/it/web/7-js-confusion-restore.html)
 0. [JS混淆代码还原－JS反混淆：利用JS进行赋值实现](http://www.cnblogs.com/vnii/archive/2011/12/14/2287504.html)

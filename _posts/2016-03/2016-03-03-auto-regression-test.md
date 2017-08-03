@@ -11,7 +11,7 @@ tags: [Node,NodeJS,BackstopJS,PhantomCSS,回归测试,自动化测试]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [7 天打造前端性能监控系统](http://fex.baidu.com/blog/2014/05/build-performance-monitor-in-7-days/)
 2. [前端自动化测试探索](http://fex.baidu.com/blog/2015/07/front-end-test/)

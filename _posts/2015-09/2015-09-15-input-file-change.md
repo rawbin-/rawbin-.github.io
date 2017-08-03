@@ -7,13 +7,13 @@ tags: [input,file,change,JavaScript]
 
 
 
-### 问题来源
+### 1 问题来源
 
 使用input type=“file”做文件上传，选择文件后自动上传，绑定input的change事件。
 
 在相邻两次选择同一个文件时，不会触发change事件，原因是两次的值没有发生变化。
 
-### 解决办法
+### 2 解决办法
 
 在选择文件的时候，清空原来的值，每次自动触发change事件。
 

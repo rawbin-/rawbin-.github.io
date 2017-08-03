@@ -5,7 +5,7 @@ categories: [前端开发,Web开发,开发工具]
 tags: [模块化,工程化,JavaScript,webpack,打包工具]
 ---
 
-### 组件化
+### 1 组件化
 
 + 一个组件的构成部分大致可以分为三部分
   + 组件交互逻辑
@@ -14,14 +14,14 @@ tags: [模块化,工程化,JavaScript,webpack,打包工具]
 
 
 
-### CSS 模块化
+### 2 CSS 模块化
 
 + 参考这篇[简单易懂的CSS Modules](https://segmentfault.com/a/1190000004990977)
 + 参考工具[postcss](https://github.com/postcss/postcss)
 
 
 
-### 参考资料
+### 3 参考资料
 
 0. [AlloyTeam：致我们终将组件化的 Web (多图)](https://www.oschina.net/news/68367/we-will-be-componentized-web)
 1. [W3C Web Components](https://www.w3.org/standards/techs/components#w3c_all)

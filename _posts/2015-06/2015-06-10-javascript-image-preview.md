@@ -5,12 +5,12 @@ categories: [开发技术]
 tags: [JavaScript,图片预览,图片上传]
 ---
 
-# 文件上传预览概述
+# 1 文件上传预览概述
 在现在的Web开发中不可避免的会做一个图片预览的功能，比如在上传图片的情况下，一个很简单的办法就是讲图片上传至服务器之后，再将文件的URL返回回来，然后异步通过这个URL加载刚刚上传的图片，实现图片的预览，很明显的在这个过程中两次Web请求，一次发送文件，一次下载文件，到最后这个文件如果在客户端被删除（取消上传，弃用这次的上传），这整个过程都白费了。我们希望能够在图片上传之前就能进行图片的预览，这样就避免了不必要的网络请求和时间等待。下面的内容就围绕这个话题展开。
 
-# 本地图片预览
+# 2 本地图片预览
 
-## IE中的本地图片预览（以本地文件的形式访问）
+## 2.1 IE中的本地图片预览（以本地文件的形式访问）
 在IE中能够很方便的实现本地网页的图片预览，IE中的`<input type="file" id="file_upload">`中的File对象中的value属性，存储的是要上传的文件的完整路径，在IE中只需要将这个完整路径作为一个Image对象的src属性，就能实现在这个Image对象中对这个上传的图片进行预览。
 
 在IE中有如下方式:
@@ -27,7 +27,7 @@ tags: [JavaScript,图片预览,图片上传]
 两种方式获取到的路径直接给img src 可以进行本地图片的预览（可以加上file:///协议，效果一样），这两种方式对IE7、8、9、10、11下有效。
 
 
-## Firefox和Chrome的本地图片预览
+## 2.2 Firefox和Chrome的本地图片预览
 在Firefox和Chrome中使用如下方式:
 
     var url = window.URL.createObjectURL(document.getElementById(sourceId).files[0]) 
@@ -38,9 +38,9 @@ tags: [JavaScript,图片预览,图片上传]
 这种使用Firefox File对象的getAsDataURL的方式，已经在Firefox 7.0以后弃用，[Firefox DOM File]("https://developer.mozilla.org/en-US/docs/Web/API/File")，可能原因是在HTML5标准中有相关的定义。
 
 
-# 服务端图片预览
+# 3 服务端图片预览
 
-## IE中的本地图片预览（以服务端URL的形式访问）
+## 3.1 IE中的本地图片预览（以服务端URL的形式访问）
  上面提到的本地预览的方式，在以服务端URL的形式方式下没有预览的效果，需要使用如下滤镜的形式。 
    
     function PreviewImg(imgFile){ 
@@ -55,7 +55,7 @@ tags: [JavaScript,图片预览,图片上传]
 
 上面的实现可以在IE7、8、9下运行，在IE10、11下无效。
 
-## Firefox和Chrome的本地图片预览
+## 3.2 Firefox和Chrome的本地图片预览
 在Firefox和Chrome中使用如下方式:
 
     var url = window.URL.createObjectURL(document.getElementById(sourceId).files[0]) 
@@ -65,9 +65,9 @@ tags: [JavaScript,图片预览,图片上传]
 
 这种使用Firefox File对象的getAsDataURL的方式，已经在Firefox 7.0以后弃用，[Firefox DOM File]("https://developer.mozilla.org/en-US/docs/Web/API/File")，可能原因是在HTML5标准中有相关的定义。
 
-# 一个浏览器兼容的实现方案（兼容IE7、8、9、10、11，Firefox，Chrome）
+# 4 一个浏览器兼容的实现方案（兼容IE7、8、9、10、11，Firefox，Chrome）
 
-## 基础
+## 4.1 基础
 + 在Chrome中，window.URL和window.webkitURL都存在
 + 在Firefox中，仅Window.URL存在
 + 在IE11（Edge），10中仅window.URL存在
@@ -77,7 +77,7 @@ tags: [JavaScript,图片预览,图片上传]
 + 在Firefox中根本获取不到路径，得到的是一个文件名
 + 在IE7、8、9中无法获取到FileObject的files属性
 
-## 实现
+## 4.2 实现
 以前我们总是按照userAgent，通过判断IE，还是Chrome，还是Firefox，或者Safari、Opera等来对应支持代码，现在这种方式可能需要有所调整，File API是HTML5的规范特性，因此可以将浏览器大致先分为两个大类，一个是支持HTML5的一类，另一个是不支持的。
 
     <html xmlns="http://www.w3.org/1999/xhtml">
@@ -137,7 +137,7 @@ tags: [JavaScript,图片预览,图片上传]
     </html>
 
 
-## 参考资料
+## 4.3 参考资料
 0. [JavaScript图片上传预览效果][0]
 0. [兼容IE8、火狐的本地图片预览+等比例缩放][1]
 1. [图片上传预览（IE使用滤镜）][2]

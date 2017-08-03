@@ -5,7 +5,7 @@ categories: [编程语言]
 tags: [PHP, PHP内核]
 ---
 
-### 参考
+### 1 参考
 0. [TIPI深入理解ＰＨＰ内核][0]
 1. [PHP内核探索：从SAPI接口开始][1]
 2. [Zend Framework手册 中文版][2]

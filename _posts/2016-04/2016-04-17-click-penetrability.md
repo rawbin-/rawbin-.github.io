@@ -7,7 +7,7 @@ tags: [点击穿透,滑动穿透,穿透]
 
 
 
-### 弹层滚动穿透解决步骤：
+### 1 弹层滚动穿透解决步骤：
 
 + 在touchmove中阻止事件传播已经在chrome 中不好使了 硬伤！
 + 各种js的效果都需要记住滚动位置再进行还原 low！
@@ -18,9 +18,9 @@ tags: [点击穿透,滑动穿透,穿透]
 
 
 
-### 参考资料
+### 2 参考资料
 
-####  点击穿透
+#### 2.1 点击穿透
 
 1. [移动页面点击穿透问题解决方案](http://blog.csdn.net/helloxiaoliang/article/details/51362107)
 2. [彻底理解和解决移动WEB开发中CLICK点透问题](http://www.uedsc.com/through-the-click-point-in-the-development-of-web.html)
@@ -35,7 +35,7 @@ tags: [点击穿透,滑动穿透,穿透]
 11. [彻底解决TAP(点透)提升移动端点击响应速度](http://www.uedsc.com/fastclick-tap-point-of-penetration.html)
 12. [[【移动端兼容问题研究】javascript事件机制详解（涉及移动兼容）](http://www.cnblogs.com/yexiaochai/p/3462657.html)](http://www.cnblogs.com/yexiaochai/p/3462657.html)
 
-#### 滚动穿透 滑动穿透
+#### 2.2 滚动穿透 滑动穿透
 
 1. [移动页面滚动穿透解决方案（荐）](http://blog.csdn.net/qq_16559905/article/details/51333335)
 

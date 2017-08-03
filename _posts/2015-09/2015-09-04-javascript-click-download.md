@@ -8,26 +8,26 @@ tags: [JavaScript,点击下载]
 
 
 
-## 哪些方法可以用
+## 1 哪些方法可以用
 
 在翻看了众多页面之后，可以列出一些可以尝试的点：
 
-### 直接打开URL window.open
+### 1.1 直接打开URL window.open
 
 
-### HTML5 A 标签 的download属性
+### 1.2 HTML5 A 标签 的download属性
     
 可以如下实现
     
     <a href="/url/to/file/path" download="downloadName">点击下载</a>
 
 
-### 使用封装的JavaScript库
+### 1.3 使用封装的JavaScript库
 
 
 
 
-## 参考资料
+## 2 参考资料
 0. [Save/download data generated in JavaScript](http://hackworthy.blogspot.co.at/2012/05/savedownload-data-generated-in.html)
 0. [JavaScript Local I/O tests](http://wizard.ae.krakow.pl/~jb/localio.html)
 0. [Force Download an Image Using Javascript](http://stackoverflow.com/questions/6796974/force-download-an-image-using-javascript)
@@ -51,11 +51,11 @@ tags: [JavaScript,点击下载]
 0. [Save to Drive Button](https://developers.google.com/drive/v2/web/savetodrive)
 0. [通过js保存图片到本地](http://blog.csdn.net/zajin/article/details/17113501)
 
-### HTTP Content Disposition
+### 2.1 HTTP Content Disposition
 0. [Content-Disposition header - forcing SaveAs in browsers](http://www.jtricks.com/bits/content_disposition.html)
 0. [Content-Disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1)
 
-### HTML5 A 标签
+### 2.2 HTML5 A 标签
 0. [W3C HTML5 A](http://www.w3.org/TR/html51/semantics.html#the-a-element)
 0. [HTML: The Living Standard](https://developers.whatwg.org/links.html#downloading-resources)
 0. [HTML5 download attribute with JavaScript](http://www.2ality.com/2012/04/html5-download.html)
@@ -64,7 +64,7 @@ tags: [JavaScript,点击下载]
 0. [Downloading resources in HTML5](https://developers.google.com/web/updates/2011/08/Downloading-resources-in-HTML5-a-download)
 0. [变通方法实现保存文件](http://ucren.com/demos/savefile/index.html)
 
-### 下载库参考 HTML5
+### 2.3 下载库参考 HTML5
 0. [Blob.js](https://github.com/eligrey/Blob.js)
 0. [canvas-toBlob.js](https://github.com/eligrey/canvas-toBlob.js)
 0. [FileServer.js](https://github.com/eligrey/FileSaver.js)

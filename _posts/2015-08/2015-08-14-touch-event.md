@@ -6,11 +6,11 @@ tags: [touch,click,iOS,android]
 
 ---
 
-## 问题来源
+## 1 问题来源
 iPhone中微信中打开页面，click隐藏fixed 弹层无效。
 
 
-### 参考资料
+### 1.1 参考资料
 0. [web移动前端的click点透问题](http://www.it165.net/pro/html/201404/12322.html)
 0. [在手持设备上使用 touchstart 事件代替 click 事件是不是个好主意？](http://www.zhihu.com/question/20702822)
 0. [touchend 事件在 iPhone 上过于灵敏，如何解决？](http://segmentfault.com/q/1010000002409078)

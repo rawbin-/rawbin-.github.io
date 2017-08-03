@@ -8,7 +8,7 @@ tags: [JavaScript,模块化,CMD,SeaJS]
 
 
 
-## 参考资料
+## 1 参考资料
 
 1. [Seajs 手册与文档](http://www.zhangxinxu.com/sp/seajs/docs/zh-cn/index.html)
 2. [Seajs介绍文档](http://www.zhangxinxu.com/sp/seajs/)

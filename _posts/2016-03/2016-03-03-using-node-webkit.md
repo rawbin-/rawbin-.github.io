@@ -5,14 +5,14 @@ categories: [Web开发,前端开发]
 tags: [NodeJS,NW,Node-Webkit]
 ---
 
-### 基本步骤
+### 1 基本步骤
 
 + 开发基于NodeJS和基于浏览器的混合型应用
 + 将应用相关的所有资源打成一个zip包（这个包就可以直接被nw 执行了）
 + 将上一步得到的包和nw一起打包成一个可执行文件
 + 将上一步得到的可执行文件跟所有相关的nw运行环境打包成一个独立的单一的可执行文件
 
-### 参考资料
+### 2 参考资料
 
 1. [Node.js+Node-webkit的开发模式前景如何？](http://www.zhihu.com/question/23852483)
 2. [Node.js 命令行程序开发教程](http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html)

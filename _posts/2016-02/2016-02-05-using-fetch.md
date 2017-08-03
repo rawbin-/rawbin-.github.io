@@ -9,7 +9,7 @@ tags: [fetch,ajax,javascript]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [作为基础的Promise](http://rawbin-.github.io/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/javascript/2016/02/04/using-promise/)
 

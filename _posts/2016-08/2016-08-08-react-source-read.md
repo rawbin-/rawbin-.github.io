@@ -7,13 +7,13 @@ tags: [React,JavaScript]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [react中文文档](http://reactjs.cn/react/docs/getting-started.html)
 2. [react英文文档](https://facebook.github.io/react/)
 3. [深入浅出React系列](http://www.infoq.com/cn/dive-into-react)
 
-#### 源码分析
+#### 1.1 源码分析
 
 1. [reactjs源码分析-上篇（首次渲染实现原理）](http://purplebamboo.github.io/2015/09/15/reactjs_source_analyze_part_one/)
 2. [reactjs源码分析-下篇（更新机制实现原理）](http://purplebamboo.github.io/2015/09/15/reactjs_source_analyze_part_two/)
@@ -30,7 +30,7 @@ tags: [React,JavaScript]
 13. [React Native之底层源码分析篇](http://www.android100.org/html/201605/30/240267.html)
 14. [React源码分析](http://www.html-js.com/article/JS-analysis-of-the-single-row-from-zero-reactjs-source-first-rendering-principle%203154)
 
-#### 虚拟DOM
+#### 1.2 虚拟DOM
 
 1.  [怎么更好的理解虚拟DOM?](http://www.zhihu.com/question/29504639?sort=created)
 2.  [全面理解虚拟DOM，实现虚拟DOM](http://www.ituring.com.cn/article/211352)

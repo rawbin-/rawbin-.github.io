@@ -5,14 +5,14 @@ categories: [应用技术]
 tags: [VPN, 619, VPN错误]
 ---
 
-### 原因总结
+### 1 原因总结
 + VPN连接限制，换一个备用的VPN试试
 + Windows相关服务没开启
 + Windows防火墙限制
 + 路由器防火墙限制
 
 
-### 我的解决办法
+### 2 我的解决办法
 1、在计算机管理->服务中开启Windows服务
 + Telephony 
 + Remote Access Connection Manager 
@@ -23,7 +23,7 @@ tags: [VPN, 619, VPN错误]
 2、在路由器管理界面->安全设置里面关闭SPI防火墙
 
 
-### 参考文档
+### 3 参考文档
 0. [VPN错误解决办法一][2]
 1. [VPN错误解决办法二][3]
 2. [VPN 619解决办法][1]

@@ -5,7 +5,7 @@ categories: [知识积累]
 tags: [学习经验]
 ---
 
-### 参考
+### 1 参考
 0. [不是技术牛人，如何拿到国内IT巨头的Offer][0]
 1. [程序员技术练级攻略][1]
 2. [What is a Full Stack developer?][2]

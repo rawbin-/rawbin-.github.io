@@ -6,7 +6,7 @@ tags: [NodeJS,gyp,node-inspector]
 ---
 
 
-## 参考资料
+## 1 参考资料
 1. [欲善其功，必先利其器--Nodejs调试技术总结](http://www.cnblogs.com/moonz-wu/archive/2012/01/15/2322120.html)
 2. [node.js调试](http://www.cnblogs.com/dolphinX/archive/2013/12/22/3485345.html)
 3. [利用node-inspector来调试node](http://blog.csdn.net/zhaoweitco/article/details/12677481)

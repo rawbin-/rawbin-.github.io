@@ -5,11 +5,11 @@ categories: [前端开发,Web开发,开发工具]
 tags: [模块化,工程化,JavaScript,npm,包管理]
 ---
 
-### npm
+### 1 npm
 
 npm 是Node平台的包管理器，跟各大操作系统类似Mac的appStore，brew，安卓的市场，window的商店，Ubuntu的apt-get，RedHat的yum；各大语言也有类似的实现Java的ant，maven，Python的pip，Ruby的gem,PHP 的Composer等。
 
-### package.json
+### 2 package.json
 
 npm 在项目中的直接体现就是`package.json` 
 
@@ -93,7 +93,7 @@ npm 在项目中的直接体现就是`package.json`
    + [scripts参考文档](https://docs.npmjs.com/misc/scripts)
 
 
-###  常用命令
+### 3 常用命令
 
 + `npm i xxx -g` === `npm install xxx --global`
 + `npm i xxx -S` === `npm install xxx --save`
@@ -103,17 +103,17 @@ npm 在项目中的直接体现就是`package.json`
 + `npm unpublish xxx`
 
 
-#### npm与yarn命令映射
+#### 3.1 npm与yarn命令映射
 
 + [npm向yarn迁移](https://yarnpkg.com/en/docs/migrating-from-npm)
 
-### 编码相关
+### 4 编码相关
 
 + [编码规范](https://docs.npmjs.com/misc/coding-style)
 + [相关文件和配置](https://docs.npmjs.com/misc/developers)
 
 
-### 参考资料
+### 5 参考资料
 
 0. [npm 文档](https://docs.npmjs.com/)
 1. [npm scripts使用指南](http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html)

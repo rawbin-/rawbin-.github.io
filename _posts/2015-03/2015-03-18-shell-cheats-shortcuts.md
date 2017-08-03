@@ -11,7 +11,7 @@ tags: [Linux, Shell,快捷键]
 
 ---
 
-## 方向移动
+## 1 方向移动
 + **Ctrl+A** 光标移动到行首，相当于Home键
 + **Ctrl+E** 光标移动到行尾，相当于End键
 + **Ctrl+B** 光标左移一个字符，相当于←方向键
@@ -24,7 +24,7 @@ tags: [Linux, Shell,快捷键]
 
 
 
-## 字符删除/恢复（删除为剪切）
+## 2 字符删除/恢复（删除为剪切）
 + **Ctrl+D** 删除光标所在处的字符，并向右删除，相当于Del键；最后一次可退出当前Shell
 + **Ctrl+H** 删除光标左侧的字符，相当于Backspace
 + **Ctrl+K** 删除从光标所在处字符及其后的所有字符，相当于长按Del键
@@ -35,18 +35,18 @@ tags: [Linux, Shell,快捷键]
 + **Ctrl+?** 撤销前一次操作
 + **Ctrl+Y** 粘贴上一次剪切的内容
 
-## 交换
+## 3 交换
 + **Ctrl+T** 交换光标前两个字符位置
 + **ESC+T**  交换光标前两个单词位置
 
-## 命令相关快捷键
+## 4 命令相关快捷键
 + **Ctrl+C** 结束当前命令
 + **Ctrl+R** 在历史命令中查找,输入关键字过滤，重复命令进行滚动查找
 + **Ctrl+Z** 挂起/停止命令，前后台切换，可用fg，bg命令恢复
 + **Ctrl+P** 上一条命令，相当于↑方向键
 + **Ctrl+N** 下一条命令，相当于↓方向键
 
-## 命令相关快捷操作
+## 5 命令相关快捷操作
 + !! 执行上一条命令
 ```
 apt-get install xxx
@@ -71,7 +71,7 @@ cat /etc/password
 + ^xxx^yyy 将上一条命令中的第一个xxx替换为yyy并执行                 
 + ^xxx^yyy^ 将上一条命令中的所有xxx替换为yyy并执行
 
-## 其他
+## 6 其他
 
 + **Ctrl+S** 锁定终端
 + **Ctrl+Q** 解锁终端
@@ -80,7 +80,7 @@ cat /etc/password
 + **Ctrl+O** 相当于Enter
 + [explainshell.com shell命令文档解释](https://explainshell.com/)
 
-## 参考文档：
+## 7 参考文档：
 0. [高级Bash编程指南](http://tldp.org/LDP/abs/html/index.html)
 1. 《Linux与Unix Shell编程指南》
 2. 《Linux 命令行和Shell脚本编程宝典》

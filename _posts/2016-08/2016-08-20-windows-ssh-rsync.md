@@ -14,10 +14,10 @@ tags: [ssh,rsync]
 rsync -rzcv -e 'ssh -i c:/users/liao.zhang/.ssh/id_rsa -l liao.zhang'  --rsync-path='sudo rsync' ./ 192.168.237.72:/home/q/test_rsync
 ```
 
-## ssh找不到对应的认证key文件
+## 1 ssh找不到对应的认证key文件
 
 
-#### 错误信息如下：
+#### 1.0.1 错误信息如下：
 ```
 Could not create directory '/home/liao.zhang/.ssh'.
 The authenticity of host '192.168.237.72 (192.168.237.72)' can't be established.
@@ -26,7 +26,7 @@ Are you sure you want to continue connecting (yes/no)? yes
 Failed to add the host to the list of known hosts (/home/liao.zhang/.ssh/known_hosts).
 ```
 
-#### 解决办法：
+#### 1.0.2 解决办法：
 
 windows中默认ssh 认证文件路径在C:/users/USERNAME/.ssh/中，而默认的路径是/home/username/.ssh，所以找不着，这时需要手动指定ssh认证文件路径
 ```
@@ -38,10 +38,10 @@ windows中默认ssh 认证文件路径在C:/users/USERNAME/.ssh/中，而默认�
 rsync -rzcv -e 'ssh -i c:/users/liao.zhang/.ssh/id_rsa -l liao.zhang' ./ 192.168.237.72:/home/q/test_rsync
 ```
 
-### rsync没有权限
+### 1.1 rsync没有权限
 
 
-#### 错误信息如下
+#### 1.1.1 错误信息如下
 ```
 rsync: change_dir#1 "/home/q/test_rsync" failed: Permission denied (13)
 rsync error: errors selecting input/output files, dirs (code 3) at main.c(534) [receiver=3.0.6]
@@ -49,7 +49,7 @@ rsync: connection unexpectedly closed (176 bytes received so far) [sender]
 rsync error: error in rsync protocol data stream (code 12) at io.c(235) [sender=3.1.1]
 ```
 
-#### 解决办法：
+#### 1.1.2 解决办法：
 
 rsync 需要远程rsync进程做同步功能，远程的进程需要相关的权限，比如创建文件夹的权限。
 在rsync中添加相关的授权信息，
@@ -64,10 +64,10 @@ rsync -rzcv -e 'ssh -i c:/users/liao.zhang/.ssh/id_rsa -l liao.zhang'  --rsync-p
 ```
 
 
-### Git Bash 下rsync 不能同步数据
+### 1.2 Git Bash 下rsync 不能同步数据
 
 
-#### 错误信息如下
+#### 1.2.1 错误信息如下
 ```
 $ fekit sync
 [LOG] [调用] rsync -rzcv --chmod=a='rX,u+w' --rsync-path='sudo rsync' ./ 192.168.237.75:/home/q/www/qunarzz.com/package_b2c_admin/  --exclude=.svn --exclude=.git --temp-dir=/tmp
@@ -88,7 +88,7 @@ rsync error: error in rsync protocol data stream (code 12) at io.c(235) [sender=
     at Pipe.close (net.js:465:12)
 ```
 
-#### 解决过程
+#### 1.2.2 解决过程
 
 fekit sync 执行的命令如下
 ```
@@ -110,15 +110,15 @@ rsync -rzcv -e "d:/Applications/cwRsync_5.4.1_x86_Free/ssh.exe" --chmod=a='rX,u+
 
 通过调整环境变量的位置，发现对Git Bash使用的ssh 路径没有影响。
 
-#### 解决办法
+#### 1.2.3 解决办法
 
 - 修改fekit的 ``` C:\Users\liao.zhang\AppData\Roaming\npm\node_modules\fekit\lib\commands\sync.js ```，将命令里面的ssh 替换为rsync 自带的ssh的绝对路径；
 - 删除或者替换Git安装目录下的ssh 命令文件（记得备份）
 
-### ssh key 权限不对
+### 1.3 ssh key 权限不对
 
 
-#### 错误信息类似 permissions are too open，bad owner or permissions
+#### 1.3.1 错误信息类似 permissions are too open，bad owner or permissions
 ```
 Permissions 0770 for '/home/username/.ssh/id_rsa' are too open.
 It is required that your private key files are NOT accessible by others.
@@ -126,7 +126,7 @@ This private key will be ignored.
 Load key "/home/username/.ssh/id_rsa": bad permissions
 ```
 
-#### 解决办法
+#### 1.3.2 解决办法
 
 在windows 中各种chmod 不好使。
 把.ssh目录的权限设置为只用当前用户有完全控制的权限即可。

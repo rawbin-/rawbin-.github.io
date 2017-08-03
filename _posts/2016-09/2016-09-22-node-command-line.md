@@ -7,7 +7,7 @@ tags: [NodeJS,命令行]
 
 
 
-### NodeJS 基本命令行工具
+### 1 NodeJS 基本命令行工具
 
 + 新建并初始化工程
 
@@ -43,6 +43,6 @@ tags: [NodeJS,命令行]
 
 
 
-### 参考资料
+### 2 参考资料
 
 0. [Node.js 命令行程序开发教程](http://www.ruanyifeng.com/blog/2015/05/command-line-with-node.html)

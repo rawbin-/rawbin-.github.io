@@ -5,7 +5,7 @@ categories: [计算机基础]
 tags: [编码,解码,乱码,字符集]
 ---
 
-# 基本概念
+# 1 基本概念
 + 字符：各种文字和符号的统称，包括各国各族各地的文字，标点符号，图形符号，数字等。
 + 字符集： 字符的集合，比如汉字字符集，ASCII字符集，简体中文字符集，罗马字母等。字符集关心的是这个集合需要包含哪些东西，怎么唯一表示这个集合中的每一个元素。
 + 字符编码： 将字符集处理为计算机能够识别和处理的规则。字符编码关注一个字符如何用二进制表示，如何让计算机精确识别。
@@ -13,7 +13,7 @@ tags: [编码,解码,乱码,字符集]
 + 编码操作： 将信息转换为二进制串的过程。(字符-->字节)
 + 解码操作： 将字符从二进制串中还原的操作。(字节-->字符)
 
-## 编码和字符集关系
+## 1.1 编码和字符集关系
 + ASCII字符集: ASCII编码
 + ISO 8859-\*字符集: ISO 8859-\*编码 
 + GB2313字符集： GB2312编码
@@ -23,7 +23,7 @@ tags: [编码,解码,乱码,字符集]
 + Unicode字符集：UTF-7，UTF-8编码，UTF-16编码，Unicode编码（UCS-2），Unicode大端，Unicode小端，UTF-32编码
 + ANSI: 使用2个字节来代表一个字符的各种汉字延伸编码方式，称为ANSI编码。 在简体中文系统下，ANSI编码代表GB2312编码，在日文操作系统下，ANSI编码代表JIS编码。 
 
-#文件编码
+# 2 文件编码
 每个键盘按键都有一个对应的编码，这个是与硬件相关的、跟厂家相关的（扫描码）。为了使各个硬件厂商间的键码进行兼容，出台了一个通用的键盘编码（虚拟键码），虚拟键码是与硬件无关的，不同厂家使用同一套虚拟键码。(默想冯洛伊曼体系)。
 
 汉字的输入过程：各种输入码---交换码（国标码）---内码---字形码（显示汉字，打印汉字）.
@@ -45,7 +45,7 @@ tags: [编码,解码,乱码,字符集]
 + 显示驱动程序把汉字的点阵打到显示器上。
   比如在记事本中输入“联通”，然后以ANSI编码，然后关闭再打开，可以看到乱码，因为记事本搞不清楚编码格式，认为是UTF8。
 
-### 参考
+### 2.0.1 参考
 0. [字符，字节和编码][12]
 1. [输入法工作原理][0]
 2. [输入法工作原理][1]
@@ -60,9 +60,9 @@ tags: [编码,解码,乱码,字符集]
 11. [汉字编码表示与显示][10]
 12. [汉字编码与编程相关问题总结：ASCII、机内码、区位码、国标码、Unicode码是如何转换的][11]
 
-# 浏览器编码
+# 3 浏览器编码
 
-## URL编码
+## 3.1 URL编码
 + 网址编码
   在浏览器地址栏输入中文，并回车，浏览器会对URL进行UTF-8编码，并将编码后的结果回写入地址栏。
   如：输入 `http://www.baigoogledu.com/北京`，然后回车  
@@ -81,7 +81,7 @@ tags: [编码,解码,乱码,字符集]
           r.send()
         } 
 
-## 请求相关
+## 3.2 请求相关
 在HTTP中，与字符集和字符编码相关的消息头是Accept-Charset/Content-Type，另外主区区分Accept-Charset/Accept-Encoding/Accept-Language/Content-Type/Content-Encoding/Content-Language：
 Accept-Charset：浏览器申明自己接收的字符集，这就是本文前面介绍的各种字符集和字符编码，如gb2312，utf-8（通常我们说Charset包括了相应的字符编码方案）；
 Accept-Encoding：浏览器申明自己接收的编码方法，通常指定压缩方法，是否支持压缩，支持什么压缩方法（gzip，deflate），（注意：这不是只字符编码）；
@@ -90,7 +90,7 @@ Content-Type：WEB服务器告诉浏览器自己响应的对象的类型和字�
 Content-Encoding：WEB服务器表明自己使用了什么压缩方法（gzip，deflate）压缩响应中的对象。例如：Content-Encoding：gzip
 Content-Language：WEB服务器告诉浏览器自己响应的对象的语言。
 
-## 页面编码
+## 3.3 页面编码
 HTML文档是作为带有字符编码信息的字节流在网络中传送。编码信息可以在HTTP响应头中指定(header)，也可以在HTML标签中指定（&lt;meta&gt;）。浏览器根据字符编码信息将字节流转换为显示在浏览器上的字符集合。
 
 浏览器获取编码的过程是
@@ -100,7 +100,7 @@ HTML文档是作为带有字符编码信息的字节流在网络中传送。编�
 + 先按浏览器的编码选择算法选择一个编码进行预解析，如果解析出<meta>标签中存在字符集设置，则按<meta>标签中的字符集进行解码。
 + 按浏览器的默认编码。
 
-### 参考
+### 3.3.1 参考
 12. [网络编程中的编码问题汇总][13]
 13. [各种编码UNICODE、UTF-8、ANSI、ASCII、GB2312、GBK详解][16]
 14. [浏览器如何解析HTML字符编码][17]
@@ -112,12 +112,12 @@ HTML文档是作为带有字符编码信息的字节流在网络中传送。编�
 20. [Unicode与JavaScript详解](http://www.ruanyifeng.com/blog/2014/12/unicode.html)
 21. [URL编码与解码](http://www.cnblogs.com/Wahitler/p/4761373.html)
 
-# 终端编码
+# 4 终端编码
 
-## SSH终端编码
+## 4.1 SSH终端编码
 使用putty 连接服务器的时候，页面中显示的中文有时候会出现乱码，可以通过更改终端的的编码方式来解决，默认为系统编码。
 
-## mysql 命令行乱码
+## 4.2 mysql 命令行乱码
 在windows命令行下，插入中文数据或者查询结果中有中文数据的时候，会出现乱码。
 输入命令 `show variables like ‘character_set_%’;` 查看当前设置的编码情况  
 在命令行输入 :set names utf8;  
@@ -136,7 +136,7 @@ set character_set_connection=utf8;
 完了之后再set names utf8;
 这样就能正常插入和查询中文并且保持数据库编码为utf8
 
-## windows gvim 中文乱码
+## 4.3 windows gvim 中文乱码
 $VIM_HOME/vimrc 
 文件末尾添加如下几行：
 let &termencoding=encoding
@@ -144,11 +144,11 @@ set fileencodings=utf-8,gb2312,gbk
 set encoding=gbk
 
 
-# 语言内部编码
+# 5 语言内部编码
 
-## python
+## 5.1 python
   python 2.x 内部使用Unicode字符集
-### 代码编码
+### 5.1.1 代码编码
   python的文件头部可以通过 `#-*- coding: utf-8 -*-`的方式来指定源代码的编码，通常在源文件中有非ASCII字符时使用。文件头部编码声明决定了python解析源码中的str的编码选择方式，比如头部声明的是utf-8编码，则代码中s="中文"python就会按照utf-8编码格式来解析，通过repr(s)可以看到字符编码是"\xe4\xb8\xad\xe6\x96\x87"，如果头部声明的编码是gbk编码，则python会对s采用gbk编码解析，结果是"\xd6\xd0\xce\xc4"。
   需要注意的是，文件本身的编码要跟文件头部声明编码一致，不然就会出现问题。文件本身的编码在Linux下面可以在vim下用命令set fenc来查看。如果文件本身编码是gbk，而源码文件头部声明的编码是utf-8，这样如果源码中有中文就会有问题了，因为本身中文str存储是按照gbk编码来的，而python在解析str的时候又以为是utf-8编码，这样就会报SyntaxError: (unicode error) 'utf8' codec can't decode byte错误。
     #coding: utf-8
@@ -165,13 +165,13 @@ set encoding=gbk
     #u2 = s.encode("utf-8") #解码错误
   注意实例中注释掉的2行代码，对于unicode最好不要直接调用decode，str最好不要直接调用encode方法。因为如果是直接调用，则相当于<code>u.encode(default_encoding).decode("utf-8")</code>，default_encoding是python的unicode实现中用的默认编码，即<code>sys.getdefaultencoding()</code>得到的编码,如果你没有设置过，那么默认编码就是ascii，如果你的unicode本身超出了ascii编码范围就会报错。同理，如果对str直接调用encode方法，那么默认会先对str进行解码，即s.decode(default_encoding).encode("utf-8"),如果str本身是中文，而default_encoding是ascii的话，解码就会出错，从而导致上面这两行会分别报<code>UnicodeEncodeError: 'ascii' codec can't encode characters in position...</code>错误和<code>UnicodeDecodeError: 'ascii' codec can't decode byte 0xe4 in position...</code>错误。
 
-### 文件读写编码
+### 5.1.2 文件读写编码
 采用python的open()方法打开文件时，read()读取的是str，编码就是文件本身的编码。
 
-## javascript
+## 5.2 javascript
 JavaScript 采用Unicode字符集，使用UCS-2编码，也就是现在UTF-16的一部分
 
-### 参考
+### 5.2.1 参考
 13. [Unicode与JavaScript][14]
 14. [Unicode HOWTO][15]
 15. [Python编码和Unicode][25]
@@ -184,12 +184,12 @@ JavaScript 采用Unicode字符集，使用UCS-2编码，也就是现在UTF-16的
 22. [Python字符编码详解][23]
 23. [python读写文件，和设置文件的字符编码比如utf-8][24]
 
-# 编码检测
+# 6 编码检测
 
-## vim中
+## 6.1 vim中
 使用`:set fileencoding` 或者`set fenc`来显示文件编码
 
-## notepad++中
+## 6.2 notepad++中
 使用格式菜单来查看文件编码
 
 [0]: http://blog.csdn.net/shuilan0066/article/details/6883629 "输入法工作原理"

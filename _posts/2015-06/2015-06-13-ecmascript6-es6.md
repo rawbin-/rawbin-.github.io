@@ -6,23 +6,23 @@ tags: [JavaScript,ECMAScript,ECMAScript2015, ECMAScript6, ES2015, ES6]
 
 ---
 
-# 特性介绍
+# 1 特性介绍
 
-## 语法改进
+## 1.1 语法改进
 
-### 支持模块化语法
+### 1.1.1 支持模块化语法
 
-# module,import,export
+# 2 module,import,export
 
-### 支持面向对象语法
+### 2.0.1 支持面向对象语法
 + 类（class），继承（extends），静态方法（static），属性存取（getter,setter）
 
-### 块级作用域 let
+### 2.0.2 块级作用域 let
 + 只在声明的代码块中有效
 + 不存在声明提前
 + 不允许重复声明       
 
-### 解构赋值
+### 2.0.3 解构赋值
 + 适合var，let，const
 + 适合字符串、数组、对象（可嵌套）、函数参数
 + 可带默认值
@@ -34,14 +34,14 @@ tags: [JavaScript,ECMAScript,ECMAScript2015, ECMAScript6, ES2015, ES6]
     + 遍历Map解包
     + 模块部分加载
 
-### 扩展运算符
+### 2.0.4 扩展运算符
 
 
-### 生成器
+### 2.0.5 生成器
 + 特性介绍
 + 应用举例
 
-## 函数
+## 2.1 函数
 + 支持参数解构赋值
 + 参数设置默认值（默认参数），默认参数的作用域是函数作用域,默认参数必须在最后
 + 扩展运算符
@@ -49,34 +49,34 @@ tags: [JavaScript,ECMAScript,ECMAScript2015, ECMAScript6, ES2015, ES6]
 + 箭头函数（不能当构造，无arguments，this固定为定义时所在的对象）
 + 尾调用、尾递归优化
 
-## 数组
+## 2.2 数组
 + 增加from，of原型方法，
 + 增加entries，keys，values，includes实例方法
 + for of遍历
 
-## 对象
+## 2.3 对象
 + 属性、方法简写
 + is，assign，getPrototypeOf，setPrototypeOf原型方法
 + 新增对象Proxy， Reflect，Promise
 + Set，Map,Generator,Iterator,Promise
 
-## 字符串
+## 2.4 字符串
 + 简单模板字符串${JS表达式}
 + 多行字符串
 + 标签模板
 + 新增includes，startsWith，endsWith，repeat方法
 
 
-## 其他
+## 2.5 其他
 + const关键字申明常量
 
 
 
-# 使用方法
+# 3 使用方法
 
 
 
-## 参考资料
+## 3.1 参考资料
 0. [ecma.org](http://www.ecmascript.org/)
 1. [ECMAScript-262 6th](http://www.ecma-international.org/ecma-262/6.0/index.html)
 2. [ECMAScript-262 6th](http://www.ecma-international.org/publications/standards/Ecma-262.htm)

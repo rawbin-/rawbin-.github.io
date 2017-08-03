@@ -6,7 +6,7 @@ tags: [JavaScript画图,前端画图,JavaScript图表]
 ---
 
 
-## 参考资料
+## 1 参考资料
 0. [开源中国jQuery图表插件][9]
 0. [JavaScript Charts][1]
 1. [jqPlot][2]

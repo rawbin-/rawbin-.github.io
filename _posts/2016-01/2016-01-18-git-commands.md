@@ -5,16 +5,16 @@ categories: [开发技术,开发环境,Git]
 tags: [git,github]
 ---
 
-### 基本操作
+### 1 基本操作
 
-#### 仓库生成	
+#### 1.1 仓库生成	
 
 ```shell
 git init [DIR-NAME] //将当前目录，或者指定的DIR-NAME目录初始化为仓库
 git clone REPOSITORY-URL [DIR-NAME] //将远端工程放入当前目录，或者重命名为指定的DIR-NAME的目录
 ```
 
-#### 分支操作
+#### 1.2 分支操作
 
 ```
 git branch 显示本地分支，-r 显示远程分支 -a 显示所有分支
@@ -26,7 +26,7 @@ git checkout BRANCH-NAME 切换到分支
 git branch -d BRANCH-NAME 删除BRANCH-NAME指定的分支（如果要删除的分支有内容未合并到当前分支，不能删除） -D表示无条件删除
 ```
 
-#### 内容整合
+#### 1.3 内容整合
 
 ```
 git fetch [REPOSITORY-URL REMOTE-BRANCH] 取回远端分支内容
@@ -35,7 +35,7 @@ git pull [REPOSITORY-URL REMOTE-BRANCH:LOCAL-BRANCH] 将远端分支的内容取
 git mergetool 使用合并工具进行合并
 ```
 
-#### 内容提交
+#### 1.4 内容提交
 
 ```
 git status  查看当前改动提交状态
@@ -47,9 +47,9 @@ git push [REPOSITORY-URL LOCAL-BRANCH:REMOTE-BRANCH] 推动本地仓库信息到
 
 
 
-### 使用实践
+### 2 使用实践
 
-#### 当前工作未完成，临时切换到其他分支
+#### 2.1 当前工作未完成，临时切换到其他分支
 
 ```
 git stash 暂存当前未提交的内容
@@ -61,21 +61,21 @@ git stash pop [stash@{n}] 取出一个特定的暂存
 
 
 
-#### 查找某处变更是哪次提交生成的（bug是谁在什么时候写的~）
+#### 2.2 查找某处变更是哪次提交生成的（bug是谁在什么时候写的~）
 
-##### 方法一
+##### 2.2.1 方法一
 
 ```
 git blame FILE-NAME -L m,n 查看m到n行之间的最后一次变更的信息
 ```
 
-##### 方法二
+##### 2.2.2 方法二
 
 ```
 git log -L m,n:FILE-NAME 	查看文件的m到n行之间的变化
 ```
 
-##### 方法三
+##### 2.2.3 方法三
 
 ```
 git bisect start 开始一个二分查找
@@ -84,7 +84,7 @@ git bisect good COMMIT-ID 设置一个没有问题的版本
 git bisect good|bad 持续的给结果，最后会定位到一个版本，结果跟方法二的类似
 ```
 
-##### 方法四
+##### 2.2.4 方法四
 
 ```
 git show :/KEY-WORD 查找关键信息的变更，这里给出的是一个大致信息，比如是在其他分支做出的改动
@@ -92,7 +92,7 @@ git show :/KEY-WORD 查找关键信息的变更，这里给出的是一个大致
 
 
 
-### 修改历史
+### 3 修改历史
 
 + 版本信息的引用
 
@@ -110,16 +110,16 @@ git show :/KEY-WORD 查找关键信息的变更，这里给出的是一个大致
 
   ​
 
-#### 修改已经提交的log信息
+#### 3.1 修改已经提交的log信息
 
-##### 修改上次的log
+##### 3.1.1 修改上次的log
 
 ```
 git commit --amend
 git push -f 谨慎谨慎，只有提交了远端仓库才需要这个
 ```
 
-##### 合并上几次的log,原来五条
+##### 3.1.2 合并上几次的log,原来五条
 
 ```
 git reset HEAD^^~3 在当前分支回退五个版本的提交历史
@@ -127,24 +127,24 @@ git commit -m "combined commit"
 git push -f git push -f 谨慎谨慎，只有提交了远端仓库才需要这个
 ```
 
-#### 修改提交内容的历史
+#### 3.2 修改提交内容的历史
 
 + 现有的版本A,B,C,D,E
 + 删掉C的提交内容
 
-##### 使用revert
+##### 3.2.1 使用revert
 
 ```
 git revert C 简单，但会增加一次提交，而且C原来的提交也会留在历史中
 ```
 
-##### 使用rebase
+##### 3.2.2 使用rebase
 
 ```
 git rebase -i B  删掉想要删掉的C提交，然后保存
 ```
 
-##### 使用cherry-pick
+##### 3.2.3 使用cherry-pick
 
 ```
 git checkout B 先切到D之前的提交
@@ -156,7 +156,7 @@ git checkout -b xxx 放入新的分支中
 
 
 
-### 参考资料
+### 4 参考资料
 
 1. [git docs](https://git-scm.com/docs)
 2. [Pro Git 2nd](https://git-scm.com/book/en/v2)

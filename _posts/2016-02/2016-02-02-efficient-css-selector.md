@@ -7,7 +7,7 @@ tags: [JavaScript,jQuery,CSS]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [如何提升 CSS 选择器性能](http://www.jianshu.com/p/268c7f3dd7a6)
 2. [jQuery 2.0.3 源码分析Sizzle引擎 - 词法解析](http://www.cnblogs.com/aaronjs/p/3300797.html)

@@ -7,12 +7,12 @@ tags: [代码优化,高性能]
 
 [TOC]
 
-### 引言
+### 1 引言
 
 
 在前面`高性能代码优化规则参考`一文中，我们举了一个优化的例子；但是，但是，结果优化变成劣化（恶化了），演砸了。我们继续看看到底是怎么回事？
 
-### 优化规则评价
+### 2 优化规则评价
 
 先复原一下场景。
 
@@ -119,9 +119,9 @@ optmize compare: 383.104ms
 
 
 
-### 问题深入研究
+### 3 问题深入研究
 
-#### 找工具
+#### 3.1 找工具
 
 + 搜索`v8 perf tool`  Google 第一条得到一个[工具列表](https://github.com/thlorenz/v8-perf/issues/4)
 + 筛选掉其中内存和CPU相关的，剩下`irhydra`可以做中间代码分析的
@@ -129,7 +129,7 @@ optmize compare: 383.104ms
 
 
 
-#### 搞出来看一看
+#### 3.2 搞出来看一看
 
 + node 本身是基于v8的，所以也不用各种下载v8源码编译什么的了，直接上
 + 使用node 生成`irhydra`需要的内容
@@ -145,7 +145,7 @@ node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-t
 
 
 
-#### 找文档 捋主线
+#### 3.3 找文档 捋主线
 
 + 搜索`v8 intermediate representations` 在得到的结果中可以得到如下的概念
   + `Crankshaft`是v8的编译优化器
@@ -160,24 +160,24 @@ node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-t
 
 
 
-#### 中间代码分析
+#### 3.4 中间代码分析
 
-##### 工具介绍
+##### 3.4.1 工具介绍
 
 + `Load Compilation Atrifacts` 加载`.asm`和`.cfg`文件
 + `IR` 标签页，打开眼睛可以看到源代码和中间代码的映射关系，深红色的竖条表示循环范围
 + `Graph` 标签页，打开问号可以查看控制流图的说明，点击图块可以跳转到`IR`标签页
 
-##### 总体结果
+##### 3.4.2 总体结果
 
 + 前三段代码(origin,optLen,optIdx)的控制流图完全一致,B3-B8是循环内容
 + 第三段代码(optCmp)与其他三段差别较大，
 
 
 
-##### 详细对比
+##### 3.4.3 详细对比
 
-###### origin 与 optLen的区别
+###### 3.4.3.1 origin 与 optLen的区别
 
 + origin比optLen在B2块少一个`LoadNamedField t2.%length@24 Smi` 获取数组长度，代号`i33`，在循环内容之外
 + origin比optLen在B3块多一个`LoadNamedField t2.%length@24 Smi ` 获取数组长度，代号`i42`，每次循环都有这个操作
@@ -186,13 +186,13 @@ node --trace-hydrogen --trace-phase=Z --trace-deopt --code-comments --hydrogen-t
 
 
 
-###### optLen与optIdx的区别
+###### 3.4.3.2 optLen与optIdx的区别
 
 + optLen比optIdx在B5块多一个`var[4] = t106`赋值，但这个赋值后面好像没用上。。。
 
 
 
-######  optCmp与optLen比较的异常
+###### 3.4.3.3 optCmp与optLen比较的异常
 
 + 获取data[i]的时候多了`CheckMaps t2 [0x12044e7ace69](stability-check)`操作
 + 存储乘积结果的时候多了`CallWithDescriptor t76 t7 t16 t86 t87 s88 t74 #0 changes[*] Tagged `
@@ -206,7 +206,7 @@ Such instructions should be avoided inside hot loops because they inhibit optimi
 
 
 
-#### 看起来还没有找到想要的
+#### 3.5 看起来还没有找到想要的
 
 + 上面的`SSA`本身存在问题，参考意义不大
 + 没有比较出前面三个代码之间的差异
@@ -214,9 +214,9 @@ Such instructions should be avoided inside hot loops because they inhibit optimi
 
 
 
-### 重头再来
+### 4 重头再来
 
-#### 使用PHP来实现（为什么？）
+#### 4.1 使用PHP来实现（为什么？）
 
 + 在这个例子上，PHP跟JavaScript极其相似
 + PHP是世界上最好的语言（别打脸~~）
@@ -300,7 +300,7 @@ echo 'opt_cmp:'.(get_exec_time(opt_cmp,$test_data)).PHP_EOL;
 
 
 
-#### 执行上面的PHP代码
+#### 4.2 执行上面的PHP代码
 
 + 将上面的内容存为`perf-opt.php`
 + 运行`php -f perf-opt.php`
@@ -315,7 +315,7 @@ opt_cmp:2.95980300
 
 
 
-#### 也可以使用node自带的工具来看
+#### 4.3 也可以使用node自带的工具来看
 
 + 执行命令
 
@@ -333,7 +333,7 @@ node --prof-process isolate-xxx-v8.log > processed.log
 
 
 
-### 结论
+### 5 结论
 
 + 某些优化规则在不同的编译环境下，不一定能得到一致的效果
 + 规则是死的，但编译系统不断在改变和发展
@@ -341,7 +341,7 @@ node --prof-process isolate-xxx-v8.log > processed.log
 
 
 
-### 参考资料
+### 6 参考资料
 
 1.  《Compiled Compiler Templates for V8》
 

@@ -7,7 +7,7 @@ tags: [React Native,JavaScript]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [React Native Github](https://github.com/facebook/react-native)
 2. [React Native](http://wiki.jikexueyuan.com/project/react-native/)

@@ -7,7 +7,7 @@ tags: [Node,前后端分离]
 ---
 
 
-## 参考资料
+## 1 参考资料
 0. [Web 研发模式的演变](http://blog.jobbole.com/65509/)
 0. [Web 研发模式演变](https://github.com/lifesinger/blog/issues/184)
 0. [淘宝前后端分离实践](http://2014.jsconf.cn/slides/herman-taobaoweb/index.html#/)

@@ -6,7 +6,7 @@ tags: [AJAX,XMLHTTPRequest,异步]
 
 ---
 
-## 参考资料
+## 1 参考资料
 0. [XMLHttpRequest Living Standard](https://xhr.spec.whatwg.org/)
 1. [XMLHttpRequest Level 1](http://www.w3.org/TR/XMLHttpRequest/)
 2. [XMLHttpRequest Level 1](http://www.w3.org/TR/XMLHttpRequest2/)

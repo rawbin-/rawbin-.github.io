@@ -9,7 +9,7 @@ tags: [JavaScript,AJAX,服务器推]
 
 
 
-### 参考资料
+### 1 参考资料
 0. [HTTP的长连接和短连接](http://www.cnblogs.com/cswuyg/p/3653263.html)
 0. [Web 通信 之 长连接、长轮询（long polling）](http://www.cnblogs.com/hoojo/p/longpolling_comet_jquery_iframe_ajax.html)
 0. [HTTP keep-alive](http://www.nowamagic.net/academy/detail/23350305)

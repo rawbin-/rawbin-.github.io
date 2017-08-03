@@ -9,7 +9,7 @@ tags: [npm,browserify]
 
 
 
-## 参考资料
+## 1 参考资料
 
 1. [前端模块管理器简介](http://www.ruanyifeng.com/blog/2014/09/package-management.html)
 2. [browserify](http://browserify.org/)

@@ -5,12 +5,12 @@ categories: [Web开发,前端开发]
 tags: [phantomjs,nodejs,javascript]
 ---
 
-### 需求
+### 1 需求
 
 对一批页面进行了内容压缩，想要测试压缩后的结果和压缩前的结果内容是否一致。这时候人肉已经不满足日益增长的页面数量的需要了。需要进行部分自动化。
 希望可以得到一个类似于单元测试的结果输出，能直观看出前后的结果差异。
 
-###  初步使用
+### 2 初步使用
 
 [PhantomJS](http://phantomjs.org/) 可以很方便的用来做浏览器模拟测试，网页截图等，它是一个命令行工具，执行JavaScript文件。
 
@@ -24,7 +24,7 @@ tags: [phantomjs,nodejs,javascript]
 
 
 
-### 寻求出路
+### 3 寻求出路
 
 上面的问题的解决办法：
 
@@ -40,7 +40,7 @@ tags: [phantomjs,nodejs,javascript]
 
 Node和npm的出现使得JavaScript的工具库出现了百花齐放、百家争鸣的景象，同一个库有很多个实现（比如Promise），同时你也可以根据自己的需要对开放的模块进行改装。比如基于PhantomJS的各种不同的封装，PhantomJS是命令行工具，PhantomJS-Node则是可以在Node平台跑的PhantomJS工具。
 
-####  代码比较
+#### 3.1 代码比较
 
 一开始使用比较两个页面html的方式来判断页面差异，最后发现如下问题：
 
@@ -137,7 +137,7 @@ byMinCode:function(){
 
 
 
-#### 渲染的图片比较
+#### 3.2 渲染的图片比较
 
 刚说PhantomJS擅长浏览器模拟和截图，模拟上面我们已经试过了，这里看看截图功能的使用。
 在phantomjs-node中清一色的基于Promise的API，渲染图片的时候也是异步操作，跟PhantomJS中的使用有些差别。
@@ -252,7 +252,7 @@ bySnapShot:function(){
 
 
 
-### 参考资料
+### 4 参考资料
 
 1. [PhantomJS](http://phantomjs.org/)
 2. [PhantomJS 教程](http://javascript.ruanyifeng.com/tool/phantomjs.html) 

@@ -10,7 +10,7 @@ tags: [Python,编码,Unicode,str]
 
 
 
-## 源文件编码
+## 1 源文件编码
 
     #coding=utf-8
 
@@ -20,14 +20,14 @@ tags: [Python,编码,Unicode,str]
 
 
 
-## 字符串编码
+## 2 字符串编码
 
 ustr = u'test中文' 这个就是Unicode编码的字符串
 
 varstr = 'test中文'  这个就是系统默认编码的字符串 用sys.getdefaultencoding()可以搞到
 
 
-## 数据编码
+## 3 数据编码
 
 + 文件存储编码，就是存储文件的时候什么格式，windows默认ansi，unix 默认utf8
 
@@ -46,7 +46,7 @@ python文件写入的时候，会根据写入的内容确定数据的编码，�
 
 
 
-## 下面这堆就是浮云了：
+## 4 下面这堆就是浮云了：
 
 python 中有两种字符串对象，str 和unicode
 
@@ -73,7 +73,7 @@ str 对象是已经被编码过的对象，需要现将其按照指定编码进�
 python中从一个编码到另一个编码之间的转换都是先将对象解码为unicode 然后再将unicode对象编码为指定的编码
 
 
-## 参考资料
+## 5 参考资料
 0. [python读写不同编码txt文件](http://blog.csdn.net/zm2714/article/details/8012474)
 0. [Python字符集编码和文件读写](http://www.cnblogs.com/springbarley/articles/2338501.html)
 0. [详解Python2.x中对Unicode编码的使用](http://www.jb51.net/article/63390.htm)

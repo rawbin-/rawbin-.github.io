@@ -5,13 +5,13 @@ categories: [JavaScript,Web前端,Web开发]
 tags: [eslint,代码规范,规范检查]
 ---
 
-### 安装方式
+### 1 安装方式
 
 - 全局安装 `npm install eslint -g`
   - `eslint --init`生成配置文件
 - 局部安装 `npm install eslint --save-dev`
 
-### 配置方式
+### 2 配置方式
 
 - 注释配置，在代码文件中设置相应的规则
 
@@ -93,7 +93,7 @@ tags: [eslint,代码规范,规范检查]
 
     ​
 
-### 禁用配置方式
+### 3 禁用配置方式
 
 - 注释方式
 
@@ -158,7 +158,7 @@ tags: [eslint,代码规范,规范检查]
   path/to/directory/*
   ```
 
-### 配置内容
+### 4 配置内容
 
 + 配置文件中包含几部分内容
   + `parserOptions` 解析器版本校验
@@ -168,7 +168,7 @@ tags: [eslint,代码规范,规范检查]
   + `plugins`相关的插件
   + 具体的配置规则，规则列表[参考](http://eslint.org/docs/rules/)
 
-### 配置注意事项
+### 5 配置注意事项
 
 - 同一个目录下出现了不同的配置，优先级别
   - .`eslintrc.js`

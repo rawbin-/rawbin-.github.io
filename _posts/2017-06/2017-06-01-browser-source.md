@@ -8,7 +8,7 @@ tags: [浏览器,浏览器原理,源码分析]
 
 
 
-### 参考资料
+### 1 参考资料
 ---
 0. [从Chrome源码看JS Object的实现](http://www.renfed.com/2017/04/04/chrome-object/)
 1. [从Chrome源码看JS Array的实现](http://www.renfed.com/2017/04/16/chrome-js-array/)

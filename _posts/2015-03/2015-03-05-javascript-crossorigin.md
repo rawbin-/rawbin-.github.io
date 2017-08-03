@@ -53,7 +53,7 @@ tags: [跨域,同源策略,CORS,Same Origin Policy,浏览器安全]
 + 跨文档消息
   允许来自一个文档的脚本发消息到另一个文档里的脚本，而不管脚本的来源是否不同，调用Window对象的postMessage()方法，可以异步传递消息事件（可以用onmessage事件句处理程序函数来处理它）到窗口的文档里。一个文档里的脚本还是不能调用其他文档里的方法和读取属性，但他们可以通过这种消息传递技术来实现安全的通信。
 
-### 参考资料
+### 1 参考资料
 0. [Same Origin Policy-W3C][12]
 1. [JavaScript的同源策略][3]
 2. [Same-origin policy](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)

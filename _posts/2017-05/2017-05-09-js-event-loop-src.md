@@ -7,14 +7,14 @@ tags: [JavaScript,事件循环,event-loop,源码]
 
 
 
-### NodeJS中的异步实现
+### 1 NodeJS中的异步实现
 
 + [`libuv` 设计文档](http://docs.libuv.org/en/v1.x/design.html)
 + [`libuv` API](http://docs.libuv.org/en/v1.x/api.html)
 
 
 
-###   `libuv`中的事件阶段
+### 2 `libuv`中的事件阶段
 
 + 执行到点的定时器
 + 执行`pending`回调
@@ -27,9 +27,9 @@ tags: [JavaScript,事件循环,event-loop,源码]
 
 
 
-### 源码分析
+### 3 源码分析
 
-#### `nodejs` 主文件`/src/node.cc`
+#### 3.1 `nodejs` 主文件`/src/node.cc`
 
 ```
 do {
@@ -51,7 +51,7 @@ do {
 
 
 
-#### `libuv `分平台`/deps/uv/src/unix/core.c`
+#### 3.2 `libuv `分平台`/deps/uv/src/unix/core.c`
 
 ```
 int uv_run(uv_loop_t* loop, uv_run_mode mode) {
@@ -110,7 +110,7 @@ int uv_run(uv_loop_t* loop, uv_run_mode mode) {
 
 
 
-### 参考资料
+### 4 参考资料
 
 1.  《深入浅出NodeJS》
 2.  [深入理解Node.js：核心思想与源码分析](https://github.com/yjhjstz/deep-into-node)

@@ -11,7 +11,7 @@ tags: [JavaScript,React,Router]
 
 
 
-###  参考资料
+### 1 参考资料
 
 0. [react-router的实现原理](http://zhenhua-lee.github.io/react/history.html)
 1. [React Router 使用教程](http://www.ruanyifeng.com/blog/2016/05/react_router.html?utm_source=tool.lu)

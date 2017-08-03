@@ -5,7 +5,7 @@ catetories: [开发环境,前端开发,Web开发]
 tags: [开发工具,自动构建]
 ---
 
-## 参考资料
+## 1 参考资料
 
 1. [Choosing a Build Tool – Babel, Browserify, Webpack, Grunt and Gulp](http://www.tuicool.com/articles/faqiiyz)
 2. [How to choose a build system for javascript app](http://jamesknelson.com/which-build-system-should-i-use-for-my-javascript-app/?utm_source=tuicool&utm_medium=referral)

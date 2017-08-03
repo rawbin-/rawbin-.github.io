@@ -7,14 +7,14 @@ tags: [性能测试,压力测试,测试工具]
 
 [TOC]
 
-### 选用的简单工具
+### 1 选用的简单工具
 
-#### 压力测试工具
+#### 1.1 压力测试工具
 
 + [webbench](http://home.tiscali.cz/~cz210552/webbench.html)
 +  [apache ab](http://httpd.apache.org/docs/current/programs/ab.html)
 
-#### 系统监控工具
+#### 1.2 系统监控工具
 
 + [dstat](http://dag.wiee.rs/home-made/dstat/)
 + [glances](https://nicolargo.github.io/glances/)
@@ -24,7 +24,7 @@ tags: [性能测试,压力测试,测试工具]
 
 
 
-### 参考资料
+### 2 参考资料
 
 1. [10大主流压力/负载/性能测试工具推荐](https://zhuanlan.zhihu.com/p/26671961)
 2. [十个免费的Web压力测试工具](http://blog.jobbole.com/22294/)

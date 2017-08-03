@@ -9,7 +9,7 @@ tags: [编码,URL,编码,解码]
 
 
 
-## 参考资料
+## 1 参考资料
 0. [关于URL编码](http://www.ruanyifeng.com/blog/2010/02/url_encoding.html)
 0. [字符编码笔记：ASCII，Unicode和UTF-8](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
 0. [URL编码与解码](http://kb.cnblogs.com/page/133765/)

@@ -7,7 +7,7 @@ tags: [Hybrid,Native,HTML5]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [浅谈Hybrid技术的设计与实现](http://www.cnblogs.com/yexiaochai/p/4921635.html)
 

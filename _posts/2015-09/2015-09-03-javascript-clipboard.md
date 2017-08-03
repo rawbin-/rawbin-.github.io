@@ -14,7 +14,7 @@ tags: [复制,粘贴,JavaScript,浏览器,clipboard,copy,paste]
 
 
 
-## 参考资料
+## 1 参考资料
 0. [The Definitive Guide to Copying and Pasting in JavaScript](https://www.lucidchart.com/techblog/2014/12/02/definitive-guide-copying-pasting-javascript/)
 0. [The Definitive Guide to Copying and Pasting in JavaScript](https://dzone.com/articles/definitive-guide-copying-and)
 0. [JavaScript Local I/O tests](http://wizard.ae.krakow.pl/~jb/localio.html)

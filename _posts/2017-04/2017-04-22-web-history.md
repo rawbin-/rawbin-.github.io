@@ -9,7 +9,7 @@ tags: [Web发展,Web历史]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [W3C Blog: 25年前开始改变世界 - Web的早期历史](http://www.chinaw3c.org/archives/1446/)
 2. [Long Description of W3C10 Timeline Graphi](https://www.w3.org/2005/01/timelines/description)

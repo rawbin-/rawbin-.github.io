@@ -11,7 +11,7 @@ tags: [ES6,React,Webpack,JavaScript,CSS]
 
 
 
-## Webpack相关文档
+## 1 Webpack相关文档
 
 1. [webpack on github](https://github.com/webpack)
 
@@ -29,7 +29,7 @@ tags: [ES6,React,Webpack,JavaScript,CSS]
 
 
 
-## 参考资料
+## 2 参考资料
 
 1. [Book of Modern frontend tooling](http://tooling.github.io/book-of-modern-frontend-tooling/)
 2. [Book of Modern frontend tooling](https://github.com/tooling/book-of-modern-frontend-tooling)

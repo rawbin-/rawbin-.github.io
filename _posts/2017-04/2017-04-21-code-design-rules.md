@@ -9,7 +9,7 @@ tags: [设计原则,代码设计,可维护代码]
 
 
 
-### DRY (Don't Repeat Yourself) 
+### 1 DRY (Don't Repeat Yourself) 
 
 + 不出现多次同样的字符串拼接
 + 不出现多次同样的对象访问
@@ -18,22 +18,22 @@ tags: [设计原则,代码设计,可维护代码]
 + 不出现相似。。。
 + 一切相似的东西，都应该在一个地方表达，然后复用
 
-### KISS (Keep It Simple,Stupid)
+### 2 KISS (Keep It Simple,Stupid)
 
 + 不过早优化
 + 不过度设计
 + 不复杂化代码
 + 不断重构
 
-### XP (eXtreme Programming)
+### 3 XP (eXtreme Programming)
 
 + 快速迭代
 + 持续集成，不断重构
 + 单元测试
 
-### 面向对象设计原则
+### 4 面向对象设计原则
 
-#### 单一职责原则 (The Single Responsibility Principle)
+#### 4.1 单一职责原则 (The Single Responsibility Principle)
 
 + 一个东西做一件事情，并把它做好
 
@@ -44,14 +44,14 @@ tags: [设计原则,代码设计,可维护代码]
 + 可维护性提高
 + 变更引起的风险降低 
 
-#### 开放-封闭原则 (The Open-Close Principle)
+#### 4.2 开放-封闭原则 (The Open-Close Principle)
 
 + 让不能变的变不了，让可变的容易变
 
 
 + 软件实体(类，模块，函数等)应该是可以扩展的，但是不可修改的
 
-#### 里氏替换原则 (The Liskov Substitution Principle)
+#### 4.3 里氏替换原则 (The Liskov Substitution Principle)
 
 + 抽象的东东能用具体的东东替代
 
@@ -62,7 +62,7 @@ tags: [设计原则,代码设计,可维护代码]
 + 覆盖或实现父类的方法时输入参数可以被放大
 + 覆盖或实现父类的方法时输出结果可以被缩小
 
-#### 接口隔离原则 (The Interface Segregation Principle)
+#### 4.4 接口隔离原则 (The Interface Segregation Principle)
 
 + 不相关的就不能强制被关注
 
@@ -74,7 +74,7 @@ tags: [设计原则,代码设计,可维护代码]
 + 可提供定制
 + 接口设计粒度要适度
 
-#### 依赖导致原则 (The Dependency Inversion Principle)
+#### 4.5 依赖导致原则 (The Dependency Inversion Principle)
 
 + 容易变的不能被公用
 
@@ -82,7 +82,7 @@ tags: [设计原则,代码设计,可维护代码]
 + 高层模块不应该依赖于低层模块，二者都应该依赖于抽象
 + 抽象不应该依赖于细节，细节应该依赖于抽象
 
-#### 最少知识原则 (Least Knowledge Principe)，迪米特法则(Low of Demeter)
+#### 4.6 最少知识原则 (Least Knowledge Principe)，迪米特法则(Low of Demeter)
 
 + 不涉及到的就不应该关注
 
@@ -93,7 +93,7 @@ tags: [设计原则,代码设计,可维护代码]
 
 
 
-### 参考资料
+### 5 参考资料
 
 1. 《程序员修炼之道-从小共到专家》,The Pragmatic Programmer, From Journeyman to Master
 2. 《敏捷软件开发：原则、模式和实践》

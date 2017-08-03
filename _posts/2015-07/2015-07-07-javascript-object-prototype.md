@@ -6,9 +6,9 @@ tags: [Web前端,前端基础,JavaScript,原型]
 
 ---
 
-## 一些相关概念理解
+## 1 一些相关概念理解
 
-### 相关概念
+### 1.1 相关概念
 + 对象
     + 哲学上万物皆对象，具体指人们要研究的客观事物及对其进行的主观抽象；
     + 计算机理论思想中的对象是包含属性和相关行为的封装结构，是类的实例，类是对对象的抽象；
@@ -31,9 +31,9 @@ tags: [Web前端,前端基础,JavaScript,原型]
         + 可以指对象的原型属性\_\_proto\_\_(这个属性在JavaScript引擎中使用，在ES6之前作为内部属性存在，在ES6中被标准化和显式的使用)
         + \_\_proto\_\_作为对象的属性指向他的原型，prototype作为函数的属性指向他的原型。函数也是对象，所以函数可能同时拥有这两个属性。
 
-### 概念理解
+### 1.2 概念理解
 
-#### 一切皆为对象
+#### 1.2.1 一切皆为对象
 + JavaScript是弱类型的语言，会自动进行相应的类型转换（隐式类型转换）    
 在JavaScript中，原始值没有对应的方法，原始值在执行的过程中会被自动转换成对应类型的对象再进行运算和执行。比如字符串原始值"abcde"没有任何方法，会被转换成String对象，然后拥有String.prototype这个对象上定义的方法。
 + 函数也是对象（上面不是说了么，函数是可调用的对象）   
@@ -50,12 +50,12 @@ tags: [Web前端,前端基础,JavaScript,原型]
         Object.prototype.__proto__ // null
         Function.prototype.__proto__ === Object.prototype // true
 
-#### 函数是第一级对象
+#### 1.2.2 函数是第一级对象
 + 函数是基本数据类型   
 使用typeof运算符进行求值，可得到undefined,null,string,boolean,number,object,function这几种类型，这里函数和object作为并列的类型出现，同时对象又是由构造器（函数）创建的，虽然函数也是object类型的成员，但它同时拥有自己的typeof值。
 + 函数可以跟作为参数值传递（回调函数）
     
-#### 对象构造过程
+#### 1.2.3 对象构造过程
 + 一般对象创建过程  
 构造函数创建对象时，新建一个空对象，并将当前this值设置为这个对象的引用；同时将这个对象的\_\_proto\_\_属性设置为构造函数（构造器）的prototype 属性;设置对象的constructor属性为构造函数的原型的prototype属性;
 
@@ -69,7 +69,7 @@ tags: [Web前端,前端基础,JavaScript,原型]
         obj.__proto__ === Foo.prototype // true
         obj.constructor === Foo.prototype.constructor // true
         
-#### 原型继承
+#### 1.2.4 原型继承
 + 对象属性的访问   
 还是用上面的例子
 
@@ -137,7 +137,7 @@ JavaScript对象属性和方法的查找过程是先在对象本身的属性中�
 这条查找属性和方法的访问路径，就叫原型链。   
 从上面可以看出，原型链长了不太合适，查找效率太低（尤其是对于那些根本不存在的属性，他们会遍历整条原型链而最终返回的还是undefined）。
             
-## 参考资料
+## 2 参考资料
 0. [理解JavaScript系列](http://www.cnblogs.com/fool/category/264215.html)
 0. [深入理解JavaScript系列](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
 0. [What is Object?](https://en.wikipedia.org/wiki/Object)

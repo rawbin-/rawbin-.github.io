@@ -4,9 +4,9 @@ title: "JavaScript Ajax jQuery 文件上传 异步上传"
 categories: [开发技术]
 tags: [JavaScript, Ajax, jQuery, 文件上传, 异步上传]
 ---
-## 基本原理
+## 1 基本原理
 
-### 定制UI
+### 1.1 定制UI
 
 label 标签下面嵌套`<input type="file">`点击label会自动打开文件浏览框，这个是W3C的约定，点击标签触发跟标签关联的第一个表单元素，或者标签内嵌的第一个表单元素。参考：[W3School][15],[W3C][16]（这个英文更容易看懂，不信试试看，^_^）。
 
@@ -55,47 +55,47 @@ label 标签下面嵌套`<input type="file">`点击label会自动打开文件浏
         </div>
 
 
-### 自动上传
+### 1.2 自动上传
 监听`<input type="file">`的change事件，如果改变，则触发文件上传。
     
 
-### 异步HTTP上传
+### 1.3 异步HTTP上传
 使用`enctype='multipart/form-data'`的表单提交，传输`content-type:text/plain`的字节流数据。使用隐藏的iframe来提交表单，实现视区内页面无刷新。
 
-## 组件推荐  
+## 2 组件推荐  
 在这二十来个上传组件或插件中，根据可定制UI，支持度较广（仅支持Flash或HTML5的就pass），网站能打开，有能上手的实例等条件过滤掉了一些像ajaxfileupload，uploadify等还不错的资源，留下下面这些个。
 
-### plupload  
+### 2.1 plupload  
 自动切换多种方式的支持，有国际化的支持，支持自定义容器。
 
-#### 参考资料  
+#### 2.1.1 参考资料  
 0. [plupload 官网][5]
 1. [plupload Github][4]
 2. [前端上传组件Plupload使用指南][6]
 3. [Ajax多文件上传组件plupload（推荐）][13]
 4. [plupload 实例][18]
 
-### jquery file upload
+### 2.2 jquery file upload
 样式不错，引入的库较多，只支持绑定input file。
 
-#### 参考资料
+#### 2.2.1 参考资料
 0. [jQuery-File-Upload][8]
 1. [jQuery File Upload Demo][9]
 
-### jQuery Ajax File Uploader / uploader
+### 2.3 jQuery Ajax File Uploader / uploader
 有进度，有预览，不支持IE8；
 
-### 参考资料
+### 2.4 参考资料
 0. [JQuery File Uploader][10]
 
-### JSAjaxFileUploader
+### 2.5 JSAjaxFileUploader
 有进度，有预览，不支持IE8；
 
-#### 参考资料
+#### 2.5.1 参考资料
 0. [JSAjaxFileUploader][11]
 1. [JSAjaxFileUploader Demo][12]
 
-## 参考资料：
+## 3 参考资料：
 0. [文件上传的渐进式增强][19]
 0. [前端JavaScript上传组件插件][0]
 0. [22个很棒的jQuery文件上传插件][1]

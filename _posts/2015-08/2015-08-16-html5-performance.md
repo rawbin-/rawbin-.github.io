@@ -7,7 +7,7 @@ tags: [HTML5,性能优化]
 ---
 
 
-## 参考资料
+## 1 参考资料
 0. [前端加载 部署 及性能优化](http://rawbin-.github.io/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/web%E5%89%8D%E7%AB%AF/2015/07/11/fe-load-deploy-opt/)
 1. [前端性能优化](http://rawbin-.github.io/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/2015/03/05/web-performance/)
 2. [Web前端优化最佳实践及工具集锦](http://www.csdn.net/article/2013-09-23/2817020-web-performance-optimization)

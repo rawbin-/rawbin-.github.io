@@ -7,15 +7,15 @@ tags: [JavaScript, selenium, appium,phantomjs,slimerjs,casperjs]
 
 [TOC]
 
-### 测试工具
+### 1 测试工具
 
-#### 操作浏览器
+#### 1.1 操作浏览器
 
 +  [selenium](https://github.com/SeleniumHQ/selenium)
 +  [appium](https://github.com/appium/appium)
 +  [dalekjs](http://dalekjs.com/)
 
-#### 无界面浏览器 [参考](https://github.com/dhamaniasad/HeadlessBrowsers) 
+#### 1.2 无界面浏览器 [参考](https://github.com/dhamaniasad/HeadlessBrowsers) 
 
 + [phantomjs](https://github.com/ariya/phantomjs) Webkit (维护难度大)
 
@@ -43,12 +43,12 @@ tags: [JavaScript, selenium, appium,phantomjs,slimerjs,casperjs]
 
   ​
 
-### 自动化工具
+### 2 自动化工具
 
 + [grunt](https://gruntjs.com/)
 + [gulp](http://gulpjs.com/)
 
-#### 测试框架 [参考](http://phantomjs.org/headless-testing.html)
+#### 2.1 测试框架 [参考](http://phantomjs.org/headless-testing.html)
 
 + [robot framework](http://robotframework.org/)
 + [mocha](http://mochajs.org/)
@@ -56,7 +56,7 @@ tags: [JavaScript, selenium, appium,phantomjs,slimerjs,casperjs]
 
 
 
-### 持续集成
+### 3 持续集成
 
 + [strider](https://github.com/Strider-CD/strider)
   + NodeJS 开发，首选
@@ -68,14 +68,14 @@ tags: [JavaScript, selenium, appium,phantomjs,slimerjs,casperjs]
 
 
 
-### 选型结果
+### 4 选型结果
 
 + Web测试用CasperJS，移动端用Appium
 + 集成Jenkins
 
 
 
-### 参考资料
+### 5 参考资料
 
 1. [w3c webdriver](https://github.com/w3c/webdriver)
 

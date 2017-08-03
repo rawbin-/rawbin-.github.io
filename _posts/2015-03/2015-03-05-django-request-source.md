@@ -5,10 +5,10 @@ category: [开发技术]
 tags: [Django 流程,Django 源码,WSGI]
 ---
 
-## 创建服务器
+## 1 创建服务器
 //todo django commands
 
-### python manage.py runserver
+### 1.1 python manage.py runserver
 + manage.py 设置DJANGO_SETTINGS_MODULE环境变量为当前项目的settings.py,然后通过django.core.management.execute_from_command_line 继续执行命令（此处为runserver及其相关参数）
 [django-admin commands](http://django.readthedocs.org/en/latest/howto/custom-management-commands.html)
 + 使用django命令行的方式，执行django.core.management.commands.runserver, 执行该模块下的Command类的handle方法，通过django.core.servers.basehttp.get_internal_wsgi_application 方法获取一个处理类的名称，这里获取到的是项目setting.py中的WSGI_APPLICATION 配置，一般是项目目录下wsgi.py 里面定义的application，配置为xxx.wsgi.application.wsgi.py中定义的application为django.core.wsgi.get_wsgi_application返回的django.core.handlers.wsgi.WSGIHandler的实例。最后通过调用django.core.servers.basehttp.run方法创建并启动http服务器，并启用监听。
@@ -16,7 +16,7 @@ tags: [Django 流程,Django 源码,WSGI]
 + 请求到达后，会调用django.core.handlers.wsgi.WSGIHandler的实例
 
 
-## 参考
+## 2 参考
 0. [wsgiref 源代码分析][14]
 1. [WSGI 简介][15]
 2. [Wsgi研究][16]

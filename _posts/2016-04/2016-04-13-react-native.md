@@ -7,7 +7,7 @@ tags: [React Native,JavaScript]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [什么是跨终端web](https://segmentfault.com/q/1010000000609525)
 2. [移动应用开发指南：Native、Hybrid与HTML5](http://mobile.51cto.com/web-412307_all.htm)

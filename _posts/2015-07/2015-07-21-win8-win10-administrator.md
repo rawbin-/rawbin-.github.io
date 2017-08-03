@@ -10,14 +10,14 @@ tags: [管理员权限,非内置管理员,Administrator]
 
 权限管理在每个操作系统里面都有，是一种比较安全的控制，微软的UAC，相当于类Unix系统中的sudo
 
-### 内置管理员 Administrator 使用完整管理员权限
+### 1 内置管理员 Administrator 使用完整管理员权限
 看[这个说明](https://technet.microsoft.com/zh-cn/library/dd834795.aspx)   
 将 用户帐户控制：对内置管理员帐户使用管理员批准模式 禁用 则获取完整的管理员权限
 
 当然 [这个选项](https://technet.microsoft.com/zh-cn/library/dd851609.aspx)    
 用户帐户控制: 管理员批准模式中管理员的提升提示行为  不提示直接提升 才行
 
-### 非内置管理员 获取管理员权限，同时开启账户控制（不开启不能使用内置的应用）
+### 2 非内置管理员 获取管理员权限，同时开启账户控制（不开启不能使用内置的应用）
 
 用户帐户控制:以管理员批准模式运行所有管理员  启用 则每次都需要经过权限批准 
 
@@ -32,7 +32,7 @@ tags: [管理员权限,非内置管理员,Administrator]
 
 这样看来，开启账户控制，设置成批准不提示提升，才是解决问题的关键。
 
-### 参考资料
+### 3 参考资料
 0. [Win8非内置系统管理员获得完整权限的方法](http://it.oyksoft.com/post/6176/)
 1. [Windows 用户帐户控制循序渐进指南](https://technet.microsoft.com/zh-cn/library/cc709691\(v=ws.10\).aspx#BKMK_1)
 3. Windows 用户帐户控制循序渐进指南(https://technet.microsoft.com/zh-cn/library/cc709691\(v=ws.10\).aspx#BKMK_1)

@@ -7,7 +7,7 @@ tags: [Browserify,浏览器,NodeJS]
 
 
 
-### 将NodeJS的依赖进行打包
+### 1 将NodeJS的依赖进行打包
 
 写了一个NodeJS工程，主文件有一堆依赖，需要对外引用，而对应的依赖文件在特定环境下又用不起来。
 
@@ -17,7 +17,7 @@ tags: [Browserify,浏览器,NodeJS]
 
 上面的命令会将src-main.js打包起来，并能同时浏览器和NodeJS环境下运行。但下面的情况除外：
 
-#### 一个坑
+#### 1.1 一个坑
 
 查看 [node-browserify](https://github.com/substack/node-browserify) 文档，参数说明如下
 
@@ -71,7 +71,7 @@ module.exports = testModule;
 
 
 
-### NodeJS的模块，在浏览器里面跑
+### 2 NodeJS的模块，在浏览器里面跑
 
 直接看[这里](http://rawbin-.github.io/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/2016/02/17/using-mocha/)
 
@@ -85,7 +85,7 @@ module.exports = testModule;
 
 
 
-### 参考资料
+### 3 参考资料
 
 1. [浏览器加载 CommonJS 模块的原理与实现](http://www.ruanyifeng.com/blog/2015/05/commonjs-in-browser.html)
 2. [解析browserify工作原理](https://segmentfault.com/a/1190000004128257)

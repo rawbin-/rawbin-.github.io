@@ -7,7 +7,7 @@ tags: [前端,测试,自动化]
 ---
 
 
-## 参考资料
+## 1 参考资料
 0. [如何进行前端自动化测试](http://www.zhihu.com/question/29922082)
 0. [前端自动化测试探索](http://fex.baidu.com/blog/2015/07/front-end-test/)
 0. [开发模块化的JavaScript组件](http://www.infoq.com/cn/articles/modular-javascript/)

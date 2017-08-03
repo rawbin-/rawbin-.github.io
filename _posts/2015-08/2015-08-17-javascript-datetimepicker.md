@@ -7,7 +7,7 @@ tags: [日期选择器,DateTimePicker]
 ---
 
 
-## 参考资料
+## 1 参考资料
 0. [My97 日期控件](http://www.my97.net/)
 0. [自己写一个简单的jQuery日期选择器](http://chen106106.iteye.com/blog/1676296)
 0. [JS日期时间选择控件](http://www.cnblogs.com/wf5360308/articles/362935.html)

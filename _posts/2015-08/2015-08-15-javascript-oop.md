@@ -8,7 +8,7 @@ tags: [面向对象,面向过程,JavaScript]
 
 
 
-## 参考资料
+## 1 参考资料
 0. [编程的宗派](http://www.yinwang.org/blog-cn/2015/04/03/paradigms/)
 0. [面向过程的分析(POA)，和面向对象的分析(OOA)](http://www.juliantec.info/articles/basic-concept/poa-and-ooa.html)
 0. [面向对象编程和面向过程编程的差异！](http://blog.csdn.net/dqjyong/article/details/7667577)

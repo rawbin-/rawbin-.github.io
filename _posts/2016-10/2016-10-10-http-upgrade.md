@@ -15,7 +15,7 @@ tags: [HTTP2,HTTP,性能优化]
 
 
 
-### 参考资料
+### 1 参考资料
 
 0. [HTTP Performance Overview](https://www.w3.org/Protocols/HTTP/Performance/)
 1. [HTTP/2 与 WEB 性能优化（一）](https://imququ.com/post/http2-and-wpo-1.html)

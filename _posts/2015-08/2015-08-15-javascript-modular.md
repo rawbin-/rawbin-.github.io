@@ -8,7 +8,7 @@ tags: [组件化,模块化,面向对象,面向过程]
 
 
 
-## 参考资料
+## 1 参考资料
 0. [软件的模块化开发](http://www.cnblogs.com/snandy/p/3189379.html)
 0. [JavaScript组件化](http://purplebamboo.github.io/2015/03/16/javascript-component/?utm_source=tuicool&utm_medium=referral)
 0. [浅谈模块化的JavaScript](http://www.cnblogs.com/jinguangguo/archive/2013/04/06/3002515.html?utm_source=tuicool&utm_medium=referral)

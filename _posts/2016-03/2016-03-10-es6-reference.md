@@ -7,9 +7,9 @@ tags: [JavaScript,ES6,ECMAScript]
 
 
 
-### 参考资料
+### 1 参考资料
 
-#### ECMAScript 2015书籍资料
+#### 1.1 ECMAScript 2015书籍资料
 
 1. [ECMAScript 6入门](http://es6.ruanyifeng.com/)
 2. [You-Dont-Know-JS](https://github.com/getify/You-Dont-Know-JS)
@@ -23,13 +23,13 @@ tags: [JavaScript,ES6,ECMAScript]
 10. [The ES6 Conundrum](https://www.sitepoint.com/the-es6-conundrum/)
 11. [Learn ES2015](https://babeljs.io/docs/learn-es2015/)
 
-#### 规范参考
+#### 1.2 规范参考
 
 1. [es6 compatibility table](http://kangax.github.io/compat-table/es6/)
 2. [ECMAScript 2015 规范](http://www.ecma-international.org/ecma-262/6.0/index.html)
 3. [ECMAScript 规范下载](http://www.ecma-international.org/publications/standards/Ecma-262-arch.htm)
 
-#### 相关工具
+#### 1.3 相关工具
 
 1. [babel](https://babeljs.io/)
 2. [babel 资料](http://www.codefrom.com/p/Babel.js)

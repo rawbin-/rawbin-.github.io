@@ -5,13 +5,13 @@ categories: [开发环境]
 tags: [源码阅读,代码审查]
 ---
 
-## 工具推荐：
+## 1 工具推荐：
 + Understand 效率高 连接性好 爽
 + Source Inside 还不错 看起来有点老
 + Source Navigator NG 可以试试 代码链接不太直观
 
 
-## 参考
+## 2 参考
 0. [你用过的最好的代码阅读或编辑工具是什么？][7]
 0. [代码分析工具推荐Understand][6]
 0. [代码分析工具推荐Understand][5]

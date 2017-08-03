@@ -5,7 +5,7 @@ categories: [开发技术,应用技术]
 tags: [fekit,mock,内存泄露]
 ---
 
-### 现象
+### 1 现象
 
 Win10 NodeJS 0.12.12 使用fekit 最新版 0.2.141 本地开发
 
@@ -16,7 +16,7 @@ fekit进程内存很快会涨到1G以上，基本上就是卡死状态，浏览�
 
 可以通过如上命令起本地server，多次刷新带较多静态资源的页面，同时监控进程占用的内存
 
-### 解决办法
+### 2 解决办法
 
 1. 切换NodeJS版本
    + 实测Node 0.10.42, Node 0.10.43, Node 5.9.0 无此问题
@@ -27,23 +27,23 @@ fekit进程内存很快会涨到1G以上，基本上就是卡死状态，浏览�
 3. 进一步优化fekit mock.js代码
    + 修改FEKIT_HOME/lib/middleware/mock.js 将mock_file()的结果缓存起来，如果被更新了才进行重新计算。
 
-### 原因分析
+### 3 原因分析
 
 原因这里就不分析了，[记一次 Node.js 应用内存暴涨分析](http://taobaofed.org/blog/2016/01/14/nodejs-memory-leak-analyze/)，这个小伙伴已经分析的很不错了。
 
-### 排查过程
+### 4 排查过程
 
-#### 不带mock信息
+#### 4.1 不带mock信息
 无此问题，内存在100M上下波动，正常
 
-#### 与0.2.85 比较，发现代码几乎无差别，改动的代码对此几乎无影响
+#### 4.2 与0.2.85 比较，发现代码几乎无差别，改动的代码对此几乎无影响
 
-#### 在FEKIT_HOME/lib/command/server.js中进行中间件切除
+#### 4.3 在FEKIT_HOME/lib/command/server.js中进行中间件切除
 发现去掉mock后 .use(middleware.mock(options)) 问题基本解决
 
-#### 上面两条有点相互矛盾
+#### 4.4 上面两条有点相互矛盾
 
-#### 通过node-inspector 调试 
+#### 4.5 通过node-inspector 调试 
 
     node-debug "C:\Users\liao.zhang\AppData\Roaming\nvm\v4.3.0\node_modules\fekit\bin\fekit" server -m package_b2c_admin/tests/mock.conf
 
@@ -54,7 +54,7 @@ fekit进程内存很快会涨到1G以上，基本上就是卡死状态，浏览�
 查看profile数据，发现fekit占用的内容并不多
 
 
-#### 不管上面的矛盾
+#### 4.6 不管上面的矛盾
 
 看看这里面闭包比较多的地方，分片注释，可以定位到
 
@@ -68,16 +68,16 @@ fekit进程内存很快会涨到1G以上，基本上就是卡死状态，浏览�
 
 JavaScript虚拟机内存没有被释放，调用的次数又太多（每一个请求都调用），所以内存爆了
 
-#### 再回来
+#### 4.7 再回来
 可以说已经不是fekit的问题了，85的代码和141的代码一样的时候，也会有这样的问题
 
-#### NodeJS文档
+#### 4.8 NodeJS文档
 + [0.10.x](https://nodejs.org/docs/latest-v0.10.x/api/)
 + [0.12.x](https://nodejs.org/docs/latest-v0.12.x/api/)
 
 大致测试，0.10.xx 应该没有这个问题；0.11.x,0.12.xx, 4.4.0 有这个问题，法不责众，我们回过头来看看fekit。
 
-#### 换个姿势
+#### 4.9 换个姿势
 上面说可以说是不是fekit的问题，因为NodeJS也有问题，再来看看fekit到底有没有问题
 
     module.exports = function(options) {
@@ -171,7 +171,7 @@ JavaScript虚拟机内存没有被释放，调用的次数又太多（每一个�
 
 
 
-### 参考文档
+### 5 参考文档
 
 1. [记一次 Node.js 应用内存暴涨分析](http://taobaofed.org/blog/2016/01/14/nodejs-memory-leak-analyze/)
 2. [记一次 Node.js 应用内存暴涨分析](https://yq.aliyun.com/articles/4050?spm=5176.100239.yqblog1.6.9w1hrV)

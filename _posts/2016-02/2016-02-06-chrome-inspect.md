@@ -7,7 +7,7 @@ tags: [Chrome,开发工具,Inspect]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1. [Chrome 35个开发者工具的小技巧](http://www.w3cplus.com/tools/dev-tips.html)
 2. [Chrome Dev Tips动画版](https://umaar.com/dev-tips/)

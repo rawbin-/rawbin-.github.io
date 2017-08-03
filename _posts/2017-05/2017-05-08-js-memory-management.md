@@ -9,7 +9,7 @@ tags: [JavaScript, 内存模型,堆栈]
 
 
 
-### 参考资料
+### 1 参考资料
 
 1.  [理解JavaScript](http://www.uml.org.cn/AJAX/201011083.asp)
 2.  [NodeJS中被忽略的内存](http://huang-jerryc.com/2016/04/14/NodeJS%E4%B8%AD%E8%A2%AB%E5%BF%BD%E7%95%A5%E7%9A%84%E5%86%85%E5%AD%98/)

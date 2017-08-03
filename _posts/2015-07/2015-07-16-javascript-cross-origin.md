@@ -6,9 +6,9 @@ tags: [前端,跨域]
 
 ---
 
-## 同源与跨域
+## 1 同源与跨域
 
-### 基调
+### 1.1 基调
 
 一般情况下，禁止一个域从另一个域读取数据，却可以使用某些从其他域拿到的资源。比如说，允许一个域执行、渲染、应用从其他域获取到的脚本、图片、样式；同样，一个域可以展示从其他域获取的内容，比如在frame中显示html文档。网络资源也可以选择性的让其他域来读取自己的信息，比如使用Cross-Origin Resource Sharing，这种情况下访问权是针对单个域授权的。
 
@@ -16,7 +16,7 @@ tags: [前端,跨域]
 
 同源策略的控制者是浏览器，浏览器可以控制不同域之间的资源的访问或相互操作，但不控制自己对不同域之间的资源的操作和访问。
 
-### 什么是源
+### 1.2 什么是源
 RFC6454 规定一个资源的源由资源的URI中的（协议，主机，端口）这一个三元组来确定（IE中没有把端口纳入源的属性）。比如 https://www.test.com/test-script.js, 这个资源的源为（https, www.test.com, 443）。
 
 对于一个被执行的脚本来说，他的源属性是执行这个脚本的资源的源属性。比如一个页面加载了来自另一个域的脚本，这个脚本执行的时候向页面所在域发送请求被视为同源。
@@ -25,15 +25,15 @@ RFC6454 规定一个资源的源由资源的URI中的（协议，主机，端口
 
 IE没有将端口作为同源的组成部分，原因是IE历史垄断的市场占有率导致的历史遗留问题，IE8尝试在原生的XMLHTTPRequest中使用端口作为同源的一部分（标准化），但效果不好，一些依照老IE特性开发的站点，为了保持兼容性，继续使用了原有的MSXML 方式的XMLHTTPRequest。所以在IE8-11的版本都没有考虑端口作为同源的判断条件。
 
-### 怎样算同源
+### 1.3 怎样算同源
 两个资源的组成源的属性（协议，主机，端口），完全一致，这两个资源才同源。这里如果两个资源的协议分别为http 和 https 被认为不同源。同时，即使两个资源的所属同一台服务器，但给出的域名分别为www.testA.com和www.testB.com，这两个资源也被认为是不同源。
 
-### 同源策略
+### 1.4 同源策略
 同源策略是浏览器的核心安全策略，目的是将来自不同源的资源进行隔离，并控制不同源资源间的通信，从而减少安全威胁，增强安全性。
 
-#### 同源策略的规则
+#### 1.4.1 同源策略的规则
 
-##### 不限制
+##### 1.4.1.1 不限制
 
 互联网的核心思想是资源共享，资源的相互访问应该被允许。
 
@@ -49,13 +49,13 @@ IE没有将端口作为同源的组成部分，原因是IE历史垄断的市场�
 + postMessage接口跨域通信
 + `<video>`,`<audio>`,`<object>`,`<embed>`,`<applet>`,`@font-face`可以加载其他域的资源
 
-##### 部分限制
+##### 1.4.1.2 部分限制
 + 跨域发送请求不能自定义HTTP Header
 + 跨域发送请求不能使用PUT和DELETE方式，只能使用GET和POST
 + 脚本可以访问一个不同源窗口的整体，而不能访问窗口的内部信息
 + CORS可以改变跨域的情形Access-Control-Allow-Origin,同源策略不放宽，跨域请求正常工作（设置为例外），不包含用户名和密码，不包含cookie和token，，响应的cookie会被丢弃，如果需要这些信息，需要设置XMLHttpRequest的withCredentials=true
 
-##### 完全限制
+##### 1.4.1.3 完全限制
 + 限制本地文件系统读写
 + 限制cookie的访问
 + 限制FileUpload元素的value属性，不能修改，甚至不能读取路径。
@@ -63,7 +63,7 @@ IE没有将端口作为同源的组成部分，原因是IE历史垄断的市场�
 + 限制本地存储localStorage和sessionStorage和IndexedDB
 + 限制XMLHTTPRequest请求的发送对象
 
-### 跨域
+### 1.5 跨域
 
 同源策略将来自不同源的资源进行了隔离，略在阻止安全威胁的同时，也对正常的访问带来了不便，我们也需要在安全策略下根据应用的需要进行不同源资源间的通信。 比如和iframe或frame中的资源的通信，与新窗口的资源的通信，与不同域的服务器之间的通信等。
 
@@ -71,96 +71,96 @@ IE没有将端口作为同源的组成部分，原因是IE历史垄断的市场�
 
 在应用系统中做单点登录的时候，在进行当前应用的认证的时候需要向认证中心进行认证，这个时候也需要特殊的操作。
 
-## 跨域方法汇总
+## 2 跨域方法汇总
 
 跨域的方法和浏览器安全问题都围绕着同源策略来展开，我们可以避开浏览器端的参与，从而规避同源策略带来的不便；同时我们也可以利用同源策略及其辅助接口开放的功能特性来实现跨越通信。
 
-### 惹不起躲得起
+### 2.1 惹不起躲得起
 
 如果可以的话，可以将Web应用部署在同一个域下，这样可以很好的回避跨域的问题，我们常用的通过本域的后端接口包装，避免跨域的问题。
 
-### 使用反向代理
+### 2.2 使用反向代理
 
 直接使用Web服务器apache，nginx等的反向代理的方式，将需要跨域的请求发送到当前域，在Web容器配置中做请求转发，像nginx这样的反向代理很擅长做这样的事情。
 
-### 直面惨淡的人生
+### 2.3 直面惨淡的人生
 
-#### 动态不受限标签
+#### 2.3.1 动态不受限标签
 
 使用脚本动态创建`<script>`,`<img>`,`<link>`,`<iframe>`,`<frame>`等标签，在加入文档DOM后，浏览器会自动加载并解析渲染响应的资源。
 
-#### JSONP
+#### 2.3.2 JSONP
 
 JSONP原理其实是对`<script>`标签的一个利用，首先`<script>`标签加载资源是不受域限制的，然后浏览器会将`<script>`加载的内容当做脚本来执行。如果服务端返回的是类似于`callback({"data":[{"aa":1}]})`这样的内容，那么浏览器会将`{"data":[{"aa":1}]}`作为函数参数调用callback这个方法。这样就实现了从不同域加载数据。
 
-#### Form提交
+#### 2.3.3 Form提交
 
 Form提交不受限制，客户端可以以GET和POST的方式向服务端提交数据。
 
-#### document.domain
+#### 2.3.4 document.domain
 
 每一个窗体可以对当前窗体所属域进行微调，比如当前与名为`app.test.com`,则可以设置`document.domain`为`test.com`,也可以设置为`app.test.com`。通过将子域的`document.domain`属性均改为主域`test.com`,可以实现`test.com`下的任意子域`app.test.com`,`auth.test.com`,`img.test.com`等之间的通信。
 
 + 修改为主域之后，子域的访问会带上父域的cookie，反之则不然
 + `.test.com` 和 `test.com` 效果一样,写成`test.com` 浏览器会理解为`.test.com`
 
-#### window.name 
+#### 2.3.5 window.name 
 
 window.name 在加载不同的页面后还会存在，可以通过使用同一个window来加载需要通信的页面，通过共享window.name来进行数据通信。
 
-#### CORS（Cross Origin Resource Sharing）
+#### 2.3.6 CORS（Cross Origin Resource Sharing）
 
 通过协商的的HTTP Header让浏览器和服务端进行通信，来决定请求或者响应是否有效。
 
 + 默认情况下，浏览器发送跨域请求不带认证信息（比如cookie,证书,代理认证信息等），withCredentials属性值为false
 + 跨域需要withCredentials=true，同时服务端允许Access-Control-Allow-Credentials:true，同时Access-Control-Allow-Origin 值不能为*
 
-#### postMessage
+#### 2.3.7 postMessage
 
 这个是HTML5新增的页面间通信的接口，能够很好的解决iframe之间通信的问题。
 
-### Fetch
+### 2.4 Fetch
 
-#### 带认证信息信息跨域
+#### 2.4.1 带认证信息信息跨域
 
 + 请求设置 `credentials:true`
 + 响应设置`Access-Control-Allow-Origin:http://origin.to.cross`,`Access-Control-Allow-Credentials:true`
 
 
 
-#### 请求对象
+#### 2.4.2 请求对象
 
 - `mode`值为`same-origin`,`cors`,`no-cors`(默认),`navigate`,`websocket` 
 - `credentials mode` 值为`omit`(默认),`same-origin`,`include`
 
-#### 响应对象
+#### 2.4.3 响应对象
 
 + 同域响应`type`值为 `basic`,`cors`，`default`（默认）,`error`
 + 跨域响应`type`值为`opaque`,`opaqueredirect`,`error`
 
-#### P3P
+#### 2.4.4 P3P
 
 P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相应头的方式来通过浏览器对cookie的限制，解决第三方cookie传递的问题。
 
-#### WebSocket
+#### 2.4.5 WebSocket
 
 这也是HTML5新增的浏览器和服务端通信的非HTTP通信的机制，它不受同源策略的限制，是解决跨域数据传输的解决方案。
 
 + 在https的页面，无法发送ws://的请求，同http
 
-## 不同角度看问题
+## 3 不同角度看问题
 
-### 本地页面间通信 VS Browser-Server通信
+### 3.1 本地页面间通信 VS Browser-Server通信
 
-#### 本地页面间通信
+#### 3.1.1 本地页面间通信
 + 动态标签
 + postMessage
 + window.name
 + document.domain 
 
-#### Browser-Server通信
+#### 3.1.2 Browser-Server通信
 
-##### GET
+##### 3.1.2.1 GET
 + 动态标签
 + JSONP
 + Form提交
@@ -169,16 +169,16 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 + WebSocket
 + fetch
 
-##### POST
+##### 3.1.2.2 POST
 + Form提交
 + CORS
 + P3P
 + WebSocket
 + fetch
 
-### 单向通信 VS 双向通信
+### 3.2 单向通信 VS 双向通信
 
-#### 单向通信
+#### 3.2.1 单向通信
 + 动态标签
 + JSONP
 + Form提交
@@ -186,31 +186,31 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 + P3P
 + fetch
 
-#### 双向通信
+#### 3.2.2 双向通信
 + window.name
 + document.domain
 + postMessage
 + WebSocket
 
-### 前端单独处理 VS 需要后端配合
+### 3.3 前端单独处理 VS 需要后端配合
 
-#### 前端单独处理
+#### 3.3.1 前端单独处理
 + 动态标签
 + window.name
 + document.domain
 + postMessage
 + fetch
 
-#### 需要后端配合
+#### 3.3.2 需要后端配合
 + JSONP
 + Form提交
 + CORS
 + P3P
 + WebSocket
 
-### 全版本浏览器 VS 现代浏览器
+### 3.4 全版本浏览器 VS 现代浏览器
 
-#### 全版本浏览器
+#### 3.4.1 全版本浏览器
 + 动态标签
 + JSONP
 + Form提交
@@ -218,7 +218,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 + document.domain
 + P3P
 
-#### 现代浏览器   
+#### 3.4.2 现代浏览器   
 
 - 动态标签
 - JSONP
@@ -232,7 +232,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 + WebSocket
 + fetch
 
-## 实例详解
+## 4 实例详解
 
 在本地玩起来，修改hosts文件增加如下的几个域名绑定作为测试:   
 
@@ -243,10 +243,10 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 
 本文所有实例都可以在 [这里](https://github.com/rawbin-/fe_practice/tree/master/cross_origin) 下载
 
-### 动态不受限标签
-### JSONP
+### 4.1 动态不受限标签
+### 4.2 JSONP
 
-#### 源域 source.test.com/source-client.html
+#### 4.2.1 源域 source.test.com/source-client.html
 
     <!DOCTYPE html>
     <html lang="en">
@@ -302,7 +302,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
     </body>
     </html>
 
-#### 目标域 target.test.org:9000
+#### 4.2.2 目标域 target.test.org:9000
 
     var http = require("http");
     var url = require("url");
@@ -317,17 +317,17 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
         response.end(retData);
     });    
 
-#### 操作方法
+#### 4.2.3 操作方法
 
 打开源域页面，在控制台查看拿到的数据    
 
-### Form提交
+### 4.3 Form提交
 
 这个我不会写~
 
-### window.name
+### 4.4 window.name
 
-#### 源域 source.test.com/source.html
+#### 4.4.1 源域 source.test.com/source.html
 
     <!DOCTYPE html>
     <html lang="en">
@@ -346,7 +346,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
     
     </html>
 
-#### 目标域 target.test.org/target.html
+#### 4.4.2 目标域 target.test.org/target.html
 
     <!DOCTYPE html>
     <html lang="en">
@@ -361,13 +361,13 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
     </body>
     </html>    
 
-#### 操作 
+#### 4.4.3 操作 
 
 打开源域页面看 即使跳转到目标域 数据依然存在
 
-### document.domain
+### 4.5 document.domain
 
-#### 源域 source.test.com/source.html
+#### 4.5.1 源域 source.test.com/source.html
 
     <!DOCTYPE html>
     <html lang="en">
@@ -391,7 +391,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
         </script>  
     </html>
 
-#### 目标域 target.test.com/target.html
+#### 4.5.2 目标域 target.test.com/target.html
 
     <!DOCTYPE html>
     <html lang="en">
@@ -407,13 +407,13 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
     </body>
     </html>
 
-#### 操作
+#### 4.5.3 操作
 
 打开源域页面 查看源域操作目标域dom情况
 
-### CORS
+### 4.6 CORS
 
-#### 源域 source.test.com/client.html 源代码
+#### 4.6.1 源域 source.test.com/client.html 源代码
 
     <!DOCTYPE html>
     <html lang="en">
@@ -438,7 +438,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
     </body>
     </html>
 
-#### 目标域 target.test.org:9000
+#### 4.6.2 目标域 target.test.org:9000
 
     var http = require("http");
 
@@ -454,22 +454,22 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
     });
 
 
-#### 操作方法
+#### 4.6.3 操作方法
 + 将两个文件部署上
 + 浏览器打开源域的页面 
 + 在控制台和网络请求中查看交互数据
 
 
-### P3P
+### 4.7 P3P
 
 这个用的相对较少，直接参考[前面一篇](https://rawbin-.github.io/web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/2015/07/15/xmpp-httpbind-ie8/)
 
-### postMessage
+### 4.8 postMessage
 
 源域的页面嵌入加载了目标域的页面，并在两个域之间进行通信。
 
 
-#### 源域 source.test.com/source.html 源代码：
+#### 4.8.1 源域 source.test.com/source.html 源代码：
 
     <!DOCTYPE html>
     <html lang="en">
@@ -488,7 +488,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
     </body>
     </html>
 
-#### 目标域 target.test.org/target.html 源代码:
+#### 4.8.2 目标域 target.test.org/target.html 源代码:
 
     <!DOCTYPE html>
     <html lang="en">
@@ -507,17 +507,17 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
     </body>
     </html>
 
-#### 操作方法
+#### 4.8.3 操作方法
 + 将两个文件部署上
 + 浏览器打开源域的页面 
 + 在控制台可以看到两个页面交互的信息
 
 
-### WebSocket
+### 4.9 WebSocket
 
 源域的页面中的脚本在页面加载时向目标域的服务发送信息，并接受服务返回的信息。 
 
-#### 目标域 target.test.org:9000 源代码：
+#### 4.9.1 目标域 target.test.org:9000 源代码：
 
     var WebSocketServer = require('ws').Server;
     var socketServer = new WebSocketServer({port:9000});
@@ -528,7 +528,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
         });
     })
 
-#### 源域 source.test.com/index.html 源代码：
+#### 4.9.2 源域 source.test.com/index.html 源代码：
 
     <!DOCTYPE html>
     <html lang="en">
@@ -561,18 +561,18 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
     </body>
     </html>
 
-#### 操作方式
+#### 4.9.3 操作方式
 + npm install ws
 + node 启动目标域的socket server
 + 浏览器打开源域的页面
 + 在控制台可以看到客户端和服务端交互的消息
 
 
-## 安全相关
+## 5 安全相关
 
 
 
-## 参考资料
+## 6 参考资料
 
 0. [RFC 6454 The Web Origin Concept](http://tools.ietf.org/html/rfc6454)
 1. [同源策略和跨域访问](http://blog.csdn.net/shimiso/article/details/21830313)

@@ -9,7 +9,7 @@ tags: [模块化,工程化,JavaScript,mocha,单元测试]
 
 看[这里](http://git.shepherdwind.com/velocity.js/runner/tests.html)体会一下效果，结构一目了然，点击测试行，还能看到具体的测试代码。
 
-### NodeJS环境测试
+### 1 NodeJS环境测试
 
 基本看一遍[Mocha官网](http://mochajs.org/)的说明，就可以玩起来了。
 
@@ -28,7 +28,7 @@ tags: [模块化,工程化,JavaScript,mocha,单元测试]
 
 
 
-### 浏览器环境测试
+### 2 浏览器环境测试
 
 + 使用mocha init PATH，初始化一个用于浏览器中展示Test Case的资源目录。
 
@@ -39,20 +39,20 @@ tags: [模块化,工程化,JavaScript,mocha,单元测试]
 
 
 
-### 针对ES6+的测试代码的测试
+### 3 针对ES6+的测试代码的测试
 
 + 安装babel 依赖
 + 使用`mocha --compilers js:babel/register` 执行测试
 
 
 
-### 其他说明
+### 4 其他说明
 
 + mocha 默认查找 `./test/*.js`,`./test/*.coffee`,如果代码在这里就可以不用指定路径
 
 
 
-### 参考资料
+### 5 参考资料
 
 0. [mocha 官网](http://mochajs.org/)
 1. [ 测试框架 Mocha 实例教程](http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html)

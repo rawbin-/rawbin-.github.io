@@ -7,7 +7,7 @@ tags: [JavaScript,事件循环,event-loop]
 
 
 
-### 定时执行
+### 1 定时执行
 
 + setTimeout(定时器) clearTimeout
 + setInterval(定时器) clearInterval
@@ -20,7 +20,7 @@ tags: [JavaScript,事件循环,event-loop]
 
 
 
-### 事件循环
+### 2 事件循环
 
 + 每一个事件阶段都有一个 先进先出的回调队列
 + 当事件循环执行到每个阶段，会在允许情况下执行该阶段的所有操作，然后进入下一个阶段
@@ -76,7 +76,7 @@ tags: [JavaScript,事件循环,event-loop]
 
 
 
-### 闲扯淡
+### 3 闲扯淡
 
 `NodeJS`官方文档比较`setImmediate`个`process.nextTick`：
 
@@ -87,7 +87,7 @@ tags: [JavaScript,事件循环,event-loop]
 
 
 
-### 参考资料
+### 4 参考资料
 
 1.  [whatwg event-loop](https://html.spec.whatwg.org/multipage/webappapis.html#event-loope441	W33)
 2.  [NodeJS 官方Guide](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)

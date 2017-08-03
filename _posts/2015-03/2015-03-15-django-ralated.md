@@ -9,7 +9,7 @@ Tags:  [Django, Django Admin, Python Web]
 
 
 
-### 参考
+### 1 参考
 0. [利用 Django admin 完成更多任务][0]
 1. [django 开发多语言网站][1]
 2. [django 开发多语言网站][2]

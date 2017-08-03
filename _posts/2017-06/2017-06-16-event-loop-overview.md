@@ -5,7 +5,7 @@ categories: [Web开发,前端开发,JavaScript]
 tags: [JavaScript,事件循环]
 ---
 
-### 引言
+### 1 引言
 
 从2007年大学课程接触JavaScript以来，到现在（2017年）已经整整十个年头了；期间处理过当时主流的浏览器的兼容，比如IE6、7、8，Opera，Firefox，Safari（那会Chrome用的还很少，少数geek同学用），一半的兼容处理靠的是搜索引擎然后甚至是复制粘贴；十年时间浏览器市场也经历了重大的变迁，Chrome、Firefox、Safari以及微软痛定思痛换了壳还换了引擎的Edge成了几大主流。JavaScript规范也从近十年前的小修小补到目前把这十年的积淀都甩了出来，从Java脚本语言（不少人这么认为吧，甚至还有书这么写的，这里纠正一下，Java和JavaScript曾经有过一些勾搭，但关系不是这样的，或者说这俩没关系）到能自己撑起一片天，现在不理解一些JavaScript核心实现机制了，都不好意思说自己是搞前端的了。
 
@@ -27,7 +27,7 @@ ECMAScript 规范 job，job queue
 
 
 
-### 参考资料
+### 2 参考资料
 
 + 《深入浅出Node.js》
 

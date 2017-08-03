@@ -5,7 +5,7 @@ categories: [Web开发,前端开发,JavaScript]
 tags: [JavaScript,Promise]
 ---
 
-### 有哪些特性
+### 1 有哪些特性
 
 + ECMA2015(ES6) 标准
 + 解决回调金字塔问题
@@ -13,7 +13,7 @@ tags: [JavaScript,Promise]
 + 逐步被各种库和浏览器实现
 
 
-### 实质是什么
+### 2 实质是什么
 
 + 一种表达形式
 + 一个类（JavaScript函数对象），及其相关的属性和方法
@@ -21,14 +21,14 @@ tags: [JavaScript,Promise]
 
 
 
-###  如何使用
+### 3 如何使用
 
 + [什么是Promise](http://wiki.jikexueyuan.com/project/javascript-promise-mini-book/what-is-the-promise.html)
 
 + [Promise实战](http://wiki.jikexueyuan.com/project/javascript-promise-mini-book/how-to-write-promise.html)
 
 
-### 如何实现
+### 4 如何实现
 
 + [Promise实现原理](http://www.tuicool.com/articles/fe6Jbyz)
 + [闲话Promise机制](http://www.cnblogs.com/dojo-lzz/p/4340897.html)
@@ -40,7 +40,7 @@ tags: [JavaScript,Promise]
   ​
 
 
-### 参考资料
+### 5 参考资料
 
 1. [ES6 Promise的感性认识](http://www.zhangxinxu.com/wordpress/2014/02/es6-javascript-promise-%E6%84%9F%E6%80%A7%E8%AE%A4%E7%9F%A5/comment-page-1/)
 2. [Promise对象](http://es6.ruanyifeng.com/#docs/promise)

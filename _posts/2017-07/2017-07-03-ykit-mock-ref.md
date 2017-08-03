@@ -7,16 +7,16 @@ tags: [YKit,Mock,模拟数据,测试数据]
 
 [TOC]
 
-### YKit Mock配置
+### 1 YKit Mock配置
 
-#### 设计
+#### 1.1 设计
 
 + 使用[Mockjs](https://github.com/nuysoft/Mock)
   + YKit Mock数据使用 [Mockjs](https://github.com/nuysoft/Mock), 相应的[Mockjs文档和示例](http://mockjs.com/)
   + [Mockjs的语法规范](https://github.com/nuysoft/Mock/wiki/Syntax-Specification)
   + Mockjs数据规则参考[mockJSON](https://github.com/mennovanslooten/mockJSON), FEKit也使用了这个规则
 
-#### YKit Mock启动方式
+#### 1.2 YKit Mock启动方式
 
 + `ykit server`启动时如果配置了`mock`插件会自动启动mock server
 + `ykit server mock=false` 方式启动可以不启动mock server
@@ -24,7 +24,7 @@ tags: [YKit,Mock,模拟数据,测试数据]
 
 
 
-#### YKit Mock配置文件
+#### 1.3 YKit Mock配置文件
 
 + 默认搜索项目根目录下的`mock.js` 或者 `mock.json`,推荐使用`mock.js`
 
@@ -150,9 +150,9 @@ tags: [YKit,Mock,模拟数据,测试数据]
 
 
 
-### YKit Proxy 配置
+### 2 YKit Proxy 配置
 
-#### 设计
+#### 2.1 设计
 
 + YKit Proxy 使用了蛟神写的一个牛逼的代理服务[Jerry Proxy](https://github.com/Ellery0924/Jerry),主要功能
   + HOST 管理
@@ -160,24 +160,24 @@ tags: [YKit,Mock,模拟数据,测试数据]
   + 请求日志和断点
   + 网络限速
 
-#### YKit Proxy 代理配置
+#### 2.2 YKit Proxy 代理配置
 
-##### Jerry Proxy 启动
+##### 2.2.1 Jerry Proxy 启动
 
 + 使用`sudo ykit server -x` 启动带代理服务的ykit server
 + 使用`ykit server`启动日志中的`[JerryProxy] Available on: http://127.0.0.1:\d+/jerry`中的URL访问代理服务器的界面
 
-##### Jerry Proxy 配置
+##### 2.2.2 Jerry Proxy 配置
 
-###### 服务器组配置
+###### 2.2.2.1 服务器组配置
 
 + 这里配置环境以及每套环境对应的机器，方便在HOST管理的地方被引用到
 
-###### URL MAP
+###### 2.2.2.2 URL MAP
 
 + 请求转发的配置，支持转到本地文件，或者转发到其他页面
 
-###### 代理面板
+###### 2.2.2.3 代理面板
 
 + 配置是否使用HTTPS代理和网络限速
 + 配置HOST分组，Jerry Proxy会为每一个发现的YKit工程新建一个对应的分组
@@ -185,11 +185,11 @@ tags: [YKit,Mock,模拟数据,测试数据]
 
 
 
-### 代码地址
+### 3 代码地址
 
 + 所有的代码可以在**[这里](https://github.com/rawbin-/ykit-demos)**找到。
 
-### 参考资料
+### 4 参考资料
 
 1. [YKit mock 插件源码](https://github.com/roscoe054/ykit-config-mock)
 2. [Mockjs github](https://github.com/nuysoft/Mock)

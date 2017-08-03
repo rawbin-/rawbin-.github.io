@@ -7,7 +7,7 @@ tags: [HTTP调试,请求,响应]
 ---
 
 
-## 参考资料
+## 1 参考资料
 0. [关于 WEB/HTTP 调试利器 Fiddler 的一些技巧分享](http://my.oschina.net/leejun2005/blog/151103?fromerr=giJyBpLD)
 0. [Fiddler 高级用法：Fiddler Script 与 HTTP 断点调试](http://my.oschina.net/leejun2005/blog/399108?fromerr=GaMobTx6)
 0. [Fiddler 图文教程](http://xiaotank.blog.51cto.com/2461521/1190029/)

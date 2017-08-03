@@ -5,7 +5,7 @@ categories: [编程语言]
 tags: [Python, VirtualEnv, 正则表达式, 编码]
 ---
 
-## Python基础
+## 1 Python基础
 0. [PEP8 Python编码规范][10]
 1. [Python 编码风格指南中译版（Google SOC）][17]
 1. [Python程序设计][12]
@@ -18,14 +18,14 @@ tags: [Python, VirtualEnv, 正则表达式, 编码]
 1. [Python 程序员应该知道的 10 个库][11]
 
 
-## 环境配置
+## 2 环境配置
 0. [用pyenv和virtualenv搭建单机多][6]
 1. [python pyenv 多版本管理（自动安装脚本）][19]
 2. [使用pyenv管理不同版本的python][20]
 3. [Linux 下的 Python 多版本管理（pyenv）][21]
 
 
-## 网络应用
+## 3 网络应用
 0. [Python爬虫入门教程][7]
 1. [Python爬虫框架Scrapy实战之定向批量获取职位招聘信息][8]
 2. [python 爬虫实现前需要注意的地方][9]
@@ -34,7 +34,7 @@ tags: [Python, VirtualEnv, 正则表达式, 编码]
 2. [python利用requests库模拟登录和抓取数据，超简单][22]
 
 
-## 正则表达式
+## 4 正则表达式
 0. [Python正则表达式指南][0]
 1. [比较详细Python正则表达式操作指南(re使用)][1]
 2. [Python正则表达式操作指南][2]

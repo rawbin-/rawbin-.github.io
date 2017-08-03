@@ -7,7 +7,7 @@ tags: [JavaScript,JavaScript历史]
 
 
 
-### 语言背景
+### 1 语言背景
 
 很早之前，网景公司（Netscape Communication Corporation）意识到网络需要一种集成的、统一的、客户端到服务端的解决方案。为此提出了LiveWire的概念，并设计了当时名为LiveScript的语言来在服务器上创建类似于CGI的应用程序。同时在Netscape Navigator上也需要一个脚本语言的支持，解决类似于“在向服务器提交数据之前进行校验”的问题。
 
@@ -23,7 +23,7 @@ JavaScript 语言是在参考Java，Perl，Scheme，Self等先前语言语法的
 
 
 
-### 版本历史事件
+### 2 版本历史事件
 
 + 1997年，ECMAScript 1.0 发布
 + 1998年，ECMAScript 2.0 发布
@@ -40,7 +40,7 @@ JavaScript 语言是在参考Java，Perl，Scheme，Self等先前语言语法的
 
 
 
-### 参考资料
+### 3 参考资料
 
 1. [JavaScript语言的历史](http://javascript.ruanyifeng.com/introduction/history.html)
 2. [JavaScript版本迷局](http://www.cnblogs.com/lhb25/archive/2011/01/16/1936669.html)

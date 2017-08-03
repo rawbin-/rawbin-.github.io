@@ -6,7 +6,7 @@ tags: [PhotoShop, 四色黑, 单色黑]
 ---
 
 
-### 参考
+### 1 参考
 0. [Photoshop CS6中文版入门][0]
 1. [Photoshop技巧教程：深度解析蒙版应用][1]
 2. [四色黑变单色黑之Photoshop技巧][2]

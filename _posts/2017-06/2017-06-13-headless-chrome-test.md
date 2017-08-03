@@ -7,15 +7,15 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
 
 [TOC]
 
-### 使用`Selenium`操作headless chrome 推荐
+### 1 使用`Selenium`操作headless chrome 推荐
 
-#### 简介
+#### 1.1 简介
 
 `WebDriver`是一个[W3C标准](https://www.w3.org/TR/webdriver/), 定义了一套检查和控制用户代理（比如浏览器）的远程控制接口，各大主流浏览器来实现这些接口以便调用控制接口来操作浏览器。
 
 `Selenium`是一整套的Web自动化测试解决方案，配合WebDrive规范，实现了对各种用户代理的适配（比如浏览器,PhantomJS等），通过操作浏览器的`WebDriver`接口来实现带浏览器的Web自动化。
 
-####  使用`selenium-webdriver`
+#### 1.2 使用`selenium-webdriver`
 
 + `selenium`相关的[API文档](http://www.seleniumhq.org/docs/index.jsp)
 + `selenium-webdriver`的[JavaScriptAPI文档](http://seleniumhq.github.io/selenium/docs/api/javascript/index.html)
@@ -50,7 +50,7 @@ driver.quit();
 
 
 
-#### 使用`browserstack-webdriver`
+#### 1.3 使用`browserstack-webdriver`
 
 只是获取driver的方式不一样，其他调用完全一样
 
@@ -91,7 +91,7 @@ driver.quit();
 
 
 
-#### 使用 `chromedriver`
+#### 1.4 使用 `chromedriver`
 
 `chromedriver`是一个编码辅助，自动配置环境变量，不需要手动下载和配置环境变量，通过安装`chromedriver`同时在代码中引入
 
@@ -101,7 +101,7 @@ require('chromedriver')
 
 
 
-##### 更换获取源的URL（使用如下任意一种就行）
+##### 1.4.1 更换获取源的URL（使用如下任意一种就行）
 
 + 安装过程添加参数，默认下载地址为`http://chromedriver.storage.googleapis.com`
 
@@ -122,7 +122,7 @@ chromedriver_cdnurl=https://npm.taobao.org/mirrors/chromedriver
 CHROMEDRIVER_CDNURL=https://npm.taobao.org/mirrors/chromedriver npm install chromedriver
 ```
 
-##### 更换安装的`chromedriver`文件路径
+##### 1.4.2 更换安装的`chromedriver`文件路径
 
 + 安装过程使用配置参数
 
@@ -144,15 +144,15 @@ CHROMEDRIVER_FILEPATH=/path/to/chromedriver_mac64.zip
 
 
 
-### 使用mocha + chai
+### 2 使用mocha + chai
 
-#### 简介
+#### 2.1 简介
 
 `mocha`是一个可以运行在浏览器端和NodeJS环境的JavaScript测试框架，区别于类库，框架定义好了流程，并调用你的代码。
 
 `chai`是一个断言库，判断结果是否符合预期。
 
-#### 实例代码 
+#### 2.2 实例代码 
 
 ```
 const chai = require('chai');
@@ -205,9 +205,9 @@ describe('首页加载测试',function(){
 
 
 
-### 使用Karma + mocha + chai
+### 3 使用Karma + mocha + chai
 
-#### 简介
+#### 3.1 简介
 
 `Karma`是一个用JavaScript实现的测试执行器，实现了如下内容
 
@@ -218,14 +218,14 @@ describe('首页加载测试',function(){
 + 各种编辑器的适配，内容变更，立即重新执行
 + 覆盖率统计
 
-#### 安装相应的依赖库
+#### 3.2 安装相应的依赖库
 
 ```
 npm i --save-dev karma karma-chrome-launcher karma-mocha karma-chai
 npm i --save-dev mocha chai
 ```
 
-#### 生成配置文件
+#### 3.3 生成配置文件
 
 在工程目录下执行如下命令
 
@@ -284,23 +284,23 @@ module.exports = function(config) {
 
 
 
-##### 调整配置支持headless chrome
+##### 3.3.1 调整配置支持headless chrome
 
 可以到[这里](https://www.npmjs.com/package/karma-chrome-launcher),查看chrome相关的karma-launcher，有`ChromeHeadless`和`ChromeCanaryHeadless`这两个headless驱动可以选择。
 
-##### 调整配置支持ES6，添加webpack
+##### 3.3.2 调整配置支持ES6，添加webpack
 
 ```
 npm i webpack karma-webpack babel-core babel-loader babel-preset-es2015
 ```
 
-##### 调整配置增加测试覆盖度
+##### 3.3.3 调整配置增加测试覆盖度
 
 ```
 npm i babel-plugin-istanbul
 ```
 
-##### 最终的到的Karma配置文件
+##### 3.3.4 最终的到的Karma配置文件
 
 `karma.conf.js`
 
@@ -372,7 +372,7 @@ module.exports = function(config) {
 
 
 
-#### 编写代码
+#### 3.4 编写代码
 
 `src/index.js`
 
@@ -397,7 +397,7 @@ module.exports = {
 }
 ```
 
-#### 编写测试用例
+#### 3.5 编写测试用例
 
 `test/index.js`
 
@@ -420,7 +420,7 @@ describe('index.js: ', () => {
 
 
 
-#### 运行测试
+#### 3.6 运行测试
 
 + 在当前目录下运行`./node_modules/.bin/karma start`
 + 或者添加如下代码到`package.json`
@@ -435,20 +435,20 @@ describe('index.js: ', () => {
 
 
 
-#### 查看结果
+#### 3.7 查看结果
 
 + 命令行能看到运行结果
 + 在工程目录下的`coverage`目录能看到相应的覆盖率报告
 
 
 
-#### 存在的问题
+#### 3.8 存在的问题
 
 Karma是将测试Case在浏览器中运行并查看结果，当页面的url 改变的时候，会影响到整个Karma的执行，会有类似`Some of your tests did a full page reload!`这样的提示。上面打开百度首页检查按钮和title的例子在Karma中还没有找到合适的方式写出来。
 
  
 
-### 参考资料
+### 4 参考资料
 
 0. [Automated testing with Headless Chrome](https://developers.google.cn/web/updates/2017/06/headless-karma-mocha-chai)
 1. [使用HeadlessChrome做单页应用SEO](https://github.com/gwuhaolin/blog/issues/8)

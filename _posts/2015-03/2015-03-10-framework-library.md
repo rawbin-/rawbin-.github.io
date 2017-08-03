@@ -19,7 +19,7 @@ jQuery,Prototype,ExtJS 等等
 
 
 
-###参考资料
+### 1 参考资料
 0. [Web前端框架与类库的思考][7]
 1. [类库和框架区别][8]
 0. [API Toolkit Framework Library][1]

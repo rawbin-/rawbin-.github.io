@@ -4,7 +4,7 @@ title: "CSS实战详解"
 categories: [开发技术]
 tags: [CSS详解,CSS属性,CSS]
 ---
-## 基本规则
+## 1 基本规则
 +   缩写和扩展写法
     + 扩展写法就是属性大类-属性小类的写法，比如background-color,border-top-width,margin-left,font-size等。
     + 缩写就是按照一定的规则将扩展写法写到一起，各个属性之间用空格隔开，比如background，font，margin，border等，由于各个属性之间的值比较容易区分，所以CSS解析器不容易混淆属性,对于不容易区分的需要用单撇号`/`分隔。
@@ -36,9 +36,9 @@ tags: [CSS详解,CSS属性,CSS]
     六位十六进制可以缩写为三位，如果每两位都是相同的话。
 
 
-## 背景
+## 2 背景
 
-###  属性详解
+### 2.1 属性详解
 + background
 
 设置元素的背景色，背景图，背景重复方式，背景滚动方式，背景位置
@@ -58,7 +58,7 @@ repeat（默认）或者repeat-x或者repeat-y或者no-repeat,设置两个方向
 
 设置背景图片的位置，可以是top left center bottom right这些位置关键词，或者是百分比，也可以是像素值
 
-### 应用实例
+### 2.2 应用实例
 + 实现进度条
 
         <div style="position:relative;width:100px;height:20px;border:solid 1px grey;">
@@ -97,7 +97,7 @@ repeat（默认）或者repeat-x或者repeat-y或者no-repeat,设置两个方向
         	</div>
         </div>
 
-### 参考资料
+### 2.3 参考资料
 1. [CSS背景属性background详解](http://www.chinaz.com/design/2009/0918/92150.shtml)
 2. [CSS背景属性详解](http://paranimage.com/css-background-attribute/)
 3. [CSS新属性及多背景](http://www.html5jscss.com/css3%E6%AC%B2%E9%80%9F%E5%88%99%E4%B8%8D%E8%BE%BE-background%E6%96%B0%E5%B1%9E%E6%80%A7%E4%BB%A5%E5%8F%8A%E5%A4%9A%E8%83%8C%E6%99%AF.html)
@@ -107,11 +107,11 @@ repeat（默认）或者repeat-x或者repeat-y或者no-repeat,设置两个方向
 7. [CSS中背景图片定位方法](http://www.ruanyifeng.com/blog/2008/05/css_background_image_positioning.html)
 8. [background-position 用法详细介绍](http://blog.csdn.net/jeamking/article/details/5617088)
 
-## 边距、边框
+## 3 边距、边框
 
-### 属性详解
+### 3.1 属性详解
 
-#### margin
+#### 3.1.1 margin
 + margin
 + margin-top
 + margin-right
@@ -120,7 +120,7 @@ repeat（默认）或者repeat-x或者repeat-y或者no-repeat,设置两个方向
 
 margin 属性可以以上右下左的顺序设定各个方向的外边距值，也可以通过margin-方向来设定单个方向的外边距值，值可以是具体的像素、厘米等单位的值，也可以是百分比。
 
-#### padding
+#### 3.1.2 padding
 + padding
 + padding-top
 + padding-right
@@ -129,7 +129,7 @@ margin 属性可以以上右下左的顺序设定各个方向的外边距值，�
 
 padding 属性可以以上右下左的顺序设定各个方向的内边距值，也可以通过padding-方向来设定单个方向的内边距值，值可以是具体的像素、厘米等单位的值，也可以是百分比。
 
-#### border
+#### 3.1.3 border
 + border
 + border-width
 + border-style
@@ -149,7 +149,7 @@ padding 属性可以以上右下左的顺序设定各个方向的内边距值，
 
 border 依次设置宽度，样式和颜色，也可以通过border-width，border-style，border-color单独来以上右下左的顺序设置其中的每一项，同样也可以用border-方向-width,border-方向-style,border-方向-color,来单独设置各个方向的值。
 
-### 应用实例
+### 3.2 应用实例
 + 实现Tab页效果
 
         	<div style="background-color:grey;height:28px;width:250px;border-bottom:1px solid white;">
@@ -175,16 +175,16 @@ border 依次设置宽度，样式和颜色，也可以通过border-width，bord
         	<div style="border-style:solid;border-width: 50px 50px 0px; border-color: red transparent transparent; width:0;height:0;">
         	</div>
 
-### 参考资料
+### 3.3 参考资料
 1. [使用css实现全兼容浏览器的三角形][1]
 2. [用CSS代码绘制三角形 纯CSS绘制三角形的代码][5]
 3. [CSS创建三角形（小三角）的几种方法][6]
 
-## 定位
+## 4 定位
 
-### 属性详解
+### 4.1 属性详解
 
-#### float
+#### 4.1.1 float
 + left
 + right
 
@@ -194,7 +194,7 @@ float的元素脱离了文档流，不能撑开父元素，同时也会影响文
 可以在浮动元素的兄弟元素中加clear属性清除浮动元素的布局影响。
 float 属性可以用来做文字环绕的效果，或者靠在靠右排列的效果，或者将块级元素显示为行内元素的效果。
 
-#### position
+#### 4.1.2 position
 + static
 
 默认的普通文档流的定位方式，顺序排放。
@@ -208,10 +208,10 @@ float 属性可以用来做文字环绕的效果，或者靠在靠右排列的�
 
 这种定位方式的元素也脱离了文档流，他的定位的原点是视窗本身，不随文档的滚动而变动。
 
-#### z-index
+#### 4.1.3 z-index
 通过设置不同大小的数值，来约束元素在z轴上的层叠位置，改变元素的堆叠效果
 
-### 应用实例
+### 4.2 应用实例
 + 实现弹窗效果
 
         <div style="background-color:lightblue;border:1px solid grey;z-index 100;width:100px;height:100px;position:absolute;top:50%;left:50%;">
@@ -225,7 +225,7 @@ float 属性可以用来做文字环绕的效果，或者靠在靠右排列的�
         </div>
 
 
-### 参考资料
+### 4.3 参考资料
 1. [W3School CSS Position](http://www.w3school.com.cn/css/css_positioning.asp)
 2. [CSS Position 博客园](http://www.cnblogs.com/polk6/archive/2013/07/26/3214847.html)
 3. [CSS 定位属性](http://paranimage.com/css-position-attribute/)
@@ -242,7 +242,7 @@ float 属性可以用来做文字环绕的效果，或者靠在靠右排列的�
 14. [CSS2 属性列表 可继承性](https://www.w3.org/TR/CSS21/propidx.html)
 
 
-## 参考资料
+## 5 参考资料
 0. [Flex布局语法](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
 1. [Flex布局实例](http://www.ruanyifeng.com/blog/2015/07/flex-examples.html)
 2. [W3School在线教程](http://www.w3school.com.cn/)

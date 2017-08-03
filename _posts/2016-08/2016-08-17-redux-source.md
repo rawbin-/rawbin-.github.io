@@ -11,7 +11,7 @@ tags: [JavaScript,React,redux]
 
 
 
-###  参考资料
+### 1 参考资料
 
 1. [react中文文档](http://reactjs.cn/react/docs/getting-started.html)
 2. [react英文文档](https://facebook.github.io/react/)

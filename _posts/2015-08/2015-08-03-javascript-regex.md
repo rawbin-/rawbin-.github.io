@@ -13,7 +13,7 @@ tags: [JavaScript,正则表达式]
 	\a \e \l \u \L \U \E \Q \A \Z \z \G
 	(?<=  (?<| (?# (?<xxx>
 
-# JavaScript 正则表达式语法
+# 1 JavaScript 正则表达式语法
 
 JavaScript正则表达式用于字符串的匹配，分隔，查找，替换。
 
@@ -21,9 +21,9 @@ String对象的match,replace,search,split
 
 RegExp对象的test,exec
 
-# JavaScript正则表达式语法
+# 2 JavaScript正则表达式语法
 
-## 字符匹配模式
+## 2.1 字符匹配模式
 
 |表达式|含义|示例|
 |-----|----|----|
@@ -63,7 +63,7 @@ RegExp对象的test,exec
 |\uxxxx |由十六进制xxxx指定的Unicode字符|\u000D 等价于 \r|
 |\cX |控制字符^X 也就是Ctrl+X|如vi编辑器中\cJ 等价于换行符\n|
 
-## 匹配模式修饰
+## 2.2 匹配模式修饰
 
 |修饰符|含义|示例|
 |------|---|----|
@@ -72,13 +72,13 @@ RegExp对象的test,exec
 |m |多行匹配模式，^匹配一会的开头和字符串的开头，$匹配行的结束和字符串的结束||
 
 
-# 正则表达式方法
+# 3 正则表达式方法
 
-## String 对象
+## 3.1 String 对象
 
-### 对象方法
+### 3.1.1 对象方法
 
-#### stringObj.match(regexp)
+#### 3.1.1.1 stringObj.match(regexp)
 + 参数被当做一个正则表达式
 + 如果不包含g属性，则执行一次匹配，如果没找到匹配则返回null；如果有匹配，返回一个数组，第一个元素为匹配字符串，后面的元素依次为分组的结果，数组包含两个属性，index代表匹配文本在string中的开始位置，input则是对该string的引用。
 + 如果包含了g属性，则执行一次全局匹配，在string中查找所有的匹配的子串，如果没有找到则返回null，如果找到则返回一个数组，这时候数组的内容为所有的匹配字符串的结果，此时数组不包括正则分组的信息，也没有index和input属性。
@@ -97,7 +97,7 @@ RegExp对象的test,exec
 		console.log(result.index)  //undefined
 		console.log(result.input)  //undefined
 
-#### stringObj.replace(regexp,replacement)
+#### 3.1.1.2 stringObj.replace(regexp,replacement)
 + 如果查询参数是一个字符串，则只替换字符串对应的文本；
 + 如果查询参数是一个正则表达式直接量或者正则表达式对象，则进行正则替换。
 + 如果查询参数中正则表达式包含g参数，则在字符串中替换所有的匹配，否则替换第一个匹配。
@@ -140,7 +140,7 @@ RegExp对象的test,exec
 		//abc##
 
 
-#### stringObj.search(regexp)
+#### 3.1.1.3 stringObj.search(regexp)
 + 此方法按照查询参数在目标字符串中查询匹配，并返回第一个匹配的位置，如果没找到返回-1；
 + 此方法中正则模式的g参数会被忽略，同时正则对象的lastIndex属性也会被忽略，总是返回目标文本中的第一个匹配位置。
 
@@ -148,7 +148,7 @@ RegExp对象的test,exec
 		//3
 	
 
-#### stringObj.split(delimiter,limit)
+#### 3.1.1.4 stringObj.split(delimiter,limit)
 + 在目标字符串中匹配所有delimiter，通过delimiter 的匹配切分字符串 ，返回结果为delimiter之间的部分；
 + 如果delimiter匹配字符串的开头，则返回结果的第一个字符串为空串；
 + 如果没有指定delimiter，则返回的结果是只包含输入字符串一个元素的数组；
@@ -159,20 +159,20 @@ RegExp对象的test,exec
 		//匹配开头第一个返回值为空，如果带有分组，一次返回每个分组
 		//["", "123abcdef", "123", "abcdef", "", "789xyz", "789", "xyz", ""]
 
-## RegExp对象
+## 3.2 RegExp对象
 
 通过正则表达式字面量/pattern/ 或者new RegExp(pattern,attributes)的方式获得正则表达式对象。
 
-### 对象属性
+### 3.2.1 对象属性
 + global 是否具有g属性
 + ignoreCase 是否具有i属性
 + lastIndex 上一次匹配的位置，由于在一个字符串内多次匹配
 + multiline 是否具有m属性
 + source 正则表达式的源文本
 
-### 方法
+### 3.2.2 方法
 
-#### regexObj.exec(string) 通用的模式匹配
+#### 3.2.2.1 regexObj.exec(string) 通用的模式匹配
 + 如果没有匹配，返回null
 + 如果有匹配，返回一个结果数组，第一个元素是匹配的结果result[0],后面的都是分组元素的结果。数组具有两个属性index 表示匹配第一个字符的位置，input为输入的字符串。
 + 如果正则表达式包含g属性，则每次则会从lastIndex出开始匹配，如果能匹配上则将lastIndex本次匹配的最后的位置，如果不能匹配则将lastIndex置为0。
@@ -197,26 +197,26 @@ RegExp对象的test,exec
 		console.log(result.input)    //abc123abcdef789abcxyz789
 		
 
-#### regexObj.test(string) 检测一个字符串是否匹配某个模式
+#### 3.2.2.2 regexObj.test(string) 检测一个字符串是否匹配某个模式
 
 如果有检测到匹配返回true，如果没有匹配返回false。
 
-##### 检测邮箱
+##### 3.2.2.2.1 检测邮箱
 	
 这是一个较粗糙的表达式，可以根据自身情况进行调整	
 	
 	/^\w+@[0-9a-z]+(\.\w+)+$/.test("test@test.com.cn")
 
-##### 检测IPv4地址
+##### 3.2.2.2.2 检测IPv4地址
 
 将地址的一段分为一位、两位、三位的数字并进行穷举
 
 	/^((25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)$/.test("192.168.1.1")
 
 
-# 正则表达式应用
+# 4 正则表达式应用
 
-## 一个坑
+## 4.1 一个坑
 	
 	用一个正则表达式来测试多个字符串是否符合全为数字的规则
 	
@@ -227,7 +227,7 @@ RegExp对象的test,exec
 	console.log(regex.lastIndex)
 
 
-### 解决一 去掉全局匹配
+### 4.1.1 解决一 去掉全局匹配
 
 	var regex = /^\d+$/;
 	console.log(regex.test("123456"))  //true
@@ -235,7 +235,7 @@ RegExp对象的test,exec
 	console.log(regex.test("123456"))  //true
 	console.log(regex.lastIndex)
 
-### 解决二 每次使用之前重置lastIndex，从头开始
+### 4.1.2 解决二 每次使用之前重置lastIndex，从头开始
 	
 	var regex = /^\d+$/g;
 	console.log(regex.test("123456"))  //true
@@ -245,7 +245,7 @@ RegExp对象的test,exec
 	console.log(regex.test("123456"))  //true
 	console.log(regex.lastIndex)
 
-## 给HTML文件中所有的CSS和JS文件加上版本号
+## 4.2 给HTML文件中所有的CSS和JS文件加上版本号
 	
 将`<script src="./test.js">` 改为 `<script src="./test@dev.js">`
 
@@ -317,13 +317,13 @@ HTML中属性的表示方式参考[SGML Attribute](http://www.w3.org/TR/html4/in
 	console.log("style result:",result);
 	
 	
-# 工具推荐
+# 5 工具推荐
 0. [Regex Match Tracer](http://www.regexlab.com/zh/mtracer/)
 0. [Regex Match Tracer](http://www.regexlab.com/tools)
 0. [正则表达式测试工具](http://www.cnblogs.com/TianFang/archive/2009/02/07/1386000.html)
 0. [Regex Buddy,Regex Magic 测试调试工具](http://www.regular-expressions.info/tools.html)
 
-# 参考资料
+# 6 参考资料
 0. [正则表达式30分钟入门教程](http://deerchao.net/tutorials/regex/regex.htm)
 0. [JavaScript正则表达式](http://www.cnblogs.com/dolphinX/p/3486214.html)
 0. [正则表达式图形化工具](http://regexper.com/)

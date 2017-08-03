@@ -6,7 +6,7 @@ tags: [JavaScript,打印机,剪贴板,复制,粘贴,部分打印,二维码]
 
 ---
 
-## 剪贴板操作
+## 1 剪贴板操作
 
 使用脚本访问剪贴板会导致安全性问题，比如恶意脚本写入剪贴板内容，进行剪贴板投毒 或者 读取剪贴板内容发送到远程，导致用户隐私信息泄露
 
@@ -17,7 +17,7 @@ tags: [JavaScript,打印机,剪贴板,复制,粘贴,部分打印,二维码]
 如果只需要兼容高版本浏览器，可[参考](http://zenorocha.github.io/clipboard.js/)，利用新的浏览器API来实现。
 
 
-### 复制到剪贴板
+### 1.1 复制到剪贴板
 
 使用jquery-zclip 或者直接使用ZeroClipBoard 实现内容的复制。
 
@@ -81,37 +81,37 @@ tags: [JavaScript,打印机,剪贴板,复制,粘贴,部分打印,二维码]
 	});
 	</script>
 
-### 参考
+### 1.2 参考
 0. [zeroclipboard官网](http://zeroclipboard.org/)
 0. [zeroclipboard github](https://github.com/zeroclipboard/zeroclipboard)
 0. [jquery zclip github](https://github.com/patricklodder/jquery-zclip)
 0. [clipboard.js](http://zenorocha.github.io/clipboard.js/)
 0. [Javascript实现复制到剪贴板，兼容所有浏览器](http://www.cnblogs.com/PeunZhang/p/3324727.html)
 
-### 粘贴剪贴板内容
+### 1.3 粘贴剪贴板内容
 
 
 
-## 打印机操作
+## 2 打印机操作
 
 可以打印页面部分内容，可以选择弹层或者IFrame的方式，直接查看其中的例子即可[参考](https://github.com/RitsC/PrintArea)
 
 
-### 参考
+### 2.1 参考
 0. [jquery 插件](http://plugins.jquery.com/PrintArea/)
 0. [jquery printarea github](https://github.com/RitsC/PrintArea)
 
-## JavaScript 生成二维码
+## 3 JavaScript 生成二维码
 
 采用Table布局来兼容低版本浏览器，也可以使用Canvas进行二维码绘制。
 直接[参考](https://github.com/jeromeetienne/jquery-qrcode)中的示例即可
 
 
-#### 参考
+#### 3.0.1 参考
 0. [jquery qrcode](https://larsjung.de/jquery-qrcode/)
 0. [jquery qrcode github](https://github.com/jeromeetienne/jquery-qrcode)
 
-## 其他参考文档
+## 4 其他参考文档
 0. [The Definitive Guide to Copying and Pasting in JavaScript](https://www.lucidchart.com/techblog/2014/12/02/definitive-guide-copying-pasting-javascript/)
 0. [Accessing the System Clipboard with JavaScript – A Holy Grail?](https://brooknovak.wordpress.com/2009/07/28/accessing-the-system-clipboard-with-javascript/)
 0. [JS获取剪贴板内容和设置剪贴板内容](http://blog.sina.com.cn/s/blog_7ccfeb360100xki1.html)
@@ -131,7 +131,7 @@ tags: [JavaScript,打印机,剪贴板,复制,粘贴,部分打印,二维码]
 
 
 
-### 临时其他
+### 4.1 临时其他
 
     function getSelectedText(){
         if(window.getSelection){

@@ -7,14 +7,14 @@ tags: [node-inspector,fekit,javascript]
 
 ---
 
-## 问题
+## 1 问题
 + 随便一个目录，用fekit 起一个server
 + 浏览器打开目录
 + 在这个目录中添加一个中文文件
 + 刷新刚打开的目录页面
 + 某些目录或者文件未被渲染出来
 
-## 排查 
+## 2 排查 
 fekit 使用了connect框架来做静态资源的server 
 
 connect目录在$FEKIT_HOME\node-modules\connect\中

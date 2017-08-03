@@ -6,7 +6,7 @@ tags: [Web开发,前端开发,参考资料]
 
 ---
 
-## 综合参考网站
+## 1 综合参考网站
 0. [Mozilla开发者网络](https://developer.mozilla.org/zh-CN/)
 1. [MDN Web技术文档](https://developer.mozilla.org/zh-CN/docs/Web)
 2. [Open-Open开源大全](http://www.open-open.com/)
@@ -22,7 +22,7 @@ tags: [Web开发,前端开发,参考资料]
 0. [我们真的缺前端工程师吗？](http://icodeit.org/2015/06/do-we-really-short-for-front-end-developer/)
 0. [齐全的前端开发项目集锦](http://www.open-open.com/lib/view/open1435023884857.html)
 
-## JavaScript
+## 2 JavaScript
 0. [我们程序员为什么要关注 JavaScript ？](http://www.codeceo.com/article/why-we-pay-attention-to-javascript.html)
 0. [我们应该如何去了解JavaScript引擎的工作原理](http://www.nowamagic.net/librarys/veda/detail/1579)
 4. [深入理解JavaScript系列](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
@@ -35,7 +35,7 @@ tags: [Web开发,前端开发,参考资料]
 
 
 
-## jQuery
+## 3 jQuery
 0. [jQuery API参考](http://www.css88.com/jqapi-1.9/)
 1. [jQuery 参考手册](http://hemin.cn/jq/index.html)
 2. [jQuery API中文文档](http://www.jquery123.com/api/)
@@ -45,14 +45,14 @@ tags: [Web开发,前端开发,参考资料]
 5. [jQuery2.0.3源码分析系列](http://www.cnblogs.com/aaronjs/p/3279314.html)
 6. [jQuery CDN](http://code.jquery.com/)
 
-## fekit
+## 4 fekit
 0. [fekit github](https://github.com/rinh/fekit)
 1. [fekit wiki](https://github.com/rinh/fekit/wiki)
 2. [fekit 源码结构](http://my.oschina.net/honchy/blog/403559)
 3. [fekit 文档](http://ued.qunar.com/uedoc/[1]_fekit/[3]_%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8B%20GettingStarted/[1]_hello%20world_DEFAULT.html)
 
 
-## avalon
+## 5 avalon
 0. [avalon入门实例](http://www.html-js.com/article/Avalon-tutorial-1-the-introduction-of-Avalon)
 0. [前端框架MVC/MVVM分析系列](http://www.cnblogs.com/aaronjs/archive/2013/06/16/3138631.html)
 1. [avalonjs 入门教程](http://www.cnblogs.com/rubylouvre/p/3181291.html)
@@ -65,7 +65,7 @@ tags: [Web开发,前端开发,参考资料]
 5. [avalon架构原理](http://www.cnblogs.com/aaronjs/category/488253.html)
 6. [avalon最佳实践](http://www.cnblogs.com/rubylouvre/p/3385373.html)
 
-## node.js
+## 6 node.js
 0. [node.js官网](https://nodejs.org/)
 1. [node 入门](http://www.nodebeginner.org/index-zh-cn.html)
 2. [7天学会NodeJS](http://nqdeng.github.io/7-days-nodejs/)
@@ -73,7 +73,7 @@ tags: [Web开发,前端开发,参考资料]
 4. [Node.js教程](http://javascript.ruanyifeng.com/nodejs/basic.html)
 
 
-## ECMAScript 6
+## 7 ECMAScript 6
 0. [ecma.org](http://www.ecmascript.org/)
 1. [ECMAScript-262 6th](http://www.ecma-international.org/ecma-262/6.0/index.html)
 2. [ECMAScript-262 6th](http://www.ecma-international.org/publications/standards/Ecma-262.htm)

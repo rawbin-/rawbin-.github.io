@@ -6,11 +6,11 @@ categories:  [应用技术]
 tags: [Nginx,Web服务器,反向代理]
 ---
 
-## 问题描述
+## 1 问题描述
 使用nginx uWSGI django 做REST API开发。
 在URL中传入`http://host/test/http://aa.com/`,但在Django中收到的URI始终是`http:/aa.com`，嗯，就是少了斜杠，后来尝试发现多少个连续的斜杠都会被干掉只留下一个。
 
-## 解决途径
+## 2 解决途径
 + 查看nginx和uWSGI的日志，请求的路径都是正确的，即都为没有去掉斜杠的
 + 查看Django源码，发现在django.core.handlers.base.BaseHandler中，处理URL匹配的时候使用的是path_info对应的值
 + 于是找到处理类在django.core.handlers.wsgi.WSGIHandler,在这里打印请求获取到的path_info参数，发现已经是被去掉斜线的了。
@@ -27,7 +27,7 @@ tags: [Nginx,Web服务器,反向代理]
 + 当然最后的解决办法不是直接修改这个配置，而是将要放在URL中的那一串串作为base64编码的结果再传递
 
 
-## 参考
+## 3 参考
 0. [nginx源码分析（7）——请求处理][2]
 1. [Nginx开发从入门到精通][3]
 2. [运维与架构手册][4]

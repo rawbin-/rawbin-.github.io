@@ -6,11 +6,11 @@ tags: [命令行,rsync,ssh]
 
 ---
 
-### SSH 无法认证，找不到认证文件
+### 1 SSH 无法认证，找不到认证文件
 windows中默认ssh 认证文件路径在C:/users/USERNAME/.ssh/中，而默认的路径是/home/username/.ssh，所以找不着，这时需要手动指定ssh认证文件路径
     ssh -i c:/users/USERNAME/.ssh/id_rsa 私钥文件路径
 
-### rsync 远程sudo权限
+### 2 rsync 远程sudo权限
 rsync 需要远程rsync进程做同步功能，远程的进程需要相关的权限，比如创建文件夹的权限。
 在rsync中添加相关的授权信息，
     rsync --rsync-path='sudo rsync'  src dst
