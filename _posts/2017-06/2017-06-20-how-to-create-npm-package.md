@@ -2,7 +2,7 @@
 layout: post
 title: "如何自己写一个公用的NPM包"
 categories: [Web开发,前端开发,JavaScript]
-tags: [JavaScript,npm,Node] Table of Contents 
+tags: [JavaScript,npm,Node]
 ---
 
 [TOC]
@@ -164,7 +164,7 @@ npm adduser USERNAME
 npm login
 ```
 
-+   登录后发布包
++   登录后发布包，在工程目录下执行
 
 ```
 npm publish
