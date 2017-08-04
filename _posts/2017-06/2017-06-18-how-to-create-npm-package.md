@@ -63,7 +63,9 @@ markdown-clear
 ------------- package.json
 ```
 
+#### 1.7 editconfig
 
+#### 1.8 ESLint
 
 ### 2 代码结构组织
 
@@ -75,6 +77,97 @@ markdown-clear
 -------------- lib     // 转义生成的代码目录，比如babel转义后的es5代码的目录
 -------------- docs    // 代码相关的设计和使用文档
 -------------- tests   // 相关的测试目录
+```
+
+#### 2.2 代码实现
+
++   写代码 src 目录
++   转换后的代码 lib 目录
+
+##### 2.2.1 使用babel 转换代码
+
++   babel 配置文件 `.babelrc`
+
+```
+{
+  "presets":["es2015","stage-0"]
+}
+```
+
++   添加 npm 命令
+
+```
+  "scripts": {
+    "build": "babel src -d lib",
+   }
+```
+
+##### 2.2.2 实现一个可以全局安装的npm包
+
++   添加`package.json`的配置
+
+```
+  "bin": {
+    "markdown-clear": "./lib/cli.js"
+  }
+```
+
++   `cli.js`文件第一行添加
+
+```
+#!/usr/bin/env node
+```
+
+
+
+#### 2.3 测试
+
++   写测试用例 tests 目录
++   调用最终生成的 lib 下面的目录
++   可以考虑使用测试框架 mocha, jasmine, karma...
+
+##### 2.3.1 安装测试
+
++   使用npm 安装本地文件 作为本地包
+
+```
+npm install path/to/markdown-clear
+```
+
++   使用npm 安装本地文件 作为全局包
+
+```
+npm install path/to/markdown-clear -g
+```
+
+
+
+#### 2.4 文档输出
+
++   写文档 docs 目录
++   写代码相关的设计和使用文档，没有自然可以不用写
++   这里的文档应该在README.md 中会有入口。
+
+
+
+### 3 发布NPM包
+
++   如果没有注册npm账户
+
+```
+npm adduser USERNAME
+```
+
++   如果没有登录
+
+```
+npm login
+```
+
++   登录后发布包
+
+```
+npm publish
 ```
 
 
