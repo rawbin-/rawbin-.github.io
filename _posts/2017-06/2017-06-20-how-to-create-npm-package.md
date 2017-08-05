@@ -7,7 +7,7 @@ tags: [JavaScript,npm,Node]
 
 [TOC]
 
-**以[markdown-clear] (https://github.com/rawbin-/markdown-clear),创建过程为例，讲解整个NPM包创建和发布流程**
+**以[markdown-clear](https://github.com/rawbin-/markdown-clear),创建过程为例，讲解整个NPM包创建和发布流程**
 
 ### 1 如何创建一个包
 
@@ -20,6 +20,7 @@ tags: [JavaScript,npm,Node]
 
 +   到[SPDX License List](https://spdx.org/licenses/) 或者[Open Source Initiative](https://opensource.org/licenses/alphabetical)，下载相应协议的模板，我们这里选用MIT
 +   修改必要的协议时间和作者
+
 ```
 MIT License
 Copyright (c) <year> <copyright holders>
@@ -63,9 +64,13 @@ markdown-clear
 ------------- package.json
 ```
 
-#### 1.7 editconfig
+#### 1.7 EditorConfig
+
+跨编辑器的编辑器设置，网站挂了，[EditorConfig](http://editorconfig.org/)
 
 #### 1.8 ESLint
+
+新一代JavaScript代码质量检测工具[ESLint](http://eslint.org/)
 
 ### 2 代码结构组织
 
@@ -86,6 +91,7 @@ markdown-clear
 
 ##### 2.2.1 使用babel 转换代码
 
++   [babel官网](http://babeljs.io/)
 +   babel 配置文件 `.babelrc`
 
 ```
@@ -152,6 +158,7 @@ npm install path/to/markdown-clear -g
 
 ### 3 发布NPM包
 
++   [npm文档](https://docs.npmjs.com/)
 +   如果没有注册npm账户
 
 ```
@@ -169,11 +176,6 @@ npm login
 ```
 npm publish
 ```
-
-
-
-
-
 
 
 
