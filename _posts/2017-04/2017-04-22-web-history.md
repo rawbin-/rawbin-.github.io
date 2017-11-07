@@ -38,3 +38,12 @@ tags: [Web发展,Web历史]
 25. [中国互联网事件](http://news.cntv.cn/special/zghlw20n/)
 26. [中国互联网接入史](http://www.isc.org.cn/ihf/info.php?cid=217)
 27. [中国互联网发展的历史阶段划分](http://blog.sina.com.cn/s/blog_9b8039d90102vs8z.html)
+28. [Web开发技术发展史](https://www.tianmaying.com/tutorial/web-history)
+29. [Web开发技术发展史](http://www.360doc.com/content/16/0405/01/30281360_547916648.shtml)
+30. [Web研发模式演变](http://blog.jobbole.com/65509/)
+31. [Web研发模式演变](http://www.cnblogs.com/lhb25/p/web-development-mode-evolve.html)
+32. [Web开发发展史](http://blog.jobbole.com/45169/)
+33. [前端发展史](http://www.cnblogs.com/kidney/p/6079530.html)
+34. [前端发展史](http://www.jianshu.com/p/8dc5c6aa01fc)
+35. [前端发展历程](http://www.cnblogs.com/CDtao/p/6420631.html)
+
