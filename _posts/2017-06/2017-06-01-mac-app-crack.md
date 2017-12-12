@@ -18,4 +18,5 @@ tags: [逆向工程,软件破解]
 2. [MAC软件破解初探—Hopper Disassembler使用](http://www.zhimengzhe.com/IOSkaifa/203433.html)
 3. [修改一个数字破解Mac上的应用](https://bestswifter.com/app-crack/)
 4. [MAC软件破解初探—Hopper Disassembler使用](http://www.52pojie.cn/thread-226930-1-1.html)
+5. [charles v4.2.1 破解方法](https://www.52pojie.cn/thread-668593-1-1.html)
 

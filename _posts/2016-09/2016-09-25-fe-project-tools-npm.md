@@ -9,6 +9,17 @@ tags: [模块化,工程化,JavaScript,npm,包管理]
 
 npm 是Node平台的包管理器，跟各大操作系统类似Mac的appStore，brew，安卓的市场，window的商店，Ubuntu的apt-get，RedHat的yum；各大语言也有类似的实现Java的ant，maven，Python的pip，Ruby的gem,PHP 的Composer等。
 
+各种安装不上的问题解决 将如下内容让入`.bashrc`
+
+```
+export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node/
+export NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node/
+export CHROMEDRIVER_CDNURL=https://npm.taobao.org/mirrors/chromedriver
+export SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass
+```
+
+
+
 ### 2 package.json
 
 npm 在项目中的直接体现就是`package.json` 
