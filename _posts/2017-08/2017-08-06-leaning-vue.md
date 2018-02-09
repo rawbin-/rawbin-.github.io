@@ -12,6 +12,7 @@ tags: [JavaScript,Vue]
 2. [单文件组件](https://cn.vuejs.org/v2/guide/single-file-components.html)
 3. [vue-loader](https://vue-loader.vuejs.org/zh-cn/)
 4. [vue-router](https://router.vuejs.org/zh-cn/)
+5. [vuex](https://vuex.vuejs.org/zh-cn/)
 
 
 
