@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "移动端二维码扫描实现"
+title: "IE8跨域请求中问题解决"
 categories: [JavaScript,Web开发,前端开发]
 tags: [jQuery,JavaScript,CORS,IE8]
 
