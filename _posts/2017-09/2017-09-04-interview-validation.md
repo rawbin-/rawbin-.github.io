@@ -191,7 +191,7 @@ export const validationUtil = {
             //调用isNameValid 的同时，不应该有判断undefind,判断null的过程，表单取出来的不会有这俩值
             str += '';
             str = str.trim();
-            return str.indexOf('_') === -1 && /^\w{8,10}$/.test(str);
+            return str.indexOf('_') === -1 && /\d/.test(str) && /\w/.test(str) &&  /^\w{8,10}$/.test(str);
     }，
     isNameValid2:(str) => {
         //调用isNameValid 的同时，不应该有判断undefind,判断null的过程，表单取出来的不会有这俩值
