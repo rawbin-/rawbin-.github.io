@@ -339,3 +339,10 @@ export NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node/
 export CHROMEDRIVER_CDNURL=https://npm.taobao.org/mirrors/chromedriver
 export SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass
 ```
+
+
+
+
+### 参考资料
+
+- [Vuex源码分析](http://web.jobbole.com/91187/)
