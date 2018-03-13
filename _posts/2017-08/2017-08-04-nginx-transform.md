@@ -18,8 +18,12 @@ tags: [nginx,反向代理,静态服务器]
 
 ### alias [参考](http://nginx.org/en/docs/http/ngx_http_core_module.html#alias)
 - 用于在URL和文件系统路径之间实现映射
+
 - 无默认值
+
 - 使用环境 location
+
+  ​
 ```
 location /i/{
     alias /path/to/images/
@@ -32,8 +36,12 @@ location /i/{
 
 ### root [参考](http://nginx.org/en/docs/http/ngx_http_core_module.html#root)
 - 用来指定请求的文档根目录
+
 - 默认值 root html
+
 - 使用环境 http ,server ,location, if in location
+
+  ​
 ```
 locateion /i/{
     alias /path/to/images/
@@ -42,7 +50,7 @@ locateion /i/{
 # /i/top.gif => /path/to/images/i/top.gif
 
 ```
- 
+
 ### rewrite [参考](http://nginx.org/en/docs/http/ngx_http_rewrite_module.html#rewrite)
 - 根据表达式来重定向URI，或者修改字符串
 - 重写字符串只对相对路径有效，如果想匹配主机名，需要使用if
