@@ -12,7 +12,7 @@ tags: [Codova,Phonegap,JavaScript,Hybrid]
 
 
 
-### 参考手册
+### 1 参考手册
 
 - [二维码扫描功能如何接近微信识别率](https://www.zhihu.com/question/56384589)
 - [zxing](https://github.com/zxing/zxing)

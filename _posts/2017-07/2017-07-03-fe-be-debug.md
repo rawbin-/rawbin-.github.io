@@ -89,6 +89,8 @@ tags: [前端开发,后端开发,调试,移动端调试]
 + [TBS Studio](http://bbs.mb.qq.com/thread-1416936-1-1.html) Android系统下基于Webview的应用调试（腾讯家的）
 + [微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/devtools.html) 微信jsAPI相关调试
 + [weinre](https://www.npmjs.com/package/weinre) 通用的调试工具
++ [spy-debugger](https://github.com/wuchangming/spy-debugger) 集成了weinre，简化了配置
++ 更多真机调试参考[这里](https://github.com/jieyou/remote_inspect_web_on_real_device)
 
 
 ## 4 如何更有效地联调

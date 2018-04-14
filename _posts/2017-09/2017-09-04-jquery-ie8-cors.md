@@ -8,17 +8,17 @@ tags: [jQuery,JavaScript,CORS,IE8]
 
 
 
-### No Transport
+### 1 No Transport
 
 
 
-### Access Denied
+### 2 Access Denied
 
 
 
 
 
-### 参考手册
+### 3 参考手册
 
 - [XDomainRequest – Restrictions, Limitations and Workarounds](https://blogs.msdn.microsoft.com/ieinternals/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds/)
 - [IE8 jQuery CORS](https://stackoverflow.com/questions/10232017/ie9-jquery-ajax-with-cors-returns-access-is-denied)

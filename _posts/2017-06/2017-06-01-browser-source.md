@@ -5,7 +5,7 @@ categories: [Web开发,前端开发]
 tags: [浏览器,浏览器原理,源码分析]
 ---
 
-### 事件循环
+### 1 事件循环
 
 0.  [JavaScript单线程和浏览器事件循环简述](http://www.cnblogs.com/whitewolf/p/javascript-single-thread-and-browser-event-loop.html)
 1.  [什么是浏览器的事件循环（Event Loop）？](https://segmentfault.com/a/1190000010622146)
@@ -21,7 +21,7 @@ tags: [浏览器,浏览器原理,源码分析]
 11.  [Chromium：线程模型，消息循环](http://blog.csdn.net/qq295445028/article/details/8028891)
 12.  [Chromium：线程模型，消息循环](http://hyshucom.iteye.com/blog/1694645)
 
-### Chrome 源码分析
+### 2 Chrome 源码分析
 
 0.  [Google Chrome源码分析](http://www.ha97.com/tag/chrome)
 1.  [Chrome源码剖析 【序】 && 【一】](http://www.cnblogs.com/duguguiyu/archive/2008/10/02/1303095.html)
@@ -30,7 +30,7 @@ tags: [浏览器,浏览器原理,源码分析]
 4.   [Chrome源码剖析 【四】Chrome的UI绘制](http://www.cnblogs.com/duguguiyu/archive/2008/10/24/1318363.html)
 5.  [Chrome源码剖析 【五】Chrome的插件模型](http://www.cnblogs.com/duguguiyu/archive/2008/11/05/1326777.html)
 
-### 1 参考资料
+### 3 参考资料
 
 ---
 0. [理解WebKit和Chromium](http://blog.csdn.net/milado_nju/article/category/1060500)

@@ -27,7 +27,7 @@ tags: [HTML5,JavaScript,File API,clipboard]
 
 
 
-### 参考资料
+### 1 参考资料
 
 0. [W3C Clipboard API](https://w3c.github.io/clipboard-apis/)
 1. [W3C File API](https://w3c.github.io/FileAPI/)

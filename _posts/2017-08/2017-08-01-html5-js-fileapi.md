@@ -9,7 +9,7 @@ tags: [HTML5,JavaScript,File API]
 
 
 
-#### 十六进制内容查看
+#### 1 十六进制内容查看
 
 - Sublime Text 安装 HexViewer插件
 

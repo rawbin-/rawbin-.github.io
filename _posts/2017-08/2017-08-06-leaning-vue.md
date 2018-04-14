@@ -5,7 +5,7 @@ categories: [Web开发,前端开发,JavaScript,HTML5]
 tags: [JavaScript,Vue]
 ---
 
-### Vue 学习的内容
+### 1 Vue 学习的内容
 
 0. [风格指南](https://cn.vuejs.org/v2/style-guide/)
 1. [组件](https://cn.vuejs.org/v2/guide/components.html)
@@ -49,35 +49,35 @@ tags: [JavaScript,Vue]
 
 ## 组件生命周期
 
-### beforeCreated
+### 2 beforeCreated
 
 - 在实例初始化完成之后，数据监测和事件监听配置之前调用
 
-### created
+### 3 created
 
 - 在实例创建完成后被立即调用，此时已经完成数据监测和事件监听配置，挂载还未完成，`$el` 还不存在
 
-### beforeMount
+### 4 beforeMount
 
 - 在DOM挂载之前被调用，相关的 render 函数手册被调用
 
-### mounted
+### 5 mounted
 
 - 在`el` 被新创建的`vm.$el`替换，并挂载到了实例上后调用，此时子组件不一定都挂载完成，要全部DOM Ready，需要在下一个事件循环`vm.$nextTick`中处理
 
-### beforeUpdate
+### 6 beforeUpdate
 
 - 在虚拟DOM重新渲染和更新之前调用，此时更改数据会被合并到一次更新中
 
-### updated
+### 7 updated
 
 - 在本次虚拟DOM重新渲染和更新之后调用，避免在此回调中更新数据（可能导致一直渲染），可以考虑使用计算属性和 `watcher` 取代这里面的数据更新需求，此时子组件不一定都更新完成，要全部组件都更新完成的状态，需要在下一个事件循环 `vm.$nextTick` 中处理
 
-### beforeDestory
+### 8 beforeDestory
 
 - 实例销毁之前调用，这里实例仍然可用
 
-### destroyed
+### 9 destroyed
 
 - Vue实例销毁后调用，这个时候实例及其相关的属性监听器，子组件，事件监听器等都已被销毁
 
@@ -98,7 +98,7 @@ tags: [JavaScript,Vue]
 ```
 
 ## 组件注册
-### 局部注册
+### 10 局部注册
 ```
     var TestComponent = Vue.extend({})
     var Wrapper = Vue.extend({
@@ -112,7 +112,7 @@ tags: [JavaScript,Vue]
 
 ```
 
-### 全局注册
+### 11 全局注册
 ```
     var TestComponent = Vue.extend({})
     Vue.component('test-component',TestComponent)
@@ -120,7 +120,7 @@ tags: [JavaScript,Vue]
 ```
 
 ## 组件接收外部数据
-### 字符串类型
+### 12 字符串类型
 ```
     <sub-component data-from-prop='dataObj'></sub-component>
 
@@ -150,17 +150,17 @@ tags: [JavaScript,Vue]
 ```
 
 ## 组件通信
-### 避免紧耦合
+### 13 避免紧耦合
 - 需要访问父组件和根组件的内容通过props传进来
 - 使用自定义事件 $on,$emit
 - .sync 绑定，$emit('update:xxx')
 - $ref属性访问 ref属性绑定的子组件
 
-### 占位子组件
+### 14 占位子组件
 - slot标签
 
 ## 组件实例
-### 组件实例结构
+### 15 组件实例结构
 ```
     var viewModel = new Vue({
         el:'#app',
@@ -184,8 +184,8 @@ tags: [JavaScript,Vue]
 
 ```
 
-### 事件操作
-#### 事件绑定
+### 16 事件操作
+#### 16.1 事件绑定
 - events属性
 - this.$on 方法
 
@@ -203,7 +203,7 @@ tags: [JavaScript,Vue]
     });
 
 ```
-#### 事件触发
+#### 16.2 事件触发
 - this.$emit
 - this.$dispatch
 - this.$broadcast
@@ -213,7 +213,7 @@ tags: [JavaScript,Vue]
 - actions        所有的操作定义和分发，调用mutation函数（传入参数）来更新store
 - mutations      所有的状态转换
 
-### 组件状态过滤
+### 17 组件状态过滤
 ```
     {
         vuex:{
@@ -229,14 +229,14 @@ tags: [JavaScript,Vue]
     }
 ```
 
-### 严格模式
+### 18 严格模式
 ```
     new Vuex.Store({
         strict:true //process.NODE_ENV !== 'production'
     });
 ```
 
-### 中间件
+### 19 中间件
 ```
     new Vuex.Store({
         middlewares:[testMiddleware]
@@ -307,14 +307,14 @@ tags: [JavaScript,Vue]
 - browserify-simple   基于Browserify和vueify的结构
 - simple              单个引入Vue.js的index.html页面
 
-### webpack 配置模板目录结构
+### 20 webpack 配置模板目录结构
 - build webpack相关配置和脚本
 - config 配置文件区分开发、测试和线上环境
 - src 源码和资源文件
 - static 不需要webpack处理的静态资源
 - test 存放测试文件
 
-### webpack 配置代理
+### 21 webpack 配置代理
 ```
     proxyTable:{
         '/api':{
@@ -343,6 +343,7 @@ export SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass
 
 
 
-### 参考资料
+### 22 参考资料
 
 - [Vuex源码分析](http://web.jobbole.com/91187/)
+- [探索Vue高阶组件](http://hcysun.me/2018/01/05/%E6%8E%A2%E7%B4%A2Vue%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6/)

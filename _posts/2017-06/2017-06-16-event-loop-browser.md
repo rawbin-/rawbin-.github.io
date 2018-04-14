@@ -5,7 +5,7 @@ categories: [Web开发,前端开发,JavaScript]
 tags: [JavaScript,事件循环,浏览器,源码分析]
 ---
 
-### Chrome 版本比较
+### 1 Chrome 版本比较
 
 -   Chromium 不是Chrome，但Chrome的内容基本来源于Chromium，这个是开源的版本，小时级别的更新
 -   Canary 是试验版，翻译过来就是金丝雀，金丝雀对瓦斯等毒气很敏感，浓度稍高就会停止鸣叫甚至挂掉，金丝雀是瓦斯等毒气检测的土办法，这个场景在《寻龙诀》中黄渤的操作中也能看到。哈哈 扯远了，这个是daily build 版本。
@@ -16,7 +16,7 @@ tags: [JavaScript,事件循环,浏览器,源码分析]
 -   Chrome Dev、Chrome Beta 和 Chrome Stable三者只能同时出现一个
 -   Chromium 、Chrome Canary 和 剩下的任意一个可共存
 
-### Chrome/Chromium源码获取
+### 2 Chrome/Chromium源码获取
 
 +   可以说Chromium是Chrome的开源版本，但Chrome本身不开源
 
@@ -59,7 +59,7 @@ tags: [JavaScript,事件循环,浏览器,源码分析]
         ```
 
 
-### 源码结构
+### 3 源码结构
 
 
 
@@ -67,7 +67,7 @@ tags: [JavaScript,事件循环,浏览器,源码分析]
 
 
 
-### 参考资料
+### 4 参考资料
 
 0.  [Chromium 官网](https://www.chromium.org/)
 1.  [Chromium 文档汇总](https://chromium.googlesource.com/chromium/src/+/master/docs/README.md#Preview-local-changes-using-md_browser)

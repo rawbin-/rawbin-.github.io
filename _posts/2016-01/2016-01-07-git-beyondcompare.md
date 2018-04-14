@@ -8,7 +8,7 @@ tags: [git,diff,merge,beyondcompare]
 
 ### 1 直接修改.gitconfig 一般修改全局路径下的
 
-#### Windows下配置
+#### 1.1 Windows下配置
 
     [diff]
         tool = bc
@@ -19,7 +19,7 @@ tags: [git,diff,merge,beyondcompare]
     [mergetool "bc"]
         path = C:\\Program Files\\Beyond Compare 4\\BCompare.exe
 
-#### Mac下配置
+#### 1.2 Mac下配置
 
 要生效的话需要在beyond compare 菜单中，选择 install command line tool 安装可在命令行调用的可执行文件
 

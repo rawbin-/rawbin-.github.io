@@ -7,7 +7,7 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
 
 
 
-### 引言
+### 1 引言
 
 在 《Web自动化之Headless Chrome开发工具库》 一文中我们使用`chrome-remote-interface`这个ChromeDevTools协议的NodeJS实现做了一个简单的实例，并在《Web自动化之Headless Chrome编码实战》一文中使用简单封装的库做了一个获取性能参数和一个抓取搜索引擎搜索结果的示例。
 
@@ -15,11 +15,11 @@ tags: [JavaScript,Xvfb, PhantomJS, Selenium, Headless Chrome]
 
 Chrome 团队专门针对这个搞了一个NodeJS库`puppeteer`,专门针对Headless Chrome的NodeJS 开发库。
 
-### 问题的解决
+### 2 问题的解决
 
 在上面示例代码抓取搜素引擎结果的例子中，需要填入搜索词，触发搜索按钮的点击操作，然后等结果返回后，抓取页面结果，这里使用的方式是setTimeout，这种方式实际应用就不太靠谱了，时间长了浪费时间效率低，时间短了拿不到数据，即使时间合适了，网络状况的变化也会变成时间长或者短的问题，针对和这个问题提了一个[issue](https://github.com/ChromeDevTools/devtools-protocol/issues/33),没有什么简单快捷的好办法。直到·puppeteer·的出现，让我们可以重审这个问题(其实这几个月也出了些其他的类似的工具，[参考](https://news.cnblogs.com/n/576898))。
 
-#### 要实现的需求
+#### 2.1 要实现的需求
 
 +   打开百度首页
 +   搜索 `Web自动化 headless chrome`
@@ -148,7 +148,7 @@ puppeteer.launch({
 
 
 
-### 参考文档
+### 3 参考文档
 
 1.  [ChromeDevTools Protocol](https://github.com/ChromeDevTools/devtools-protocol)
 
