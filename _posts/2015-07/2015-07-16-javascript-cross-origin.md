@@ -268,7 +268,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
             
             // loadScript("http://target.test.org:9000/getData.do?callback=JSONPCallback")
 
-
+​            
 ​            
             //下面这个是jQuery风格的JSONP,更容易理解
 
@@ -293,8 +293,8 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
             getJSON("http://target.test.org:9000/getData.do?callback=JSONPCallback",function(data){
                 console.log(data)
             })
-
-
+    
+    
         </script>
     </head>
     <body>
@@ -441,7 +441,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 #### 4.6.2 目标域 target.test.org:9000
 
     var http = require("http");
-
+    
     var server = new http.Server();
     server.listen(9000);
     
@@ -453,7 +453,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
         response.end();
     });
 
-
+#### 4.6.3 操作方法
 #### 4.6.3 操作方法
 + 将两个文件部署上
 + 浏览器打开源域的页面 
@@ -583,6 +583,7 @@ P3P是处理Web应用中隐私数据的W3C标准,他可以通过添加HTTP 相�
 6. [Same Origin Policy Part 0: Origins](http://blogs.msdn.com/b/ieinternals/archive/2014/03/13/explaining-same-origin-policy-part-0-origins.aspx)
 7. [Same Origin Policy Part 1: No Peeking](http://blogs.msdn.com/b/ieinternals/archive/2009/08/28/explaining-same-origin-policy-part-1-deny-read.aspx)
 8. [Same Origin Policy Part 2: Limited Write](http://blogs.msdn.com/b/ieinternals/archive/2012/04/03/explaining-same-origin-policy-part-2-limited-write.aspx)
+9. [我知道的跨域与安全](https://zhuanlan.zhihu.com/p/33132547)
 9. [同源策略](http://www.cnblogs.com/dsky/archive/2012/04/06/2434010.html)
 10. [同源策略理解](https://rawbin-.github.io/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/2015/03/05/javascript-crossorigin/)
 11. [[CORS：跨域资源共享] W3C的CORS Specification](http://www.cnblogs.com/artech/p/cors-4-asp-net-web-api-02.html)
