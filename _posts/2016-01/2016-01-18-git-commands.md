@@ -96,6 +96,15 @@ git show :/KEY-WORD 查找关键信息的变更，这里给出的是一个大致
 git log -p -S "字符串" 查找字符串在整个提交历史的出现， -G "正则表达式"
 ```
 
+#### 2.2   查看文件的历史 包括被删除的文件
+```
+git log -- FILE_NAME
+git log --diff-filter=D --summary | grep FILE_NAME -C 5
+git log --follow --graph --summary -- FILE_NAME
+```
+
+
+
 
 
 ### 3 修改历史
@@ -167,16 +176,17 @@ git checkout -b xxx 放入新的分支中
 1. [git docs](https://git-scm.com/docs)
 2. [Pro Git 2nd](https://git-scm.com/book/en/v2)
 3. [git community book中文](http://git.seyren.com/index.html)
-4. 《Git权威指南》
-5. 《版本控制之道-使用Git》
-6. [git 相关书籍](https://git-scm.com/doc/ext)
-7. [github漫游指南](http://github.phodal.com/)
-8. [github漫游指南](https://github.com/phodal/github-roam)
-9. [github秘籍](http://blog.csdn.net/x805433354/article/details/41214895)
-10. [git工作流指南](http://blog.jobbole.com/76843/)
-11. [github help](https://help.github.com/)
-12. [怎样使用github](http://www.zhihu.com/question/20070065)
-13. [github使用指南](https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97)
-14. [github中fork和更新原作者变更](http://my.oschina.net/u/2306127/blog/369167?fromerr=TmdohiO0)
+4. [Git - Tutorial](http://www.vogella.com/tutorials/Git/article.html)
+5. 《Git权威指南》
+6. 《版本控制之道-使用Git》
+7. [git 相关书籍](https://git-scm.com/doc/ext)
+8. [github漫游指南](http://github.phodal.com/)
+9. [github漫游指南](https://github.com/phodal/github-roam)
+10. [github秘籍](http://blog.csdn.net/x805433354/article/details/41214895)
+11. [git工作流指南](http://blog.jobbole.com/76843/)
+12. [github help](https://help.github.com/)
+13. [怎样使用github](http://www.zhihu.com/question/20070065)
+14. [github使用指南](https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97)
+15. [github中fork和更新原作者变更](http://my.oschina.net/u/2306127/blog/369167?fromerr=TmdohiO0)
 
 
