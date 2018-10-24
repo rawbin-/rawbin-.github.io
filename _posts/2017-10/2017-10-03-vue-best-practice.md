@@ -1,7 +1,11 @@
+```
 layout: post
 title: "Vue工程化最佳实践"
 categories: [前端开发,Web开发,前端框架]
 tags: [Vue,Mock,Webpack,多页打包]
+```
+
+
 
 
 
