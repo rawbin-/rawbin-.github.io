@@ -143,7 +143,87 @@ tags: [Vue,Node,Webpack]
   TypeError: compilation.contextDependencies.push is not a function
   ```
 
+- 安装css提取插件 `npm i mini-css-extract-plugin -D` 修改配置文件`webpack.prod.conf.js` , 替换 `extra-text-webpack-plugin`, 同时更新`utils.js`中的内容
 
+  ```
+  //webpack.prod.conf.js 直接替换
+  const MiniCssExtractPlugin = require('mini-css-extract-plugin') 
+  
+  //utils.js
+  if (options.extract) {
+  	return[MiniCssExtractPlugin.loader].concat(loaders)
+  } else {
+  	return ['vue-style-loader'].concat(loaders)
+  }
+  ```
+
+  解决如下异常
+
+  ```
+  //webpack.prod.conf.js 直接替换
+  const MiniCssExtractPlugin = require('mini-css-extract-plugin') 
+  
+  //utils.js
+  ```
+
+- 升级`webpack-dev-server` `npm i webpack-dev-server@latest -D`，同时修改配置文件`package.json`，完成之后需要更新`webpack.dev.conf.js`修改类似的内容，删除`dev-client`相关内容，解决`__webpack_hmr 404`问题，其实不影响热更新 [参考](https://github.com/webpack/webpack-dev-server/issues/981)
+
+  ```
+  package.json
+  //"dev": "node build/dev-server.js",
+  "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+  
+  
+  //webpack.dev.conf.js
+  devServer: {
+      clientLogLevel: 'warning',
+      historyApiFallback: {
+          rewrites: [
+              {from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, '/output/index.html')},
+          ],
+      },
+      hot: true,
+      contentBase: false, // since we use CopyWebpackPlugin.
+      compress: true,
+      host: config.dev.host,
+      port: config.dev.port,
+      open: config.dev.autoOpenBrowser,
+      overlay: config.dev.errorOverlay
+          ? {warnings: false, errors: true}
+          : false,
+      publicPath: config.dev.assetsPublicPath,
+      proxy: config.dev.proxyTable,
+      quiet: true, // necessary for FriendlyErrorsPlugin
+      watchOptions: {
+          poll: config.dev.poll,
+      },
+      before(app) {
+          if (config.dev.withMock) {
+              app.use(mockPlugin({
+                  mockConf: './mock/mock-conf.js'
+              }))
+          }
+  
+      }
+  }
+  
+  // add hot-reload related code to entry chunks
+  // Object.keys(baseWebpackConfig.entry).forEach(function(name) {
+  //     baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
+  // })
+  ```
+
+- 在`webpack.base.conf.js`中删除scss相关loader，解决如下异常
+
+  ```
+  Invalid CSS after "...load the styles": expected 1 selector or at-rule, was "var content = requi"
+  ```
+
+- 暂时删掉`webpackdashboard`插件，解决dev-server 如下问题
+
+  ```
+  Worker error Error: No code sections found
+  ```
 
 
 
@@ -236,7 +316,7 @@ tags: [Vue,Node,Webpack]
   You can also set it to 'none' to disable any default behavior.
   ```
 
-- 安装css提取插件 `npm i mini-css-extract-plugin -D` 修改配置文件`webpack.prod.conf.js` , 替换 `extra-text-webpack-plugin`, 同时更新`utils.js`中的内容
+- 安装css提取插件 `npm i mini-css-extract-plugin -D` 修改配置文件`webpack.prod.conf.js` , 替换 `extra-text-webpack-plugin`, 同时更新`utils.js`中的内容以及`webpack.base.conf.js`
 
   ```
   //webpack.prod.conf.js 直接替换
@@ -248,12 +328,20 @@ tags: [Vue,Node,Webpack]
   } else {
   	return ['vue-style-loader'].concat(loaders)
   }
+  
+  // webpack.base.conf.js
+  {
+  test: /\.scss$/,
+  loaders: ["style-loader",MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+  },
   ```
 
   解决如下异常
 
   ```
-  Error: webpack.optimize.CommonsChunkPlugin has been removed, please use config.optimization.splitChunks instead.
+  Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):
+  ModuleParseError: Module parse failed: Unexpected character '@' (1:0)
+  You may need an appropriate loader to handle this file type.
   ```
 - 增加`webpack.optimize.CommonsChunkPlugin`相关对应的配置在`webpack.prod.conf.js`
 
@@ -295,3 +383,6 @@ tags: [Vue,Node,Webpack]
 ### 特别注意
 
 - babel 7 配置文件有特殊变化，node_modules中需要转码的，babel配置文件需要使用`babel.config.js`，tong
+- babel 7 支持jsx 需要升级插件版本 [参考](https://github.com/vuejs/babel-plugin-transform-vue-jsx)
+  - [参考 github issue](https://github.com/vuejs/babel-plugin-transform-vue-jsx/issues/160)
+  - 或者直接安装GitHub版本`npm i https://github.com/vuejs/babel-plugin-transform-vue-jsx.git -D`
