@@ -17,7 +17,7 @@ tags: [Vue,Node,Webpack]
 
 #### `optimization`
 
-- [文档参考](https://webpack.js.org/plugins/split-chunks-plugin/)
+- [文档参考](https://webpack.js.org/plugins/split-chunks-plugin/)--
 
 - webpack本身会自动对代码块进行分割，条件规则如下
 
@@ -57,11 +57,16 @@ tags: [Vue,Node,Webpack]
   };
   ```
 
+- `optimization.runtimeChunk` 可选值 `true`和`multiple`,还有 single [参考](https://webpack.js.org/configuration/optimization/#optimization-runtimechunk)
+
+  - `true`和`multiple`是一个意思，
+  - 这里需要注意下，在配置`html-webpack-plugin`的时候，需要配置`runtime-${entry}` 或者是 `runtime`
+
 - `optimization.splitChunks.chunks` 制定需要优化的代码块
 
-  - `all` 同步和异步模块都进行打包优化，共享块
-  - `async` 只针对异步模块进行打包优化，共享块
-  - `initial` 只针对同步块进行打包优化，共享块
+  - `all` 同步和异步模块都进行打包优化，在所有块中共享块
+  - `async` 只针对异步模块进行打包优化，在异步块中共享块
+  - `initial` 只针对同步块进行打包优化，在同步块中共享块
   - Function , 
 
 - `optimization.splitChunks.cacheGroups` 作为代码块分组的内容，作用替代`CommonsChunkPlugin`,`test`、`priority`、`reuseExistingChunk` 只能在`cacheGroups`下面每个`group`中设置
@@ -90,21 +95,13 @@ tags: [Vue,Node,Webpack]
     }
     ```
 
-- 疑问，如下配置打包出的内容，页面无法加载，也没有报错，但包大小明显小了许多，待验证
+- 注意事项
 
-  ```
-      optimization:{
-          minimize:true,
-          runtimeChunk:{
-              name:'manifest'
-          },
-          splitChunks:{
-              name:true,
-              chunks:'all'
-          },
-      },
-  ```
+  - 默认会有`vendors-${entry}`这个注入块
+  - `vendors-${entry}`在配置了多个 `cacheGroups`的情况下，不一定会出这个注入块（有优先级、size、minChunks等条件的约束）
+  - 配置成`html-webpack-plugin` chunks的时候需要注意这个问题
 
+- 待解决 default 控制了什么内容
 
 #### webpack-dev-server
 
@@ -157,13 +154,26 @@ tags: [Vue,Node,Webpack]
   };
   ```
 
-#### HTMLWebpackPlugin
+#### html-webpack-plugin 打包js注入模板
 
 - [文档参考](https://webpack.js.org/plugins/html-webpack-plugin/)
 - 默认可以解析 [lodash templates](https://lodash.com/docs#template), 常用的如下：
   - 使用 `<%= variable %>` 或者 `<% ${variable} %>` 来展示变量值
   - 使用`<%- variable %>` 来对变量值进行`HTML`转义
   - 使用 `<% //js code %>` 来嵌入`JavaScript`代码
+- 问题1，使用chunks 设置内容的时候，同样的配置在`npm run dev`下，会多出来一个`vendors-${entry}`的注入项，如果chunks中没设置，会导致页面无法渲染，没有报错
+  - 原因：默认有vendors组，会将node_modules 里面的自动打包，并且根据根据entry命名 `vendors-${entry}`类似于`runtime`
+  - 解决：直接不设置chunks，使用自动的配置；或者禁用vendors 组（设置cacheGroups.vendors:false），
+
+#### web-webpack-plugin  针对多页打包有优化
+
+- [web-webapck-plugin](https://github.com/gwuhaolin/web-webpack-plugin)
+
+
+
+####  script-ext-html-webpack-plugin 增强的html-webpack-plugin 更多精细控制
+
+- [文档参考](https://github.com/numical/script-ext-html-webpack-plugin)
 
 
 
@@ -235,6 +245,7 @@ tags: [Vue,Node,Webpack]
 0. [Webpack 打包优化之速度篇 vue-loader-happypack](https://www.jeffjade.com/2017/08/12/125-webpack-package-optimization-for-speed/)
 0. [使用happypack将vuejs项目webpack初始化构建速度提升50%](https://flyyang.me/2017/03/09/%E4%BD%BF%E7%94%A8happypack%E5%B0%86vuejs%E9%A1%B9%E7%9B%AEwebpack%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9E%84%E5%BB%BA%E9%80%9F%E5%BA%A6%E6%8F%90%E5%8D%8750/)
 0. [React 16 加载性能优化指南](https://zhuanlan.zhihu.com/p/37148975)
+0. [webpack4之splitChunks拆拆拆](https://juejin.im/post/5c00916f5188254caf186f80?utm_source=gold_browser_extension)
 0. [一步一步的了解webpack4的splitChunk插件](https://juejin.im/post/5af1677c6fb9a07ab508dabb)
 0. [趁webpack5还没出，先升级成webpack4吧](https://www.cnblogs.com/imwtr/p/9189670.html)
 0. [webpack4.0各个击破（4）—— Javascript & splitChunk](https://www.cnblogs.com/dashnowords/p/9545482.html)

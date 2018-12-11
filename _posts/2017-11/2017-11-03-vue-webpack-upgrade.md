@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Vue CLI 中 webpack 升级指南"
+title: "Vue CLI 中 webpack 4 升级指南"
 categories: [前端开发,打包工具]
 tags: [Vue,Node,Webpack]
 ---
@@ -137,7 +137,7 @@ tags: [Vue,Node,Webpack]
     },
   ```
 
-- 安装 copy-webpack-plugin `npm i copy-webpack-plugin @latest -D`, 解决如下问题
+- 安装 copy-webpack-plugin `npm i copy-webpack-plugin@latest -D`, 解决如下问题
 
   ```
   TypeError: compilation.contextDependencies.push is not a function

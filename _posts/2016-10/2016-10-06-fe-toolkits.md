@@ -44,8 +44,14 @@ tags: [JavaScript,模块化,工程化]
 - [coolie doc](https://coolie.ydr.me/)
 - [fed coolie doc](http://frontenddev.org/column/introduce-coolie/)
 
+#### 1.7 fastpack
+- [github](https://github.com/fastpack/fastpack)
+- [fastpack doc](https://fastpack.sh/)
 
+####  2 老牌通用自动化工具
+- [grunt](https://gruntjs.com/)
+- [gulp](https://gulpjs.com/)
 
-### 2 参考资料
+### 3 参考资料
 
 1. [前端构建工具漫谈，fis3、webpack、rollup.js](https://zhuanlan.zhihu.com/p/20933749)

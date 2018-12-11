@@ -7,6 +7,10 @@ tags: [微前端,前端架构]
 
 
 
+### 框架
+
+- [single-spa](https://github.com/CanopyTax/single-spa)
+
 
 
 ### 参考资料
