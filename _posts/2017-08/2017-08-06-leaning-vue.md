@@ -347,3 +347,4 @@ export SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass
 
 - [Vuex源码分析](http://web.jobbole.com/91187/)
 - [探索Vue高阶组件](http://hcysun.me/2018/01/05/%E6%8E%A2%E7%B4%A2Vue%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6/)
+- [Node.js实战:使用Egg.js+Vue.js+Docker构建渐进式、可持续集成与交付应用](https://blog.csdn.net/i348018533/article/details/73605176)

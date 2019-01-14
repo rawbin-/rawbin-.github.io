@@ -236,6 +236,8 @@ tags: [Vue,Node,Webpack]
 
 ### 参考资料
 
+0. [加快Vue项目的开发速度](https://juejin.im/post/5c106485e51d450e657571a6?utm_source=gold_browser_extension)
+0. [Vue项目Webpack优化实践，构建效率提高50%](https://juejin.im/post/5c1fa158f265da613c09cb36?utm_source=gold_browser_extension)
 0. [Webpack4优化之路](https://www.colabug.com/2639835.html)
 0. [从实践中寻找webpack4最优配置](https://segmentfault.com/a/1190000015032321)
 0. [手摸手，带你用合理的姿势使用webpack4（下）](https://segmentfault.com/a/1190000015919928)
