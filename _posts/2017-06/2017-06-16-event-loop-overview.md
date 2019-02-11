@@ -33,6 +33,8 @@ ECMAScript 规范 job，job queue
 
 + [Promise的队列与setTimeout的队列有何关联？](https://www.zhihu.com/question/36972010/answer/71338002)
 
++ [一次弄懂Event Loop（彻底解决此类面试问题）](https://juejin.im/post/5c3d8956e51d4511dc72c200?utm_source=gold_browser_extension)
+
 + [The Node.js Event Loop, Timers, and `process.nextTick()`](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
 
 + [前端基础进阶（十二）：深入核心，详解事件循环机制](http://www.jianshu.com/p/12b9f73c5a4f)

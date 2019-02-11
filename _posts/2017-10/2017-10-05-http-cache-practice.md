@@ -64,9 +64,10 @@ tags: [缓存,浏览器,HTTP]
 
 ### 参考资料
 
-0. [RFC 搜 HTTP](https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&title=HTTP&pubstatus[]=Any&pub_date_type=any&sortkey=Number&sorting=ASC)
-1. [RFC 1945 HTTP 1.0](https://www.rfc-editor.org/info/rfc1945)
-2. [RFC 2068 HTTP 1.1](https://www.rfc-editor.org/info/rfc2068)
-3. [RFC 2616 HTTP 1.1](https://www.rfc-editor.org/info/rfc2616)
-3. [RFC 7234 HTTP Caching](https://www.rfc-editor.org/info/rfc7234)
-4. [RFC 7540 HTTP 2](https://www.rfc-editor.org/info/rfc7540)
+0. [实践这一次，彻底搞懂浏览器缓存](https://juejin.im/post/5c4528a6f265da611a4822cc?utm_source=gold_browser_extension)
+1. [RFC 搜 HTTP](https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&title=HTTP&pubstatus[]=Any&pub_date_type=any&sortkey=Number&sorting=ASC)
+2. [RFC 1945 HTTP 1.0](https://www.rfc-editor.org/info/rfc1945)
+3. [RFC 2068 HTTP 1.1](https://www.rfc-editor.org/info/rfc2068)
+4. [RFC 2616 HTTP 1.1](https://www.rfc-editor.org/info/rfc2616)
+5. [RFC 7234 HTTP Caching](https://www.rfc-editor.org/info/rfc7234)
+6. [RFC 7540 HTTP 2](https://www.rfc-editor.org/info/rfc7540)

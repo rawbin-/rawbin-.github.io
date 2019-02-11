@@ -12,14 +12,16 @@ tags: [源码阅读,代码审查]
 
 
 ## 2 参考
-0. [你用过的最好的代码阅读或编辑工具是什么？][7]
-0. [代码分析工具推荐Understand][6]
-0. [代码分析工具推荐Understand][5]
-0. [代码阅读工具：Source Navigator和Source Insight][0]
-1. [ Windows下阅读linux源码的强大软件Source Insight ][1]
-2. [linux源代码分析和阅读工具比较][2]
-3. [Source Insight3.0: Linux源代码阅读的利器][3]
-4. [阅读源代码的工具！][4]
+0. [List of tools for static code analysis](https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis)
+1. [Static analysis tools for all programming languages](https://github.com/mre/awesome-static-analysis)
+2. [你用过的最好的代码阅读或编辑工具是什么？][7]
+3. [代码分析工具推荐Understand][6]
+4. [代码分析工具推荐Understand][5]
+5. [代码阅读工具：Source Navigator和Source Insight][0]
+6. [ Windows下阅读linux源码的强大软件Source Insight ][1]
+7. [linux源代码分析和阅读工具比较][2]
+8. [Source Insight3.0: Linux源代码阅读的利器][3]
+9. [阅读源代码的工具！][4]
 
 [0]: http://www.cnblogs.com/yc_sunniwell/archive/2010/08/25/1808322.html "代码阅读工具：Source Navigator和Source Insight"
 [1]: http://blog.chinaunix.net/uid-8215384-id-298436.html "Windows下阅读linux源码的强大软件Source Insight "

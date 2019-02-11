@@ -249,4 +249,5 @@ emailAddress => main administrative point of contact for the certificate
 13. [多个SSL站点使用SubjectAltName教程](http://blog.sina.com.cn/s/blog_bcb1f6440102xwx9.html)
 14. [[openssl生成证书链多级证书](http://www.cnblogs.com/gsls200808/p/4502044.html)](http://www.cnblogs.com/gsls200808/p/4502044.html)
 15. [Subject Alt Name](https://www.openssl.org/docs/man1.0.2/apps/x509v3_config.html)
+16. [完全图解 HTTPS](https://juejin.im/post/5c441073e51d455226654d60?utm_source=gold_browser_extension)
 

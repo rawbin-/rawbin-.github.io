@@ -19,3 +19,4 @@ tags: [异步,JavaScript,NodeJS]
 
 0. [Nodejs·进程](http://www.cnblogs.com/xing901022/p/5146582.html)
 1. [Node.js的线程和进程](http://www.admin10000.com/document/4196.html)
+2. [Node.js调试指南](https://github.com/nswbmw/node-in-debugging)

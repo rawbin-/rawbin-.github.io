@@ -93,7 +93,9 @@ app.use(require('connect-history-api-fallback')({
 
 - Vue组件模板中使用`@/../static/images/xxx.png`引用图片, 其中 `@`为`src`的别名 [参考 vue-loader](https://vue-loader.vuejs.org/zh/guide/asset-url.html#%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99)
 
-- Vue组件中SCSS style 使用`~/../static/images/xxx.png`引用图片，其中`~`使后面的解析为模块路径， `~@/`代表`src`[参考 sass-loader](https://github.com/webpack-contrib/sass-loader#imports)
+- Vue组件中SCSS style 使用`~/../static/images/xxx.png`引用图片，其中`~`使后面的解析为模块路径， `~@/`代表`src`[参考 sass-loader](https://github.com/webpack-contrib/sass-loader#imports) 或者 [css-loader](https://github.com/webpack-contrib/css-loader)
+
+- 在 js 中使用的话，按相对于`src`的路径写，`import`或者`require`都ok，
 
 - 对应nginx配置需要改为
 
@@ -102,6 +104,8 @@ app.use(require('connect-history-api-fallback')({
     try_files $uri $uri/ /app-test/index.html;
   }
   ```
+
+- 实例代码在 [这 github](https://github.com/rawbin-/vue-cli-2.x-imgpath/commit/7d1abda6a6221a20f34f79fb3eb8e972851d79a7)
 
 
 

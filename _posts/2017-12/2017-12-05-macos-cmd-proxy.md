@@ -136,6 +136,80 @@ tags: [源码阅读,命令行配置,命令行代理,终端代理]
 - 从哪儿来？
   - 翻了[Bash的文档](https://www.gnu.org/software/bash/manual/bash.html) 没找着
   - 搜了[ABS](http://www.tldp.org/LDP/abs/html/) 也没搜到
+  - 找了 [bash源码](https://ftp.gnu.org/gnu/bash/) 里面自然也不会有
+  - 查了 [linux源代码](https://www.kernel.org/) 里面当然也没有
+  - 从[这篇](https://superuser.com/questions/944958/are-http-proxy-https-proxy-and-no-proxy-environment-variables-standard) 文章中转换了下思路
+
+- 结论
+
+  - 这些变量都是各个应用自己实现的
+
+  - 比如翻了git的源代码`http.c`中就找到了
+
+    ```c
+    	/*
+    	 * CURL also examines these variables as a fallback; but we need to query
+    	 * them here in order to decide whether to prompt for missing password (cf.
+    	 * init_curl_proxy_auth()).
+    	 *
+    	 * Unlike many other common environment variables, these are historically
+    	 * lowercase only. It appears that CURL did not know this and implemented
+    	 * only uppercase variants, which was later corrected to take both - with
+    	 * the exception of http_proxy, which is lowercase only also in CURL. As
+    	 * the lowercase versions are the historical quasi-standard, they take
+    	 * precedence here, as in CURL.
+    	 */
+    	if (!curl_http_proxy) {
+    		if (http_auth.protocol && !strcmp(http_auth.protocol, "https")) {
+    			var_override(&curl_http_proxy, getenv("HTTPS_PROXY"));
+    			var_override(&curl_http_proxy, getenv("https_proxy"));
+    		} else {
+    			var_override(&curl_http_proxy, getenv("http_proxy"));
+    		}
+    		if (!curl_http_proxy) {
+    			var_override(&curl_http_proxy, getenv("ALL_PROXY"));
+    			var_override(&curl_http_proxy, getenv("all_proxy"));
+    		}
+    	}
+    ```
+
+  - 翻了curl的源代码 `url.c`中也找到了
+
+    ```c
+      /* If proxy was not specified, we check for default proxy environment
+       * variables, to enable i.e Lynx compliance:
+       *
+       * http_proxy=http://some.server.dom:port/
+       * https_proxy=http://some.server.dom:port/
+       * ftp_proxy=http://some.server.dom:port/
+       * no_proxy=domain1.dom,host.domain2.dom
+       *   (a comma-separated list of hosts which should
+       *   not be proxied, or an asterisk to override
+       *   all proxy variables)
+       * all_proxy=http://some.server.dom:port/
+       *   (seems to exist for the CERN www lib. Probably
+       *   the first to check for.)
+       *
+       * For compatibility, the all-uppercase versions of these variables are
+       * checked if the lowercase versions don't exist.
+       */
+      char proxy_env[128];
+      const char *protop = conn->handler->scheme;
+      char *envp = proxy_env;
+      char *prox;
+    
+      /* Now, build <protocol>_proxy and check for such a one to use */
+      while(*protop)
+        *envp++ = (char)tolower((int)*protop++);
+    
+      /* append _proxy */
+      strcpy(envp, "_proxy");
+    
+      /* read the protocol proxy: */
+      prox = curl_getenv(proxy_env);
+    ```
+
+  - 引出来的结论
 
 
 
@@ -152,5 +226,9 @@ tags: [源码阅读,命令行配置,命令行代理,终端代理]
 6. [Proxy server](https://wiki.archlinux.org/index.php/Proxy_server)
 7. [命令行配置代理服务器](https://yevon-cn.github.io/2017/05/05/set-proxy-of-cmd.html)
 8. [让终端走代理的几种方法](https://blog.fazero.me/2015/09/15/%E8%AE%A9%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/)
-9. [Linux bash终端设置代理（proxy）访问](https://aiezu.com/article/linux_bash_set_proxy.html)
-10. [[Bash Script - Setting Local Environment Variables (Proxy)](https://unix.stackexchange.com/questions/400733/bash-script-setting-local-environment-variables-proxy)](https://unix.stackexchange.com/questions/400733/bash-script-setting-local-environment-variables-proxy)
+9. [Mac OSX终端走shadowsocks代理](https://github.com/mrdulin/blog/issues/18)
+10. [Linux bash终端设置代理（proxy）访问](https://aiezu.com/article/linux_bash_set_proxy.html)
+11. [[Bash Script - Setting Local Environment Variables (Proxy)](https://unix.stackexchange.com/questions/400733/bash-script-setting-local-environment-variables-proxy)](https://unix.stackexchange.com/questions/400733/bash-script-setting-local-environment-variables-proxy)
+12. [How to configure proxy settings on Ubuntu 18.04](https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-configure-proxy-on-ubuntu-18-04/)
+13. [how to configure proxy server in linux](http://www.lostsaloon.com/technology/how-to-configure-proxy-server-in-linux/)
+14. [Are HTTP_PROXY, HTTPS_PROXY and NO_PROXY environment variables standard?](https://superuser.com/questions/944958/are-http-proxy-https-proxy-and-no-proxy-environment-variables-standard)

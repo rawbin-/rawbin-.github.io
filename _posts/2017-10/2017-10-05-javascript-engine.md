@@ -31,4 +31,6 @@ tags: [JavaScript引擎,V8]
 3. [【译】JavaScript的工作原理：事件循环及异步编程](https://juejin.im/entry/5c3884d35188252620582375)
 4. [【译】JavaScript的工作原理：内存管理和4种常见的内存泄漏]([译]JavaScript的工作原理：内存管理和4种常见的内存泄漏)
 5. [【译】JavaScript的工作原理：V8引擎内部+关于如何编写优化代码的5个技巧](https://juejin.im/post/5bc98224f265da0af213a09a)
+6. [JavaScript是如何工作的: CSS 和 JS 动画底层原理及如何优化它们的性能](https://juejin.im/post/5c41431df265da61120545da?utm_source=gold_browser_extension)
+7. [[译] 通过垃圾回收机制理解 JavaScript 内存管理](https://juejin.im/post/5c4409fbf265da616f703d5a?utm_source=gold_browser_extension)
 
