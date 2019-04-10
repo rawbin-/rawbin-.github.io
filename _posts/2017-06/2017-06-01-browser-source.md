@@ -33,30 +33,32 @@ tags: [浏览器,浏览器原理,源码分析]
 ### 3 参考资料
 
 ---
-0. [理解WebKit和Chromium](http://blog.csdn.net/milado_nju/article/category/1060500)
-1. [学习Google Chrome源码](http://blog.csdn.net/dc_726/article/details/7625365)
-2. [从Chrome源码看JS Object的实现](http://www.renfed.com/2017/04/04/chrome-object/)
-3. [从Chrome源码看JS Array的实现](http://www.renfed.com/2017/04/16/chrome-js-array/)
-4. [从Chrome源码看浏览器如何构建DOM树](https://zhuanlan.zhihu.com/p/24911872)
-5. [从Chrome源码看浏览器的事件机制](http://www.renfed.com/2017/02/05/browser-event/)
-6. [从Chrome源码看浏览器如何构建DOM树](http://www.renfed.com/2017/01/30/chrome-build-dom/)
-7. [从Chrome源码看浏览器如何计算CSS](https://zhuanlan.zhihu.com/p/25380611)
-8. [从Chrome源码看浏览器如何layout布局](http://www.renfed.com/2017/02/26/chrome-layout/)
-9. [Effective前端6：避免页面卡顿](http://www.renfed.com/2017/02/09/avoid-jank/)
-10. [览器内核分类][0]
-11. [[科普文] 关于浏览器内核的一些小知识，明明白白选浏览器！][1]
-12. [浏览器的JavaScript引擎][3]
-13. [前端必读：浏览器内部工作原理][4]
-14. [浏览器内部工作原理][5]
-15. [浏览器渲染原理及可能出现的bug][6]
-16. [[ 浏览器原理 ] Repaint 、Reflow 的基本认识和优化][7]
-17. [浏览器的工作原理：新式网络浏览器幕后揭秘][8]
-18. [从输入网址到显示页面：浏览器工作原理拆解分析][9]
-19. [浏览器的渲染原理简介][10]
-20. [[译]Google Chrome中的高性能网络][11]
-21. [How Rendering Work (in WebKit and Blink)][12]
-22. [浏览器详谈及其内部工作机制 —— web开发必读][13]
-23. [how browser work](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
+0. [浏览器原理系列10篇正式完结](https://juejin.im/post/5c6d3e026fb9a04a0d576f98?utm_source=gold_browser_extension)
+1. [理解WebKit和Chromium](http://blog.csdn.net/milado_nju/article/category/1060500)
+2. [学习Google Chrome源码](http://blog.csdn.net/dc_726/article/details/7625365)
+3. [前端必读：浏览器内部工作原理](https://www.cnblogs.com/wyaocn/p/5761163.html)
+4. [从Chrome源码看JS Object的实现](http://www.renfed.com/2017/04/04/chrome-object/)
+5. [从Chrome源码看JS Array的实现](http://www.renfed.com/2017/04/16/chrome-js-array/)
+6. [从Chrome源码看浏览器如何构建DOM树](https://zhuanlan.zhihu.com/p/24911872)
+7. [从Chrome源码看浏览器的事件机制](http://www.renfed.com/2017/02/05/browser-event/)
+8. [从Chrome源码看浏览器如何构建DOM树](http://www.renfed.com/2017/01/30/chrome-build-dom/)
+9. [从Chrome源码看浏览器如何计算CSS](https://zhuanlan.zhihu.com/p/25380611)
+10. [从Chrome源码看浏览器如何layout布局](http://www.renfed.com/2017/02/26/chrome-layout/)
+11. [Effective前端6：避免页面卡顿](http://www.renfed.com/2017/02/09/avoid-jank/)
+12. [览器内核分类][0]
+13. [[科普文] 关于浏览器内核的一些小知识，明明白白选浏览器！][1]
+14. [浏览器的JavaScript引擎][3]
+15. [前端必读：浏览器内部工作原理][4]
+16. [浏览器内部工作原理][5]
+17. [浏览器渲染原理及可能出现的bug][6]
+18. [[ 浏览器原理 ] Repaint 、Reflow 的基本认识和优化][7]
+19. [浏览器的工作原理：新式网络浏览器幕后揭秘][8]
+20. [从输入网址到显示页面：浏览器工作原理拆解分析][9]
+21. [浏览器的渲染原理简介][10]
+22. [[译]Google Chrome中的高性能网络][11]
+23. [How Rendering Work (in WebKit and Blink)][12]
+24. [浏览器详谈及其内部工作机制 —— web开发必读][13]
+25. [how browser work](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/)
 
 
 

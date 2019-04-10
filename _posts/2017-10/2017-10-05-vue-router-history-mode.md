@@ -93,7 +93,7 @@ app.use(require('connect-history-api-fallback')({
 
 - Vue组件模板中使用`@/../static/images/xxx.png`引用图片, 其中 `@`为`src`的别名 [参考 vue-loader](https://vue-loader.vuejs.org/zh/guide/asset-url.html#%E8%BD%AC%E6%8D%A2%E8%A7%84%E5%88%99)
 
-- Vue组件中SCSS style 使用`~/../static/images/xxx.png`引用图片，其中`~`使后面的解析为模块路径， `~@/`代表`src`[参考 sass-loader](https://github.com/webpack-contrib/sass-loader#imports) 或者 [css-loader](https://github.com/webpack-contrib/css-loader)
+- Vue组件中SCSS style 使用`~/../static/images/xxx.png`引用图片，其中`~`使后面的解析为模块路径， `~@/`代表`src`[参考 sass-loader](https://github.com/webpack-contrib/sass-loader#imports) 或者 [css-loader](https://github.com/webpack-contrib/css-loader) 或者 [vue cli](https://cli.vuejs.org/zh/guide/html-and-static-assets.html#%E5%A4%84%E7%90%86%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90)
 
 - 在 js 中使用的话，按相对于`src`的路径写，`import`或者`require`都ok，
 
@@ -106,6 +106,76 @@ app.use(require('connect-history-api-fallback')({
   ```
 
 - 实例代码在 [这 github](https://github.com/rawbin-/vue-cli-2.x-imgpath/commit/7d1abda6a6221a20f34f79fb3eb8e972851d79a7)
+
+
+
+#### 相对路径适配问题
+
+- 上面增加base的情况适用于固定的部署方式，换个路径需要改代码重新打包，我们希望有一种方式自动适配路径，改到什么路径改改ng配置就行，代码不用动
+
+- 首先修改`config/index.js`中的路径为相对路径
+
+  ```
+  @@ -9,7 +9,7 @@ module.exports = {
+   
+       // Paths
+       assetsSubDirectory: 'static',
+  -    assetsPublicPath: '/app-test/',
+  +    assetsPublicPath: './',
+       proxyTable: {},
+   
+       // Various Dev Server settings
+  @@ -45,12 +45,12 @@ module.exports = {
+   
+     build: {
+       // Template for index.html
+  -    index: path.resolve(__dirname, '../app-test/index.html'),
+  +    index: path.resolve(__dirname, '../dist/index.html'),
+   
+       // Paths
+  -    assetsRoot: path.resolve(__dirname, '../app-test'),
+  +    assetsRoot: path.resolve(__dirname, '../dist'),
+       assetsSubDirectory: 'static',
+  -    assetsPublicPath: '/app-test/',
+  +    assetsPublicPath: './',
+  
+  ```
+
+- 然后修改`build/utils.js`调整css 抽取的路径 
+
+  ```
+         return ExtractTextPlugin.extract({
+           use: loaders,
+            fallback: 'vue-style-loader'
+           fallback: 'vue-style-loader',
+  +        publicPath:'../../'
+         })
+  
+  ```
+
+- 最后调整下`src/router/index.js`动态获取路由，这里面加了个标识，是为了解决目录名和路由名分不开的问题，比如`/path/to/dir/dist/path/to/router`, 就用中间这个`dist`来区分出那部分是部署的目录名哪部分是路由路径
+
+  ```
+  +const identifier = 'dist/'
+  +const getBasePath = () => {
+  +  const path = location.pathname
+  +  return path.substr(0, path.lastIndexOf(identifier) + identifier.length)
+  +}
+  +
+   export default new Router({
+     mode: 'history',
+  -  base: '/app-test/',
+  +  base: getBasePath(),
+  
+  ```
+
+  
+
+
+
+### 参考资料
+
+- [Vue history模式下配置相对路径](https://www.jianshu.com/p/8e54fe716487)
 
 
 

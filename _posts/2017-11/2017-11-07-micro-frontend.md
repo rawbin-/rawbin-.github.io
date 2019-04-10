@@ -32,4 +32,5 @@ tags: [微前端,前端架构]
 14. [「微前端」- 将微服务理念扩展到前端开发（实战篇）](https://insights.thoughtworks.cn/micro-frontends-2/)
 15. [微前端架构选型指南](https://blog.csdn.net/j01G58UC80251/article/details/81058760)
 16. [微前端架构选型指南](https://zhuanlan.zhihu.com/p/39842236?utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com)
+17. [微前端与大前端](https://github.com/wxyyxc1992/Web-Series/blob/master/%E5%AF%BC%E8%AE%BA/%E5%BE%AE%E5%89%8D%E7%AB%AF%E4%B8%8E%E5%A4%A7%E5%89%8D%E7%AB%AF.md)
 

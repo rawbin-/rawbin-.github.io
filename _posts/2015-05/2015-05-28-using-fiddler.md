@@ -37,23 +37,24 @@ Web开发难免会需要各种监控和调试，现在各大浏览器基本都�
 
 
 ### 4 参考资料
-0. [Fiddler官网][0]
-1. [HTTPWatch 官网][1]
-2. [Charles 官网][2]
-3. [HTTP Debugger 官网][3]
-4. [WireShark 官网][9]
-4. [Fiddler 教程][4]
-5. [Fiddler入门教程][5]
-6. [Fiddler使用小结][6]
-7. [Web开发又一利器之——Fiddler][7]
-8. [Web调试利器fiddler介绍][8]
-9. [抓包工具Fiddler的使用][10]
-10. [浏览器HTTP分析调试工具收集][11]
-11. [WEB前端开发中的性能调试工具（简记）][12]
-12. [介绍几款浏览器兼容性测试工具][13]
-13. [12款浏览器兼容性测试工具推荐][14]
-14. [Web浏览器兼容性测试工具如何选择？][15]
-15. [12款很棒的浏览器兼容性测试工具推荐][16]
+0. [Node.js调试指南](https://juejin.im/post/5c67a8ce6fb9a049af6dcc50?utm_source=gold_browser_extension)
+1. [Fiddler官网][0]
+2. [HTTPWatch 官网][1]
+3. [Charles 官网][2]
+4. [HTTP Debugger 官网][3]
+5. [WireShark 官网][9]
+6. [Fiddler 教程][4]
+7. [Fiddler入门教程][5]
+8. [Fiddler使用小结][6]
+9. [Web开发又一利器之——Fiddler][7]
+10. [Web调试利器fiddler介绍][8]
+11. [抓包工具Fiddler的使用][10]
+12. [浏览器HTTP分析调试工具收集][11]
+13. [WEB前端开发中的性能调试工具（简记）][12]
+14. [介绍几款浏览器兼容性测试工具][13]
+15. [12款浏览器兼容性测试工具推荐][14]
+16. [Web浏览器兼容性测试工具如何选择？][15]
+17. [12款很棒的浏览器兼容性测试工具推荐][16]
 
 
 [0]: http://www.telerik.com/fiddler "Fiddler官网"

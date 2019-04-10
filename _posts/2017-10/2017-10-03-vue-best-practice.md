@@ -44,3 +44,4 @@ tags: [Vue,Mock,Webpack,多页打包]
 16. [详解vue-cli之webpack3构建全面提速优化](https://www.jb51.net/article/131391.htm)
 17. [webpack 不适合多页面应用？你写的插件还不够多](https://juejin.im/entry/589c45a18d6d81005864492a)
 18. [使用 Webpack 打包时的 “多页” 实践](https://juejin.im/entry/584f9e36ac502e006c7c327a)
+19. [从4个方面优化你的Vue项目](https://juejin.im/post/5c4e6d7951882522c03ea809?utm_source=gold_browser_extension)

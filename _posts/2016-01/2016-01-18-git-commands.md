@@ -105,6 +105,17 @@ git log --follow --graph --summary -- FILE_NAME
 
 
 
+#### 2.3 检查当前分支内容是否包含了最新的主干内容
+
+```
+git cherry origin/master origin/BRANCH_NAME
+git log origin/master ^origin/BRANCH_NAME –oneline
+```
+
+
+
+
+
 
 
 ### 3 修改历史
@@ -123,7 +134,7 @@ git log --follow --graph --summary -- FILE_NAME
   + B —not A 等同于 A..B
   + A…B  A可达&&B可达除掉AB都可达的范围，前后闭区间
 
-  ​
+  
 
 #### 3.1 修改已经提交的log信息
 

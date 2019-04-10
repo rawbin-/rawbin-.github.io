@@ -18,7 +18,7 @@ fekit 渲染velocity 在低版本使用的是`velocityjs`，从2015年8月中下
 使用velocity.java 的结果
 
     dataList value [{name=zhang, email=zhang@test.com}, {name=wang, email=wang@test.com}]
-
+    
     dataMap value {key=key, value=value}
 
 
@@ -30,7 +30,7 @@ fekit 渲染velocity 在低版本使用的是`velocityjs`，从2015年8月中下
 使用velocityjs 的结果：
 
     dataList value [object Object],[object Object]
-
+    
     dataMap value [object Object]
 
 
@@ -44,7 +44,7 @@ fekit 渲染velocity 在低版本使用的是`velocityjs`，从2015年8月中下
 我们想要的是这个样子的：
 
     dataList value [{"name":"zhang","email":"zhang@test.com"},{"name":"wang","email":"wang@test.com"}]
-
+    
     dataMap value {"key":"key","value":"value"}
 
 
@@ -143,9 +143,9 @@ jar包路径是`$FEKIT_HOME\node-modules\velocity.java\bin\velocity-cli.jar`其�
 
         import com.fasterxml.jackson.databind.ObjectMapper;
         import com.fasterxml.jackson.databind.node.ObjectNode;
-      
+          
         import java.io.IOException;
-      
+          
         /**
         * Created by liao.zhang on 2016/2/21.
         */
@@ -155,7 +155,7 @@ jar包路径是`$FEKIT_HOME\node-modules\velocity.java\bin\velocity-cli.jar`其�
                 String json = new String(data.getBytes(), "UTF-8");
                 ObjectMapper mapper = new ObjectMapper();
                 ObjectNode node = (ObjectNode)mapper.readTree(json);
-      
+          
                 String res = VelocityCli.render(node);
                 System.out.println(res);
             }
@@ -168,7 +168,7 @@ jar包路径是`$FEKIT_HOME\node-modules\velocity.java\bin\velocity-cli.jar`其�
             if(value != null) {
                 toString = value.toString();
             }
-      
+            
             if(value != null && toString != null) {
                 if(context.getAllowRendering()) {
                     writer.write(this.escPrefix);
@@ -178,3 +178,11 @@ jar包路径是`$FEKIT_HOME\node-modules\velocity.java\bin\velocity-cli.jar`其�
 
 + 不改了
 + 要改的话，下载一份velocity源代码，把这一部分改成JSON渲染的字符串， 然后编译，把对应的字节码替换到jar包相应位置即可。
+
+
+
+
+
+### 参考资料
+
+0. [Node.js 调试指南](https://juejin.im/post/5c67a8ce6fb9a049af6dcc50?utm_source=gold_browser_extension)

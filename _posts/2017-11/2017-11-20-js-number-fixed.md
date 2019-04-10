@@ -124,30 +124,38 @@ floatNumbers.map(addOne).map(printToFixed2)
 
 
 
+### 一些特殊的实例探讨
+
+- `108830.40 / 861 = 126.4`   计算机算出来为`126.39999999999999`
+- `28908.75 * 2.82 = 81522.6750` 计算机算出来为 `81522.67499999999`
+
+
+
 ### 参考资料
 
 0. 《计算机组成与设计 硬件软件接口》第五版
 1. 《计算机组成与体系结构性能设计》第八版
 2. 《深入理解计算机系统》第三版
 3. [为什么(2.55).toFixed(1)等于2.5？](https://zhuanlan.zhihu.com/p/31202697)
-4. [为什么0.1 + 0.2不等于0.3？](https://fed.renren.com/2017/05/13/float-number/)
-5. [从标准原理出发理解 JavaScript 数值精度](https://juejin.im/post/5c3db8b7e51d45515817bdeb?utm_source=gold_browser_extension)
-6. [Number().toFixed() Rounding Errors: Broken But Fixable](https://www.sitepoint.com/number-tofixed-rounding-errors-broken-but-fixable/)
-7. [Rounding Numbers in JavaScript](https://www.kirupa.com/html5/rounding_numbers_in_javascript.htm)
-8. [JavaScript 浮点数运算的精度问题](https://www.css88.com/archives/7340)
-9. [ROUNDING AND TRUNCATING NUMBERS IN JAVASCRIPT](https://pawelgrzybek.com/rounding-and-truncating-numbers-in-javascript/)
-10. [JavaScript Number](https://javascript.info/number)
-11. [Rounding Decimals in JavaScript](http://www.jacklmoore.com/notes/rounding-in-javascript/)
-12. [Round to at most 2 decimal places (only if necessary)](https://code.i-harness.com/en/q/b48e52)
-13. [如何避开JavaScript浮点数计算精度问题（如0.1+0.2!==0.3）](https://blog.csdn.net/u013347241/article/details/79210840)
-14. [JavaScript 格式化数字、金额、千分位、保留几位小数、舍入舍去](https://www.css88.com/archives/7324)
-15. [javaScript 中 toFixed() 精度问题及解决方案](https://www.jianshu.com/p/c2eca2b1be3c?fromApp=1)
-16. [toFixed计算错误(依赖银行家舍入法的缺陷)解决方法](http://www.chengfeilong.com/toFixed)
-17. [Javascript中toFixed计算错误(依赖银行家舍入法的缺陷)解决方法](https://www.zhangshengrong.com/p/RmNPnqLP1k/)
-18. [JavaScript 浮点数精度之谜](https://mp.weixin.qq.com/s?__biz=MzAwNTAzMjcxNg==&mid=2651424976&idx=1&sn=7c0d3e315ceb25b22dd3eca42798a6b7&chksm=80dff6b3b7a87fa58a79591819af0d78ee3190d1153c73d5530eb196ad12b43c9be4a7237b09&mpshare=1&scene=1&srcid=0802C7xoLq9bLQXMEViEHTSM&key=92e1ed454942560da716c8641291a5f89ff92ec74c4a1d7e26aa3b115d4f07370a00d2c8399463eda46c2e11e4fe48c8c10cfae499e900311b9a85d2538acdd7eccfbe8de145175cc8c131b27e697381&ascene=0&uin=MjEzMTAwMzgyNQ%3D%3D&devicetype=iMac+MacBookAir7%2C1+OSX+OSX+10.12.6+build(16G29)&version=12020)
-19. [js浮点数精度问题的前世今生？](https://www.zhihu.com/question/26806477)
-20. [JS的浮点数计算精度丢失问题解决方案](https://blog.csdn.net/u012143360/article/details/53148591)
-21. [JavaScript 浮点数陷阱及解法](https://www.cnblogs.com/sunshq/p/7682109.html)
-22. [JS四舍五入](https://www.jianshu.com/p/4ac81311ae6e)
-23. [javascript中toFixed()方法详解](https://www.waitig.com/javascript%e4%b8%adtofixed%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a3.html)
+4. [JS  toFixed 为什么(2.55).toFixed(1)等于2.5？](https://www.cnblogs.com/libaoli/p/7865100.html)
+5. [为什么0.1 + 0.2不等于0.3？](https://fed.renren.com/2017/05/13/float-number/)
+6. [从标准原理出发理解 JavaScript 数值精度](https://juejin.im/post/5c3db8b7e51d45515817bdeb?utm_source=gold_browser_extension)
+7. [Number().toFixed() Rounding Errors: Broken But Fixable](https://www.sitepoint.com/number-tofixed-rounding-errors-broken-but-fixable/)
+8. [Rounding Numbers in JavaScript](https://www.kirupa.com/html5/rounding_numbers_in_javascript.htm)
+9. [JavaScript 浮点数运算的精度问题](https://www.css88.com/archives/7340)
+10. [ROUNDING AND TRUNCATING NUMBERS IN JAVASCRIPT](https://pawelgrzybek.com/rounding-and-truncating-numbers-in-javascript/)
+11. [JavaScript Number](https://javascript.info/number)
+12. [Rounding Decimals in JavaScript](http://www.jacklmoore.com/notes/rounding-in-javascript/)
+13. [Round to at most 2 decimal places (only if necessary)](https://code.i-harness.com/en/q/b48e52)
+14. [如何避开JavaScript浮点数计算精度问题（如0.1+0.2!==0.3）](https://blog.csdn.net/u013347241/article/details/79210840)
+15. [JavaScript 格式化数字、金额、千分位、保留几位小数、舍入舍去](https://www.css88.com/archives/7324)
+16. [javaScript 中 toFixed() 精度问题及解决方案](https://www.jianshu.com/p/c2eca2b1be3c?fromApp=1)
+17. [toFixed计算错误(依赖银行家舍入法的缺陷)解决方法](http://www.chengfeilong.com/toFixed)
+18. [Javascript中toFixed计算错误(依赖银行家舍入法的缺陷)解决方法](https://www.zhangshengrong.com/p/RmNPnqLP1k/)
+19. [JavaScript 浮点数精度之谜](https://mp.weixin.qq.com/s?__biz=MzAwNTAzMjcxNg==&mid=2651424976&idx=1&sn=7c0d3e315ceb25b22dd3eca42798a6b7&chksm=80dff6b3b7a87fa58a79591819af0d78ee3190d1153c73d5530eb196ad12b43c9be4a7237b09&mpshare=1&scene=1&srcid=0802C7xoLq9bLQXMEViEHTSM&key=92e1ed454942560da716c8641291a5f89ff92ec74c4a1d7e26aa3b115d4f07370a00d2c8399463eda46c2e11e4fe48c8c10cfae499e900311b9a85d2538acdd7eccfbe8de145175cc8c131b27e697381&ascene=0&uin=MjEzMTAwMzgyNQ%3D%3D&devicetype=iMac+MacBookAir7%2C1+OSX+OSX+10.12.6+build(16G29)&version=12020)
+20. [js浮点数精度问题的前世今生？](https://www.zhihu.com/question/26806477)
+21. [JS的浮点数计算精度丢失问题解决方案](https://blog.csdn.net/u012143360/article/details/53148591)
+22. [JavaScript 浮点数陷阱及解法](https://www.cnblogs.com/sunshq/p/7682109.html)
+23. [JS四舍五入](https://www.jianshu.com/p/4ac81311ae6e)
+24. [javascript中toFixed()方法详解](https://www.waitig.com/javascript%e4%b8%adtofixed%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a3.html)
 
