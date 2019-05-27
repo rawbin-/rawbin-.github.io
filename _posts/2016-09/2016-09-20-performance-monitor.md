@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chrome 开发者工具 Inspect 使用"
+title: "前端性能监控分析"
 categories: [前端开发,Web开发,开发工具]
 tags: [Inspect,调试,性能分析]
 ---

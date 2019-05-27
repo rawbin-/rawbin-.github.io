@@ -21,6 +21,7 @@ tags: [Vue,Vue Router,Vuex]
 3. [Vue Router源码分析 整体流程](http://blog.aijc.net/js/2016/11/23/vue-router%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90-%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B)
 4. [Vue实战小集合](https://github.com/DDFE/DDFE-blog)
 5. [Vue.js2.0源码图文剖析(1)--观察者系统](https://www.jianshu.com/p/93b8e3fb315b)
+6. [vue2源码框架和流程分析](https://segmentfault.com/a/1190000010428931)
 
 #### Vue Router Hisory相关配置
 

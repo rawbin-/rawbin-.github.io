@@ -185,19 +185,20 @@ git checkout -b xxx 放入新的分支中
 ### 4 参考资料
 
 1. [git docs](https://git-scm.com/docs)
-2. [Pro Git 2nd](https://git-scm.com/book/en/v2)
-3. [git community book中文](http://git.seyren.com/index.html)
-4. [Git - Tutorial](http://www.vogella.com/tutorials/Git/article.html)
-5. 《Git权威指南》
-6. 《版本控制之道-使用Git》
-7. [git 相关书籍](https://git-scm.com/doc/ext)
-8. [github漫游指南](http://github.phodal.com/)
-9. [github漫游指南](https://github.com/phodal/github-roam)
-10. [github秘籍](http://blog.csdn.net/x805433354/article/details/41214895)
-11. [git工作流指南](http://blog.jobbole.com/76843/)
-12. [github help](https://help.github.com/)
-13. [怎样使用github](http://www.zhihu.com/question/20070065)
-14. [github使用指南](https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97)
-15. [github中fork和更新原作者变更](http://my.oschina.net/u/2306127/blog/369167?fromerr=TmdohiO0)
+2. [git docs](<https://mirrors.edge.kernel.org/pub/software/scm/git/docs/>)
+3. [Pro Git 2nd](https://git-scm.com/book/en/v2)
+4. [git community book中文](http://git.seyren.com/index.html)
+5. [Git - Tutorial](http://www.vogella.com/tutorials/Git/article.html)
+6. 《Git权威指南》
+7. 《版本控制之道-使用Git》
+8. [git 相关书籍](https://git-scm.com/doc/ext)
+9. [github漫游指南](http://github.phodal.com/)
+10. [github漫游指南](https://github.com/phodal/github-roam)
+11. [github秘籍](http://blog.csdn.net/x805433354/article/details/41214895)
+12. [git工作流指南](http://blog.jobbole.com/76843/)
+13. [github help](https://help.github.com/)
+14. [怎样使用github](http://www.zhihu.com/question/20070065)
+15. [github使用指南](https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97https://github.com/NeuOL/neuola-legacy/wiki/github%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97)
+16. [github中fork和更新原作者变更](http://my.oschina.net/u/2306127/blog/369167?fromerr=TmdohiO0)
 
 
