@@ -32,3 +32,5 @@ tags: [Javascript,事件循环,Event Loop,浏览器]
 2. [whatwg HTML 文档中文翻译](https://whatwg-cn.github.io/html/)
 3. [一次弄懂Event Loop（彻底解决此类面试问题）](https://juejin.im/post/5c3d8956e51d4511dc72c200?utm_source=gold_browser_extension)
 4. [ECMAScript 2018](http://www.ecma-international.org/ecma-262/9.0/index.html)
+5. [从Chrome源码看事件循环](https://juejin.im/post/5bdec7d551882516ce4e4d10)
+6. [理解Webkit和Chronium](https://blog.csdn.net/milado_nju/)
