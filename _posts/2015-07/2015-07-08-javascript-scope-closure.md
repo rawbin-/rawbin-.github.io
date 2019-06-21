@@ -62,7 +62,7 @@ JavaScript的全局代码是除函数内部代码之外的代码。他们确定�
     }
     
     globalFunct(100,200);
-
+    
     var GLOBAL_CONTEXT = {
         parseInt：PARSEINT_REF,
         ......//其他全局函数
@@ -139,9 +139,10 @@ JavaScript的全局代码是除函数内部代码之外的代码。他们确定�
         },
         OutterScope:GLOBAL_CONTEXT
     }
-    
-    
-        
+
+
+​    
+​        
     var INNER2_CONTEXT = {
         this: GLOBAL_CONTEXT,
         VariablesObject: {
@@ -195,7 +196,7 @@ is called a closure in the computer science literature
     }
     
     funcs[2](); // 5 出现这种情况的原因是，匿名函数内引用的是同一个变量i，在执行的时候i的值是循环后的最终值5
-    
+
 如何解决上面的问题，根据闭包的特性，这里的想要将各个循环状态的值保留下来，就需要创建一个执行上下文才能利用闭包的特性
     
     var funcs = [],i = 0;
@@ -208,7 +209,7 @@ is called a closure in the computer science literature
     }
     
     funcs[2](); // 2
-    
+
 或者可以使用下面的方式
     
     var funcs = [],i = 0;
@@ -222,7 +223,7 @@ is called a closure in the computer science literature
     }
     
     funcs[2](); // 2
-    
+
 在ES6中，我们可以用let来避免多层闭包（这种方式还是比较low）
 
     "use strict";
@@ -247,33 +248,34 @@ is called a closure in the computer science literature
     }
     
     funcs[2](); // 2
-    
+
 这应该就是我们最初的代码想实现的效果，然而在ES6之前基本都是词法作用域（除了try-catch算块作用域），所以无法达到我们想要的效果。在ES6中let 引入了块作用域，使得i本身是for循环块中的一个局部变量，在闭包中被保持。
 
 ## 2 参考资料
 0. [了解JavaScript执行上下文](http://yanhaijing.com/javascript/2014/04/29/what-is-the-execution-context-in-javascript/)
-0. [深入理解JavaScript系列：JavaScript核心](http://www.cnblogs.com/tomxu/archive/2012/01/12/2308594.html)
-0. [深入理解JavaScript系列（11）：执行上下文（Execution Contexts）](http://www.cnblogs.com/TomXu/archive/2012/01/13/2308101.html)
-0. [深入理解JavaScript系列（12）：变量对象（Variable Object）](http://www.cnblogs.com/TomXu/archive/2012/01/16/2309728.html)
-0. [深入理解JavaScript系列（14）：作用域链(Scope Chain)](http://www.cnblogs.com/TomXu/archive/2012/01/18/2312463.html)
-0. [深入理解JavaScript系列（16）：闭包（Closures）](http://www.cnblogs.com/TomXu/archive/2012/01/31/2330252.html)
-0. [JavaScript核心](http://weizhifeng.net/javascript-the-core.html)
-0. [You Don't Know JS: Scope & Closures](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/README.md#you-dont-know-js-scope--closures)
-0. [理解JavaScript系列](http://www.cnblogs.com/fool/category/264215.html)
-0. [深入理解JavaScript系列](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
-0. [JavaScript 变量作用域(续)](http://heroicyang.com/2013/07/22/javascript-scope-sequel/)
-1. [JavaScript 作用域链解析](http://xmuzyq.iteye.com/blog/1198717)
-1. [JavaScript变量作用域之殇](http://blog.jobbole.com/47296/)
-2. [javascript 执行环境，变量对象，作用域链](http://segmentfault.com/a/1190000000533094)
-3. [理解Javascript_15_作用域分配与变量访问规则,再送个闭包](http://www.cnblogs.com/fool/archive/2010/10/19/1855265.html)
-0. [Closure](https://en.wikipedia.org/wiki/Closure)
-9. [闭包的概念、形式与应用](http://www.ibm.com/developerworks/cn/linux/l-cn-closure/)
-4. [学习JavaScript闭包](http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html)
-5. [JavaScript 闭包 概念实例](http://www.cnblogs.com/rubylouvre/archive/2009/07/24/1530074.html)
-6. [详解js闭包](http://segmentfault.com/a/1190000000652891)
-7. [编程语言中的闭包](http://www.nowamagic.net/librarys/veda/detail/1696)
-8. [什么是闭包，我的理解](http://www.cnblogs.com/xiaotie/archive/2011/08/03/2126145.html)
-0. [什么是闭包](http://kb.cnblogs.com/page/111780/)
-0. [JavaScript执行过程](http://blog.csdn.net/cxiaokai/article/details/7552653)
+1. [从JS垃圾回收机制和词源来透视闭包](https://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=2651228474&idx=1&sn=031ea46ca182f2dacf8f65cc30c6566b&chksm=bd4950be8a3ed9a87e24c664dec77bd63bb69e735887ea33dc574358070affb0fbf6eafd9f0b&mpshare=1&scene=1&srcid=0427nNlcpfRO2IUI30nIciiD&utm_medium=hao.caibaojian.com&utm_source=hao.caibaojian.com)
+2. [深入理解JavaScript系列：JavaScript核心](http://www.cnblogs.com/tomxu/archive/2012/01/12/2308594.html)
+3. [深入理解JavaScript系列（11）：执行上下文（Execution Contexts）](http://www.cnblogs.com/TomXu/archive/2012/01/13/2308101.html)
+4. [深入理解JavaScript系列（12）：变量对象（Variable Object）](http://www.cnblogs.com/TomXu/archive/2012/01/16/2309728.html)
+5. [深入理解JavaScript系列（14）：作用域链(Scope Chain)](http://www.cnblogs.com/TomXu/archive/2012/01/18/2312463.html)
+6. [深入理解JavaScript系列（16）：闭包（Closures）](http://www.cnblogs.com/TomXu/archive/2012/01/31/2330252.html)
+7. [JavaScript核心](http://weizhifeng.net/javascript-the-core.html)
+8. [You Don't Know JS: Scope & Closures](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/README.md#you-dont-know-js-scope--closures)
+9. [理解JavaScript系列](http://www.cnblogs.com/fool/category/264215.html)
+10. [深入理解JavaScript系列](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html)
+11. [JavaScript 变量作用域(续)](http://heroicyang.com/2013/07/22/javascript-scope-sequel/)
+12. [JavaScript 作用域链解析](http://xmuzyq.iteye.com/blog/1198717)
+13. [JavaScript变量作用域之殇](http://blog.jobbole.com/47296/)
+14. [javascript 执行环境，变量对象，作用域链](http://segmentfault.com/a/1190000000533094)
+15. [理解Javascript_15_作用域分配与变量访问规则,再送个闭包](http://www.cnblogs.com/fool/archive/2010/10/19/1855265.html)
+16. [Closure](https://en.wikipedia.org/wiki/Closure)
+17. [闭包的概念、形式与应用](http://www.ibm.com/developerworks/cn/linux/l-cn-closure/)
+18. [学习JavaScript闭包](http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html)
+19. [JavaScript 闭包 概念实例](http://www.cnblogs.com/rubylouvre/archive/2009/07/24/1530074.html)
+20. [详解js闭包](http://segmentfault.com/a/1190000000652891)
+21. [编程语言中的闭包](http://www.nowamagic.net/librarys/veda/detail/1696)
+22. [什么是闭包，我的理解](http://www.cnblogs.com/xiaotie/archive/2011/08/03/2126145.html)
+23. [什么是闭包](http://kb.cnblogs.com/page/111780/)
+24. [JavaScript执行过程](http://blog.csdn.net/cxiaokai/article/details/7552653)
 
 
