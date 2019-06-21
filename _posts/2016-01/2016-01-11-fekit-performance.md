@@ -20,7 +20,7 @@ tags: [fekit, 前端工程]
       if (syspath.existsSync) {
         return syspath.existsSync(path);
       }
-	  
+      
     }
 
 ### 1.2 效果
@@ -52,7 +52,7 @@ pack、min 过程减少N分钟
 
     var fs = require("fs");
     var syspath = require('path');
-
+    
     var _fileExistsWithCaseSync = function (filepath) {
         //console.log("pid:", process.pid, '--', filepath, + new Date())
         var dir, filenames;
@@ -70,7 +70,7 @@ pack、min 过程减少N分钟
         }
         return _fileExistsWithCaseSync(dir);
     };
-
+    
     var exists = function (path) {
         //  return _fileExistsWithCaseSync(path);
         //console.log("pid:", process.pid, '--', path, + new Date())  
@@ -85,16 +85,16 @@ pack、min 过程减少N分钟
 
 
     }
-
+    
     var counter = 1000;
-
+    
     console.log("################")
     var startTime = new Date();
     for(var i = 0;i < counter;i++){
         exists("D:/OpenSource/fekit/lib/commands/pack.js")
     }
     console.log("修改后:",new Date() - startTime);
-
+    
     console.log("################")
     startTime = new Date();
     for(var i = 0; i < counter; i++){
@@ -109,7 +109,7 @@ pack、min 过程减少N分钟
     _fileExistsWithCaseSync("D:/OpenSource/fekit/lib/commands/test/longer/pack.js") 
     }
     console.log("修改前N+2级目录:",new Date() - startTime);	
-
+    
     console.log("################")
     startTime = new Date();
     for(var i = 0; i < counter; i++){
@@ -211,7 +211,7 @@ pack、min 过程减少N分钟
       if (syspath.existsSync) {
         return syspath.existsSync(path);
       }
-	  
+      
     },
     
       _fileExistsWithCaseSync = function(filepath) {
@@ -239,10 +239,10 @@ pack、min 过程减少N分钟
 
 看完又是懵逼了，代码里面没有看到大小写，整个工程中也就这一个文件用到了这个方法。
 
-技术原因倒也简单，递归的效率太低，这里一次能搞定的东东，搞了很多次，自然慢了。
+技术原因倒也简单，同步递归的效率太低，目录层级成了递归深度，同步递归的时候，这里用了多进程，CPU会都占满掉，然后会不断激活失活，其他进程时间片很少，机子也会出现卡死的状态。
 
 
-    
-    
-    
-    
+​    
+​    
+​    
+​    
