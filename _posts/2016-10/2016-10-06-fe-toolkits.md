@@ -48,6 +48,11 @@ tags: [JavaScript,模块化,工程化]
 - [github](https://github.com/fastpack/fastpack)
 - [fastpack doc](https://fastpack.sh/)
 
+#### 1.8 parcel
+
+- [github](https://github.com/parcel-bundler/parcel)
+- 
+
 ####  2 老牌通用自动化工具
 - [grunt](https://gruntjs.com/)
 - [gulp](https://gulpjs.com/)
