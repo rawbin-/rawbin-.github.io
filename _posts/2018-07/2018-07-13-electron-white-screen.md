@@ -13,9 +13,9 @@ tags: [JavaScript,客户端,桌面端,Electron]
 
 #### 一直白屏
 
-- 升级`electron`版本
+- 升级`electron`版本 
 
-- 安装依赖问题
+- 安装依赖问题 
 
 - 删除 `.electron-vue/webpack.renderer.config.js` 中关于白名单的配置，让所有资源都打包起来（包会变大）
 

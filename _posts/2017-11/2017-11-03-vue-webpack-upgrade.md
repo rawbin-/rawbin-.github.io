@@ -382,7 +382,7 @@ tags: [Vue,Node,Webpack]
 
 ### 特别注意
 
-- babel 7 配置文件有特殊变化，node_modules中需要转码的，babel配置文件需要使用`babel.config.js`，tong
+- babel 7 配置文件有特殊变化，node_modules中需要转码的，babel配置文件需要使用`babel.config.js`
 - babel 7 支持jsx 需要升级插件版本 [参考](https://github.com/vuejs/babel-plugin-transform-vue-jsx)
   - [参考 github issue](https://github.com/vuejs/babel-plugin-transform-vue-jsx/issues/160)
   - 或者直接安装GitHub版本`npm i https://github.com/vuejs/babel-plugin-transform-vue-jsx.git -D`

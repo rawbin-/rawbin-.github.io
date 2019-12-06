@@ -145,10 +145,13 @@ puppeteer.launch({
 
 
 
+### 3 问题解决
 
+#### TimeoutError: Navigation Timeout Exceeded
 
+- page.setDefaultTimeout
 
-### 3 参考文档
+###  参考文档
 
 1.  [ChromeDevTools Protocol](https://github.com/ChromeDevTools/devtools-protocol)
 
@@ -160,5 +163,5 @@ puppeteer.launch({
 
 5.  [Google's Puppeteer Joins Crowd of Headless Chrome Tools](https://www.infoq.com/news/2017/08/google-puppeteer-headless-chrome)
 
-    ​
+    
 
