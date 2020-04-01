@@ -151,6 +151,13 @@ puppeteer.launch({
 
 - page.setDefaultTimeout
 
+
+
+#### Error: Protocol error (Page.setLifecycleEventsEnabled): Target closed
+
+- close 前加 waitFor延时 [ref](https://www.cnblogs.com/muou2125/p/11352746.html)
+- 手动改改源码 [ref]([https://lucifaer.com/2018/12/14/%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3Pyppeteer%E7%9A%84Target%20closed%E9%94%99%E8%AF%AF/](https://lucifaer.com/2018/12/14/如何解决Pyppeteer的Target closed错误/))
+
 ###  参考文档
 
 1.  [ChromeDevTools Protocol](https://github.com/ChromeDevTools/devtools-protocol)
