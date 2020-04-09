@@ -33,6 +33,7 @@ tags: [JavaScript,Node,Node.js,NodeJS]
 | -------------------- | ------------- | ---------- | ------------ | ---------------- |
 | express              | 46.4k         | 10,638,972 | 6 months ago |                  |
 | koa                  | 28k           | 388,602    | a month ago  | 备选             |
+| nest                 | 25.6k         | 100,465    |              |                  |
 | hapi                 | 11.9k         | 148,441    | 3 months ago |                  |
 | restify              | 9.6k          | 103,575    | 7 days ago   |                  |
 | fastify              | 12.7k         | 60,139     | a day ago    | 文档中有对比数据 |
@@ -128,6 +129,7 @@ tags: [JavaScript,Node,Node.js,NodeJS]
   - quasar
 - React
   - react-dom/server
+  - nextjs
 
 #### 实时通信
 
