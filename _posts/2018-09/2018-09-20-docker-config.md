@@ -3,7 +3,7 @@
 layout: post
 title: "docker安装配置生态全览"
 categories: [Web开发,前端开发,自动化]
-tags: [部署,自动化,运维]
+tags: [部署,容器化,可伸缩,自动化,运维]
 ---
 
 # 基本概念
