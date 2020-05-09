@@ -8,6 +8,7 @@ tags: [自动化,Node,PDF,字体]
 
 
 # macOS测试方法
+
 - 运行`test/test-html-print/test-html-print.js` 调整代码中的`format`参数为`A4`或者`A5`测试不同的样例
 - `A5` html文件为 `test-*.html`, `A4` html文件为 `test.html`
 - Chronium打印，打开`node_modules/puppeteer/.local-chromium/mac-xxxxxx/chrome-mac/Chromium.app` 并打开对应的 html文件，通过设置横版竖版，以及代码中的打印边距，勾选打印背景，去掉页眉页脚,打印出结果
@@ -15,6 +16,7 @@ tags: [自动化,Node,PDF,字体]
 
 # 测试结果说明
 ## puppeteer 2.0
+
 ### 对于`test.html` A4 打印说明
 - 这个文件是原先在某个环境出现过角标割字的案例，在这个环境下没有复现,都正常
 - `puppeteer2.0`生成的`test.html-A4.pdf`与chrome打印的`test.html-A4-chrome-print.pdf` 二进制完全一样
@@ -36,6 +38,7 @@ tags: [自动化,Node,PDF,字体]
 - 从另一个方面来看，就是我们写的页面有问题或者说可以从页面本身来解决
 
 # 解决办法
+
 前期有过一些其他的探索，比如 [定位puppeteer](https://github.com/rawbin-/puppeteer-test-pdf), 也尝试过换[一些其他的方案](https://github.com/rawbin-/node-print-to-pdf-test)，都在向工具方面探索，也提过几个issue未解决，最后直接被上面的chrome 打印结果击垮，最终回过头来向代码方面探索，最终解决如下：
 
 > 目前问题定位结论是`display:flex`引起的
@@ -97,3 +100,10 @@ tags: [自动化,Node,PDF,字体]
 }
 </style>
 ```
+
+
+
+### 初步结论（待进一步探索）
+
+- 这些割字问题跟flex布局有关
+- 跟display非block有关，同时会影响print-break-*的结果
