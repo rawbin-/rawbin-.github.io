@@ -92,8 +92,8 @@ tags: [前端开发,后端开发,调试,移动端调试]
 + [spy-debugger](https://github.com/wuchangming/spy-debugger) 集成了weinre，简化了配置
 + 更多真机调试参考[这里](https://github.com/jieyou/remote_inspect_web_on_real_device)
 
-
 ## 4 如何更有效地联调
+
 ### 4.1 明确前后端的约定
 + 根据需求一起约定交互的内容
 + 包括但不限于如下内容

@@ -75,7 +75,6 @@ tags: [JavaScript,NodeJS,TypeScript]
 console.log(x[5].toString()); // Error, Property '5' does not exist on type '[string, number]'.
 Object is possibly 'undefined'.
 Tuple type '[string, number]' of length '2' has no element at index '5'.
-
   ```
 
 ###  Enum 枚举
