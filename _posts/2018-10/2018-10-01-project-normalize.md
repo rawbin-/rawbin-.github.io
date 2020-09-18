@@ -137,6 +137,7 @@ eslint --fix-type Array path/to/files
 
   - `#` 开头的行被当做注释
 - 路径是相对于本配置文件的路径
+  
   - 忽略模式的规范跟`.gitignore`一致 [gitignore](https://git-scm.com/docs/gitignore)
 - 以`!`开头的为否定模式，重新包含前面被忽略的模式
   
