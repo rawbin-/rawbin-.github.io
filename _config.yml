@@ -104,4 +104,6 @@ theme: miho
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repository: git@github.com:rawbin-/rawbin-.github.io.git
+  branch: gh-pages
