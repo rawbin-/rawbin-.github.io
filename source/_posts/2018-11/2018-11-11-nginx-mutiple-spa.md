@@ -69,6 +69,95 @@ tags: [nginx,history mode,spa,前后端分离]
 
 ```
 
+# 相关操作
+## Nginx相关配置变更
+- 这个上面已经讲过啦
+
+## SPA 项目配置调整
+- 如果使用的是hash模式，本身相对简单直接能兼容
+- 如果是history模式的话，需要关注路由在nginx找不到的问题，需要重定向到对应的index.html就行，上面nginx部分已经做了
+- 本地dev-server也有找不到路径的问题
+- 项目部分还需要做一些配置，以适配目录的部署，也就是history的baseName，下面是一个相对通用的解决
+  
+React Router  或者 Vue Router使用如下方式进行获取  
+
+```
+const getBasePath = () => {
+  // 任意目录部署需要指定容器目录 `xxx/index.html`
+  const parentDirectory = 'xxx/'
+  const path = location.pathname
+  const identifierIndex = path.lastIndexOf(parentDirectory)
+  // 这里可以自定义处理规则
+  if (identifierIndex === -1) {
+    // 比如这里兼容原有的直接部署到环境根目录的情况
+    const secondSlashIndex = path.indexOf('/', 1)
+    if (secondSlashIndex !== -1) { // 存在 `/aa/` `/aa/bb`等情况，那就用一级目录
+      return path.slice(0, secondSlashIndex + 1)
+    } else {
+      return path // 不存在上面情况就只有一级目录或者直接根目录，那就直接用
+    }
+  }
+  return path.slice(0, identifierIndex + parentDirectory.length)
+}
+
+```
+
+
+## jenkins配置调整
+- 基本不需要大调整
+- 但如果是使用了 Publish over SSH，这里参数化有一些问题
+- 我这里遇到的就是参数化不生效，直接变量给到的没有被支持，看起来代码是被先解析了一道，同时字符串截取也没生效
+
+```
+# 代码写成这样的
+hostEnvValue=${hostEnv%-*}
+echo '$hostEnv='$hostEnv
+echo '$hostEnvValue='$hostEnvValue
+echo '$hostEnvValue='${hostEnv%-*}
+
+# 控制台输出的代码是这样的
+hostEnvValue=${hostEnv%-*}
+echo 'envx-justtest='envx-justtest
+echo '$hostEnvValue='$hostEnvValue
+echo '$hostEnvValue='${hostEnv%-*}
+
+# 控制台输出的内容是这样的
+envx-justtest=envx-justtest
+$hostEnvValue=
+$hostEnvValue=
+```
+简单用一个变量周转一下就好了
+```
+# 代码写成这样
+tmpHostEnv=$hostEnv
+hostEnvValue=${tmpHostEnv%-*}
+echo $tmpHostEnv
+echo $hostEnvValue
+echo '$hostEnv='$hostEnv
+echo '$tmpHostEnv='$tmpHostEnv
+echo '$hostEnvValue='$hostEnvValue
+echo '$hostEnvValue='${hostEnv%-*}
+
+# 控制台输出的代码
+tmpHostEnv=envx-justtest
+hostEnvValue=${tmpHostEnv%-*}
+echo $tmpHostEnv
+echo $hostEnvValue
+echo 'envx-justtest='envx-justtest
+echo '$tmpHostEnv='$tmpHostEnv
+echo '$hostEnvValue='$hostEnvValue
+echo '$hostEnvValue='${hostEnv%-*}
+
+# 控制台输出
+envx-justtest
+envx
+envx-justtest=envx-justtest
+$tmpHostEnv=envx-justtest
+$hostEnvValue=envx
+$hostEnvValue=
+```
+这样一切就正常了
+
 # 相关参考
 ## 调试nginx的方法
 - 有时候规则多了，不知道到底匹配哪一个，
