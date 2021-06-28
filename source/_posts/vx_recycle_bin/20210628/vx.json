@@ -1,19 +1,10 @@
 {
-    "created_time": "2021-06-28T06:56:45Z",
+    "created_time": "2021-06-28T06:35:33Z",
     "files": [
-        {
-            "attachment_folder": "",
-            "created_time": "2021-06-28T06:56:32Z",
-            "id": "0",
-            "modified_time": "2021-06-28T06:56:32Z",
-            "name": "README.md",
-            "tags": [
-            ]
-        }
     ],
     "folders": [
     ],
     "id": "0",
-    "modified_time": "2021-06-28T06:56:45Z",
+    "modified_time": "2021-06-28T06:35:33Z",
     "version": "1"
 }
