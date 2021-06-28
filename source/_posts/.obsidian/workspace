@@ -1,0 +1,96 @@
+{
+  "main": {
+    "id": "2b1fcacfeeabaa28",
+    "type": "split",
+    "children": [
+      {
+        "id": "42761cf12ad3dc38",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "2015-06/2015-06-13-ajax-xmlhttprequest.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2d58ffaabb09839c",
+    "type": "split",
+    "children": [
+      {
+        "id": "a65cedf326f8a20a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5af7f40179292ccf",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "5a5782cfa97eb5fb",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "edc709bd1e19e896",
+    "type": "split",
+    "children": [
+      {
+        "id": "6cd0a44e756bac97",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "46fce2f88f78d942",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "2015-06/2015-06-13-ajax-xmlhttprequest.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "active": "42761cf12ad3dc38",
+  "lastOpenFiles": [
+    "2015-06/2015-06-13-ajax-xmlhttprequest.md",
+    "《JavaScript权威指南》学习笔记之二十---XMLHttpRequest和AJAX解决方案.md",
+    "2015-03/2015-03-18-using-vim.md",
+    "2015-04/2015-03-18-using-markdown.md",
+    "[译]JavaScript的工作原理：内存管理和4种常见的内存泄漏.md"
+  ]
+}

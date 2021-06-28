@@ -1,12 +1,8 @@
-# 2018-11-21-canvas-hand-sketch
-
 ---
-
 layout: post
 title: "使用Canvas实现通用的手写和手绘"
 cagegories: [Web开发,前端开发,移动端]
 tags: [canvas,手写,手绘]
-
 ---
 
 

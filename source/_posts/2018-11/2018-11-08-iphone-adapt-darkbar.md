@@ -1,11 +1,8 @@
-# 2018-11-08-iphone-adapt-darkbar
 ---
-
 layout: post
 title: "iPhonee 安全区适配，小黑条适配标准解决方案"
 cagegories: [Web开发,前端开发,移动端]
 tags: [iPhone X适配,小黑条适配,安全区适配]
-
 ---
 
 # 需求场景
@@ -60,15 +57,15 @@ tags: [iPhone X适配,小黑条适配,安全区适配]
     ```
     import UIKit
     import WebKit
-
+    
     class ViewController: UIViewController {
         var webView: WKWebView!
-
+    
         override func loadView() {
             webView = WKWebView()
             view = webView
         }
-
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             // Do any additional setup after loading the view.
@@ -77,7 +74,7 @@ tags: [iPhone X适配,小黑条适配,安全区适配]
             webView.allowsBackForwardNavigationGestures = true
         }
     }
-
+    
     ```
 - 在`Info.plist`中加入如下内容并合并<dict>标签 ，也就是把中间两行加入到dict标签中，（通过文本编辑器打开，或者XCode中以源码方式打开都行）
 ```
