@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "前端视角切入原生开发之鸿蒙、Android、iOS、Flutter"
+title: "前端视角切入原生之快速开发——鸿蒙、Android、iOS、Flutter"
 cagegories: [Web开发,前端开发,移动端]
 tags: [原生,Native,鸿蒙,harmonyos,安卓,Android,苹果,iOS,Flutter]
 ---
 
 
 
-# 切入侧重点
+# 本次切入侧重点
 
 ## 开发调试
 
@@ -20,6 +20,45 @@ tags: [原生,Native,鸿蒙,harmonyos,安卓,Android,苹果,iOS,Flutter]
 ## 网络资源请求
 
 ## 本地数据
+
+## 上线流程
+
+
+
+# Flutter
+
+##  开发调试
+
+- 开发工具 [参考](https://flutter.dev/docs/development/tools)
+- 调试工具 [参考](https://flutter.dev/docs/development/tools/devtools/overview)
+
+
+
+## 页面布局，屏幕设备适配
+
+- 系统不支持自动适配，需要自己封装，比如有类似于`flexible`的 `screenutil` 封装。
+- 通用组件库 [参考](https://flutter.dev/docs/development/ui/widgets-intro)
+- [dart ui](https://api.flutter.dev/flutter/dart-ui/dart-ui-library.html)
+- [material ui](https://api.flutter.dev/flutter/material/material-library.html)
+
+
+
+## 路由、页面切换
+
+- [路由配置](https://api.flutter.dev/flutter/material/MaterialApp/routes.html) 
+- [路由构建](https://api.flutter.dev/flutter/material/MaterialPageRoute-class.html)
+- [路由跳转](https://api.flutter.dev/flutter/widgets/Navigator-class.html)
+
+## 模块化、生命周期
+
+## 网络资源请求
+
+- [http](https://pub.dev/packages/http)
+- [dart:io httpClient](https://api.flutter.dev/flutter/dart-io/HttpClient-class.html)
+
+## 本地数据
+
+- 简单本地数据存储 [shared_preference](https://pub.dev/packages/shared_preferences)
 
 ## 上线流程
 
