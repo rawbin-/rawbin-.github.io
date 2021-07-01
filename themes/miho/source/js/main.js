@@ -47,7 +47,7 @@
         showSidebarBox: function (status) {
             if (status) {
                 sideMenuBox.animate({
-                    height:'162px',
+                    height:'30%',
                     opacity:'1'
                 }, 300);
             } else {
@@ -58,7 +58,7 @@
             }
         },
         showToc: function (scrollTop) {
-            if (scrollTop / clientHeight >= 0.4) {
+            if (scrollTop > 440) {
                 toc.removeClass("post-toc-top");
                 toc.addClass("post-toc-not-top");
             } else {
@@ -208,7 +208,7 @@
         Blog.showBackTop(scrollTop);
         Blog.showToc(scrollTop);
     }, false);
-    
+
     //Mobile Menu
     $(".mobile-header-menu-button").click(function () {
         if (_mobileHeaderMenuLocked) {
@@ -222,7 +222,7 @@
             _mobileHeaderMenuLocked = false;
         }, 350);
     });
-    
+
     //Share
     if (w.mihoConfig.share) {
         Blog.share();

@@ -457,7 +457,8 @@ $article-share-link
 
 .post-toc-pos
   z-index: 999
-  bottom: 77%
+  top:50%
+  transform: translateY(-50%)
   left: calc(50% - 660px)
   position: fixed
   .post-article
@@ -476,10 +477,10 @@ $article-share-link
   opacity: 0
 
 .post-toc-wrap
-  position: fixed
   border-radius: 3px
   width: 200px
-  max-height: 400px
+  max-height: 800px
+  overflow: scroll
   color: #313131
   &.fixed
     top: 20px
