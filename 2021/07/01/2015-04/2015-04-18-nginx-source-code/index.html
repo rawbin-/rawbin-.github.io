@@ -11,12 +11,12 @@
   <meta name="description" content="1 问题描述使用nginx uWSGI django 做REST API开发。在URL中传入http:&#x2F;&#x2F;host&#x2F;test&#x2F;http:&#x2F;&#x2F;aa.com&#x2F;,但在Django中收到的URI始终是http:&#x2F;aa.com，嗯，就是少了斜杠，后来尝试发现多少个连续的斜杠都会被干掉只留下一个。 2 解决途径 查看nginx和uWSGI的日志，请求的路径都是正确的，即都为没有去掉斜杠的 查看Django源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nginx 源码阅读 merge_slashes问题解决">
-<meta property="og:url" content="http://rawbin-.github.io/2015/04/18/2015-04/2015-04-18-nginx-source-code/index.html">
+<meta property="og:url" content="http://rawbin-.github.io/2021/07/01/2015-04/2015-04-18-nginx-source-code/index.html">
 <meta property="og:site_name" content="技术人生">
 <meta property="og:description" content="1 问题描述使用nginx uWSGI django 做REST API开发。在URL中传入http:&#x2F;&#x2F;host&#x2F;test&#x2F;http:&#x2F;&#x2F;aa.com&#x2F;,但在Django中收到的URI始终是http:&#x2F;aa.com，嗯，就是少了斜杠，后来尝试发现多少个连续的斜杠都会被干掉只留下一个。 2 解决途径 查看nginx和uWSGI的日志，请求的路径都是正确的，即都为没有去掉斜杠的 查看Django源码">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2015-04-18T09:46:09.000Z">
-<meta property="article:modified_time" content="2021-07-01T13:27:34.148Z">
+<meta property="article:published_time" content="2021-07-01T13:27:34.148Z">
+<meta property="article:modified_time" content="2021-07-01T13:41:55.929Z">
 <meta property="article:author" content="小淼焱">
 <meta property="article:tag" content="Nginx">
 <meta property="article:tag" content="Web服务器">
@@ -150,7 +150,7 @@
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2015-04-18
+          <i class="fa fa-calendar"></i>  2021-07-01
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -195,8 +195,8 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2021年07月01日 21:27</p>
-        <p>原始链接： <a class="post-url" href="/2015/04/18/2015-04/2015-04-18-nginx-source-code/" title="nginx 源码阅读 merge_slashes问题解决">http://rawbin-.github.io/2015/04/18/2015-04/2015-04-18-nginx-source-code/</a></p>
+        <p>最后更新： 2021年07月01日 21:41</p>
+        <p>原始链接： <a class="post-url" href="/2021/07/01/2015-04/2015-04-18-nginx-source-code/" title="nginx 源码阅读 merge_slashes问题解决">http://rawbin-.github.io/2021/07/01/2015-04/2015-04-18-nginx-source-code/</a></p>
         <footer>
             <a href="http://rawbin-.github.io">
                 <img src="/images/logo.png" alt="小淼焱">
@@ -253,7 +253,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://rawbin-.github.io/2015/04/18/2015-04/2015-04-18-nginx-source-code/&title=《nginx 源码阅读 merge_slashes问题解决》 — 技术人生&pic=http://rawbin-.github.ioimages/logo.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://rawbin-.github.io/2021/07/01/2015-04/2015-04-18-nginx-source-code/&title=《nginx 源码阅读 merge_slashes问题解决》 — 技术人生&pic=http://rawbin-.github.ioimages/logo.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -263,22 +263,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://rawbin-.github.io/2015/04/18/2015-04/2015-04-18-nginx-source-code/&title=《nginx 源码阅读 merge_slashes问题解决》 — 技术人生&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://rawbin-.github.io/2021/07/01/2015-04/2015-04-18-nginx-source-code/&title=《nginx 源码阅读 merge_slashes问题解决》 — 技术人生&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://rawbin-.github.io/2015/04/18/2015-04/2015-04-18-nginx-source-code/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://rawbin-.github.io/2021/07/01/2015-04/2015-04-18-nginx-source-code/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《nginx 源码阅读 merge_slashes问题解决》 — 技术人生&url=http://rawbin-.github.io/2015/04/18/2015-04/2015-04-18-nginx-source-code/&via=http://rawbin-.github.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《nginx 源码阅读 merge_slashes问题解决》 — 技术人生&url=http://rawbin-.github.io/2021/07/01/2015-04/2015-04-18-nginx-source-code/&via=http://rawbin-.github.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://rawbin-.github.io/2015/04/18/2015-04/2015-04-18-nginx-source-code/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://rawbin-.github.io/2021/07/01/2015-04/2015-04-18-nginx-source-code/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -288,7 +288,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://rawbin-.github.io/2015/04/18/2015-04/2015-04-18-nginx-source-code/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://rawbin-.github.io/2021/07/01/2015-04/2015-04-18-nginx-source-code/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -324,16 +324,21 @@
 
 <nav id="article-nav">
   
-    <a href="/2021/07/01/2015-03/2015-03-05-javascript-type-conversion/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/07/01/2015-04/2015-03-31-ieee-745/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          JavaScript 隐式类型转换 JS类型转换
+          IEEE 745 浮点数介绍 浮点数比较
         
       </span>
     </a>
   
+  
+    <a href="/2021/07/01/2015-04/2015-04-18-read-source-code/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">源代码阅读工具 代码审查工具</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
   
 </nav>
 
