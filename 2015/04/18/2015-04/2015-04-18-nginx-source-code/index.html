@@ -16,7 +16,7 @@
 <meta property="og:description" content="1 问题描述使用nginx uWSGI django 做REST API开发。在URL中传入http:&#x2F;&#x2F;host&#x2F;test&#x2F;http:&#x2F;&#x2F;aa.com&#x2F;,但在Django中收到的URI始终是http:&#x2F;aa.com，嗯，就是少了斜杠，后来尝试发现多少个连续的斜杠都会被干掉只留下一个。 2 解决途径 查看nginx和uWSGI的日志，请求的路径都是正确的，即都为没有去掉斜杠的 查看Django源码">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2015-04-18T09:46:09.000Z">
-<meta property="article:modified_time" content="2021-06-30T12:41:53.052Z">
+<meta property="article:modified_time" content="2021-07-01T13:27:34.148Z">
 <meta property="article:author" content="小淼焱">
 <meta property="article:tag" content="Nginx">
 <meta property="article:tag" content="Web服务器">
@@ -195,7 +195,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2021年06月30日 20:41</p>
+        <p>最后更新： 2021年07月01日 21:27</p>
         <p>原始链接： <a class="post-url" href="/2015/04/18/2015-04/2015-04-18-nginx-source-code/" title="nginx 源码阅读 merge_slashes问题解决">http://rawbin-.github.io/2015/04/18/2015-04/2015-04-18-nginx-source-code/</a></p>
         <footer>
             <a href="http://rawbin-.github.io">
@@ -324,12 +324,12 @@
 
 <nav id="article-nav">
   
-    <a href="/2021/06/30/2015-03/2015-03-05-javascript-crossorigin/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/07/01/2015-03/2015-03-05-javascript-type-conversion/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          JavaScript 跨域问题 浏览器 同源策略
+          JavaScript 隐式类型转换 JS类型转换
         
       </span>
     </a>

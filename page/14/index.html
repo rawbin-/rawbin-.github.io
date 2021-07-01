@@ -125,14 +125,14 @@
       <div class="outer">
         <section id="main" class="body-wrap">
   
-    <article id="post-2017-05/2017-05-09-js-event-loop-src" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2017-05/2017-05-04-io-model" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/30/2017-05/2017-05-09-js-event-loop-src/"  target="_blank"  >JavaScript 事件循环源码分析</a>
+      <a class="article-title" href="/2021/07/01/2017-05/2017-05-04-io-model/"  target="_blank"  >I/O模型 阻塞 非阻塞 同步 异步概念对比区分</a>
     </h1>
   
 
@@ -144,8 +144,6 @@
                   
                   <a href="/categories/前端开发/">前端开发</a>
                   
-                  <a href="/categories/JavaScript/">JavaScript</a>
-                  
               </span>
           
       </header>
@@ -153,28 +151,18 @@
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/06/30/2017-05/2017-05-09-js-event-loop-src/"  target="_blank" >
+            <a href="/2021/07/01/2017-05/2017-05-04-io-model/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript 事件循环源码分析" title="JavaScript 事件循环源码分析">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="I/O模型 阻塞 非阻塞 同步 异步概念对比区分" title="I/O模型 阻塞 非阻塞 同步 异步概念对比区分">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
-                1 NodeJS中的异步实现
-libuv 设计文档
-libuv API
-
-2 libuv中的事件阶段
-执行到点的定时器
-执行pending回调
-执行idle 操作
-执行prepare操作
-监听I/O请求
-执行check操作
-执行close回调
-
-3 源码分析3.1 nodejs 主文件/src/node.cc123456789101112131415do &#123;  ...
+                1 引言前面写了HTTPS的介绍，步子跨的有点大，有点扯着了的不爽感。这里介绍相应的概念，为后面介绍JavaScript事件循环打个基础。
+2 相关名词介绍操作系统将设备抽象为文件，对设备的操作转换为对文件的读写，文件的读写操作结构称为文件描述符（Linux）或者文件句柄（Windows）。
+操作系统内核对于I/O操作只有阻塞和非阻塞两种方式。
+阻塞I/O特点是调用I/O...
             </p>
         </div>
       
@@ -184,25 +172,19 @@ libuv API
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-06-30</li>
+                <li><i class="fa fa-calendar"></i>2021-07-01</li>
             
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/JavaScript/" class="color1">JavaScript</a>
-      
-    <a href="/tags/事件循环/" class="color5">事件循环</a>
-      
-    <a href="/tags/event-loop/" class="color1">event-loop</a>
-      
-    <a href="/tags/源码/" class="color3">源码</a>
+    <a href="/tags/IO模型/" class="color5">IO模型</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/06/30/2017-05/2017-05-09-js-event-loop-src/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/01/2017-05/2017-05-04-io-model/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -217,7 +199,7 @@ libuv API
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/30/2017-05/2017-05-05-process-related/"  target="_blank"  >进程 线程 协程 管程 纤程 概念对比理解</a>
+      <a class="article-title" href="/2021/07/01/2017-05/2017-05-05-process-related/"  target="_blank"  >进程 线程 协程 管程 纤程 概念对比理解</a>
     </h1>
   
 
@@ -236,7 +218,7 @@ libuv API
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/06/30/2017-05/2017-05-05-process-related/"  target="_blank" >
+            <a href="/2021/07/01/2017-05/2017-05-05-process-related/"  target="_blank" >
                 
                 <img src="http://rawbin-.github.io/images/banner.jpg" alt="进程 线程 协程 管程 纤程 概念对比理解" title="进程 线程 协程 管程 纤程 概念对比理解">
                 
@@ -256,7 +238,7 @@ libuv API
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-06-30</li>
+                <li><i class="fa fa-calendar"></i>2021-07-01</li>
             
             
   <li class="article-footer-tags">
@@ -276,7 +258,7 @@ libuv API
 
         </ul>
         
-            <a href="/2021/06/30/2017-05/2017-05-05-process-related/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/01/2017-05/2017-05-05-process-related/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -291,7 +273,7 @@ libuv API
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/30/2017-05/2017-05-06-async-javascript/"  target="_blank"  >JavaScript异步编程理解</a>
+      <a class="article-title" href="/2021/07/01/2017-05/2017-05-06-async-javascript/"  target="_blank"  >JavaScript异步编程理解</a>
     </h1>
   
 
@@ -312,7 +294,7 @@ libuv API
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/06/30/2017-05/2017-05-06-async-javascript/"  target="_blank" >
+            <a href="/2021/07/01/2017-05/2017-05-06-async-javascript/"  target="_blank" >
                 
                 <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript异步编程理解" title="JavaScript异步编程理解">
                 
@@ -344,7 +326,7 @@ XMLHTTPReq...
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-06-30</li>
+                <li><i class="fa fa-calendar"></i>2021-07-01</li>
             
             
   <li class="article-footer-tags">
@@ -358,7 +340,7 @@ XMLHTTPReq...
 
         </ul>
         
-            <a href="/2021/06/30/2017-05/2017-05-06-async-javascript/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/01/2017-05/2017-05-06-async-javascript/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -373,7 +355,7 @@ XMLHTTPReq...
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/30/2017-05/2017-05-07-code-optmization-ext/"  target="_blank"  >说好的代码优化变劣化，为什么？</a>
+      <a class="article-title" href="/2021/07/01/2017-05/2017-05-07-code-optmization-ext/"  target="_blank"  >说好的代码优化变劣化，为什么？</a>
     </h1>
   
 
@@ -394,7 +376,7 @@ XMLHTTPReq...
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/06/30/2017-05/2017-05-07-code-optmization-ext/"  target="_blank" >
+            <a href="/2021/07/01/2017-05/2017-05-07-code-optmization-ext/"  target="_blank" >
                 
                 <img src="http://rawbin-.github.io/images/banner.jpg" alt="说好的代码优化变劣化，为什么？" title="说好的代码优化变劣化，为什么？">
                 
@@ -416,7 +398,7 @@ XMLHTTPReq...
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-06-30</li>
+                <li><i class="fa fa-calendar"></i>2021-07-01</li>
             
             
   <li class="article-footer-tags">
@@ -430,7 +412,7 @@ XMLHTTPReq...
 
         </ul>
         
-            <a href="/2021/06/30/2017-05/2017-05-07-code-optmization-ext/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/01/2017-05/2017-05-07-code-optmization-ext/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -438,14 +420,14 @@ XMLHTTPReq...
 
 
   
-    <article id="post-2017-05/2017-05-01-in-https" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2017-05/2017-05-07-code-optmization" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/30/2017-05/2017-05-01-in-https/"  target="_blank"  >深入理解HTTPS原理、过程与实践</a>
+      <a class="article-title" href="/2021/07/01/2017-05/2017-05-07-code-optmization/"  target="_blank"  >高性能代码优化规则参考</a>
     </h1>
   
 
@@ -464,17 +446,17 @@ XMLHTTPReq...
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/06/30/2017-05/2017-05-01-in-https/"  target="_blank" >
+            <a href="/2021/07/01/2017-05/2017-05-07-code-optmization/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="深入理解HTTPS原理、过程与实践" title="深入理解HTTPS原理、过程与实践">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="高性能代码优化规则参考" title="高性能代码优化规则参考">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
                 [TOC]
-1 引言HTTP是不安全的，我们的页面也被运营商插入过小黄图广告（数据被篡改），对于HTTP来说，再简单不过，只需要设定相应的DNS，做一个中间人攻击，再将修改后的数据返回，这一方面可能泄露用户隐私数据，同时也对我们的品牌形象产生恶劣影响。
-然而，当我们切换HTTPS时候，运营商的这些小九九就施展不开了，服务端认证不通过，浏览器不会展示相应的页面数据；运营商实...
+1 引言前面谈到了Web性能优化的思路和参考点，没有涉及到具体可实施的代码层面的内容。代码优化也是有追求的工程师津津乐道的话题，但不同的程序设计语言的代码优化姿势可能千差万别，本文试图给出一些切实可行而与语言无关的优化规则参考，并简述其原理。如果涉及到特定语言的XXX，请参考XXX 性能优化 高效XXX类似的书籍。
+2 代码优化概述代码优化的说法有不少，现在印...
             </p>
         </div>
       
@@ -484,239 +466,21 @@ XMLHTTPReq...
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-06-30</li>
+                <li><i class="fa fa-calendar"></i>2021-07-01</li>
             
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/HTTPS/" class="color1">HTTPS</a>
+    <a href="/tags/高性能/" class="color4">高性能</a>
       
-    <a href="/tags/OpenSSL/" class="color3">OpenSSL</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2021/06/30/2017-05/2017-05-01-in-https/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-2017-05/2017-05-04-io-model" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/30/2017-05/2017-05-04-io-model/"  target="_blank"  >I/O模型 阻塞 非阻塞 同步 异步概念对比区分</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Web开发/">Web开发</a>
-                  
-                  <a href="/categories/前端开发/">前端开发</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/06/30/2017-05/2017-05-04-io-model/"  target="_blank" >
-                
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="I/O模型 阻塞 非阻塞 同步 异步概念对比区分" title="I/O模型 阻塞 非阻塞 同步 异步概念对比区分">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                1 引言前面写了HTTPS的介绍，步子跨的有点大，有点扯着了的不爽感。这里介绍相应的概念，为后面介绍JavaScript事件循环打个基础。
-2 相关名词介绍操作系统将设备抽象为文件，对设备的操作转换为对文件的读写，文件的读写操作结构称为文件描述符（Linux）或者文件句柄（Windows）。
-操作系统内核对于I/O操作只有阻塞和非阻塞两种方式。
-阻塞I/O特点是调用I/O...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-06-30</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/IO模型/" class="color5">IO模型</a>
+    <a href="/tags/代码优化/" class="color5">代码优化</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/06/30/2017-05/2017-05-04-io-model/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-2017-04/2017-04-24-node-history" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/30/2017-04/2017-04-24-node-history/"  target="_blank"  >NodeJS发展历史梳理</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Web开发/">Web开发</a>
-                  
-                  <a href="/categories/前端开发/">前端开发</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/06/30/2017-04/2017-04-24-node-history/"  target="_blank" >
-                
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="NodeJS发展历史梳理" title="NodeJS发展历史梳理">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                1 参考资料
-一篇文章构建你的 NodeJS 知识体系
-
-
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-06-30</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/NodeJS/" class="color2">NodeJS</a>
-      
-    <a href="/tags/NodeJS历史/" class="color4">NodeJS历史</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2021/06/30/2017-04/2017-04-24-node-history/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-2017-04/2017-04-21-code-design-rules" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/30/2017-04/2017-04-21-code-design-rules/"  target="_blank"  >代码设计基本原则</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/代码设计/">代码设计</a>
-                  
-                  <a href="/categories/程序设计/">程序设计</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/06/30/2017-04/2017-04-21-code-design-rules/"  target="_blank" >
-                
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="代码设计基本原则" title="代码设计基本原则">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                1 DRY (Don’t Repeat Yourself)
-不出现多次同样的字符串拼接
-不出现多次同样的对象访问
-不出现相似的函数
-不出现相似的模块代码
-不出现相似。。。
-一切相似的东西，都应该在一个地方表达，然后复用
-
-2 KISS (Keep It Simple,Stupid)
-不过早优化
-不过度设计
-不复杂化代码
-不断重构
-
-3 XP (eXtreme Progra...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-06-30</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/设计原则/" class="color5">设计原则</a>
-      
-    <a href="/tags/代码设计/" class="color5">代码设计</a>
-      
-    <a href="/tags/可维护代码/" class="color1">可维护代码</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2021/06/30/2017-04/2017-04-21-code-design-rules/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/01/2017-05/2017-05-07-code-optmization/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -731,7 +495,7 @@ XMLHTTPReq...
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/30/2017-04/2017-04-22-web-history/"  target="_blank"  >Web发展历史简介</a>
+      <a class="article-title" href="/2021/07/01/2017-04/2017-04-22-web-history/"  target="_blank"  >Web发展历史简介</a>
     </h1>
   
 
@@ -750,7 +514,7 @@ XMLHTTPReq...
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/06/30/2017-04/2017-04-22-web-history/"  target="_blank" >
+            <a href="/2021/07/01/2017-04/2017-04-22-web-history/"  target="_blank" >
                 
                 <img src="http://rawbin-.github.io/images/banner.jpg" alt="Web发展历史简介" title="Web发展历史简介">
                 
@@ -776,7 +540,7 @@ A Little History of the World Wide Web
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-06-30</li>
+                <li><i class="fa fa-calendar"></i>2021-07-01</li>
             
             
   <li class="article-footer-tags">
@@ -790,7 +554,7 @@ A Little History of the World Wide Web
 
         </ul>
         
-            <a href="/2021/06/30/2017-04/2017-04-22-web-history/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/01/2017-04/2017-04-22-web-history/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -805,7 +569,7 @@ A Little History of the World Wide Web
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/30/2017-04/2017-04-23-browser-history/"  target="_blank"  >浏览器发展历史简介</a>
+      <a class="article-title" href="/2021/07/01/2017-04/2017-04-23-browser-history/"  target="_blank"  >浏览器发展历史简介</a>
     </h1>
   
 
@@ -824,7 +588,7 @@ A Little History of the World Wide Web
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/06/30/2017-04/2017-04-23-browser-history/"  target="_blank" >
+            <a href="/2021/07/01/2017-04/2017-04-23-browser-history/"  target="_blank" >
                 
                 <img src="http://rawbin-.github.io/images/banner.jpg" alt="浏览器发展历史简介" title="浏览器发展历史简介">
                 
@@ -850,7 +614,7 @@ C...
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-06-30</li>
+                <li><i class="fa fa-calendar"></i>2021-07-01</li>
             
             
   <li class="article-footer-tags">
@@ -864,7 +628,210 @@ C...
 
         </ul>
         
-            <a href="/2021/06/30/2017-04/2017-04-23-browser-history/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/01/2017-04/2017-04-23-browser-history/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-2017-04/2017-04-24-javascript-history" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/01/2017-04/2017-04-24-javascript-history/"  target="_blank"  >JavaScript发展历史梳理</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/Web开发/">Web开发</a>
+                  
+                  <a href="/categories/前端开发/">前端开发</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2021/07/01/2017-04/2017-04-24-javascript-history/"  target="_blank" >
+                
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript发展历史梳理" title="JavaScript发展历史梳理">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                1 语言背景很早之前，网景公司（Netscape Communication Corporation）意识到网络需要一种集成的、统一的、客户端到服务端的解决方案。为此提出了LiveWire的概念，并设计了当时名为LiveScript的语言来在服务器上创建类似于CGI的应用程序。同时在Netscape Navigator上也需要一个脚本语言的支持，解决类似于“在向服务器提交...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/JavaScript/" class="color1">JavaScript</a>
+      
+    <a href="/tags/JavaScript历史/" class="color3">JavaScript历史</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2021/07/01/2017-04/2017-04-24-javascript-history/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-2017-04/2017-04-24-node-history" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/01/2017-04/2017-04-24-node-history/"  target="_blank"  >NodeJS发展历史梳理</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/Web开发/">Web开发</a>
+                  
+                  <a href="/categories/前端开发/">前端开发</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2021/07/01/2017-04/2017-04-24-node-history/"  target="_blank" >
+                
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="NodeJS发展历史梳理" title="NodeJS发展历史梳理">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                1 参考资料
+一篇文章构建你的 NodeJS 知识体系
+
+
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/NodeJS/" class="color2">NodeJS</a>
+      
+    <a href="/tags/NodeJS历史/" class="color4">NodeJS历史</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2021/07/01/2017-04/2017-04-24-node-history/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-2017-05/2017-05-01-in-https" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/01/2017-05/2017-05-01-in-https/"  target="_blank"  >深入理解HTTPS原理、过程与实践</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/Web开发/">Web开发</a>
+                  
+                  <a href="/categories/前端开发/">前端开发</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2021/07/01/2017-05/2017-05-01-in-https/"  target="_blank" >
+                
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="深入理解HTTPS原理、过程与实践" title="深入理解HTTPS原理、过程与实践">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                [TOC]
+1 引言HTTP是不安全的，我们的页面也被运营商插入过小黄图广告（数据被篡改），对于HTTP来说，再简单不过，只需要设定相应的DNS，做一个中间人攻击，再将修改后的数据返回，这一方面可能泄露用户隐私数据，同时也对我们的品牌形象产生恶劣影响。
+然而，当我们切换HTTPS时候，运营商的这些小九九就施展不开了，服务端认证不通过，浏览器不会展示相应的页面数据；运营商实...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/HTTPS/" class="color1">HTTPS</a>
+      
+    <a href="/tags/OpenSSL/" class="color3">OpenSSL</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2021/07/01/2017-05/2017-05-01-in-https/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
