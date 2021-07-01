@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "前端视角切入原生之开发语言——鸿蒙、Android、iOS、Flutter"
+title: "前端视角切入原生之语言特性——鸿蒙、Android、iOS、Flutter"
 cagegories: [Web开发,前端开发,移动端]
 tags: [原生,Native,鸿蒙,harmonyos,安卓,Android,苹果,iOS,Flutter]
 ---
