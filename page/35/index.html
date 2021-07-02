@@ -125,37 +125,46 @@
       <div class="outer">
         <section id="main" class="body-wrap">
   
-    <article id="post-2015-04/2015-03-05-frontend-automatic" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-03/2015-03-31-ieee-745" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-04/2015-03-05-frontend-automatic/"  target="_blank"  >前端构建工具 前端自动化工具</a>
+      <a class="article-title" href="/2021/07/02/2015-03/2015-03-31-ieee-745/"  target="_blank"  >IEEE 745 浮点数介绍 浮点数比较</a>
     </h1>
   
 
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/计算机基础/">计算机基础</a>
+                  
+              </span>
           
       </header>
     
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-04/2015-03-05-frontend-automatic/"  target="_blank" >
+            <a href="/2021/07/02/2015-03/2015-03-31-ieee-745/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="前端构建工具 前端自动化工具" title="前端构建工具 前端自动化工具">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="IEEE 745 浮点数介绍 浮点数比较" title="IEEE 745 浮点数介绍 浮点数比较">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
-                1 参考资料
-Choosing a Build Tool – Babel, Browserify, Webpack, Grunt and Gulp
-How to choose a build system for javascript app
-webpack compared
-Book of Modern frontend tooling
-Book of Modern f...
+                问题的由来JavaScript代码：
+//JavaScript
+console.log(0.3 - 0.2 == 0.2 - 0.1) //false
+Python代码：    
+#！/usr/bin/env python
+# -*- coding:utf8 -*-
+print 0.3 - 0.2 == 0.2 - 0.1 #False
+同样的原因：浮点数在数字计算机中表...
             </p>
         </div>
       
@@ -165,21 +174,21 @@ Book of Modern f...
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/开发工具/" class="color5">开发工具</a>
+    <a href="/tags/IEEE745/" class="color4">IEEE 745</a>
       
-    <a href="/tags/自动构建/" class="color5">自动构建</a>
+    <a href="/tags/浮点数/" class="color4">浮点数</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/07/01/2015-04/2015-03-05-frontend-automatic/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-03/2015-03-31-ieee-745/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -187,14 +196,14 @@ Book of Modern f...
 
 
   
-    <article id="post-2015-04/2015-03-05-javascript-crossorigin" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-03/2015-03-30-using-selenium" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-04/2015-03-05-javascript-crossorigin/"  target="_blank"  >JavaScript 跨域问题 浏览器 同源策略</a>
+      <a class="article-title" href="/2021/07/02/2015-03/2015-03-30-using-selenium/"  target="_blank"  >Selenium 浏览器截图，网页截图，浏览器操作</a>
     </h1>
   
 
@@ -211,17 +220,23 @@ Book of Modern f...
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-04/2015-03-05-javascript-crossorigin/"  target="_blank" >
+            <a href="/2021/07/02/2015-03/2015-03-30-using-selenium/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript 跨域问题 浏览器 同源策略" title="JavaScript 跨域问题 浏览器 同源策略">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="Selenium 浏览器截图，网页截图，浏览器操作" title="Selenium 浏览器截图，网页截图，浏览器操作">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
-                RFC6454
-网络访问部分：
-一般情况下，禁止一个域从另一个域读取数据，却可以使用某些从其他域拿到的资源。比如说，允许一个域执行、渲染、应用从其他域获取到的脚本、图片、样式；同样，一个域可以展示从其他域获取的内容，比如在frame中显示html文档。网络资源也可以选择性的让其他域来读取自己的信息，比如使用Cross-Origin Resource Sharing，这种情...
+                Selenium 是一个Web自动化测试的套件使用前需要安装selenium包:
+#! /usr/bin/env python
+# -*- coding: UTF-8 -*-
+
+from selenium import webdriver
+
+browser = webdriver.Firefox()
+browser.set_window_size(1024,768)
+br...
             </p>
         </div>
       
@@ -231,237 +246,23 @@ Book of Modern f...
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/跨域/" class="color3">跨域</a>
+    <a href="/tags/Selenium/" class="color4">Selenium</a>
       
-    <a href="/tags/同源策略/" class="color5">同源策略</a>
+    <a href="/tags/Python网页截图/" class="color2">Python 网页截图</a>
       
-    <a href="/tags/CORS/" class="color5">CORS</a>
-      
-    <a href="/tags/SameOriginPolicy/" class="color4">Same Origin Policy</a>
-      
-    <a href="/tags/浏览器安全/" class="color1">浏览器安全</a>
+    <a href="/tags/自动截图/" class="color5">自动截图</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/07/01/2015-04/2015-03-05-javascript-crossorigin/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-2015-03/2015-03-18-using-markdown" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-03/2015-03-18-using-markdown/"  target="_blank"  >Markdown 语法简要说明</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/编程语言/">编程语言</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/07/01/2015-03/2015-03-18-using-markdown/"  target="_blank" >
-                
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="Markdown 语法简要说明" title="Markdown 语法简要说明">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                1 Markdown简介Markdown是一种纯文本的标记方式，的目标是实现易读易写的纯文本编辑，使作者能更专注于文档写作，弱化文档排版。
-Markdown兼容HTML，适合于Web发布，能解决PDF，Word等文档需要特定的阅读工具才能阅读的问题，只需要手边的浏览器和简单的文本编辑器就可以进行阅读和编辑。
-每个关键符号之后需要有空格或者空行才能进行正确的解析，比如&gt...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Markdown/" class="color4">Markdown</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2021/07/01/2015-03/2015-03-18-using-markdown/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-2015-03/2015-03-18-using-vim" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-03/2015-03-18-using-vim/"  target="_blank"  >VIM常用操作命令梳理</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/开发环境/">开发环境</a>
-                  
-                  <a href="/categories/开发工具/">开发工具</a>
-                  
-                  <a href="/categories/VIM/">VIM</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/07/01/2015-03/2015-03-18-using-vim/"  target="_blank" >
-                
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="VIM常用操作命令梳理" title="VIM常用操作命令梳理">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                1 打开关闭
-vim xxx，vim +num xxx 命令行打开文件
-vim + filename 启动跳到文件结尾
-vim +143 filename 打开跳到143行 调试代码有用
-vim +/search-term filename 跳到第一个匹配
-vim +/search-term filename 跳到最后一个匹配
-vim -t tag 
-vim –cmd c...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/快捷键/" class="color4">快捷键</a>
-      
-    <a href="/tags/VIM/" class="color4">VIM</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2021/07/01/2015-03/2015-03-18-using-vim/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-2015-03/2015-03-29-jsload-module" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-03/2015-03-29-jsload-module/"  target="_blank"  >JavaScript 模块加载工具 JSLoader</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/开发技术/">开发技术</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/07/01/2015-03/2015-03-29-jsload-module/"  target="_blank" >
-                
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript 模块加载工具 JSLoader" title="JavaScript 模块加载工具 JSLoader">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                随着Web应用的内容不断扩充，Web开发工作的不断细分，前端的模块化的呼声也越来越高。了解前端模块化可以看前端模块化–高效重构,以及前端模块化思路。
-总的来说还是高内聚，低耦合，减少依赖和耦合，提高合作效率。
-模块化在发展的过程中产出了一些规范，如AMD，CMD等，可以看看JavaScript模块规范,以及区别1和区别2.
-也有一些关于AMD和CMD及其相关实现requi...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/seajs/" class="color1">seajs</a>
-      
-    <a href="/tags/requirejs/" class="color5">requirejs</a>
-      
-    <a href="/tags/AMD/" class="color4">AMD</a>
-      
-    <a href="/tags/CMD/" class="color4">CMD</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2021/07/01/2015-03/2015-03-29-jsload-module/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-03/2015-03-30-using-selenium/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -476,7 +277,7 @@ vim –cmd c...
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-03/2015-03-30-json-xml-cmp/"  target="_blank"  >JSON XML 简要比较</a>
+      <a class="article-title" href="/2021/07/02/2015-03/2015-03-30-json-xml-cmp/"  target="_blank"  >JSON XML 简要比较</a>
     </h1>
   
 
@@ -493,7 +294,7 @@ vim –cmd c...
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-03/2015-03-30-json-xml-cmp/"  target="_blank" >
+            <a href="/2021/07/02/2015-03/2015-03-30-json-xml-cmp/"  target="_blank" >
                 
                 <img src="http://rawbin-.github.io/images/banner.jpg" alt="JSON XML 简要比较" title="JSON XML 简要比较">
                 
@@ -518,7 +319,7 @@ XML格式表示
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
@@ -532,7 +333,7 @@ XML格式表示
 
         </ul>
         
-            <a href="/2021/07/01/2015-03/2015-03-30-json-xml-cmp/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-03/2015-03-30-json-xml-cmp/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -540,14 +341,14 @@ XML格式表示
 
 
   
-    <article id="post-2015-03/2015-03-17-encoding-decoding-discoding" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-03/2015-03-29-jsload-module" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-03/2015-03-17-encoding-decoding-discoding/"  target="_blank"  >Web开发中的编码解码乱码问题深入解析</a>
+      <a class="article-title" href="/2021/07/02/2015-03/2015-03-29-jsload-module/"  target="_blank"  >JavaScript 模块加载工具 JSLoader</a>
     </h1>
   
 
@@ -555,7 +356,7 @@ XML格式表示
               <span class="header-cate">
                 <i class="fa fa-map-marker"></i>
                   
-                  <a href="/categories/计算机基础/">计算机基础</a>
+                  <a href="/categories/开发技术/">开发技术</a>
                   
               </span>
           
@@ -564,19 +365,18 @@ XML格式表示
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-03/2015-03-17-encoding-decoding-discoding/"  target="_blank" >
+            <a href="/2021/07/02/2015-03/2015-03-29-jsload-module/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="Web开发中的编码解码乱码问题深入解析" title="Web开发中的编码解码乱码问题深入解析">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript 模块加载工具 JSLoader" title="JavaScript 模块加载工具 JSLoader">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
-                1 基本概念
-字符：各种文字和符号的统称，包括各国各族各地的文字，标点符号，图形符号，数字等。
-字符集： 字符的集合，比如汉字字符集，ASCII字符集，简体中文字符集，罗马字母等。字符集关心的是这个集合需要包含哪些东西，怎么唯一表示这个集合中的每一个元素。
-字符编码： 将字符集处理为计算机能够识别和处理的规则。字符编码关注一个字符如何用二进制表示，如何让计算机精确识别。
-...
+                随着Web应用的内容不断扩充，Web开发工作的不断细分，前端的模块化的呼声也越来越高。了解前端模块化可以看前端模块化–高效重构,以及前端模块化思路。
+总的来说还是高内聚，低耦合，减少依赖和耦合，提高合作效率。
+模块化在发展的过程中产出了一些规范，如AMD，CMD等，可以看看JavaScript模块规范,以及区别1和区别2.
+也有一些关于AMD和CMD及其相关实现requi...
             </p>
         </div>
       
@@ -586,25 +386,306 @@ XML格式表示
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/编码/" class="color3">编码</a>
+    <a href="/tags/seajs/" class="color1">seajs</a>
       
-    <a href="/tags/解码/" class="color3">解码</a>
+    <a href="/tags/requirejs/" class="color5">requirejs</a>
       
-    <a href="/tags/乱码/" class="color3">乱码</a>
+    <a href="/tags/AMD/" class="color4">AMD</a>
       
-    <a href="/tags/字符集/" class="color4">字符集</a>
+    <a href="/tags/CMD/" class="color4">CMD</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/07/01/2015-03/2015-03-17-encoding-decoding-discoding/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-03/2015-03-29-jsload-module/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-2015-03/2015-03-18-using-vim" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/02/2015-03/2015-03-18-using-vim/"  target="_blank"  >VIM常用操作命令梳理</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/开发环境/">开发环境</a>
+                  
+                  <a href="/categories/开发工具/">开发工具</a>
+                  
+                  <a href="/categories/VIM/">VIM</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2021/07/02/2015-03/2015-03-18-using-vim/"  target="_blank" >
+                
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="VIM常用操作命令梳理" title="VIM常用操作命令梳理">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                1 打开关闭
+vim xxx，vim +num xxx 命令行打开文件
+vim + filename 启动跳到文件结尾
+vim +143 filename 打开跳到143行 调试代码有用
+vim +/search-term filename 跳到第一个匹配
+vim +/search-term filename 跳到最后一个匹配
+vim -t tag 
+vim –cmd c...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/快捷键/" class="color4">快捷键</a>
+      
+    <a href="/tags/VIM/" class="color4">VIM</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2021/07/02/2015-03/2015-03-18-using-vim/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-2015-03/2015-03-18-using-markdown" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/02/2015-03/2015-03-18-using-markdown/"  target="_blank"  >Markdown 语法简要说明</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/编程语言/">编程语言</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2021/07/02/2015-03/2015-03-18-using-markdown/"  target="_blank" >
+                
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="Markdown 语法简要说明" title="Markdown 语法简要说明">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                1 Markdown简介Markdown是一种纯文本的标记方式，的目标是实现易读易写的纯文本编辑，使作者能更专注于文档写作，弱化文档排版。
+Markdown兼容HTML，适合于Web发布，能解决PDF，Word等文档需要特定的阅读工具才能阅读的问题，只需要手边的浏览器和简单的文本编辑器就可以进行阅读和编辑。
+每个关键符号之后需要有空格或者空行才能进行正确的解析，比如&gt...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Markdown/" class="color4">Markdown</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2021/07/02/2015-03/2015-03-18-using-markdown/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-2015-03/2015-03-18-using-github-pages-as-blog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/02/2015-03/2015-03-18-using-github-pages-as-blog/"  target="_blank"  >使用Github 搭建自己的博客</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/应用技术/">应用技术</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2021/07/02/2015-03/2015-03-18-using-github-pages-as-blog/"  target="_blank" >
+                
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="使用Github 搭建自己的博客" title="使用Github 搭建自己的博客">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                利用github pages 搭建自己的博客，搭建完成之后，可以直接用markdown来写博客，之后直接push到github就可以在网页上看到自己的博客了。
+我喜欢这一点的一个很大的原因是，不需要一张一张的向网页上插图了，直接放入目录，一次提交就完成。
+1 大致原理是：
+github pages 用来给用户或者项目建主页的  
+github pages 是用jekyll...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/GitHub/" class="color2">GitHub</a>
+      
+    <a href="/tags/Jekyll/" class="color2">Jekyll</a>
+      
+    <a href="/tags/博客/" class="color3">博客</a>
+      
+    <a href="/tags/站点/" class="color3">站点</a>
+      
+    <a href="/tags/JekyllBootstrap/" class="color2">Jekyll Bootstrap</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2021/07/02/2015-03/2015-03-18-using-github-pages-as-blog/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-2015-03/2015-03-18-using-git" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/02/2015-03/2015-03-18-using-git/"  target="_blank"  >Git使用教程及相关问题解决</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/开发环境/">开发环境</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2021/07/02/2015-03/2015-03-18-using-git/"  target="_blank" >
+                
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="Git使用教程及相关问题解决" title="Git使用教程及相关问题解决">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                1 一些概念
+工作副本（Working Copy）：你的代码相关的一切，你自己弄得文件和目录。
+暂存区(Stage,Index): 对工作副本需要提交的信息的一个跟踪,存储在工作副本目录下.git/index的文件里面，记录通过git add 结果的文件信息。
+本地仓库（Repository）： 本地的代码版本库，为git commit的目标区。
+远程仓库（Remote ...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Git/" class="color4">Git</a>
+      
+    <a href="/tags/GitSSH配置/" class="color1">Git SSH 配置</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2021/07/02/2015-03/2015-03-18-using-git/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -619,7 +700,7 @@ XML格式表示
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-03/2015-03-18-shell-cheats-shortcuts/"  target="_blank"  >Bash Shell 命令行操作快捷键</a>
+      <a class="article-title" href="/2021/07/02/2015-03/2015-03-18-shell-cheats-shortcuts/"  target="_blank"  >Bash Shell 命令行操作快捷键</a>
     </h1>
   
 
@@ -640,7 +721,7 @@ XML格式表示
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-03/2015-03-18-shell-cheats-shortcuts/"  target="_blank" >
+            <a href="/2021/07/02/2015-03/2015-03-18-shell-cheats-shortcuts/"  target="_blank" >
                 
                 <img src="http://rawbin-.github.io/images/banner.jpg" alt="Bash Shell 命令行操作快捷键" title="Bash Shell 命令行操作快捷键">
                 
@@ -668,7 +749,7 @@ ESC+...
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
@@ -684,7 +765,7 @@ ESC+...
 
         </ul>
         
-            <a href="/2021/07/01/2015-03/2015-03-18-shell-cheats-shortcuts/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-03/2015-03-18-shell-cheats-shortcuts/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -692,14 +773,14 @@ ESC+...
 
 
   
-    <article id="post-2015-03/2015-03-18-using-git" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-03/2015-03-17-encoding-decoding-discoding" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-03/2015-03-18-using-git/"  target="_blank"  >Git使用教程及相关问题解决</a>
+      <a class="article-title" href="/2021/07/02/2015-03/2015-03-17-encoding-decoding-discoding/"  target="_blank"  >Web开发中的编码解码乱码问题深入解析</a>
     </h1>
   
 
@@ -707,7 +788,7 @@ ESC+...
               <span class="header-cate">
                 <i class="fa fa-map-marker"></i>
                   
-                  <a href="/categories/开发环境/">开发环境</a>
+                  <a href="/categories/计算机基础/">计算机基础</a>
                   
               </span>
           
@@ -716,19 +797,19 @@ ESC+...
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-03/2015-03-18-using-git/"  target="_blank" >
+            <a href="/2021/07/02/2015-03/2015-03-17-encoding-decoding-discoding/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="Git使用教程及相关问题解决" title="Git使用教程及相关问题解决">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="Web开发中的编码解码乱码问题深入解析" title="Web开发中的编码解码乱码问题深入解析">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
-                1 一些概念
-工作副本（Working Copy）：你的代码相关的一切，你自己弄得文件和目录。
-暂存区(Stage,Index): 对工作副本需要提交的信息的一个跟踪,存储在工作副本目录下.git/index的文件里面，记录通过git add 结果的文件信息。
-本地仓库（Repository）： 本地的代码版本库，为git commit的目标区。
-远程仓库（Remote ...
+                1 基本概念
+字符：各种文字和符号的统称，包括各国各族各地的文字，标点符号，图形符号，数字等。
+字符集： 字符的集合，比如汉字字符集，ASCII字符集，简体中文字符集，罗马字母等。字符集关心的是这个集合需要包含哪些东西，怎么唯一表示这个集合中的每一个元素。
+字符编码： 将字符集处理为计算机能够识别和处理的规则。字符编码关注一个字符如何用二进制表示，如何让计算机精确识别。
+...
             </p>
         </div>
       
@@ -738,95 +819,25 @@ ESC+...
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/Git/" class="color4">Git</a>
+    <a href="/tags/编码/" class="color3">编码</a>
       
-    <a href="/tags/GitSSH配置/" class="color1">Git SSH 配置</a>
+    <a href="/tags/解码/" class="color3">解码</a>
       
-  </li>
-
-        </ul>
-        
-            <a href="/2021/07/01/2015-03/2015-03-18-using-git/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-2015-03/2015-03-18-using-github-pages-as-blog" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-03/2015-03-18-using-github-pages-as-blog/"  target="_blank"  >使用Github 搭建自己的博客</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/应用技术/">应用技术</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
+    <a href="/tags/乱码/" class="color3">乱码</a>
       
-        <div class="article-img">
-            <a href="/2021/07/01/2015-03/2015-03-18-using-github-pages-as-blog/"  target="_blank" >
-                
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="使用Github 搭建自己的博客" title="使用Github 搭建自己的博客">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                利用github pages 搭建自己的博客，搭建完成之后，可以直接用markdown来写博客，之后直接push到github就可以在网页上看到自己的博客了。
-我喜欢这一点的一个很大的原因是，不需要一张一张的向网页上插图了，直接放入目录，一次提交就完成。
-1 大致原理是：
-github pages 用来给用户或者项目建主页的  
-github pages 是用jekyll...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/GitHub/" class="color2">GitHub</a>
-      
-    <a href="/tags/Jekyll/" class="color2">Jekyll</a>
-      
-    <a href="/tags/博客/" class="color3">博客</a>
-      
-    <a href="/tags/站点/" class="color3">站点</a>
-      
-    <a href="/tags/JekyllBootstrap/" class="color2">Jekyll Bootstrap</a>
+    <a href="/tags/字符集/" class="color4">字符集</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/07/01/2015-03/2015-03-18-using-github-pages-as-blog/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-03/2015-03-17-encoding-decoding-discoding/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>

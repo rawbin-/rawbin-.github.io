@@ -125,14 +125,14 @@
       <div class="outer">
         <section id="main" class="body-wrap">
   
-    <article id="post-2015-09/2015-09-01-web-url-encoding" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-08/2015-08-17-encoding-in-python" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-09/2015-09-01-web-url-encoding/"  target="_blank"  >Web前端URL编码</a>
+      <a class="article-title" href="/2021/07/02/2015-08/2015-08-17-encoding-in-python/"  target="_blank"  >Python中的编码</a>
     </h1>
   
 
@@ -144,6 +144,8 @@
                   
                   <a href="/categories/前端开发/">前端开发</a>
                   
+                  <a href="/categories/Python/">Python</a>
+                  
               </span>
           
       </header>
@@ -151,26 +153,21 @@
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-09/2015-09-01-web-url-encoding/"  target="_blank" >
+            <a href="/2021/07/02/2015-08/2015-08-17-encoding-in-python/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="Web前端URL编码" title="Web前端URL编码">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="Python中的编码" title="Python中的编码">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
-                1 参考资料
-关于URL编码
-字符编码笔记：ASCII，Unicode和UTF-8
-URL编码与解码
-URL编码与解码
-浏览器URL编码
-浏览器URL编码
-每个 Web 开发者都应该知道的关于 URL 编码的知识
-What every web developer must know about URL encoding
-解析WEB开发编码问题
-Web编码总结
-url 编码...
+                这里我们简单问题复杂化，说几个编码
+1 源文件编码#coding=utf-8
+
+#-*- coding: utf-8 -*-
+这样的格式，那么源代码中的内容就会以指定的编码进行存取，比如解析源码中的字符串的时候
+2 字符串编码ustr = u’test中文’ 这个就是Unicode编码的字符串
+varstr = ‘test中文’  这个就是系统默认编码的字符串 用sys....
             </p>
         </div>
       
@@ -180,7 +177,7 @@ url 编码...
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
@@ -188,15 +185,17 @@ url 编码...
       
     <a href="/tags/编码/" class="color3">编码</a>
       
-    <a href="/tags/解码/" class="color3">解码</a>
+    <a href="/tags/Python/" class="color2">Python</a>
       
-    <a href="/tags/URL/" class="color4">URL</a>
+    <a href="/tags/Unicode/" class="color3">Unicode</a>
+      
+    <a href="/tags/str/" class="color4">str</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/07/01/2015-09/2015-09-01-web-url-encoding/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-08/2015-08-17-encoding-in-python/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -204,14 +203,85 @@ url 编码...
 
 
   
-    <article id="post-2015-09/2015-09-03-javascript-clipboard-aother" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-08/2015-08-17-frontend-security" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-09/2015-09-03-javascript-clipboard-aother/"  target="_blank"  >JavaScript Web编辑器 剪贴板操作 复制 粘贴</a>
+      <a class="article-title" href="/2021/07/02/2015-08/2015-08-17-frontend-security/"  target="_blank"  >浏览器安全 前端安全</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/Web开发/">Web开发</a>
+                  
+                  <a href="/categories/前端开发/">前端开发</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2021/07/02/2015-08/2015-08-17-frontend-security/"  target="_blank" >
+                
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="浏览器安全 前端安全" title="浏览器安全 前端安全">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                1 参考资料
+浅谈CSRF攻击方式
+深入理解JavaScript Hijacking原理
+Google 浏览器安全手册
+
+
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/CSRF/" class="color5">CSRF</a>
+      
+    <a href="/tags/Hijacking/" class="color5">Hijacking</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2021/07/02/2015-08/2015-08-17-frontend-security/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-2015-08/2015-08-17-javascript-datetimepicker" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/02/2015-08/2015-08-17-javascript-datetimepicker/"  target="_blank"  >JavaScript日期时间选择器</a>
     </h1>
   
 
@@ -232,24 +302,22 @@ url 编码...
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-09/2015-09-03-javascript-clipboard-aother/"  target="_blank" >
+            <a href="/2021/07/02/2015-08/2015-08-17-javascript-datetimepicker/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript Web编辑器 剪贴板操作 复制 粘贴" title="JavaScript Web编辑器 剪贴板操作 复制 粘贴">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript日期时间选择器" title="JavaScript日期时间选择器">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
                 1 参考资料
-windlow.clipboardData兼容性
-检测浏览器是否支持HTML5功能
-W3C Clipboard API
-clipboardData Support
-UndoManager and DOM Transaction
-HTML5 Editing
-HTML5 Editing
-Rich-Text Editing in Mozilla
-Web Editi...
+My97 日期控件
+自己写一个简单的jQuery日期选择器
+JS日期时间选择控件
+Adding a Timepicker to jQuery UI Datepicker
+Yet another jQuery time picker plugin
+A clock-style timepicker for Bootstrap (or jQuery).
+boots...
             </p>
         </div>
       
@@ -259,114 +327,21 @@ Web Editi...
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/浏览器/" class="color4">浏览器</a>
+    <a href="/tags/日期选择器/" class="color1">日期选择器</a>
       
-    <a href="/tags/JavaScript/" class="color1">JavaScript</a>
-      
-    <a href="/tags/复制/" class="color3">复制</a>
-      
-    <a href="/tags/粘贴/" class="color3">粘贴</a>
-      
-    <a href="/tags/clipboard/" class="color5">clipboard</a>
-      
-    <a href="/tags/copy/" class="color5">copy</a>
-      
-    <a href="/tags/paste/" class="color1">paste</a>
+    <a href="/tags/DateTimePicker/" class="color5">DateTimePicker</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/07/01/2015-09/2015-09-03-javascript-clipboard-aother/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-2015-09/2015-09-03-javascript-clipboard" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-09/2015-09-03-javascript-clipboard/"  target="_blank"  >JavaScript 浏览器 剪贴板操作 复制 粘贴</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Web开发/">Web开发</a>
-                  
-                  <a href="/categories/前端开发/">前端开发</a>
-                  
-                  <a href="/categories/JavaScript/">JavaScript</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/07/01/2015-09/2015-09-03-javascript-clipboard/"  target="_blank" >
-                
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript 浏览器 剪贴板操作 复制 粘贴" title="JavaScript 浏览器 剪贴板操作 复制 粘贴">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                1 参考资料
-The Definitive Guide to Copying and Pasting in JavaScript
-The Definitive Guide to Copying and Pasting in JavaScript
-JavaScript Local I/O tests
-Copy &amp; Paste &amp; The Web
-clipbo...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/浏览器/" class="color4">浏览器</a>
-      
-    <a href="/tags/JavaScript/" class="color1">JavaScript</a>
-      
-    <a href="/tags/复制/" class="color3">复制</a>
-      
-    <a href="/tags/粘贴/" class="color3">粘贴</a>
-      
-    <a href="/tags/clipboard/" class="color5">clipboard</a>
-      
-    <a href="/tags/copy/" class="color5">copy</a>
-      
-    <a href="/tags/paste/" class="color1">paste</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2021/07/01/2015-09/2015-09-03-javascript-clipboard/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-08/2015-08-17-javascript-datetimepicker/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -381,7 +356,7 @@ clipbo...
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-08/2015-08-17-node-debug/"  target="_blank"  >NodeJS 调试技术</a>
+      <a class="article-title" href="/2021/07/02/2015-08/2015-08-17-node-debug/"  target="_blank"  >NodeJS 调试技术</a>
     </h1>
   
 
@@ -400,7 +375,7 @@ clipbo...
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-08/2015-08-17-node-debug/"  target="_blank" >
+            <a href="/2021/07/02/2015-08/2015-08-17-node-debug/"  target="_blank" >
                 
                 <img src="http://rawbin-.github.io/images/banner.jpg" alt="NodeJS 调试技术" title="NodeJS 调试技术">
                 
@@ -430,7 +405,7 @@ node.js调试
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
@@ -446,7 +421,7 @@ node.js调试
 
         </ul>
         
-            <a href="/2021/07/01/2015-08/2015-08-17-node-debug/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-08/2015-08-17-node-debug/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -461,7 +436,7 @@ node.js调试
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-08/2015-08-17-node-desktop-app/"  target="_blank"  >NodeJS 桌面应用开发</a>
+      <a class="article-title" href="/2021/07/02/2015-08/2015-08-17-node-desktop-app/"  target="_blank"  >NodeJS 桌面应用开发</a>
     </h1>
   
 
@@ -480,7 +455,7 @@ node.js调试
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-08/2015-08-17-node-desktop-app/"  target="_blank" >
+            <a href="/2021/07/02/2015-08/2015-08-17-node-desktop-app/"  target="_blank" >
                 
                 <img src="http://rawbin-.github.io/images/banner.jpg" alt="NodeJS 桌面应用开发" title="NodeJS 桌面应用开发">
                 
@@ -507,7 +482,7 @@ Node-Webkit作者王文睿：桌面应用的全新开发方...
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
@@ -533,7 +508,7 @@ Node-Webkit作者王文睿：桌面应用的全新开发方...
 
         </ul>
         
-            <a href="/2021/07/01/2015-08/2015-08-17-node-desktop-app/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-08/2015-08-17-node-desktop-app/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -548,7 +523,7 @@ Node-Webkit作者王文睿：桌面应用的全新开发方...
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-08/2015-08-17-node-monitor/"  target="_blank"  >NodeJS 服务监控</a>
+      <a class="article-title" href="/2021/07/02/2015-08/2015-08-17-node-monitor/"  target="_blank"  >NodeJS 服务监控</a>
     </h1>
   
 
@@ -567,7 +542,7 @@ Node-Webkit作者王文睿：桌面应用的全新开发方...
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-08/2015-08-17-node-monitor/"  target="_blank" >
+            <a href="/2021/07/02/2015-08/2015-08-17-node-monitor/"  target="_blank" >
                 
                 <img src="http://rawbin-.github.io/images/banner.jpg" alt="NodeJS 服务监控" title="NodeJS 服务监控">
                 
@@ -591,7 +566,7 @@ Nodejs服务器管理模块forever
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
@@ -607,84 +582,7 @@ Nodejs服务器管理模块forever
 
         </ul>
         
-            <a href="/2021/07/01/2015-08/2015-08-17-node-monitor/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-2015-09/2015-09-01-dom-attribute-property" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-09/2015-09-01-dom-attribute-property/"  target="_blank"  >DOM Attribute Property 区别</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Web开发/">Web开发</a>
-                  
-                  <a href="/categories/前端开发/">前端开发</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/07/01/2015-09/2015-09-01-dom-attribute-property/"  target="_blank" >
-                
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="DOM Attribute Property 区别" title="DOM Attribute Property 区别">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                1 参考资料
-DOM 中 Property 和 Attribute 的区别
-DOM中Property与Attribute的区别
-DOM元素的特性（Attribute）和属性（Property）
-DOM对象属性(property)与HTML标签特性(attribute)
-JavaScript的attribute和property辨析
-js原生操作HTML对象的属性区别
-jq...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/JavaScript/" class="color1">JavaScript</a>
-      
-    <a href="/tags/DOM/" class="color4">DOM</a>
-      
-    <a href="/tags/property/" class="color4">property</a>
-      
-    <a href="/tags/attribute/" class="color5">attribute</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2021/07/01/2015-09/2015-09-01-dom-attribute-property/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-08/2015-08-17-node-monitor/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -699,7 +597,7 @@ jq...
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-08/2015-08-17-text-match-algorithm/"  target="_blank"  >字符串匹配算法</a>
+      <a class="article-title" href="/2021/07/02/2015-08/2015-08-17-text-match-algorithm/"  target="_blank"  >字符串匹配算法</a>
     </h1>
   
 
@@ -716,7 +614,7 @@ jq...
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-08/2015-08-17-text-match-algorithm/"  target="_blank" >
+            <a href="/2021/07/02/2015-08/2015-08-17-text-match-algorithm/"  target="_blank" >
                 
                 <img src="http://rawbin-.github.io/images/banner.jpg" alt="字符串匹配算法" title="字符串匹配算法">
                 
@@ -742,7 +640,7 @@ The Knuth-Morris-Pratt Algorithm in my own words
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
@@ -756,7 +654,7 @@ The Knuth-Morris-Pratt Algorithm in my own words
 
         </ul>
         
-            <a href="/2021/07/01/2015-08/2015-08-17-text-match-algorithm/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-08/2015-08-17-text-match-algorithm/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -764,14 +662,14 @@ The Knuth-Morris-Pratt Algorithm in my own words
 
 
   
-    <article id="post-2015-08/2015-08-16-html5-performance" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-09/2015-09-01-dom-attribute-property" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-08/2015-08-16-html5-performance/"  target="_blank"  >HTML性能优化</a>
+      <a class="article-title" href="/2021/07/02/2015-09/2015-09-01-dom-attribute-property/"  target="_blank"  >DOM Attribute Property 区别</a>
     </h1>
   
 
@@ -790,27 +688,22 @@ The Knuth-Morris-Pratt Algorithm in my own words
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-08/2015-08-16-html5-performance/"  target="_blank" >
+            <a href="/2021/07/02/2015-09/2015-09-01-dom-attribute-property/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="HTML性能优化" title="HTML性能优化">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="DOM Attribute Property 区别" title="DOM Attribute Property 区别">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
                 1 参考资料
-前端加载 部署 及性能优化
-前端性能优化
-Web前端优化最佳实践及工具集锦
-移动HTML5前端性能优化指南
-移动前端系列——移动页面性能优化
-移动网站性能优化：网页加载技术概览
-移动网站性能优化：网页加载技术概览
-HTML5性能优化与分析
-HTML5性能优化分析
-7 天打造前端性能监控系统
-全是干货！移动HTML 5前端性能优化指南
-移动客户端HTML5前端...
+DOM 中 Property 和 Attribute 的区别
+DOM中Property与Attribute的区别
+DOM元素的特性（Attribute）和属性（Property）
+DOM对象属性(property)与HTML标签特性(attribute)
+JavaScript的attribute和property辨析
+js原生操作HTML对象的属性区别
+jq...
             </p>
         </div>
       
@@ -820,21 +713,25 @@ HTML5性能优化分析
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/性能优化/" class="color5">性能优化</a>
+    <a href="/tags/JavaScript/" class="color1">JavaScript</a>
       
-    <a href="/tags/HTML5/" class="color1">HTML5</a>
+    <a href="/tags/DOM/" class="color4">DOM</a>
+      
+    <a href="/tags/property/" class="color4">property</a>
+      
+    <a href="/tags/attribute/" class="color5">attribute</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/07/01/2015-08/2015-08-16-html5-performance/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-09/2015-09-01-dom-attribute-property/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -842,14 +739,14 @@ HTML5性能优化分析
 
 
   
-    <article id="post-2015-08/2015-08-16-javascript-browser-compatibility" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-09/2015-09-01-ecma-strict-mode" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-08/2015-08-16-javascript-browser-compatibility/"  target="_blank"  >JavaScript浏览器兼容性</a>
+      <a class="article-title" href="/2021/07/02/2015-09/2015-09-01-ecma-strict-mode/"  target="_blank"  >ECMAScript 严格模式</a>
     </h1>
   
 
@@ -857,9 +754,9 @@ HTML5性能优化分析
               <span class="header-cate">
                 <i class="fa fa-map-marker"></i>
                   
-                  <a href="/categories/Web开发/">Web开发</a>
-                  
                   <a href="/categories/前端开发/">前端开发</a>
+                  
+                  <a href="/categories/Web开发/">Web开发</a>
                   
                   <a href="/categories/JavaScript/">JavaScript</a>
                   
@@ -870,17 +767,26 @@ HTML5性能优化分析
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-08/2015-08-16-javascript-browser-compatibility/"  target="_blank" >
+            <a href="/2021/07/02/2015-09/2015-09-01-ecma-strict-mode/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript浏览器兼容性" title="JavaScript浏览器兼容性">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="ECMAScript 严格模式" title="ECMAScript 严格模式">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
-                1 浏览器特性检测绝大部分通过User-Agent的检测方式已经一去不复返了，越来越分不清楚了；特性检测成为现有的JS类库推行的方式，将浏览器分为支持W3C标准的现代浏览器和非标准浏览器。下面看看一些特性的坑：
-1.1 document.all执行代码：
-console.log(document.all,typeof document.all,!!document.all...
+                1 参考资料
+ECMAScript文档 附录C
+Javascript 严格模式详解
+MSDN严格模式
+MDN 严格模式
+MDN Stirct mode
+Javascript 严格模式详解
+JavaScript的严格模式 “use strict”
+JavaScript 严格模式
+ECMA-262-5 in detail chapter2 strict mode
+
+
             </p>
         </div>
       
@@ -890,23 +796,100 @@ console.log(document.all,typeof document.all,!!document.all...
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/浏览器/" class="color4">浏览器</a>
-      
     <a href="/tags/JavaScript/" class="color1">JavaScript</a>
       
-    <a href="/tags/兼容性/" class="color4">兼容性</a>
+    <a href="/tags/ECMAScript/" class="color1">ECMAScript</a>
+      
+    <a href="/tags/严格模式/" class="color5">严格模式</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/07/01/2015-08/2015-08-16-javascript-browser-compatibility/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-09/2015-09-01-ecma-strict-mode/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-2015-09/2015-09-01-http-pipeline" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/02/2015-09/2015-09-01-http-pipeline/"  target="_blank"  >HTTP pipeline</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/Web开发/">Web开发</a>
+                  
+                  <a href="/categories/前端开发/">前端开发</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2021/07/02/2015-09/2015-09-01-http-pipeline/"  target="_blank" >
+                
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="HTTP pipeline" title="HTTP pipeline">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                1 参考资料
+HTTP/1.1 Pipelining FAQ
+Pipeline模式
+HTTP Pipeline
+BigPipe学习研究
+BigPipe学习研究
+The Asset Pipeline
+Asset Pipeline
+
+
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/bigpipe/" class="color3">bigpipe</a>
+      
+    <a href="/tags/pipeline/" class="color4">pipeline</a>
+      
+    <a href="/tags/http/" class="color5">http</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2021/07/02/2015-09/2015-09-01-http-pipeline/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>

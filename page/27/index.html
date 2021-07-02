@@ -125,14 +125,14 @@
       <div class="outer">
         <section id="main" class="body-wrap">
   
-    <article id="post-2015-07/2015-07-10-window-open-ad" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2016-01/2016-01-14-win10-audio-auto-switch" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-07/2015-07-10-window-open-ad/"  target="_blank"  >window open ajax 弹窗 阻止 广告</a>
+      <a class="article-title" href="/2021/07/02/2016-01/2016-01-14-win10-audio-auto-switch/"  target="_blank"  >Win10 耳机 扬声器自动切换，插入耳机关闭扬声器</a>
     </h1>
   
 
@@ -140,7 +140,84 @@
               <span class="header-cate">
                 <i class="fa fa-map-marker"></i>
                   
-                  <a href="/categories/开发技术/">开发技术</a>
+                  <a href="/categories/应用技术/">应用技术</a>
+                  
+                  <a href="/categories/操作系统/">操作系统</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2021/07/02/2016-01/2016-01-14-win10-audio-auto-switch/"  target="_blank" >
+                
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="Win10 耳机 扬声器自动切换，插入耳机关闭扬声器" title="Win10 耳机 扬声器自动切换，插入耳机关闭扬声器">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                1 现象Win10中的VIA驱动，插入耳机无法自动关闭扬声器，耳机没有声音；手动切换耳机为默认设备之后，插入插入耳机可以正常播放，但拔掉耳机无法自动切换到扬声器。
+这个也是Win10自以为牛逼的改进功能，将扬声器和耳机作为了独立的设备，可以不共享音源。
+2 解决办法
+自然是安装原版VIA驱动，安装完成之后就会有 VIA HD Audio Deck这个可以管理音频配置
+
+打...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Win10/" class="color1">Win10</a>
+      
+    <a href="/tags/VIA/" class="color4">VIA</a>
+      
+    <a href="/tags/耳机/" class="color3">耳机</a>
+      
+    <a href="/tags/扬声器/" class="color4">扬声器</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2021/07/02/2016-01/2016-01-14-win10-audio-auto-switch/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-2016-01/2016-01-16-javascript-number" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/02/2016-01/2016-01-16-javascript-number/"  target="_blank"  >JavaScript数值处理小结</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/前端开发/">前端开发</a>
+                  
+                  <a href="/categories/Web开发/">Web开发</a>
                   
                   <a href="/categories/JavaScript/">JavaScript</a>
                   
@@ -151,20 +228,16 @@
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-07/2015-07-10-window-open-ad/"  target="_blank" >
+            <a href="/2021/07/02/2016-01/2016-01-16-javascript-number/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="window open ajax 弹窗 阻止 广告" title="window open ajax 弹窗 阻止 广告">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript数值处理小结" title="JavaScript数值处理小结">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
-                1 浏览器阻止弹窗浏览器阻止恶意的弹窗（一般是广告弹窗），同时也将我们程序中想要的弹窗也干掉了。     
-现有阻止的规则是非用户操作的弹窗，包括程序自动弹窗和用户操作长时间后的弹窗（不同的浏览器表现不一样）。参考
-2 解决办法
-直接绑定用户操作事件打开窗口
-在AJAX请求之前打开空窗口，在返回后再用返回的URL刷新窗口
-使用同步AJAX请求并在回调中打开窗口（可能逃不出...
+                1 数值处理的方法1.1 全局转换方法1.1.1 parseFloat从参数字符串的第一个字符开始进行解析，处理所有连续的有效浮点数字的部分（包含小数点），如果一个有效数位都没有就返回NaN，否则返回从第一个字符开始连续的数字部分的值。
+1.1.2 parseInt从参数字符串的第一个字符开始，按照给定的进制（不提供默认为10）进行解析，处理所有连续的指定进制的有效整形数...
             </p>
         </div>
       
@@ -174,7 +247,7 @@
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
@@ -182,15 +255,17 @@
       
     <a href="/tags/JavaScript/" class="color1">JavaScript</a>
       
-    <a href="/tags/Ajax/" class="color5">Ajax</a>
+    <a href="/tags/数值/" class="color3">数值</a>
       
-    <a href="/tags/广告/" class="color3">广告</a>
+    <a href="/tags/int/" class="color4">int</a>
+      
+    <a href="/tags/float/" class="color1">float</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/07/01/2015-07/2015-07-10-window-open-ad/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2016-01/2016-01-16-javascript-number/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -198,14 +273,14 @@
 
 
   
-    <article id="post-2015-07/2015-07-11-fe-load-deploy-opt" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2016-01/2016-01-18-git-commands" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-07/2015-07-11-fe-load-deploy-opt/"  target="_blank"  >前端加载 部署 及性能优化</a>
+      <a class="article-title" href="/2021/07/02/2016-01/2016-01-18-git-commands/"  target="_blank"  >Git常用操作命令梳理</a>
     </h1>
   
 
@@ -215,7 +290,9 @@
                   
                   <a href="/categories/开发技术/">开发技术</a>
                   
-                  <a href="/categories/Web前端/">Web前端</a>
+                  <a href="/categories/开发环境/">开发环境</a>
+                  
+                  <a href="/categories/Git/">Git</a>
                   
               </span>
           
@@ -224,29 +301,17 @@
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-07/2015-07-11-fe-load-deploy-opt/"  target="_blank" >
+            <a href="/2021/07/02/2016-01/2016-01-18-git-commands/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="前端加载 部署 及性能优化" title="前端加载 部署 及性能优化">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="Git常用操作命令梳理" title="Git常用操作命令梳理">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
-                1 参考资料
-大公司里怎样开发和部署前端代码？
-前端性能优化指南
-前端性能优化
-前端技术的前后端分离思想
-web高性能开发系列随笔
-前端性能优化的14个规则
-JavaScript 的性能优化：加载和执行
-前端工程与性能优化
-前端工程与性能优化
-Web前端性能优化进阶路
-web前端页面性能优化小结
-前端各种优化
+                1 基本操作1.1 仓库生成12git init [DIR-NAME] //将当前目录，或者指定的DIR-NAME目录初始化为仓库git clone REPOSITORY-URL [DIR-NAME] //将远端工程放入当前目录，或者重命名为指定的DIR-NAME的目录
 
-
+1.2 分支操作1234567git branch 显示本地分支，-r 显示远程分支 -a 显示所有...
             </p>
         </div>
       
@@ -256,25 +321,21 @@ web前端页面性能优化小结
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/前端/" class="color3">前端</a>
+    <a href="/tags/git/" class="color4">git</a>
       
-    <a href="/tags/加载/" class="color3">加载</a>
-      
-    <a href="/tags/部署/" class="color3">部署</a>
-      
-    <a href="/tags/优化/" class="color3">优化</a>
+    <a href="/tags/github/" class="color2">github</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/07/01/2015-07/2015-07-11-fe-load-deploy-opt/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2016-01/2016-01-18-git-commands/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -282,14 +343,92 @@ web前端页面性能优化小结
 
 
   
-    <article id="post-2015-07/2015-07-15-xmpp-httpbind-ie8" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2016-01/2016-01-18-javascript-regex-uglify" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-07/2015-07-15-xmpp-httpbind-ie8/"  target="_blank"  >XMPP HTTP bind ie8 session cookie</a>
+      <a class="article-title" href="/2021/07/02/2016-01/2016-01-18-javascript-regex-uglify/"  target="_blank"  >JavaScript正则表达式应用 移除注释</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/前端开发/">前端开发</a>
+                  
+                  <a href="/categories/Web开发/">Web开发</a>
+                  
+                  <a href="/categories/JavaScript/">JavaScript</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2021/07/02/2016-01/2016-01-18-javascript-regex-uglify/"  target="_blank" >
+                
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript正则表达式应用 移除注释" title="JavaScript正则表达式应用 移除注释">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                1 使用JavaScript正则表达式匹配注释1.1 匹配velocity注释
+单行注释 /##[^\r\n]*/g
+多行注释 /#*[\s\S]*?*#/g
+
+1.2 匹配HTML注释
+匹配HTML注释保护IE条件注释 /&lt;!--(?!\s*\[if)[\s\S]*?--&gt;/g
+
+1.3 匹配CSS
+匹配CSS 标签 /&lt;(style)[\w\W]*?...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/JavaScript/" class="color1">JavaScript</a>
+      
+    <a href="/tags/正则表达式/" class="color1">正则表达式</a>
+      
+    <a href="/tags/移除注释/" class="color5">移除注释</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2021/07/02/2016-01/2016-01-18-javascript-regex-uglify/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-2016-01/2016-01-18-react-basics" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/02/2016-01/2016-01-18-react-basics/"  target="_blank"  >react 实战参考</a>
     </h1>
   
 
@@ -301,6 +440,8 @@ web前端页面性能优化小结
                   
                   <a href="/categories/前端开发/">前端开发</a>
                   
+                  <a href="/categories/JavaScript/">JavaScript</a>
+                  
               </span>
           
       </header>
@@ -308,15 +449,28 @@ web前端页面性能优化小结
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-07/2015-07-15-xmpp-httpbind-ie8/"  target="_blank" >
+            <a href="/2021/07/02/2016-01/2016-01-18-react-basics/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="XMPP HTTP bind ie8 session cookie" title="XMPP HTTP bind ie8 session cookie">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="react 实战参考" title="react 实战参考">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
-                1 问题描述1.1 场景一个简单的单点登录的场景，客户端需要访问app.test.com这个域，而app这个域要求客户端经过auth.test.com的认证，那么就需要向auth域发送一个认证请求，并在认证通过后设置认证相关信息的cookie，这个cookie需要是app域的，因为在访问app域的时候需要带上。浏览器的隐私策略可能在访问app这个域的时候，不会带上刚刚设置...
+                1 参考资料
+React官方文档
+React中文文档
+React中文文档
+React入门实例教程
+React入坑指南
+一看就懂的ReactJs入门教程（精华版）
+React中文开发手册
+React Native官方文档
+React Native中文参考
+深入浅出React Native
+From JSXTransformer to Babel
+
+
             </p>
         </div>
       
@@ -326,29 +480,168 @@ web前端页面性能优化小结
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/IE8/" class="color4">IE8</a>
+    <a href="/tags/JavaScript/" class="color1">JavaScript</a>
       
-    <a href="/tags/XMPP/" class="color5">XMPP</a>
-      
-    <a href="/tags/HTTP-BIND/" class="color5">HTTP-BIND</a>
-      
-    <a href="/tags/Cookie/" class="color2">Cookie</a>
-      
-    <a href="/tags/Session/" class="color3">Session</a>
-      
-    <a href="/tags/P3P/" class="color4">P3P</a>
+    <a href="/tags/React/" class="color1">React</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/07/01/2015-07/2015-07-15-xmpp-httpbind-ie8/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2016-01/2016-01-18-react-basics/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-2015-05/2015-05-22-using-sublime-text" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/02/2015-05/2015-05-22-using-sublime-text/"  target="_blank"  >Sublime Text 使用和配置</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/开发环境/">开发环境</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2021/07/02/2015-05/2015-05-22-using-sublime-text/"  target="_blank" >
+                
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="Sublime Text 使用和配置" title="Sublime Text 使用和配置">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                1 快捷键1.1 查找
+文件名过滤   Ctrl + P  可以@和：符号与Ctrl+P和Ctrl+G配合使用
+符号过滤     Ctrl + R
+跳到指定行    Ctrl + G
+符号查找       Ctrl + F
+文件中查找       Ctrl + Shift + F
+代码范围查找    Ctrl + Shift + Space, Ctrl + Shift +...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/快捷键/" class="color4">快捷键</a>
+      
+    <a href="/tags/SublimeText2/" class="color5">Sublime Text 2</a>
+      
+    <a href="/tags/插件推荐/" class="color5">插件推荐</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2021/07/02/2015-05/2015-05-22-using-sublime-text/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-2015-04/2015-04-23-javascript-memory" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/07/02/2015-04/2015-04-23-javascript-memory/"  target="_blank"  >JavaScript内存管理</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/编程语言/">编程语言</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2021/07/02/2015-04/2015-04-23-javascript-memory/"  target="_blank" >
+                
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript内存管理" title="JavaScript内存管理">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                1 参考
+理解JavaScript 内存分配
+JavaScript对象模型-执行模型
+JavaScript内存分析
+JavaScript内存管理
+内存管理
+JavaScript内存优化
+分析内存使用情况 (JavaScript)
+JavaScript内存优化
+我们应该如何去了解JavaScript引擎的工作原理
+
+
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/JavaScript/" class="color1">JavaScript</a>
+      
+    <a href="/tags/内存管理/" class="color5">内存管理</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2021/07/02/2015-04/2015-04-23-javascript-memory/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -363,7 +656,7 @@ web前端页面性能优化小结
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-07/2015-07-06-javascript-this/"  target="_blank"  >JavaScript this 理解</a>
+      <a class="article-title" href="/2021/07/02/2015-07/2015-07-06-javascript-this/"  target="_blank"  >JavaScript this 理解</a>
     </h1>
   
 
@@ -382,7 +675,7 @@ web前端页面性能优化小结
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-07/2015-07-06-javascript-this/"  target="_blank" >
+            <a href="/2021/07/02/2015-07/2015-07-06-javascript-this/"  target="_blank" >
                 
                 <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript this 理解" title="JavaScript this 理解">
                 
@@ -401,7 +694,7 @@ web前端页面性能优化小结
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
@@ -419,7 +712,7 @@ web前端页面性能优化小结
 
         </ul>
         
-            <a href="/2021/07/01/2015-07/2015-07-06-javascript-this/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-07/2015-07-06-javascript-this/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -427,14 +720,14 @@ web前端页面性能优化小结
 
 
   
-    <article id="post-2015-07/2015-07-07-javascript-object-prototype" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-07/2015-07-05-javascript-async-defer" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-07/2015-07-07-javascript-object-prototype/"  target="_blank"  >JavaScript prototype 原型 继承 理解</a>
+      <a class="article-title" href="/2021/07/02/2015-07/2015-07-05-javascript-async-defer/"  target="_blank"  >HTML script defer async 区别 对比</a>
     </h1>
   
 
@@ -453,23 +746,16 @@ web前端页面性能优化小结
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-07/2015-07-07-javascript-object-prototype/"  target="_blank" >
+            <a href="/2021/07/02/2015-07/2015-07-05-javascript-async-defer/"  target="_blank" >
                 
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript prototype 原型 继承 理解" title="JavaScript prototype 原型 继承 理解">
+                <img src="http://rawbin-.github.io/images/banner.jpg" alt="HTML script defer async 区别 对比" title="HTML script defer async 区别 对比">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
-                1 一些相关概念理解1.1 相关概念
-对象
-哲学上万物皆对象，具体指人们要研究的客观事物及对其进行的主观抽象；
-计算机理论思想中的对象是包含属性和相关行为的封装结构，是类的实例，类是对对象的抽象；
-计算机程序的对象是一块具体的内存区域，可以是变量、函数、数据结构以及他们的组合。
-JavaScript 中的对象指Object类型的实例，是属性的集合；
-
-
-属性属性是对象，原...
+                1 I. 外引用 script脚本加载过程1.1 A. 普通script 引用（不带defer，async）浏览器从头到尾按顺序解析，并占用式(阻塞解析)下载脚本，并执行，完成之后继续往下进行。
+1.2 B. 只带defer的script引用浏览器启用新的线程或进程异步下载（不阻塞解析），并在下载完成后不立即执行，等页面解析完成后再按解析的顺序执行。这样浏览器解析的脚本的...
             </p>
         </div>
       
@@ -479,7 +765,7 @@ JavaScript 中的对象指Object类型的实例，是属性的集合；
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
@@ -491,204 +777,15 @@ JavaScript 中的对象指Object类型的实例，是属性的集合；
       
     <a href="/tags/前端基础/" class="color5">前端基础</a>
       
-    <a href="/tags/原型/" class="color3">原型</a>
+    <a href="/tags/async/" class="color1">async</a>
+      
+    <a href="/tags/defer/" class="color1">defer</a>
       
   </li>
 
         </ul>
         
-            <a href="/2021/07/01/2015-07/2015-07-07-javascript-object-prototype/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-2015-07/2015-07-08-javascript-scope-closure" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-07/2015-07-08-javascript-scope-closure/"  target="_blank"  >JavaScript作用域 闭包 理解</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/开发技术/">开发技术</a>
-                  
-                  <a href="/categories/JavaScript/">JavaScript</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/07/01/2015-07/2015-07-08-javascript-scope-closure/"  target="_blank" >
-                
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="JavaScript作用域 闭包 理解" title="JavaScript作用域 闭包 理解">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                1 相关概念理解1.1 作用域顾名思义，作用域就是起作用的范围，可访问的范围，有效的范围。
-1.2 词法作用域词法就是单词的形式和用法，词法作用域就是由词法确定的作用域。JavaScript的作用域是词法作用域，可以等同于静态作用域，意指只需要读取源代码进行静态分析（不需要代码执行）就能确定的作用域。
-1.3 变量作用域一提到变量作用域，很快能想到的两个词“全局变量”和“...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/JavaScript/" class="color1">JavaScript</a>
-      
-    <a href="/tags/Web前端/" class="color1">Web前端</a>
-      
-    <a href="/tags/前端基础/" class="color5">前端基础</a>
-      
-    <a href="/tags/作用域/" class="color4">作用域</a>
-      
-    <a href="/tags/闭包/" class="color3">闭包</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2021/07/01/2015-07/2015-07-08-javascript-scope-closure/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-2015-07/2015-07-09-http-cookie-session" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-07/2015-07-09-http-cookie-session/"  target="_blank"  >HTTP cookie session详解和对比</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/计算机基础/">计算机基础</a>
-                  
-                  <a href="/categories/计算机体系结构/">计算机体系结构</a>
-                  
-                  <a href="/categories/计算机网络/">计算机网络</a>
-                  
-                  <a href="/categories/HTTP/">HTTP</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/07/01/2015-07/2015-07-09-http-cookie-session/"  target="_blank" >
-                
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="HTTP cookie session详解和对比" title="HTTP cookie session详解和对比">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                
-Web服务器对应的客户端（浏览器）与服务器之间的数据交换的间歇性较大（即数据传输具有突发性，瞬时性），并且网络访问之间是相对独立的（关联性较低）。请求时建连接、请求完释放连接，以尽快将资源释放出来。Keep-Alive解决每次访问同一资源都建立TCP连接的问题。无状态是指服务器不知道客户端是什么状态。HTTP无状态的特性严重阻碍了这些交互式应用程序的实现。两种用于保持H...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/HTTP/" class="color5">HTTP</a>
-      
-    <a href="/tags/cookie/" class="color2">cookie</a>
-      
-    <a href="/tags/session/" class="color3">session</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2021/07/01/2015-07/2015-07-09-http-cookie-session/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-2015-07/2015-07-09-http-get-post-compare" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/07/01/2015-07/2015-07-09-http-get-post-compare/"  target="_blank" >
-                
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="" title="">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                
-layout: posttitle: “HTTP GET POST 对比 区别”categories: [计算机基础,计算机体系结构,计算机网络,HTTP]tags: [HTTP,GET,POST]
-
-1 GET和POST对比1.1 相同点
-都是HTTP的请求方法，都能携带数据
-
-1.2 不同点
-职责在HTTP的定义中，GET被用来做只读信息请求，POST用来写数据（这...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
-            
-            
-        </ul>
-        
-            <a href="/2021/07/01/2015-07/2015-07-09-http-get-post-compare/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-07/2015-07-05-javascript-async-defer/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
@@ -703,7 +800,7 @@ layout: posttitle: “HTTP GET POST 对比 区别”categories: [计算机基础
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-07/2015-07-01-avalon-source/"  target="_blank"  >avalon 原理 源码分析</a>
+      <a class="article-title" href="/2021/07/02/2015-07/2015-07-01-avalon-source/"  target="_blank"  >avalon 原理 源码分析</a>
     </h1>
   
 
@@ -720,7 +817,7 @@ layout: posttitle: “HTTP GET POST 对比 区别”categories: [计算机基础
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2021/07/01/2015-07/2015-07-01-avalon-source/"  target="_blank" >
+            <a href="/2021/07/02/2015-07/2015-07-01-avalon-source/"  target="_blank" >
                 
                 <img src="http://rawbin-.github.io/images/banner.jpg" alt="avalon 原理 源码分析" title="avalon 原理 源码分析">
                 
@@ -746,7 +843,7 @@ avalonJS-源码阅读（三）
         
         <ul class="article-footer-menu">
             
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
+                <li><i class="fa fa-calendar"></i>2021-07-02</li>
             
             
   <li class="article-footer-tags">
@@ -760,80 +857,7 @@ avalonJS-源码阅读（三）
 
         </ul>
         
-            <a href="/2021/07/01/2015-07/2015-07-01-avalon-source/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-2015-07/2015-07-05-javascript-async-defer" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/01/2015-07/2015-07-05-javascript-async-defer/"  target="_blank"  >HTML script defer async 区别 对比</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/开发技术/">开发技术</a>
-                  
-                  <a href="/categories/JavaScript/">JavaScript</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2021/07/01/2015-07/2015-07-05-javascript-async-defer/"  target="_blank" >
-                
-                <img src="http://rawbin-.github.io/images/banner.jpg" alt="HTML script defer async 区别 对比" title="HTML script defer async 区别 对比">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                1 I. 外引用 script脚本加载过程1.1 A. 普通script 引用（不带defer，async）浏览器从头到尾按顺序解析，并占用式(阻塞解析)下载脚本，并执行，完成之后继续往下进行。
-1.2 B. 只带defer的script引用浏览器启用新的线程或进程异步下载（不阻塞解析），并在下载完成后不立即执行，等页面解析完成后再按解析的顺序执行。这样浏览器解析的脚本的...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2021-07-01</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/JavaScript/" class="color1">JavaScript</a>
-      
-    <a href="/tags/Web前端/" class="color1">Web前端</a>
-      
-    <a href="/tags/前端基础/" class="color5">前端基础</a>
-      
-    <a href="/tags/async/" class="color1">async</a>
-      
-    <a href="/tags/defer/" class="color1">defer</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2021/07/01/2015-07/2015-07-05-javascript-async-defer/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
+            <a href="/2021/07/02/2015-07/2015-07-01-avalon-source/#more" class="article-more-link"  target="_blank" >打开看看&gt;&gt;</a>
         
     </footer>
   </div>
