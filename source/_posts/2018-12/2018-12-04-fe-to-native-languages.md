@@ -21,7 +21,7 @@ tags: [原生,Native,鸿蒙,harmonyos,安卓,Android,苹果,iOS,Flutter]
 
 ## 变量
 
-### 变量定义
+### 变量声明
 
 - `var` 关键字定义变量，分号分隔语句。
 - `int a = null;` 或`int ? a;`支持 `null`初始值 `null safe`

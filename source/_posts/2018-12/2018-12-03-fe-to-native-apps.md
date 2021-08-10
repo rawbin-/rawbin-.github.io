@@ -19,7 +19,7 @@ tags: [原生,Native,鸿蒙,harmonyos,安卓,Android,苹果,iOS,Flutter]
 
 ## 网络资源请求
 
-## 本地数据
+## 本地数据存储
 
 ## 上线流程
 
@@ -56,7 +56,7 @@ tags: [原生,Native,鸿蒙,harmonyos,安卓,Android,苹果,iOS,Flutter]
 - [http](https://pub.dev/packages/http)
 - [dart:io httpClient](https://api.flutter.dev/flutter/dart-io/HttpClient-class.html)
 
-## 本地数据
+## 本地数据存储
 
 - 简单本地数据存储 [shared_preference](https://pub.dev/packages/shared_preferences)
 
@@ -148,7 +148,7 @@ tags: [原生,Native,鸿蒙,harmonyos,安卓,Android,苹果,iOS,Flutter]
 
 
 
-## 本地数据
+## 本地数据存储
 
 ### 用JS开发
 
