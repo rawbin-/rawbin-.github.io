@@ -31,7 +31,7 @@ tags: [WebComponent,React,Vue,小程序,组件化]
 
 ## WebComponent
 
-- 自定义元素
+- [自定义元素](https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements)
 - HTML模板
 - Shadow DOM
 - HTML import
