@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "前端组件化那些事"
+sticky: 95
 cagegories: [Web开发,前端开发,移动端]
 tags: [WebComponent,React,Vue,小程序,组件化]
 ---

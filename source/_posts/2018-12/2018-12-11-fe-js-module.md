@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "JavaScript模块标准化那些事"
+sticky: 95
 cagegories: [Web开发,前端开发,移动端]
 tags: [JavaScript,CommonJS,ECMAScript,模块化]
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "排列组合算法那些事"
+sticky: 100
 categories: [Web开发,前端开发]
 tags: [数据结构,算法,排列,组合]
 ---

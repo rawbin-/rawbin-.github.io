@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "前端三剑客JavaScript、CSS、HTML模块化那些事"
+sticky: 95
 cagegories: [Web开发,前端开发,移动端]
 tags: [JavaScript,CSS,HTML,模块化]
 ---

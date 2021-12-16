@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "前端页面加载那些事"
+sticky: 90
 cagegories: [Web开发,前端开发,移动端]
 tags: [页面加载,页面优化,性能优化]
 ---

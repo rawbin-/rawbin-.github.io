@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Puppeteer 应用实战"
+sticky: 90
 categroies: [Web开发,前端开发]
 tags: [puppeteer,js,headless chrome]
 ---

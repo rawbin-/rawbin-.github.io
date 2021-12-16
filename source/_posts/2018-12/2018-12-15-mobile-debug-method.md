@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "移动端页面真机或模拟器调试方法分场景攻坚"
+sticky: 90
 categories: [Web开发,前端开发]
 tags: [移动端,页面,调试,Android,iOS,HarmonyOS,安卓,苹果,鸿蒙]
 ---
