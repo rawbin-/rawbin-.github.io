@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "chrome浏览器下音视频autoplay的情况记录"
-sticky: 100
+sticky: 95
 categories: [Web开发,前端开发]
 tags: [音视频,自动播放]
 ---

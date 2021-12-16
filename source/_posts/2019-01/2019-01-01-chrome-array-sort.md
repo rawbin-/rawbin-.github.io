@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Chrome数组排序那些事"
-sticky: 100
+sticky: 98
 cagegories: [Web开发,前端开发,移动端]
 tags: [异步,JavaScript,NodeJS,浏览器]
 ---
