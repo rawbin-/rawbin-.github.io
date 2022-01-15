@@ -1,0 +1,9 @@
+{
+  "foldHeading": true,
+  "foldIndent": true,
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "./",
+  "legacyEditor": false,
+  "newLinkFormat": "shortest",
+  "newFileLocation": "current"
+}

@@ -1,0 +1,156 @@
+{
+  "main": {
+    "id": "1487ec14e2a98928",
+    "type": "split",
+    "children": [
+      {
+        "id": "229385a807d2b65e",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "__基础原理/__前端工程化原理.md",
+            "mode": "source",
+            "backlinks": true,
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "faf40f74938288cd",
+    "type": "split",
+    "children": [
+      {
+        "id": "4bbc56f3b7610991",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d4fee861841e9904",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "ecdd6978a63fb0a7",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "负载",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1a258424ebe83716",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "34d7617ff56d70f5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "__基础原理/__前端工程化原理.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ea5d2361ebdf52c8",
+    "type": "split",
+    "children": [
+      {
+        "id": "c4a4e784dba8f827",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "33a5e8d82eaad3e7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "__基础原理/__前端工程化原理.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "81e2e24a53009e65",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "__基础原理/__前端工程化原理.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "5d2d09895c9bb492",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "b5f809cd141e6724",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "__基础原理/__前端工程化原理.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "229385a807d2b65e",
+  "lastOpenFiles": [
+    "__基础原理/__前端工程化原理.md",
+    "__应用实践/__前端工程化应用实践.md",
+    "编译技术/自然语言处理.md",
+    "编译技术/编译技术.md",
+    "Vue/Vue后台管理模板.md",
+    "React/React后台管理模板.md",
+    "Vue/Vue配置化表单.md",
+    "React/React配置化表单.md",
+    "前端解决方案/前端配置化表单.md",
+    "前端解决方案/前端高效可定制管理系统.md"
+  ]
+}
