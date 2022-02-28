@@ -79,6 +79,7 @@ tags: [nginx,history mode,spa,前后端分离]
 - 本地dev-server也有找不到路径的问题
 - 项目部分还需要做一些配置，以适配目录的部署，也就是history的baseName，下面是一个相对通用的解决
   
+
 React Router  或者 Vue Router使用如下方式进行获取  
 
 ```
@@ -250,3 +251,54 @@ brew install nginx-full --with-echo-module --with-debug ## 第一次~
 brew reinstall nginx-full --with-echo-module --with-debug ## 老司机专用
 
 ```
+
+
+
+# Content-length 为空 反向代理无效的问题
+
+```
+# proxy_set_header Host $proxy_host;
+# proxy_set_header Host $http_host;
+proxy_set_header Host $proxy_host;
+```
+
+http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_set_header
+
+上面两条都可能出现反向代理返回为空的情况，如果HOST设置为了其他的，可能走了CORS的配置，然后给了个OPTIONS的结果body全为空，可以调整为上面的配置，或者删掉配置
+
+```
+curl 'http://mytest.bybit.com:8080/path/to/your/api' \
+  -H 'Connection: keep-alive' \
+  -H 'Pragma: no-cache' \
+  -H 'Cache-Control: no-cache' \
+  -H 'Authorization: ' \
+  -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36' \
+  -H 'Accept: */*' \
+  -H 'Referer: http://mytest.bybit.com:8000/pressure/plan/PressPlan?planId=13' \
+  -H 'Accept-Language: zh-CN,zh;q=0.9' \
+  -H 'Cookie:' \
+  --compressed \
+  --insecure
+  
+HTTP/1.1 200 OK
+Server: nginx/1.19.10
+Date: Mon, 17 Jan 2022 08:42:28 GMT
+Content-Type: application/octet-stream
+Content-Length: 0
+Connection: keep-alive
+
+```
+
+
+
+https://www.cnblogs.com/Qooo/p/13853465.html
+
+https://blog.51cto.com/u_15127669/4002499
+
+https://blog.csdn.net/yihanzhi/article/details/107002881
+
+https://cuiqingcai.com/8443.html
+
+https://www.cnblogs.com/faberbeta/p/nginx008.html
+
+https://www.cnblogs.com/Qooo/p/13853465.html
