@@ -107,3 +107,17 @@ deploy:
   type: git
   repository: git@github.com:rawbin-/rawbin-.github.io.git
   branch: gh-pages
+
+markdown:
+  plugins:
+    - markdown-it-foot-note
+    - markdown-it-sup
+    - markdown-it-sub
+    - markdown-it-abbr
+    - markdown-it-emoji
+    - hexo-math
+
+mathjax:
+  enable: true
+  per_page: true
+  cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
