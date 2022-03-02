@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>docker安装配置生态全览 | 技术人生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="技术，生活" />
+  
+  <meta name="description" content="基本概念虚拟化 虚拟机和容器都属于软件虚拟化的范畴，软件虚拟化&#x3D;&gt;平台虚拟化&#x3D;&gt;操作系统虚拟化&#x3D;&gt;容器技术(docker为其中一种) 容器虚拟化可以更高效的构建应用，也更容易管理维护  镜像 是docker容器的基础，是docker容器的初始状态 包含数据和必要的元数据（JSON描述文件，描述镜像信息、数据之间的关系，容器配置等）  容器 是一个可移植的运行单元，是docker镜">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker安装配置生态全览">
+<meta property="og:url" content="http://rawbin-.github.io/dev-env/2018-09-20-docker-config/index.html">
+<meta property="og:site_name" content="技术人生">
+<meta property="og:description" content="基本概念虚拟化 虚拟机和容器都属于软件虚拟化的范畴，软件虚拟化&#x3D;&gt;平台虚拟化&#x3D;&gt;操作系统虚拟化&#x3D;&gt;容器技术(docker为其中一种) 容器虚拟化可以更高效的构建应用，也更容易管理维护  镜像 是docker容器的基础，是docker容器的初始状态 包含数据和必要的元数据（JSON描述文件，描述镜像信息、数据之间的关系，容器配置等）  容器 是一个可移植的运行单元，是docker镜">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-31T02:37:59.944Z">
+<meta property="article:modified_time" content="2021-12-31T02:37:59.944Z">
+<meta property="article:author" content="小淼焱">
+<meta property="article:tag" content="部署">
+<meta property="article:tag" content="自动化">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="容器化">
+<meta property="article:tag" content="可伸缩">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?true";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=true&web_id=true" language="JavaScript"></script>
+  </div>
+
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">简单，创造</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        简单，创造
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        像傻子一样生活，像疯子一样创造
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="rawbin-" target="_blank" href="//rawbin-.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/rawbin-">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-dev-env/2018-09-20-docker-config" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      docker安装配置生态全览
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Web开发/">Web开发</a>
+                  
+                      <a href="/categories/前端开发/">前端开发</a>
+                  
+                      <a href="/categories/自动化/">自动化</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2021-12-31
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h2 id="虚拟化"><a href="#虚拟化" class="headerlink" title="虚拟化"></a>虚拟化</h2><ul>
+<li>虚拟机和容器都属于软件虚拟化的范畴，软件虚拟化=&gt;平台虚拟化=&gt;操作系统虚拟化=&gt;容器技术(docker为其中一种)</li>
+<li>容器虚拟化可以更高效的构建应用，也更容易管理维护</li>
+</ul>
+<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><ul>
+<li>是docker容器的基础，是docker容器的初始状态</li>
+<li>包含数据和必要的元数据（JSON描述文件，描述镜像信息、数据之间的关系，容器配置等）</li>
+</ul>
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><ul>
+<li>是一个可移植的运行单元，是docker镜像的运行实例</li>
+<li>是基于docker镜像创建、包含运行某一特定应用程序所需要的的OS、软件、配置文件和数据的集合，是docker运行态的体现</li>
+</ul>
+<h2 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h2><ul>
+<li>镜像的存取的地方</li>
+</ul>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="CentOS-下安装"><a href="#CentOS-下安装" class="headerlink" title="CentOS 下安装"></a>CentOS 下安装</h2><h3 id="分步安装"><a href="#分步安装" class="headerlink" title="分步安装"></a>分步安装</h3><ul>
+<li><p>(如果有)删除旧版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo yum remove docker \</span><br><span class="line">                 docker-client \</span><br><span class="line">                 docker-client-latest \</span><br><span class="line">                 docker-common \</span><br><span class="line">                 docker-latest \</span><br><span class="line">                 docker-latest-logrotate \</span><br><span class="line">                 docker-logrotate \</span><br><span class="line">                 docker-engine</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>添加必要组件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update</span><br><span class="line">sudo yum install -y yum-utils device-mapper-persistent-data lvm2</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加<code>docker</code>软件源</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新软件源缓存并安装docker</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update</span><br><span class="line">sudo yum install -y docker-ce</span><br><span class="line">sudo systemctl start docker</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="脚本安装"><a href="#脚本安装" class="headerlink" title="脚本安装"></a>脚本安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line">## 注意安全 最好检查下</span><br><span class="line">sudo sh get-docker.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他环境"><a href="#其他环境" class="headerlink" title="其他环境"></a>其他环境</h2><ul>
+<li>参考客户端安装和脚本安装</li>
+</ul>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="数据管理"><a href="#数据管理" class="headerlink" title="数据管理"></a>数据管理</h2><h3 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h3><p><code>docker volumn</code>命令及其子命令来管理</p>
+<ul>
+<li><code>create</code></li>
+<li><code>inspect</code></li>
+<li><code>ls</code></li>
+<li><code>prune</code></li>
+<li><code>rm</code></li>
+</ul>
+<p>可以在<code>docker run</code> 的时候绑定数据卷</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run [OPTIONS] --mount type=[volumn|bind|tmpfs],source=PATH,destination=PATH CONTAINER COMMAND [ARGS...]</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据卷容器"><a href="#数据卷容器" class="headerlink" title="数据卷容器"></a>数据卷容器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -v /dbdata --name dbdata ubuntu ## 创建数据容器</span><br><span class="line">docker run -it --volumes-from dbdata --name db1 ubuntu</span><br><span class="line">docker run -it --volumes-from dbdata --name db2 ubuntu ## 其他容器挂载数据卷</span><br></pre></td></tr></table></figure>
+
+<h4 id="利用数据卷容器迁移数据"><a href="#利用数据卷容器迁移数据" class="headerlink" title="利用数据卷容器迁移数据"></a>利用数据卷容器迁移数据</h4><h5 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --volumes-from dbdata -v $(pwd):/backup --name worker ubuntu tar cvf /backup/backup.tart /dbdata ## 启动容器并备份到 backup.tar</span><br></pre></td></tr></table></figure>
+
+<h5 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -v /dbdata --name dbdata2 ubuntu /bin/bash ## 创建带数据卷的容器dbdata2</span><br><span class="line">docker run --volumes-from dbdata2 -v $(pwd):/backup busybox tar xvf /backup/backup.tar</span><br></pre></td></tr></table></figure>
+
+<h2 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h2><h3 id="随机端口"><a href="#随机端口" class="headerlink" title="随机端口"></a>随机端口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -P NAME</span><br></pre></td></tr></table></figure>
+
+<h3 id="指定端口"><a href="#指定端口" class="headerlink" title="指定端口"></a>指定端口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p IP:HOST_PORT:CONTAINER_PORT|IP::CONTAINER_PORT|HOST_PORT:CONTAINER_PORT</span><br></pre></td></tr></table></figure>
+
+<p>映射结果区别</p>
+<ul>
+<li><code>IP:HOST_PORT:CONTAINER_PORT</code> 指定地址的指定端口</li>
+<li><code>IP::CONTAINER_PORT</code> 指定地址的任一端口</li>
+<li><code>HOST_PORT:CONTAINER_PORT</code> 所有地址的指定端口</li>
+</ul>
+<h3 id="查看端口映射"><a href="#查看端口映射" class="headerlink" title="查看端口映射"></a>查看端口映射</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker port NAME PORT</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Dockerfile指南"><a href="#Dockerfile指南" class="headerlink" title="Dockerfile指南"></a><code>Dockerfile</code>指南</h2><h3 id="主体结构"><a href="#主体结构" class="headerlink" title="主体结构"></a>主体结构</h3><ul>
+<li><p>基础镜像信息</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FROM NAME[:TAG]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>维护者信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LABEL maintainer docker_user&lt;xxx@email.com&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>镜像操作指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RUN xxx</span><br><span class="line">RUN yyy ## 每一条RUN指令镜像添加一层并提交</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>容器启动时指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CMD [&quot;nginx&quot;,&quot;-g&quot;,&quot;deamon off;&quot;]</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="指令参考"><a href="#指令参考" class="headerlink" title="指令参考"></a>指令参考</h3><ul>
+<li>配置指令<ul>
+<li><code>ARG</code> 定义创建镜像过程使用的变量</li>
+<li><code>FROM</code> 指定所创建镜像的基础镜像</li>
+<li><code>LABEL</code> 为生成的镜像添加元数据标签信息</li>
+<li><code>EXPOSE</code> 声明镜像内服务监听的端口，只起声明作用</li>
+<li><code>ENV</code> 声明环境变量</li>
+<li><code>ENTRYPORT</code> 指定镜像的默认入口命令</li>
+<li><code>VOLUME</code> 创建一个数据挂载点</li>
+<li><code>USER</code> 指定运行容器时的用户名或者UID</li>
+<li><code>WORKDIR</code> 配置工作目录</li>
+<li><code>ONBUILD</code> 创建子镜像时指定自动执行的操作指令</li>
+<li><code>STOPSIGNAL</code> 指定退出的信号值</li>
+<li><code>HEALTHCHECK</code> 配置所启动容器如何进行健康检查</li>
+<li><code>SHELL</code> 指定默认shell类型</li>
+</ul>
+</li>
+<li>操作指令 <ul>
+<li><code>RUN</code> 运行指定命令</li>
+<li><code>CMD</code> 启动容器时指定默认执行的命令</li>
+<li><code>ADD</code> 添加内容到镜像</li>
+<li><code>COPY</code> 复制内容到镜像</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用Dockerfile创建镜像"><a href="#使用Dockerfile创建镜像" class="headerlink" title="使用Dockerfile创建镜像"></a>使用<code>Dockerfile</code>创建镜像</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [image] build [OPTIONS] PATH | URL | -</span><br></pre></td></tr></table></figure>
+
+<p>该命令会读取指定路径（包括子目录）下的<code>Dockerfile</code>，并将改路径下所有数据作为上下文发给<code>docker</code>服务端，服务端在校验<code>Dockerfile</code>格式通过后，逐条执行其中定义的指令，碰到<code>ADD</code>，<code>COPY</code>，<code>RUN</code>指令生成一层新的镜像，最终创建成功返回镜像ID。</p>
+<p>上下文文件过大，会延缓创建过程，非必须文件不要放到上下文路径下，如果使用非上下文路径下的<code>Dockerfile</code>可以使用<code>-f</code>来指定路径，也可以通过<code>.dockerignore</code>文件来指定忽略的文件，支持通配符</p>
+<ul>
+<li><code>*</code> 表示任意多个字符</li>
+<li><code>?</code> 代表单个字符</li>
+<li><code>!</code> 表示不匹配</li>
+</ul>
+<h1 id="命令参考"><a href="#命令参考" class="headerlink" title="命令参考"></a>命令参考</h1><h2 id="Docker操作"><a href="#Docker操作" class="headerlink" title="Docker操作"></a>Docker操作</h2><h3 id="获取镜像"><a href="#获取镜像" class="headerlink" title="获取镜像"></a>获取镜像</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [image] pull NAME[:TAG]</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看镜像信息"><a href="#查看镜像信息" class="headerlink" title="查看镜像信息"></a>查看镜像信息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images  或者 docker image ls</span><br></pre></td></tr></table></figure>
+
+<h3 id="搜索镜像"><a href="#搜索镜像" class="headerlink" title="搜索镜像"></a>搜索镜像</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search [option] keyword</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi NAME 或者 docker image rm NAME</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建镜像"><a href="#创建镜像" class="headerlink" title="创建镜像"></a>创建镜像</h3><h4 id="基于已有容器创建"><a href="#基于已有容器创建" class="headerlink" title="基于已有容器创建"></a>基于已有容器创建</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] commit [OPTIONS] CONTAINER [REPOSITORY:[:TAG]]</span><br></pre></td></tr></table></figure>
+
+<h4 id="基于本地模板导入"><a href="#基于本地模板导入" class="headerlink" title="基于本地模板导入"></a>基于本地模板导入</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [image] import [OPTIONS] file|URL|-[REPOSITORY[:TAG]]</span><br></pre></td></tr></table></figure>
+
+<h4 id="基于Dockerfile-创建"><a href="#基于Dockerfile-创建" class="headerlink" title="基于Dockerfile 创建"></a>基于Dockerfile 创建</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FROM REPOSITORY:TAG</span><br><span class="line"></span><br><span class="line">LABEL version=&quot;1.0&quot; maintainer=&quot;xxx&quot;</span><br><span class="line"></span><br><span class="line">RUN xxxx</span><br></pre></td></tr></table></figure>
+
+<h3 id="存储和导入"><a href="#存储和导入" class="headerlink" title="存储和导入"></a>存储和导入</h3><h4 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [image] save -o xxx REPOSITORY:TAG</span><br></pre></td></tr></table></figure>
+
+<h4 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i xxx</span><br></pre></td></tr></table></figure>
+
+<h3 id="上传镜像"><a href="#上传镜像" class="headerlink" title="上传镜像"></a>上传镜像</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [image] push NAME[:TAG] | [REPOSITORY[:RETISTRY_PORT]NAME[:TAG]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="容器操作"><a href="#容器操作" class="headerlink" title="容器操作"></a>容器操作</h2><h3 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] create [OPTIONS] NAME[:TAG]</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建后启动"><a href="#创建后启动" class="headerlink" title="创建后启动"></a>创建后启动</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] start [OPTIONS] NAME[:TAG]</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建并启动"><a href="#创建并启动" class="headerlink" title="创建并启动"></a>创建并启动</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] run [OPTIONS] NAME[:TAG]</span><br></pre></td></tr></table></figure>
+
+<p>相当于先执行<code>docker create</code> ，再执行<code>docker start</code></p>
+<p><strong>常见错误</strong></p>
+<ul>
+<li>125 Docker daemon 执行出错，比如指定了不支持的docker命令参数</li>
+<li>126 所指定命令无法执行，例如权限出错</li>
+<li>127 容器内命令无法找到</li>
+</ul>
+<p><strong>常用参数</strong></p>
+<ul>
+<li><code>-i</code> 让容器的标准输入保持打开</li>
+<li><code>-t</code> 分配一个伪终端</li>
+<li><code>-d</code> 守护状态运行</li>
+</ul>
+<h4 id="等待退出并打印返回结果"><a href="#等待退出并打印返回结果" class="headerlink" title="等待退出并打印返回结果"></a>等待退出并打印返回结果</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] wait CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看容器输出"><a href="#查看容器输出" class="headerlink" title="查看容器输出"></a>查看容器输出</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] logs NAME[:TAG]</span><br></pre></td></tr></table></figure>
+
+<h4 id="暂停-恢复容器"><a href="#暂停-恢复容器" class="headerlink" title="暂停/恢复容器"></a>暂停/恢复容器</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] pause/unpause CONTAINER [CONTAINER]</span><br></pre></td></tr></table></figure>
+
+<h3 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker [container]  stop [-t|--time[=10]] CONTAINER [CONTAINER...]</span><br><span class="line">docker [container]  kill  CONTAINER [CONTAINER...] ## 强行停止</span><br><span class="line">docker [container] prune ## 清理停止状态的容器</span><br></pre></td></tr></table></figure>
+
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><h4 id="attach命令"><a href="#attach命令" class="headerlink" title="attach命令"></a>attach命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] attach [--detach-keys[=[]]] [--no-stdin] [--sig-proxy[=true]] CONTAINER</span><br></pre></td></tr></table></figure>
+
+<p>多个窗口同时attach的时候，多个窗口会同步显示，一个阻塞其他的也无法操作</p>
+<h4 id="exec命令"><a href="#exec命令" class="headerlink" title="exec命令"></a>exec命令</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] exec [-d|--detach] [--detach-keys[=[]]] [-i|--interactive] [--privileged] [-t|--tty] [-u|--user[=USER]] CONTAINER COMMAND [ARGS]</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] rm [-f|--force] [-l|--link] [-v|--volumes] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
+
+<p>只能删除已经处于终止或者退出状态的容器，并不能删除处于运行状态的容器，<code>-f</code>会先发<code>SIGKILL</code>给容器终止应用然后删除。</p>
+<h3 id="导入和导出"><a href="#导入和导出" class="headerlink" title="导入和导出"></a>导入和导出</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] export [-o|--output[=&quot;xx.tar&quot;]] CONTAINER</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] import [-c|--change[=[]]] [-m|--message[=MESSAGE]] file|URL|-[REPOSITORY[:TAG]]</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看容器"><a href="#查看容器" class="headerlink" title="查看容器"></a>查看容器</h3><h4 id="查看容器详情"><a href="#查看容器详情" class="headerlink" title="查看容器详情"></a>查看容器详情</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] inspect [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看容器内进程"><a href="#查看容器内进程" class="headerlink" title="查看容器内进程"></a>查看容器内进程</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] top [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><h4 id="查看命令帮助"><a href="#查看命令帮助" class="headerlink" title="查看命令帮助"></a>查看命令帮助</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker container help</span><br><span class="line">docker help</span><br></pre></td></tr></table></figure>
+
+<h4 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看容器变更"><a href="#查看容器变更" class="headerlink" title="查看容器变更"></a>查看容器变更</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] diff CONTAINER</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看端口映射-1"><a href="#查看端口映射-1" class="headerlink" title="查看端口映射"></a>查看端口映射</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] port CONTAINER [PRIVATE_PORT[/PORT]]</span><br></pre></td></tr></table></figure>
+
+<h4 id="更新配置"><a href="#更新配置" class="headerlink" title="更新配置"></a>更新配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker [container] update [OPTIONS] CONTAINER [CONTAINER...]</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="集群运维管理"><a href="#集群运维管理" class="headerlink" title="集群运维管理"></a>集群运维管理</h1><h2 id="容器编排调度"><a href="#容器编排调度" class="headerlink" title="容器编排调度"></a>容器编排调度</h2><p>业界的一些组合</p>
+<h3 id="Swarm-Compose-Docker"><a href="#Swarm-Compose-Docker" class="headerlink" title="Swarm+Compose - Docker"></a>Swarm+Compose - Docker</h3><h3 id="Kubernetes-Google"><a href="#Kubernetes-Google" class="headerlink" title="Kubernetes - Google"></a>Kubernetes - Google</h3><h3 id="Fleet-CentOS"><a href="#Fleet-CentOS" class="headerlink" title="Fleet - CentOS"></a>Fleet - CentOS</h3><h3 id="Marathon-Mesos-Apache"><a href="#Marathon-Mesos-Apache" class="headerlink" title="Marathon+Mesos - Apache"></a>Marathon+Mesos - Apache</h3><h3 id="Rancher"><a href="#Rancher" class="headerlink" title="Rancher"></a>Rancher</h3><h3 id="Nomad"><a href="#Nomad" class="headerlink" title="Nomad"></a>Nomad</h3><h3 id="DC-OS"><a href="#DC-OS" class="headerlink" title="DC/OS"></a>DC/OS</h3><h2 id="Docker集群管理"><a href="#Docker集群管理" class="headerlink" title="Docker集群管理"></a>Docker集群管理</h2><h3 id="docker-compose-容器编排"><a href="#docker-compose-容器编排" class="headerlink" title="docker-compose 容器编排"></a>docker-compose 容器编排</h3><ul>
+<li><code>dockder-compose -f docker-compose.yml</code> 指定配置文件</li>
+<li><code>docker-compose config</code> 检查<code>docker-compose.yml</code>的语法问题 也可以输出内容</li>
+<li><code>docker-compose -p PREFIX up </code> 指定启动是的服务前缀</li>
+<li><code>docker-compose build MIRROR_NAME</code> 构建镜像</li>
+<li><code>docker-compose bundle</code>  生成<code>.dab</code>包，给<code>docker deploy</code>来部署</li>
+<li><code>docker-compose create</code> 创建服务容器</li>
+<li><code>docker-compose down</code> 清理项目,停止容器并删除包括容器、网络、数据卷等内容(跳过正在使用的)，对应<code>up</code></li>
+<li><code>docker-compose events</code>  查看配置相关的服务的事件</li>
+<li><code>docker-compose exec</code> 进入服务</li>
+<li><code>docker-compose kill</code> kill服务</li>
+<li><code>docker-compose logs</code> 查看服务容器日志</li>
+<li><code>docker-compose pause</code> 暂停服务容器</li>
+<li><code>docker-compose port</code> 查看服务容器端口状态</li>
+<li><code>docker-compose ps</code> 查看容器列表</li>
+<li><code>docker-compose images</code> 查看服务镜像列表</li>
+<li><code>docker-compose pull</code> 拉取项目镜像</li>
+<li><code>docker-compose push</code> 推送项目镜像</li>
+<li><code>docker-compose restart</code> 重启服务容器</li>
+<li><code>docker-compose rm</code> 删除项目容器</li>
+<li><code>docker-compose run</code> 执行一次命令</li>
+<li><code>docker-compose scale SERVICE_NAME=NUM</code> 设置服务容器数量</li>
+<li><code>docker-compose start</code> 启动服务容器 </li>
+<li><code>docker-compose stop</code> 停止容器服务</li>
+<li><code>docker-compose top</code> 查看容器服务状态</li>
+<li><code>docker-compose unpause</code> 取消暂停状态</li>
+<li><code>docker-compose up</code> 启动项目，包括构建，创建(重新创建)、启动和链接服务容器</li>
+</ul>
+<h4 id="compose-配置文件"><a href="#compose-配置文件" class="headerlink" title="compose 配置文件"></a>compose 配置文件</h4><p><code>Compose</code>的配置文件是一个YML格式的文件，它定义了包括服务（容器）、网络、数据卷在内的一系列项目组件，默认路径是<code>./docker-compose.yml</code>。</p>
+<p>使用配置文件定义的服务在启动时就跟使用<code>Docker Client</code>的<code>docker run</code>一样，同样的配置文件重定义的网络、数据卷也相当于<code>Docker Client</code>中使用<code>docker network create</code>和<code>dockder volume create</code>一样。实际上，<code>Compose</code>并不会真正操作容器，它只适合解析配置文件的定义，然后发送给<code>Docker Client</code>。</p>
+<p><code>Compose</code> 配置文件中定义的每个服务都必须通过<code>image</code>标签指定镜像或<code>build</code>标签来执行构建(上下文中存在Dockerfile)，Dockerfile中定义的变量可以在<code>docker-compose.yml</code>文件中使用，不必在<code>docker-compose.yml</code>文件中重新定义。</p>
+<h5 id="文件语法"><a href="#文件语法" class="headerlink" title="文件语法"></a>文件语法</h5><h6 id="version"><a href="#version" class="headerlink" title="version"></a>version</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">version &quot;VERSION&quot;</span><br></pre></td></tr></table></figure>
+
+<h6 id="services"><a href="#services" class="headerlink" title="services"></a>services</h6><p>如果同时指定<code>build</code>和<code>image</code>，会先执行构建，然后命名为<code>image</code>指定的名字</p>
+<ul>
+<li><p><code>image</code> 指定镜像名称或者镜像ID</p>
+</li>
+<li><p><code>build</code> 可以基于Dockerfile，构建需要的镜像</p>
+<ul>
+<li>直接指定<code>Dockerfile</code>的相对或者绝对路径</li>
+<li><code>context</code> 指定上下文根目录</li>
+<li><code>dockerfile</code>  指定<code>Dockerfile</code>的名称 </li>
+<li><code>cache_from</code> 指定构建缓存</li>
+<li><code>labels</code></li>
+<li><code>cap_add</code></li>
+<li><code>cap_drop</code></li>
+<li><code>command</code> 可以覆盖容器启动后默认执行的命令，可以直接写，也可以写成数组的形式</li>
+</ul>
+</li>
+<li><p><code>configs</code> 设置config文件，在集群部署时可以方便调度配置文件</p>
+<ul>
+<li><code>source</code> Docker中存在的配置的名称</li>
+<li><code>target</code> 容器内部的目标路径</li>
+<li><code>gid/uid</code> 指定配置文件存放时的用户归属</li>
+<li><code>mode</code> 配置文件的权限</li>
+</ul>
+</li>
+<li><p><code>cgroup_parent</code> 为容器指定一个可选的父<code>cgroup</code></p>
+</li>
+<li><p><code>container_name</code> 默认容器名称格式为<PROJECT_NAME><SERVICE_NAME><SEL_NUM></p>
+</li>
+<li><p><code>deploy</code> 仅在使用<code>docker stack</code>部署到集群是生效，<code>docker-compose up</code>和<code>docker-compose run</code>等命令无效</p>
+<ul>
+<li><code>mode</code> <code>global</code>和 <code>replicated</code>(默认)二选一</li>
+<li><code>replicas</code> 数量</li>
+<li><code>update_config</code> 配置更新策略<ul>
+<li><code>parallelism</code> 每次更新的容器数量</li>
+<li><code>delay</code> 更新一组容器时等待的时间</li>
+<li><code>failure_action</code> 如果更新失败后续操作,<code>continue</code>或者<code>pause</code>(默认)</li>
+<li><code>monitor</code>每个任务更新失败后监视的时间间隔(ns|us|s|m|h)默认为0</li>
+<li><code>max_failure_ratio</code> 允许更新过程中更新失败的最大容器数量</li>
+</ul>
+</li>
+<li><code>restart_policy</code>重启策略<ul>
+<li><code>condition</code> 可选值有 <code>none</code>,<code>on-failure</code>,<code>any</code>（默认）</li>
+<li><code>delay</code> 每次尝试重启要等待多时时间，默认为0</li>
+<li><code>max_attempts</code> 尝试次数，默认永不放弃</li>
+<li><code>window</code> 重启后等待多时时间才能确定启动成功,默认立即</li>
+</ul>
+</li>
+<li><code>resources</code> 配置资源约束<ul>
+<li><code>limits</code></li>
+<li><code>reservations</code></li>
+<li><code>cpu_shares</code></li>
+<li><code>cpu_quota</code></li>
+<li><code>cpuset</code></li>
+<li><code>mem_limit</code></li>
+<li><code>memswap_limit</code></li>
+<li><code>mem_swappiness</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>args</code> 指定构建过程中的环境变量，可以使用冒号或者等号分隔，可以省略来允许空值</p>
+</li>
+<li><p><code>devices</code>设备映射列表</p>
+</li>
+<li><p><code>depends_on</code> 规定服务的前后依赖顺序</p>
+</li>
+<li><p><code>dns</code> 指定<code>dns</code>配置</p>
+</li>
+<li><p><code>dns_search</code> 自定义搜索域</p>
+</li>
+<li><p><code>tmpfs</code> 挂载临时目录到容器</p>
+</li>
+<li><p><code>entrypoint</code> 定义接入点，覆盖<code>Dockerfile</code>中的定义</p>
+</li>
+<li><p><code>env_file</code> <code>.env</code>文件设置的Compose的变量，对宿主机的Compose而言，不会用在构建中</p>
+</li>
+<li><p><code>environment</code> 设置镜像变量，可以将变量保存到镜像中，启动的容器都会包含这些变量设置，与Dockerfile的ENV一样</p>
+</li>
+<li><p><code>expose</code> 用于暴露端口,与Dockerfile中的EXPOSE一样</p>
+</li>
+<li><p><code>external_links</code> 为了使Compose能够连接这些不在<code>docker-compose.yml</code>中定义的容器</p>
+</li>
+<li><p><code>extra_hosts</code> 添加主机名的标签，往<code>/etc/hosts</code>中添加一些记录</p>
+</li>
+<li><p><code>healthcheck</code> 检查容器状态的命令</p>
+<ul>
+<li><code>test</code> 命令</li>
+<li><code>interval</code></li>
+<li><code>timeout</code></li>
+<li><code>retries</code></li>
+</ul>
+</li>
+<li><p><code>labels</code> 向容器添加元数据，与Dockerfile中的LABEL命令类似</p>
+</li>
+<li><p><code>links</code> 连接到其他服务的容器中</p>
+</li>
+<li><p><code>logging</code> 配置日志服务</p>
+<ul>
+<li><code>driver</code></li>
+<li><code>options</code></li>
+</ul>
+</li>
+<li><p><code>network_mode</code> 指定服务或者容器的网络</p>
+</li>
+<li><p><code>networks</code> 也可以设置不同网络及相关映射，用于服务升级</p>
+</li>
+<li><p><code>pid</code>设置PID模式，跟主机系统共享进程命名空间</p>
+</li>
+<li><p><code>ports</code> 映射端口的标签，使用HOST:CONTAINER格式时，端口小于60可能会报错，YAML将会解析xx:yy为60进制</p>
+</li>
+<li><p><code>secrets</code> 每个服务配置独立的<code>secrets</code></p>
+</li>
+<li><p><code>security_opt</code> 为每个容器覆盖默认的标签，管理全部服务的标签</p>
+</li>
+<li><p><code>stop_signal</code> 设置另一个信号来停止容器，默认情况下使用SIGTERM来停止容器</p>
+</li>
+<li><p><code>volumes</code> 挂载一个目录或者一个已存在的数据卷容器，可以直接使用</p>
+</li>
+<li><p><code>volumes_from</code> 从其他容器或者服务挂载数据卷</p>
+</li>
+<li><p><code>extends</code> 可以扩展另一个服务，扩展内容来自当前文件，也可以来自其他文件</p>
+<ul>
+<li><code>file</code></li>
+<li><code>service</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">version &quot;VERSION&quot;</span><br><span class="line">services</span><br><span class="line">  SERVICE_NAME</span><br><span class="line">    image:IMAGE_NAME</span><br><span class="line">networks</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="swarm-集群管理"><a href="#swarm-集群管理" class="headerlink" title="swarm 集群管理"></a>swarm 集群管理</h3><ul>
+<li>可以把多个<code>docker</code>主机组成的系统转换为单一的虚拟<code>docker</code>主机，使得容器可以组成跨主机的子网网络</li>
+<li><code>docker 1.23</code>版本之后自带的官方支持的集群管理工具，支持 <code>swarm mode</code> 集群管理模式</li>
+<li><code>docker swarm</code>模式不是指<code>docker swarm</code>命令，<code>docker swarm</code>模式包含了<code> docker node</code>、<code>docker service</code>、<code>docker stack</code>、<code>docker deploy</code>、<code>docker network</code>等命令在内的一整套完整的集群部署管理体系，是融与<code>docker</code>中的集群管理方案</li>
+</ul>
+<h4 id="docker-swarm-命令"><a href="#docker-swarm-命令" class="headerlink" title="docker swarm 命令"></a>docker swarm 命令</h4><ul>
+<li><code>docker swarm init</code> 初始化swarm集群</li>
+<li><code>docker swarm join</code> 加入一个集群，包括普通节点和管理节点</li>
+<li><code>docker swarm join-token</code>  管理加入集群 的口令(tokens)</li>
+<li><code>docker swarm leave</code> 离开当前集群 </li>
+<li><code>docker swarm unlock</code> 解锁集群</li>
+<li><code>docker swarm unlock-key</code> 管理解锁集群的密钥</li>
+<li><code>docker swarm update</code> 更新集群</li>
+</ul>
+<h4 id="docker-node-命令"><a href="#docker-node-命令" class="headerlink" title="docker node 命令"></a>docker node 命令</h4><ul>
+<li><code>docker node demote</code> 将一个或者多个节点降级为普通节点</li>
+<li><code>docker node inspect</code> 显示节点的详细信息</li>
+<li><code>docker node ls</code> 查看集群的所有弱点</li>
+<li><code>docker node promote</code> 将普通节点提升为管理节点</li>
+<li><code>docker node ps</code> 显示一个或多个节点的正在运行的任务列Shell, 默认为当前节点</li>
+<li><code>docker node rm</code> 移除一个或者多个节点</li>
+<li><code>docker node update</code> 更新节点</li>
+</ul>
+<h4 id="docker-stack-命令"><a href="#docker-stack-命令" class="headerlink" title="docker stack 命令"></a>docker stack 命令</h4><ul>
+<li><code>docker stack deploy</code> 部署一个新的Docker栈或更新现有的Docker栈</li>
+<li><code>docker stack ls</code> 显示所有的Docker栈</li>
+<li><code>docker stack ps</code> 显示指定栈的任务</li>
+<li><code>docker stack rm</code> 删除指定的Docker栈</li>
+<li><code>docker stach service</code> 显示指定栈的服务列Shell</li>
+</ul>
+<h3 id="docker-machine-集群网络"><a href="#docker-machine-集群网络" class="headerlink" title="docker-machine 集群网络"></a>docker-machine 集群网络</h3><h4 id="建立跨主机网络"><a href="#建立跨主机网络" class="headerlink" title="建立跨主机网络"></a>建立跨主机网络</h4><ul>
+<li><code>docker-machine create</code> 创建虚拟机</li>
+<li><code>docker-machine env</code> 查看虚拟机的环境变量信息</li>
+<li><code>docker-machine ls</code> 查看虚拟机列表</li>
+<li><code>docker-machine ssh</code> 操作虚拟机</li>
+<li><code>dockek-machine ssh MANAGER_NAME docker swarm init</code> 初始化集群</li>
+<li><code>docker-machine ssh MANAGER_NAME docker node ls</code> 查看集群管理节点相关的节点</li>
+<li><code>docker-machine ssh WORKERNAME docker swarm join</code> 将worker加入集群</li>
+<li><code>docker-machine ssh MANAGER_NAME docker swarm join-token</code> 获取manager的集群token</li>
+</ul>
+<h4 id="在跨主机网络上部署应用"><a href="#在跨主机网络上部署应用" class="headerlink" title="在跨主机网络上部署应用"></a>在跨主机网络上部署应用</h4><ul>
+<li><code>docker-machine ssh MANAGER_NAME docker pull</code> manager的集群节点获取镜像</li>
+<li><code>docker service create</code> 创建服务使用的跨主机网络</li>
+<li><code>docker service ls</code> 查看服务状态</li>
+<li><code>docker service ps</code> 查看服务详情</li>
+<li><code>docker-machine ssh MANAGER_NAME docker ps -a</code> 到节点上查看服务状态</li>
+<li><code>docker-machine ssh NODE_NAME docker exec -i</code> 进入机器，可以互ping 查看联通状态</li>
+<li><code>dockder-machine ssh NODE_NAME ping</code> 集群的ping</li>
+</ul>
+<h2 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h2><p>与Docker集群管理的一套类似，Kubernetes是一个用于容器集群的自动化部署、扩容以及运维的开源平台，是Google内部Borg集群管理平台的开源版本。</p>
+<p>比起前面的组合，部署更加方便，在微服务管理上更加出色，市场份额占比增长很快。Kubernetes基于容器的应用部署和维护，可靠的高可用机器可用机制使得服务滚动升级不再艰难，集成负载均衡和服务发现功能，拥有跨机器甚至跨地区的集群调度能力，自动根据用户期望伸缩服务于和规模，兼容有、无状态服务，支持Volume等，通过插件机制保证扩展性。</p>
+<p>使用Kubernetes可以快速高效地响应客户需求，快速并且无意外的部署应用，并且可以动态对应用进行扩容，无缝的升级应用。</p>
+<h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h4><p><code>Node</code>，<code>Pod</code>， 各种<code>Controller</code>，<code>Service</code> 等都可以看做一种”资源对象”，而这些资源都可以通过Kubernetes提供的<code>kubectl</code>命令行工具执行管理操作，<code>etcd</code>会记录并保持这些资源的状态。Kubernetes通过与<code>etcd</code>的记录比对，当实际的服务状态与期望状态不符合时，会自动调度资源去实现期望的状态。</p>
+<h4 id="调度中心：Master"><a href="#调度中心：Master" class="headerlink" title="调度中心：Master"></a>调度中心：Master</h4><p>Master就是管理节点，是集群控制中心，每个Kubernetes集群里都至少需要有一个Master节点来负责集群的管理和控制，Kubernetes几乎所有的控制命令都是发给Master的。Master节点作为集群的大脑，通常都位于一个高性能服务中，以保证集群运行正常。</p>
+<h4 id="工作节点：Node"><a href="#工作节点：Node" class="headerlink" title="工作节点：Node"></a>工作节点：Node</h4><p>在Kubernetes集群中，Node作为一种资源，它表示所有在集群中的机器，包括Master也是Node中的一员（如果Master运行服务）。Node节点并不局限于物理主机，所有部署了Kubernetes agent的环境都可以称为节点（例如虚拟机）。Node节点是集群中的工作和负载节点，每个Node都会被Master分配一些工作和负载，当某个Node宕机时，其工作会被Master自动转移到其他节点上去。</p>
+<p>Node节点可以动态添加到Kubernetes集群中，当Kubernetes在Node节点配置完成并启动时，Node节点中的<code>kubelet</code>(agent程序)便会想Master注册。当Node被Master认证通过时，Node节点的kubelet进程就会定时地向Master节点发送自身的信息（例如操作系统，Docker版本，机器的CPU和内存情况）以及哪些Pod在运行等。这样Master就可以获知每个Node的资源使用情况，并根据用户的期望高效地实现资源调度。</p>
+<p>当某个Node超过设定时间没有发送信息给Master时，Master便把该Node的状态标记为不可用（Not Ready）,然后Master开启工作负载转义流程，把失联Node节点的工作交给其他Node节点，这是一个完全自动的流程。</p>
+<p>相关命令：</p>
+<ul>
+<li><p><code>kubectl get node</code> 获取节点列表信息</p>
+</li>
+<li><p><code>kubectl describe node NODE_NAME</code> 查看节点详细信息</p>
+</li>
+</ul>
+<h4 id="最小调度单位：Pod"><a href="#最小调度单位：Pod" class="headerlink" title="最小调度单位：Pod"></a>最小调度单位：Pod</h4><p>Pod是Kubernetes里面抽象出来的一个概念，他是Kubernetes的最小调度单位，每个Pod都有一个独立的IP（不推荐用IP去访问），并至少由一个容器构成，同一个Pod中的容器会自动分配到同一个物理机或者虚拟机上，一个Pod内的容器共享Pod的Volumes 、网络、端口等资源（联合命名空间包括PID、网络、IPC、UTS等）。</p>
+<p>同一个Pod中的容器可以自由访问，共享内存，一般情况下，我们把有”亲密关系”的容器放到一个Pod中，使得他们可以通过localhost互相访问，例如在一个PHP服务器中，前端使用nginx作为Web服务，后端使用php-fpm执行任务，那么将这两个容器部署在一个Pod内就非常合理了。</p>
+<p>Kubernetes的Pod和Docker Container区别很大，Pod里包含多个Container，主要考虑两方面，一方面是自身解耦和Docker解耦，另一方面通过Pod打包多个Container使之共享同一个生命周期，有利于多个服务有强依赖的场景。</p>
+<h4 id="资源标签：Label"><a href="#资源标签：Label" class="headerlink" title="资源标签：Label"></a>资源标签：Label</h4><p>Label是附加在Kubernetes资源对象上的键值对（由key/value组成），以传达使用者所定义的可识别属性。他可以在创建的时候指定，也可以随时修改，一个资源对象上面可以有任意多个Label。</p>
+<p>Label可以用来组织和选择某个资源的子集合，Kubernetes最终会索引并且反向索引Label以获得更高效的查询和监视，把他们用到UI或者CLI中进行排序或者分组等。</p>
+<p>相关命令：</p>
+<ul>
+<li><code>kubectl get nodes --show-labels</code> 获取节点标签</li>
+<li><code>kubectl label node NODE_NAME LABEL=VALUE</code> 新增标签</li>
+<li> <code>kubectl label node NODE_NAME LABEL=-</code> 删除标签</li>
+<li><code>kubectl get pods -l environment=production</code></li>
+<li><code>kubectl get pods -l &#39;environment in (production)&#39;</code> </li>
+</ul>
+<h4 id="弹性伸缩：RC与RS"><a href="#弹性伸缩：RC与RS" class="headerlink" title="弹性伸缩：RC与RS"></a>弹性伸缩：RC与RS</h4><p>Replication Controller简称RC，用来确保同一时间内存在指定数量的副本Pod（Pod Replicas）在运行中。RC允许用户调整（也成为scaling）副本数量，RC可以再机器故障或其他原因导致部分Pod关闭时重新创建指定数量的Pod副本（异常多出来的Pod也会自动回收）。典型应用场景包括确保健康Pod的数量，弹性伸缩，滚动升级以及应用多版本发布跟踪等。</p>
+<p>Replica Set简称RS，是新版本的RC，本质是一样的，区别在于ReplicaSet支持集合式的选择器，RC仅支持等式。</p>
+<h4 id="部署对象：Development"><a href="#部署对象：Development" class="headerlink" title="部署对象：Development"></a>部署对象：Development</h4><p>Deployment和ReplicaSet用来替代以前的Replication Controller，以实现更高效的Pod管理流程。可以简单理解为以前的RC分为现在的两个资源Deployment和RS，其中Development可以创建Pod和ReplicaSet，而ReplicaSet知负责管理Pod副本数量不再参与到Pod整个生命周期过程中。</p>
+<p>自动扩容案例</p>
+<p><code>kubectl autoscale deployment CONFIG_NAME --min=MIN --max=MAX --cpu-percent=80</code></p>
+<h4 id="水平扩展：HPA"><a href="#水平扩展：HPA" class="headerlink" title="水平扩展：HPA"></a>水平扩展：HPA</h4><p>HPA全称为Horizontal Pod Autoscaling即Pod的水平自动扩展，他可以根据当前系统的负载来自动水平扩容，如果系统负载超过预定值，就开始增加Pod的个数，如果低于某个值，就自动减少Pod的个数。</p>
+<p>HPA根据CPU使用率或者应用自定义metrics自动扩展Pod数量，使用Heapster去收集CPU的使用情况。</p>
+<p><code>kubectl autoscale (-f FILENAME | TYPE NAME |TYPE/NAME) [--min-MINPODS] --max=MAXPODS [--cpu-percent=CPU] [flags] [options]</code></p>
+<h4 id="服务对象：Service"><a href="#服务对象：Service" class="headerlink" title="服务对象：Service"></a>服务对象：Service</h4><p>Service是Kubernetes中最核心的资源对象之一，我们前面所说的Pod、RC、RS、Deployment、Label等都是为Service服务的，例如Pod副本实际上是通过Label选择器来实现与Service对接的——作为Service负载均衡的后端，而RC/RS的作用实际上是保证Service的服务能力和服务质量始终处于预期的标准。Service作为Kubernetes里面抽象出来的一层，它定义了由多个Pods组成的逻辑组，Service可以管理组内的Pod。</p>
+<p>Service有三大作用：对外暴露流量，做负载均衡，服务发现。</p>
+<h4 id="数据卷资源：Volume"><a href="#数据卷资源：Volume" class="headerlink" title="数据卷资源：Volume"></a>数据卷资源：Volume</h4><p>用在Kubernetes中持久化数据，一个Kubernetes Volume拥有明确的生命周期，与所在的Pod的生命周期相同。Volume独立于任何容器，只与Pod有关，所以数据卷在Pod或者容器重启过程中还会保留。</p>
+<p>Kubernetes Volume支持多种类型，任何容器都可以使用多个Kubernetes Volume。数据卷是文件目录，不是所有的数据卷都是持久化的，emptyDir,secret,gitRepo等随着Pod的消失而消失。</p>
+<h4 id="数据持久化：Persistent-Volume"><a href="#数据持久化：Persistent-Volume" class="headerlink" title="数据持久化：Persistent Volume"></a>数据持久化：Persistent Volume</h4><p>Persistent Volume和Persistent Volume Claim是Kubernetes提供的两种API资源，拥有抽象存储细节。</p>
+<p>PV只是网络存储，不与Pod共享生命周期，而是独立于Pod之外；PVC是用户存储的请求，他类似于Pod，Pod消耗节点资源，而PVC消费PV资源，例如Pod可以向Node请求特定级别的资源（CPU和内存），而PVC可以向PV请求特定的大小和访问模式。</p>
+<h4 id="命名空间：Namespace"><a href="#命名空间：Namespace" class="headerlink" title="命名空间：Namespace"></a>命名空间：Namespace</h4><p>Namespace是对一组资源和对象的抽象集合，比如可以用来将系统内部的对象划分为不同的项目或用户组。常见的Pods、Services、RC和Development等都是属于某个Namespace的（默认是default），但Node和Persistent Volume等资源不属于任何Namespace。</p>
+<p>在一个Kubernetes集群中可以用Namespace创建多个“虚拟集群”，这些Namespace之间可以完全隔离。因为Namespace可以提供独立的命名空间，因此可以实现部分的环境隔离。当你的项目和人员众多的时候可以考虑根据项目属性划分不同的Namespace比如（开发、测试、生产）。</p>
+<p>相关命令：</p>
+<ul>
+<li><code>kubectl get namespaces</code></li>
+<li><code>kubectl create namespace NAMESPACE_NAME</code></li>
+</ul>
+<h4 id="注释：Annotation"><a href="#注释：Annotation" class="headerlink" title="注释：Annotation"></a>注释：Annotation</h4><p>Annotation使用键值对存储元数据，与Label相似，但没有Label那么严格的命名规则。</p>
+<p>Annotation主要用于信息检索、标记等，给人看的内容，可以灵活填写，像构建信息，版本信息，Docker镜像信息，日志存储位置等可能对管理有帮助的内容都可以写进去，以便管理人员后续管理时能够理解整个资源的用途和其他相关信息。</p>
+<h3 id="部署方式"><a href="#部署方式" class="headerlink" title="部署方式"></a>部署方式</h3><h4 id="Minikube-意见部署单机版"><a href="#Minikube-意见部署单机版" class="headerlink" title="Minikube 意见部署单机版"></a>Minikube 意见部署单机版</h4><p>Minikube使用操作系统中的虚拟机技术，在本地简历一个虚拟机集群，模拟集群环境，整个过程一键部署，不需要了解部署细节，适合入门学习或者体验Kubernetes的用户。</p>
+<h4 id="Kubeadm-自动化部署版本"><a href="#Kubeadm-自动化部署版本" class="headerlink" title="Kubeadm 自动化部署版本"></a>Kubeadm 自动化部署版本</h4><p>如果已经使用Minikube安装了Kubernetes，那么需要删除$HOME/.kube目录</p>
+<h4 id="手动部署二进制版本"><a href="#手动部署二进制版本" class="headerlink" title="手动部署二进制版本"></a>手动部署二进制版本</h4><h3 id="命令参考-1"><a href="#命令参考-1" class="headerlink" title="命令参考"></a>命令参考</h3><p><code>kubectl [子命令] [资源类型] [资源名称] [选项] </code> </p>
+<h4 id="常见资源类型缩写表"><a href="#常见资源类型缩写表" class="headerlink" title="常见资源类型缩写表"></a>常见资源类型缩写表</h4><ul>
+<li><code>service</code> =&gt;<code>svc</code></li>
+<li><code>serviceaccounts</code> =&gt; <code>sa</code></li>
+<li><code>resourcequotas</code> =&gt; <code>quota</code></li>
+<li><code>replicationcontrollers</code> =&gt; <code>rc</code></li>
+<li><code>replicasets</code> =&gt; <code>rs</code></li>
+<li><code>podsecuritypolicies</code> =&gt; <code>psp</code></li>
+<li><code>pods</code> =&gt; <code>po</code></li>
+<li><code>poddisruptionbudgets</code> =&gt; <code>pdb</code></li>
+<li><code>persistentvolumes</code> =&gt; <code>pv</code></li>
+<li><code>persistentvolumeclains</code> =&gt; <code>pvc</code></li>
+<li><code>nodes</code> =&gt; <code>no</code></li>
+<li><code>networkpolicies</code> =&gt; <code>netpol</code></li>
+<li><code>namespace</code> =&gt; <code>ns</code></li>
+<li><code>limitranges</code> =&gt; <code>limits</code></li>
+<li><code>ingresses</code> =&gt; <code>ing</code></li>
+<li><code>horizontalpodautoscalers</code> =&gt; <code>hpa</code></li>
+<li><code>events</code> =&gt; <code>ev</code></li>
+<li><code>endpoints</code> =&gt; <code>ep</code></li>
+<li><code>deployments</code> =&gt; <code>deploy</code></li>
+<li><code>daemonsets</code> =&gt; <code>ds</code></li>
+<li><code>configmaps</code> =&gt; <code>cm</code></li>
+<li><code>componentstatuses</code> =&gt; <code>cs</code></li>
+<li><code>certificatesigningrequests</code> =&gt; <code>csr</code></li>
+</ul>
+<h4 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h4><h5 id="create"><a href="#create" class="headerlink" title="create"></a>create</h5><p>通过文件名或控制台输入创建资源</p>
+<ul>
+<li><code>clusterrole</code> 创建一个新的集群角色</li>
+<li><code>clusterrolebinding</code> 为特定的集群角色创建集群角色绑定</li>
+<li><code>configmap</code> 从本地文件、目录或者字符值创建一个configmap，可以用来保存键值对的配置数据</li>
+<li><code>deployment</code> 创建具有指定名称的<code>deployment</code></li>
+<li><code>namespace</code>  创建具有指定名称的<code>namespace</code></li>
+<li><code>poddisruptionbudget</code> 创建具有指定名称的<code>poddisruptionbudget</code></li>
+<li><code>quota</code> 创建具有指定名称的<code>quota</code> （资源配额）</li>
+<li><code>role</code> 使用单一规则创建角色</li>
+<li><code>rolebinding</code> 为特定角色或集群角色创建一个角色绑定</li>
+<li><code>secret</code> 使用指定的子命令创建一个<code>secret</code>,子命令有<code>docker-retistry</code> <code>generic</code>和<code>tls</code>三个</li>
+<li><code>service</code> 使用指定的子命令创建一个服务，有四个子命令，<code>clusterip</code>，<code>externalname</code>，<code>loadbalancer</code>，<code>nodeport</code></li>
+<li><code>serviceaccount</code> 创建具有指定名称的服务账户</li>
+</ul>
+<h5 id="expose"><a href="#expose" class="headerlink" title="expose"></a>expose</h5><p>将一个资源（RC，Service，Deployment，Pod）作为新的Kubernetes服务。</p>
+<p><code>expose</code>按名称查找<code>deployment</code>，<code>service</code>，<code>RC</code>，<code>RS</code>或<code>Pod</code>，并将该资源的选择器用作指定端口上新的服务的选择器。<code>deployment</code>或<code>RS</code>只有当选择器可转换为服务支持的选择器时，即当选择器仅包含matchLabels组件时，才会暴露服务。</p>
+<h5 id="run"><a href="#run" class="headerlink" title="run"></a>run</h5><p>创建并允许特定镜像，通过<code>deployment</code>或<code>job</code>来管理创建的容器。</p>
+<h5 id="set"><a href="#set" class="headerlink" title="set"></a>set</h5><p>配置应用资源，这个命令可以更改现有的应用程序资源。</p>
+<ul>
+<li><code>image</code> 更新现有容器镜像的资源。</li>
+<li> <code>resources</code> 为Pod模板指定计算资源请求(包括CPU和内存)，如果一个Pod被成功部署，这个命令将保证Pod请求的资源数量</li>
+<li><code>selector</code> 在资源对象上设置选择器。注意如果资源在调用<code>set selector</code>之前已经有选择器，则新的选择器将覆盖旧的选择器。</li>
+<li><code>subject</code> 在RoleBinding/ClusterRoleBinding中更新<code>user</code>，<code>group</code>或<code>ServiceAccount</code> </li>
+</ul>
+<h5 id="get"><a href="#get" class="headerlink" title="get"></a>get</h5><p>显示一个或者多个资源，默认隐藏已停止的资源，无论运行成功还是启动失败，只要状态不是活动的都不显示。可以通过<code>--show-all</code>来显示完整结果 。</p>
+<h5 id="explain"><a href="#explain" class="headerlink" title="explain"></a>explain</h5><p>资源记录，获取资源及其字段的文档</p>
+<h5 id="edit"><a href="#edit" class="headerlink" title="edit"></a>edit</h5><p>在服务器上使用默认编辑器编辑资源，使用这个命令可以编辑多个对象，然后一次性地应用更改。</p>
+<h5 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h5><p>通过指定文件名、stdin、资源名称、资源标签选择器来删除资源。</p>
+<h4 id="部署命令"><a href="#部署命令" class="headerlink" title="部署命令"></a>部署命令</h4><h5 id="rollout"><a href="#rollout" class="headerlink" title="rollout"></a>rollout</h5><p>管理资源的部署，有效的资源类型包括:<code>deployments</code>,<code>daemonsets</code></p>
+<ul>
+<li><code>history</code> 查看以前部署的版本和配置</li>
+<li><code>pause</code> 将指定的资源标记为已暂停，已暂停资源将不会由控制器调度。目前支持<code>deployment</code></li>
+<li><code>resume</code> 恢复暂停资源，暂停的资源将不会被控制器调度，通过恢复资源，我们允许它再次调度。</li>
+<li><code>status</code> 显示部署的状态，默认情况下，“部署状态”将监视最新部署的状态，知道完成为止。</li>
+<li><code>undo</code> 回滚先前的部署</li>
+</ul>
+<h5 id="rolling-update"><a href="#rolling-update" class="headerlink" title="rolling-update"></a>rolling-update</h5><p>执行指定的RC进行滚动更新，使用新的RC控制器替换旧的RC控制器，逐步使用新的Pod Template替换旧的Pod。新旧RC必须在同一个Namespace中，并覆盖其选择器至少一个标签（通常是版本号），以便选择器可以区分新旧版本RC。</p>
+<h5 id="scale"><a href="#scale" class="headerlink" title="scale"></a>scale</h5><p>为<code>Deployment</code>，RS，RC或<code>Job</code>设置新的规模。<code>scale</code>允许用户为伸缩操作指定一个或多个前提条件。如果制定了<code>--current-replicas</code>或<code>--resource-version</code>则在尝试伸缩规模之前进行验证，并确保将 规模伸缩命令发送到服务器时前提条件不变。</p>
+<h5 id="autoscale"><a href="#autoscale" class="headerlink" title="autoscale"></a>autoscale</h5><p>创建自动规模伸缩器，可自动调整并设置在Kubernetes集群中运行的Pod数量，通过名称查找<code>Development</code>,<code>ReplicaSet</code>,<code>ReplicationController</code>,并创建一个使用指定资源状态作为参考的自动规模伸缩器，autoscale可以根据需要自动增加或者减少系统中部署的<code>Pod</code>数量</p>
+<h4 id="集群管理命令"><a href="#集群管理命令" class="headerlink" title="集群管理命令"></a>集群管理命令</h4><h5 id="certificate"><a href="#certificate" class="headerlink" title="certificate"></a>certificate</h5><p>修改证书资源</p>
+<ul>
+<li>approve 批准证书签名请求，<code>kubectl certificate </code>准许管理人员提交的证书签名请求(CSR)，此操作告诉证书签名控制器向请求者颁发证书，其中包含CSR中请求的属性。</li>
+<li>deny 拒绝签名请求，<code>kubectl certificate</code>拒绝管理人员发送的证书签名请求（CSR），此操作会告知证书签名控制器不想请求者颁发证书。</li>
+</ul>
+<h5 id="cluster-info"><a href="#cluster-info" class="headerlink" title="cluster-info"></a>cluster-info</h5><p>使用标签显示Master服务器和Service的地址，如果要进一步调试和诊断集群问题，可以使用<code>kubectl cluster-info dump</code>命令</p>
+<h5 id="top"><a href="#top" class="headerlink" title="top"></a>top</h5><p>显示资源（CPU、内存、存储）的使用情况。top命令用于查看节点或Pod的资源消耗，此命令需要Heapster正确配置并在服务器上正常工作。</p>
+<ul>
+<li>node 显示节点的资源信息</li>
+<li>pod 显示指定pod的信息</li>
+</ul>
+<h5 id="cordon"><a href="#cordon" class="headerlink" title="cordon"></a>cordon</h5><p>标记节点为不可调度，不可调度的节点将从集群的调度列表中删除，不会调度任何资源到该节点中，一般用于节点维护升级服务。标记为不可调度并不会删除节点上的Pod，但是失联的Pod 也无法与集群通信。</p>
+<h5 id="uncordon"><a href="#uncordon" class="headerlink" title="uncordon"></a>uncordon</h5><p>标记节点为可调度。</p>
+<h5 id="drain"><a href="#drain" class="headerlink" title="drain"></a>drain</h5><p>drain标记节点，表示准备维护。该命令会删除该节点上的所有Pod通常用于节点维护。</p>
+<h5 id="taint"><a href="#taint" class="headerlink" title="taint"></a>taint</h5><p>当节点被标记为taint(变质)时，除非Pod被标识为可以忍受污染(toleration)，否则不会有任何Pod呗调度到该节点。之所以把taint标记到节点而不是标记到Pod，是因为在这种情况下绝大多数的Pod都 不应该部署到taint节点上。</p>
+<h4 id="故障排除和调试命令"><a href="#故障排除和调试命令" class="headerlink" title="故障排除和调试命令"></a>故障排除和调试命令</h4><h5 id="describe"><a href="#describe" class="headerlink" title="describe"></a>describe</h5><p>显示特定资源或资源组的详细信息，与其他API调用合并在一起，以显示指定资源或资源组的详细描述。</p>
+<p><code>kubectl describe TYPE NAME_PREFIX</code></p>
+<h5 id="logs"><a href="#logs" class="headerlink" title="logs"></a>logs</h5><p>打印指定资源中容器的日志，如果Pod只有一个容器，容器名称是可选的。</p>
+<h5 id="attach"><a href="#attach" class="headerlink" title="attach"></a>attach</h5><p>附加到已经在现在容器中运行的进程，从指定的Pod中获取输出，默认依附到第一个容器。</p>
+<h5 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h5><p>在容器中执行命令。</p>
+<h5 id="port-forward"><a href="#port-forward" class="headerlink" title="port-forward"></a>port-forward</h5><p>将一个或多个本地端口转发到Pod。比如本地监听<code>5000</code>和<code>6000</code>端口，并把数据转发到Pod的<code>5000</code>和<code>6000</code>端口</p>
+<p><code>kubectl port-forward NAME 5000 6000</code></p>
+<h5 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h5><p>在localhost和Kubernetes API Server之间创建代理服务器或应用层网关。proxy允许通过指定的HTTP路径提供静态内容。所有传入数据通过一个端口进入，并被转发到远程Kubernetes API服务端口（除了与静态内容路径匹配的路径）中。</p>
+<h5 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h5><p>将文件和目录拷贝到容器中，cp命令要求容器中存在tar命令，如果tar不存在，<code>kubectl cp</code>将执行失败。</p>
+<h5 id="auth"><a href="#auth" class="headerlink" title="auth"></a>auth</h5><p>检查授权，can-i 子命令用户检查用户是否允许执行某些操作。</p>
+<h4 id="高级命令"><a href="#高级命令" class="headerlink" title="高级命令"></a>高级命令</h4><h5 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h5><p>通过文件名或stdin将apply配置到资源中，文件可以使用JSON和YAML格式。资源名称必须制定，如果资源不存在，将创建资源。</p>
+<h5 id="patch"><a href="#patch" class="headerlink" title="patch"></a>patch</h5><p>使用补丁更新资源的字段，文件可以是JSON和YAML格式</p>
+<h5 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h5><p>用指定的文件或stdin替换资源，如果替换现有资源，则必须提供完整的资源定义，可以通过<code>kubectl get TYPE NAME -o yaml</code>获得</p>
+<h5 id="convert"><a href="#convert" class="headerlink" title="convert"></a>convert</h5><p>在不同API版本中转换配置文件，YAML和JSON格式都可以，参数可以是文件名，目录或URL。</p>
+<h4 id="设置命令"><a href="#设置命令" class="headerlink" title="设置命令"></a>设置命令</h4><h5 id="label"><a href="#label" class="headerlink" title="label"></a>label</h5><p>更新资源上的标签，标签规则是以字母或数字开头，可以包含字母、数字、连字符、点和下划线，最多为63个字符。</p>
+<h5 id="annotate"><a href="#annotate" class="headerlink" title="annotate"></a>annotate</h5><p>更新一个或多个资源上的注释</p>
+<h5 id="completion"><a href="#completion" class="headerlink" title="completion"></a>completion</h5><p>输出指定shell的shell完整代码，必须对shell代码进行评估，以提供<code>kubectl</code>命令的交互</p>
+<h4 id="其他命令-1"><a href="#其他命令-1" class="headerlink" title="其他命令"></a>其他命令</h4><h5 id="api-versions"><a href="#api-versions" class="headerlink" title="api-versions"></a>api-versions</h5><p>在服务器上输出支持的API版本</p>
+<h5 id="config"><a href="#config" class="headerlink" title="config"></a>config</h5><p>使用<code>kubectl config set current-context my-context</code>之类的子命令修改<code>kubeconfig</code>文件</p>
+<ul>
+<li><code>set-cluster</code> 在<code>kubeconfig</code>文件中设置一个集群项</li>
+<li><code>set-context</code> 在<code>kubeconfig</code>配置文件中上设置一个环境项</li>
+<li><code>set-credentials</code> 在<code>kubeconfig</code>配置文件中上设置一个用户项</li>
+<li><code>set</code> 在<code>kubeconfig</code>配置文件中上设置一个单独的值</li>
+<li><code>unset</code> 在<code>kubeconfig</code>配置文件中上清除一个单独的值</li>
+<li><code>use-context</code> 使用<code>kubeconfig</code>中一个环境项作为当前配置</li>
+<li><code>view</code> 显示合并后的<code>kubeconfig</code>设置，或者一个指定的<code>kubeconfig</code>配置文件</li>
+</ul>
+<h5 id="help"><a href="#help" class="headerlink" title="help"></a>help</h5><p>查看所有命令的帮助</p>
+<h5 id="options"><a href="#options" class="headerlink" title="options"></a>options</h5><p>输出某个命令的所有选项</p>
+<h5 id="plugin"><a href="#plugin" class="headerlink" title="plugin"></a>plugin</h5><p>运行一个命令行插件，插件命令不属于<code>kubectl</code>子命令，可以由第三方提供</p>
+<h5 id="version-1"><a href="#version-1" class="headerlink" title="version"></a>version</h5><p>打印输出当前上下文环境中的客户端和服务端版本信息</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2021年12月31日 10:37</p>
+        <p>原始链接： <a class="post-url" href="/dev-env/2018-09-20-docker-config/" title="docker安装配置生态全览">http://rawbin-.github.io/dev-env/2018-09-20-docker-config/</a></p>
+        <footer>
+            <a href="http://rawbin-.github.io">
+                <img src="/images/logo.png" alt="小淼焱">
+                小淼焱
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赞赏这个人~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://rawbin-.github.io/dev-env/2018-09-20-docker-config/&title=《docker安装配置生态全览》 — 技术人生&pic=http://rawbin-.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://rawbin-.github.io/dev-env/2018-09-20-docker-config/&title=《docker安装配置生态全览》 — 技术人生&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://rawbin-.github.io/dev-env/2018-09-20-docker-config/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker安装配置生态全览》 — 技术人生&url=http://rawbin-.github.io/dev-env/2018-09-20-docker-config/&via=http://rawbin-.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://rawbin-.github.io/dev-env/2018-09-20-docker-config/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://rawbin-.github.io/dev-env/2018-09-20-docker-config/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/部署/" class="color3">部署</a>
+      
+    <a href="/tags/自动化/" class="color4">自动化</a>
+      
+    <a href="/tags/运维/" class="color3">运维</a>
+      
+    <a href="/tags/容器化/" class="color4">容器化</a>
+      
+    <a href="/tags/可伸缩/" class="color4">可伸缩</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="post-toc-text">基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="post-toc-text">虚拟化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%95%9C%E5%83%8F"><span class="post-toc-text">镜像</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="post-toc-text">容器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%93%E5%BA%93"><span class="post-toc-text">仓库</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%89%E8%A3%85"><span class="post-toc-text">安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CentOS-%E4%B8%8B%E5%AE%89%E8%A3%85"><span class="post-toc-text">CentOS 下安装</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%86%E6%AD%A5%E5%AE%89%E8%A3%85"><span class="post-toc-text">分步安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85"><span class="post-toc-text">脚本安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%B6%E4%BB%96%E7%8E%AF%E5%A2%83"><span class="post-toc-text">其他环境</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="post-toc-text">配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86"><span class="post-toc-text">数据管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%B7"><span class="post-toc-text">数据卷</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%AE%B9%E5%99%A8"><span class="post-toc-text">数据卷容器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%88%A9%E7%94%A8%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%AE%B9%E5%99%A8%E8%BF%81%E7%A7%BB%E6%95%B0%E6%8D%AE"><span class="post-toc-text">利用数据卷容器迁移数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%A4%87%E4%BB%BD"><span class="post-toc-text">备份</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%81%A2%E5%A4%8D"><span class="post-toc-text">恢复</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="post-toc-text">端口映射</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%9A%8F%E6%9C%BA%E7%AB%AF%E5%8F%A3"><span class="post-toc-text">随机端口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8C%87%E5%AE%9A%E7%AB%AF%E5%8F%A3"><span class="post-toc-text">指定端口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="post-toc-text">查看端口映射</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Dockerfile%E6%8C%87%E5%8D%97"><span class="post-toc-text">Dockerfile指南</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%BB%E4%BD%93%E7%BB%93%E6%9E%84"><span class="post-toc-text">主体结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8C%87%E4%BB%A4%E5%8F%82%E8%80%83"><span class="post-toc-text">指令参考</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8Dockerfile%E5%88%9B%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="post-toc-text">使用Dockerfile创建镜像</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83"><span class="post-toc-text">命令参考</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Docker%E6%93%8D%E4%BD%9C"><span class="post-toc-text">Docker操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%8E%B7%E5%8F%96%E9%95%9C%E5%83%8F"><span class="post-toc-text">获取镜像</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E9%95%9C%E5%83%8F%E4%BF%A1%E6%81%AF"><span class="post-toc-text">查看镜像信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%90%9C%E7%B4%A2%E9%95%9C%E5%83%8F"><span class="post-toc-text">搜索镜像</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%A0%E9%99%A4%E9%95%9C%E5%83%8F"><span class="post-toc-text">删除镜像</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="post-toc-text">创建镜像</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%B7%B2%E6%9C%89%E5%AE%B9%E5%99%A8%E5%88%9B%E5%BB%BA"><span class="post-toc-text">基于已有容器创建</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%9C%AC%E5%9C%B0%E6%A8%A1%E6%9D%BF%E5%AF%BC%E5%85%A5"><span class="post-toc-text">基于本地模板导入</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%9F%BA%E4%BA%8EDockerfile-%E5%88%9B%E5%BB%BA"><span class="post-toc-text">基于Dockerfile 创建</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AD%98%E5%82%A8%E5%92%8C%E5%AF%BC%E5%85%A5"><span class="post-toc-text">存储和导入</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AD%98%E5%82%A8"><span class="post-toc-text">存储</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AF%BC%E5%85%A5"><span class="post-toc-text">导入</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%8A%E4%BC%A0%E9%95%9C%E5%83%8F"><span class="post-toc-text">上传镜像</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%B9%E5%99%A8%E6%93%8D%E4%BD%9C"><span class="post-toc-text">容器操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%B9%E5%99%A8"><span class="post-toc-text">创建容器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA%E5%90%8E%E5%90%AF%E5%8A%A8"><span class="post-toc-text">创建后启动</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA%E5%B9%B6%E5%90%AF%E5%8A%A8"><span class="post-toc-text">创建并启动</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%AD%89%E5%BE%85%E9%80%80%E5%87%BA%E5%B9%B6%E6%89%93%E5%8D%B0%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C"><span class="post-toc-text">等待退出并打印返回结果</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E8%BE%93%E5%87%BA"><span class="post-toc-text">查看容器输出</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9A%82%E5%81%9C-%E6%81%A2%E5%A4%8D%E5%AE%B9%E5%99%A8"><span class="post-toc-text">暂停&#x2F;恢复容器</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%81%9C%E6%AD%A2%E5%AE%B9%E5%99%A8"><span class="post-toc-text">停止容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="post-toc-text">进入容器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#attach%E5%91%BD%E4%BB%A4"><span class="post-toc-text">attach命令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#exec%E5%91%BD%E4%BB%A4"><span class="post-toc-text">exec命令</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8"><span class="post-toc-text">删除容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AF%BC%E5%85%A5%E5%92%8C%E5%AF%BC%E5%87%BA"><span class="post-toc-text">导入和导出</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8"><span class="post-toc-text">查看容器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E8%AF%A6%E6%83%85"><span class="post-toc-text">查看容器详情</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E5%86%85%E8%BF%9B%E7%A8%8B"><span class="post-toc-text">查看容器内进程</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4"><span class="post-toc-text">其他命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4%E5%B8%AE%E5%8A%A9"><span class="post-toc-text">查看命令帮助</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6"><span class="post-toc-text">复制文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E5%8F%98%E6%9B%B4"><span class="post-toc-text">查看容器变更</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84-1"><span class="post-toc-text">查看端口映射</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9B%B4%E6%96%B0%E9%85%8D%E7%BD%AE"><span class="post-toc-text">更新配置</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%9B%86%E7%BE%A4%E8%BF%90%E7%BB%B4%E7%AE%A1%E7%90%86"><span class="post-toc-text">集群运维管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92%E8%B0%83%E5%BA%A6"><span class="post-toc-text">容器编排调度</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Swarm-Compose-Docker"><span class="post-toc-text">Swarm+Compose - Docker</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Kubernetes-Google"><span class="post-toc-text">Kubernetes - Google</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Fleet-CentOS"><span class="post-toc-text">Fleet - CentOS</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Marathon-Mesos-Apache"><span class="post-toc-text">Marathon+Mesos - Apache</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Rancher"><span class="post-toc-text">Rancher</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Nomad"><span class="post-toc-text">Nomad</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DC-OS"><span class="post-toc-text">DC&#x2F;OS</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Docker%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86"><span class="post-toc-text">Docker集群管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-compose-%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92"><span class="post-toc-text">docker-compose 容器编排</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#compose-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="post-toc-text">compose 配置文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%AD%E6%B3%95"><span class="post-toc-text">文件语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#version"><span class="post-toc-text">version</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#services"><span class="post-toc-text">services</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#swarm-%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86"><span class="post-toc-text">swarm 集群管理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#docker-swarm-%E5%91%BD%E4%BB%A4"><span class="post-toc-text">docker swarm 命令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#docker-node-%E5%91%BD%E4%BB%A4"><span class="post-toc-text">docker node 命令</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#docker-stack-%E5%91%BD%E4%BB%A4"><span class="post-toc-text">docker stack 命令</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-machine-%E9%9B%86%E7%BE%A4%E7%BD%91%E7%BB%9C"><span class="post-toc-text">docker-machine 集群网络</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%BB%BA%E7%AB%8B%E8%B7%A8%E4%B8%BB%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="post-toc-text">建立跨主机网络</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%9C%A8%E8%B7%A8%E4%B8%BB%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8A%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8"><span class="post-toc-text">在跨主机网络上部署应用</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Kubernetes"><span class="post-toc-text">Kubernetes</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5-1"><span class="post-toc-text">基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%B5%84%E6%BA%90"><span class="post-toc-text">资源</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%B0%83%E5%BA%A6%E4%B8%AD%E5%BF%83%EF%BC%9AMaster"><span class="post-toc-text">调度中心：Master</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B7%A5%E4%BD%9C%E8%8A%82%E7%82%B9%EF%BC%9ANode"><span class="post-toc-text">工作节点：Node</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9C%80%E5%B0%8F%E8%B0%83%E5%BA%A6%E5%8D%95%E4%BD%8D%EF%BC%9APod"><span class="post-toc-text">最小调度单位：Pod</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%B5%84%E6%BA%90%E6%A0%87%E7%AD%BE%EF%BC%9ALabel"><span class="post-toc-text">资源标签：Label</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%BC%B9%E6%80%A7%E4%BC%B8%E7%BC%A9%EF%BC%9ARC%E4%B8%8ERS"><span class="post-toc-text">弹性伸缩：RC与RS</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%83%A8%E7%BD%B2%E5%AF%B9%E8%B1%A1%EF%BC%9ADevelopment"><span class="post-toc-text">部署对象：Development</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%B0%B4%E5%B9%B3%E6%89%A9%E5%B1%95%EF%BC%9AHPA"><span class="post-toc-text">水平扩展：HPA</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%AF%B9%E8%B1%A1%EF%BC%9AService"><span class="post-toc-text">服务对象：Service</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%B7%E8%B5%84%E6%BA%90%EF%BC%9AVolume"><span class="post-toc-text">数据卷资源：Volume</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%EF%BC%9APersistent-Volume"><span class="post-toc-text">数据持久化：Persistent Volume</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%EF%BC%9ANamespace"><span class="post-toc-text">命名空间：Namespace</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%B3%A8%E9%87%8A%EF%BC%9AAnnotation"><span class="post-toc-text">注释：Annotation</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F"><span class="post-toc-text">部署方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Minikube-%E6%84%8F%E8%A7%81%E9%83%A8%E7%BD%B2%E5%8D%95%E6%9C%BA%E7%89%88"><span class="post-toc-text">Minikube 意见部署单机版</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Kubeadm-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E7%89%88%E6%9C%AC"><span class="post-toc-text">Kubeadm 自动化部署版本</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%89%8B%E5%8A%A8%E9%83%A8%E7%BD%B2%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%88%E6%9C%AC"><span class="post-toc-text">手动部署二进制版本</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%91%BD%E4%BB%A4%E5%8F%82%E8%80%83-1"><span class="post-toc-text">命令参考</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%B8%B8%E8%A7%81%E8%B5%84%E6%BA%90%E7%B1%BB%E5%9E%8B%E7%BC%A9%E5%86%99%E8%A1%A8"><span class="post-toc-text">常见资源类型缩写表</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="post-toc-text">基本命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#create"><span class="post-toc-text">create</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#expose"><span class="post-toc-text">expose</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#run"><span class="post-toc-text">run</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#set"><span class="post-toc-text">set</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#get"><span class="post-toc-text">get</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#explain"><span class="post-toc-text">explain</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#edit"><span class="post-toc-text">edit</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#delete"><span class="post-toc-text">delete</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%83%A8%E7%BD%B2%E5%91%BD%E4%BB%A4"><span class="post-toc-text">部署命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#rollout"><span class="post-toc-text">rollout</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#rolling-update"><span class="post-toc-text">rolling-update</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#scale"><span class="post-toc-text">scale</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#autoscale"><span class="post-toc-text">autoscale</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%9B%86%E7%BE%A4%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="post-toc-text">集群管理命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#certificate"><span class="post-toc-text">certificate</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#cluster-info"><span class="post-toc-text">cluster-info</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#top"><span class="post-toc-text">top</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#cordon"><span class="post-toc-text">cordon</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#uncordon"><span class="post-toc-text">uncordon</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#drain"><span class="post-toc-text">drain</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#taint"><span class="post-toc-text">taint</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4%E5%92%8C%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4"><span class="post-toc-text">故障排除和调试命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#describe"><span class="post-toc-text">describe</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#logs"><span class="post-toc-text">logs</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#attach"><span class="post-toc-text">attach</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#exec"><span class="post-toc-text">exec</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#port-forward"><span class="post-toc-text">port-forward</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#proxy"><span class="post-toc-text">proxy</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#cp"><span class="post-toc-text">cp</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#auth"><span class="post-toc-text">auth</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%AB%98%E7%BA%A7%E5%91%BD%E4%BB%A4"><span class="post-toc-text">高级命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#apply"><span class="post-toc-text">apply</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#patch"><span class="post-toc-text">patch</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#replace"><span class="post-toc-text">replace</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#convert"><span class="post-toc-text">convert</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%91%BD%E4%BB%A4"><span class="post-toc-text">设置命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#label"><span class="post-toc-text">label</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#annotate"><span class="post-toc-text">annotate</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#completion"><span class="post-toc-text">completion</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%85%B6%E4%BB%96%E5%91%BD%E4%BB%A4-1"><span class="post-toc-text">其他命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#api-versions"><span class="post-toc-text">api-versions</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#config"><span class="post-toc-text">config</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#help"><span class="post-toc-text">help</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#options"><span class="post-toc-text">options</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#plugin"><span class="post-toc-text">plugin</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#version-1"><span class="post-toc-text">version</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/dev-env/2018-09-22-node-ts-project-templates/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          从零搞一个Node项目结构模板
+        
+      </span>
+    </a>
+  
+  
+    <a href="/dev-env/2018-09-20-docker-k8s-through/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">docker+kubenetes开发上线运维</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <div id="comments">
+        <script>
+            var gitment = new Gitment({
+                owner: 'rawbin-',
+                repo: 'blog-comment',
+                oauth: {
+                    client_id: '2756d21ad6c1ad88f87b',
+                    client_secret: '7a4053b8e31aaf4c73f34b1fc00d3f9c2551a85d',
+                },
+            })
+            gitment.render('comments')
+        </script>
+    </div>
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2022 小淼焱<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://rawbin-.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Codova/">Codova</a><a class="category-link" href="/categories/Codova/Phonegap/">Phonegap</a><a class="category-link" href="/categories/Codova/Phonegap/Hybrid/">Hybrid</a><a class="category-link" href="/categories/Codova/Phonegap/Hybrid/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/Codova/Phonegap/Hybrid/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="category-link" href="/categories/HTTP/">HTTP</a><a class="category-link" href="/categories/HTTP/TCP/">TCP</a><a class="category-link" href="/categories/JavaScript/">JavaScript</a><a class="category-link" href="/categories/JavaScript/Web%E5%89%8D%E7%AB%AF/">Web前端</a><a class="category-link" href="/categories/JavaScript/Web%E5%89%8D%E7%AB%AF/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/JavaScript/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/JavaScript/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/Android%E5%BC%80%E5%8F%91/">Android开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/Android%E5%BC%80%E5%8F%91/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91/">移动端开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/">JavaScript</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/HTML5/">HTML5</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/%E8%87%AA%E5%8A%A8%E5%8C%96/">自动化</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript%E5%BC%80%E5%8F%91/">JavaScript开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Python/">Python</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/React/">React</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/React/JavaScript/">JavaScript</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%89%8D%E7%AB%AF/">Web前端</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%AE%89%E5%85%A8/">Web安全</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/">开发技术</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/JavaScript/">JavaScript</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E8%87%AA%E5%8A%A8%E5%8C%96/">自动化</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E6%B5%8B%E8%AF%95/">测试</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/">网络工具</a><a class="category-link" href="/categories/%E4%BA%92%E8%81%94%E7%BD%91/">互联网</a><a class="category-link" href="/categories/%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1/">代码设计</a><a class="category-link" href="/categories/%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">程序设计</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/CSS/">CSS</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/HTTP/">HTTP</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/JavaScript/">JavaScript</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/JavaScript/DOM/">DOM</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/JavaScript/Electron/">Electron</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/JavaScript/NodeJS/">NodeJS</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/JavaScript/NodeJS/TypeScript/">TypeScript</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/JavaScript/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/">代码规范</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/Web%E5%AE%89%E5%85%A8/">Web安全</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/">全栈开发</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/">前端框架</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/">服务配置</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/">灰度发布</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/ABTest/">ABTest</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/">应用技术</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/">打包工具</a><a class="category-link" href="/categories/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/">应用技术</a><a class="category-link" href="/categories/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/Web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">Web性能优化</a><a class="category-link" href="/categories/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/">开发技术</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/JavaScript/">JavaScript</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Java%E5%BC%80%E5%8F%91/">Java开发</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Web%E5%89%8D%E7%AB%AF/">Web前端</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Web%E5%BC%80%E5%8F%91/JavaScript/">JavaScript</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/">应用技术</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Git/">Git</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Git/">Git</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VIM/">VIM</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/">开发技术</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/">应用技术</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a><a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a><a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8/">系统应用</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF/">知识积累</a><a class="category-link" href="/categories/%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97/">符号计算</a><a class="category-link" href="/categories/%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97/%E5%80%BC%E8%AE%A1%E7%AE%97/">值计算</a><a class="category-link" href="/categories/%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97/%E5%80%BC%E8%AE%A1%E7%AE%97/%E5%AF%B9%E6%AF%94/">对比</a><a class="category-link" href="/categories/%E7%AE%97%E6%B3%95%E7%BB%93%E6%9E%84/">算法结构</a><a class="category-link" href="/categories/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/">系统工具</a><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">计算机体系结构</a><a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">计算机体系结构</a><a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/">HTTP</a><a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%89%E5%85%A8/">计算机安全</a><a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</a><a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发</a><a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a><a class="category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/Bug%E7%AE%A1%E7%90%86/">Bug管理</a><a class="category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/Bug%E7%AE%A1%E7%90%86/%E6%B5%81%E7%A8%8B%E7%AE%A1%E7%90%86/">流程管理</a><a class="category-link" href="/categories/%E9%A3%8E%E6%A0%BC/">风格</a><a class="category-link" href="/categories/%E9%A3%8E%E6%A0%BC/%E6%80%9D%E8%B7%AF/">思路</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/619/" style="font-size: 10px;">619</a> <a href="/tags/ABTest/" style="font-size: 10px;">ABTest</a> <a href="/tags/AJAX/" style="font-size: 10.71px;">AJAX</a> <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/Administrator/" style="font-size: 10px;">Administrator</a> <a href="/tags/Ajax/" style="font-size: 10.71px;">Ajax</a> <a href="/tags/Android/" style="font-size: 12.14px;">Android</a> <a href="/tags/Babel/" style="font-size: 10px;">Babel</a> <a href="/tags/BackstopJS/" style="font-size: 10px;">BackstopJS</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Browser/" style="font-size: 10px;">Browser</a> <a href="/tags/Browserify/" style="font-size: 10px;">Browserify</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/CMD/" style="font-size: 10.71px;">CMD</a> <a href="/tags/CMS/" style="font-size: 10px;">CMS</a> <a href="/tags/CORS/" style="font-size: 10.71px;">CORS</a> <a href="/tags/CSRF/" style="font-size: 11.43px;">CSRF</a> <a href="/tags/CSS/" style="font-size: 16.43px;">CSS</a> <a href="/tags/CSS-Hack/" style="font-size: 10px;">CSS Hack</a> <a href="/tags/CSS2/" style="font-size: 10px;">CSS2</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/CSS%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">CSS兼容</a> <a href="/tags/CSS%E5%B1%9E%E6%80%A7/" style="font-size: 10px;">CSS属性</a> <a href="/tags/CSS%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">CSS框架</a> <a href="/tags/CSS%E8%AF%A6%E8%A7%A3/" style="font-size: 10px;">CSS详解</a> <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/Cisco-VPN/" style="font-size: 10px;">Cisco VPN</a> <a href="/tags/Cli/" style="font-size: 10px;">Cli</a> <a href="/tags/Codova/" style="font-size: 10px;">Codova</a> <a href="/tags/Combobox/" style="font-size: 10px;">Combobox</a> <a href="/tags/CommonJS/" style="font-size: 10px;">CommonJS</a> <a href="/tags/Confluence/" style="font-size: 10px;">Confluence</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/DOM%E4%BD%8D%E7%BD%AE-DOM%E4%BA%8B%E4%BB%B6-%E5%B1%8F%E5%B9%95%E4%BD%8D%E7%BD%AE/" style="font-size: 10px;">DOM位置,DOM事件,屏幕位置</a> <a href="/tags/Datagrid/" style="font-size: 10px;">Datagrid</a> <a href="/tags/Date/" style="font-size: 10px;">Date</a> <a href="/tags/DateTimePicker/" style="font-size: 10px;">DateTimePicker</a> <a href="/tags/Deploy/" style="font-size: 10px;">Deploy</a> <a href="/tags/Django-%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">Django 流程</a> <a href="/tags/Django-%E6%BA%90%E7%A0%81/" style="font-size: 10px;">Django 源码</a> <a href="/tags/ECMAScript/" style="font-size: 13.57px;">ECMAScript</a> <a href="/tags/ECMAScript2015/" style="font-size: 10px;">ECMAScript2015</a> <a href="/tags/ECMAScript6/" style="font-size: 10px;">ECMAScript6</a> <a href="/tags/ES2015/" style="font-size: 10px;">ES2015</a> <a href="/tags/ES6/" style="font-size: 14.29px;">ES6</a> <a href="/tags/EasyUI/" style="font-size: 10.71px;">EasyUI</a> <a href="/tags/Electron/" style="font-size: 12.86px;">Electron</a> <a href="/tags/Event-Loop/" style="font-size: 10px;">Event Loop</a> <a href="/tags/Events/" style="font-size: 10px;">Events</a> <a href="/tags/FEKit/" style="font-size: 10px;">FEKit</a> <a href="/tags/File-API/" style="font-size: 10.71px;">File API</a> <a href="/tags/Flash/" style="font-size: 10px;">Flash</a> <a href="/tags/Flutter/" style="font-size: 10.71px;">Flutter</a> <a href="/tags/Flux/" style="font-size: 10px;">Flux</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/Git-Bash/" style="font-size: 10px;">Git Bash</a> <a href="/tags/Git-SSH-%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">Git SSH 配置</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HOC/" style="font-size: 10px;">HOC</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/HTML4/" style="font-size: 10px;">HTML4</a> <a href="/tags/HTML5/" style="font-size: 13.57px;">HTML5</a> <a href="/tags/HTTP/" style="font-size: 12.86px;">HTTP</a> <a href="/tags/HTTP-BIND/" style="font-size: 10px;">HTTP-BIND</a> <a href="/tags/HTTP2/" style="font-size: 10px;">HTTP2</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/HTTP%E8%AF%B7%E6%B1%82/" style="font-size: 10px;">HTTP请求</a> <a href="/tags/HTTP%E8%B0%83%E8%AF%95/" style="font-size: 10.71px;">HTTP调试</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/HarmonyOS/" style="font-size: 10px;">HarmonyOS</a> <a href="/tags/Headless-Chrome/" style="font-size: 13.57px;">Headless Chrome</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hijacking/" style="font-size: 10px;">Hijacking</a> <a href="/tags/Hybrid/" style="font-size: 10.71px;">Hybrid</a> <a href="/tags/IA32/" style="font-size: 10.71px;">IA32</a> <a href="/tags/IE/" style="font-size: 10px;">IE</a> <a href="/tags/IE8/" style="font-size: 10.71px;">IE8</a> <a href="/tags/IEEE-745/" style="font-size: 10px;">IEEE 745</a> <a href="/tags/IO%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">IO模型</a> <a href="/tags/Inspect/" style="font-size: 11.43px;">Inspect</a> <a href="/tags/Internet-Explorer/" style="font-size: 10px;">Internet Explorer</a> <a href="/tags/JIRA/" style="font-size: 10px;">JIRA</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Java/" style="font-size: 10.71px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/JavaScript%E5%8E%86%E5%8F%B2/" style="font-size: 10px;">JavaScript历史</a> <a href="/tags/JavaScript%E5%9B%BE%E8%A1%A8/" style="font-size: 10px;">JavaScript图表</a> <a href="/tags/JavaScript%E5%BC%95%E6%93%8E/" style="font-size: 10px;">JavaScript引擎</a> <a href="/tags/JavaScript%E7%94%BB%E5%9B%BE/" style="font-size: 10px;">JavaScript画图</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Jekyll-Bootstrap/" style="font-size: 10px;">Jekyll Bootstrap</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/LDAP/" style="font-size: 10px;">LDAP</a> <a href="/tags/Lighthouse/" style="font-size: 10px;">Lighthouse</a> <a href="/tags/Linux/" style="font-size: 10.71px;">Linux</a> <a href="/tags/Linux%E6%80%A7%E8%83%BD%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">Linux性能检测</a> <a href="/tags/Linux%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">Linux系统命令</a> <a href="/tags/Linux%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/" style="font-size: 10px;">Linux系统管理</a> <a href="/tags/MTU/" style="font-size: 10px;">MTU</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MediaElement/" style="font-size: 10px;">MediaElement</a> <a href="/tags/Mock/" style="font-size: 11.43px;">Mock</a> <a href="/tags/Modular/" style="font-size: 10px;">Modular</a> <a href="/tags/My97Datepicker/" style="font-size: 10px;">My97Datepicker</a> <a href="/tags/NW/" style="font-size: 10.71px;">NW</a> <a href="/tags/Native/" style="font-size: 11.43px;">Native</a> <a href="/tags/Nest/" style="font-size: 10px;">Nest</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/NoSQL/" style="font-size: 10px;">NoSQL</a> <a href="/tags/Node/" style="font-size: 17.14px;">Node</a> <a href="/tags/Node-Webkit/" style="font-size: 10px;">Node-Webkit</a> <a href="/tags/Node-js/" style="font-size: 10.71px;">Node.js</a> <a href="/tags/NodeJS/" style="font-size: 18.57px;">NodeJS</a> <a href="/tags/NodeJS%E5%8E%86%E5%8F%B2/" style="font-size: 10px;">NodeJS历史</a> <a href="/tags/ORM/" style="font-size: 10px;">ORM</a> <a href="/tags/OSI/" style="font-size: 10px;">OSI</a> <a href="/tags/OWASP/" style="font-size: 10px;">OWASP</a> <a href="/tags/OpenLDAP/" style="font-size: 10px;">OpenLDAP</a> <a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a> <a href="/tags/P3P/" style="font-size: 10px;">P3P</a> <a href="/tags/PDF/" style="font-size: 10.71px;">PDF</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/PHP%E5%86%85%E6%A0%B8/" style="font-size: 10px;">PHP内核</a> <a href="/tags/PM2/" style="font-size: 10.71px;">PM2</a> <a href="/tags/PPT/" style="font-size: 10px;">PPT</a> <a href="/tags/PSS/" style="font-size: 10px;">PSS</a> <a href="/tags/PhantomCSS/" style="font-size: 10px;">PhantomCSS</a> <a href="/tags/PhantomJS/" style="font-size: 12.86px;">PhantomJS</a> <a href="/tags/Phonegap/" style="font-size: 10px;">Phonegap</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/Python/" style="font-size: 10.71px;">Python</a> <a href="/tags/Python-%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/" style="font-size: 10px;">Python 网页截图</a> <a href="/tags/RSS/" style="font-size: 10px;">RSS</a> <a href="/tags/Range/" style="font-size: 10px;">Range</a> <a href="/tags/React/" style="font-size: 15.71px;">React</a> <a href="/tags/React-Native/" style="font-size: 10.71px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/SQL%E6%B3%A8%E5%85%A5/" style="font-size: 10.71px;">SQL注入</a> <a href="/tags/SSO/" style="font-size: 10px;">SSO</a> <a href="/tags/Same-Origin-Policy/" style="font-size: 10px;">Same Origin Policy</a> <a href="/tags/SeaJS/" style="font-size: 10px;">SeaJS</a> <a href="/tags/Selection/" style="font-size: 10px;">Selection</a> <a href="/tags/Selenium/" style="font-size: 13.57px;">Selenium</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Shell/" style="font-size: 10.71px;">Shell</a> <a href="/tags/Slides/" style="font-size: 10px;">Slides</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Sublime-Text-2/" style="font-size: 10px;">Sublime Text 2</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/TypeScript/" style="font-size: 12.86px;">TypeScript</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/URL/" style="font-size: 10px;">URL</a> <a href="/tags/USS/" style="font-size: 10px;">USS</a> <a href="/tags/UTC/" style="font-size: 10px;">UTC</a> <a href="/tags/Unicode/" style="font-size: 10px;">Unicode</a> <a href="/tags/V8/" style="font-size: 10px;">V8</a> <a href="/tags/VIA/" style="font-size: 10px;">VIA</a> <a href="/tags/VIM/" style="font-size: 10px;">VIM</a> <a href="/tags/VPN/" style="font-size: 11.43px;">VPN</a> <a href="/tags/VPN%E9%94%99%E8%AF%AF/" style="font-size: 10px;">VPN错误</a> <a href="/tags/VSS/" style="font-size: 10px;">VSS</a> <a href="/tags/Velocity/" style="font-size: 10px;">Velocity</a> <a href="/tags/Velocity-tools/" style="font-size: 10px;">Velocity-tools</a> <a href="/tags/Video/" style="font-size: 10px;">Video</a> <a href="/tags/VirtualEnv/" style="font-size: 10px;">VirtualEnv</a> <a href="/tags/Vue/" style="font-size: 15.71px;">Vue</a> <a href="/tags/Vue-Router/" style="font-size: 10px;">Vue Router</a> <a href="/tags/Vue-js/" style="font-size: 10px;">Vue.js</a> <a href="/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/tags/W3C/" style="font-size: 13.57px;">W3C</a> <a href="/tags/WSGI/" style="font-size: 10px;">WSGI</a> <a href="/tags/WebAssembly/" style="font-size: 10px;">WebAssembly</a> <a href="/tags/WebComponent/" style="font-size: 10px;">WebComponent</a> <a href="/tags/Webpack/" style="font-size: 15px;">Webpack</a> <a href="/tags/Web%E5%89%8D%E7%AB%AF/" style="font-size: 12.14px;">Web前端</a> <a href="/tags/Web%E5%8E%86%E5%8F%B2/" style="font-size: 10px;">Web历史</a> <a href="/tags/Web%E5%8F%91%E5%B1%95/" style="font-size: 10px;">Web发展</a> <a href="/tags/Web%E5%AE%89%E5%85%A8/" style="font-size: 14.29px;">Web安全</a> <a href="/tags/Web%E5%BC%80%E5%8F%91/" style="font-size: 10.71px;">Web开发</a> <a href="/tags/Web%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">Web服务器</a> <a href="/tags/Web%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">Web架构</a> <a href="/tags/Web%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">Web框架</a> <a href="/tags/Web%E8%B0%83%E8%AF%95/" style="font-size: 10px;">Web调试</a> <a href="/tags/Wiki/" style="font-size: 10px;">Wiki</a> <a href="/tags/Win10/" style="font-size: 10px;">Win10</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/XMLHTTPRequest/" style="font-size: 10px;">XMLHTTPRequest</a> <a href="/tags/XMPP/" style="font-size: 10px;">XMPP</a> <a href="/tags/XSS/" style="font-size: 10.71px;">XSS</a> <a href="/tags/Xvfb/" style="font-size: 12.86px;">Xvfb</a> <a href="/tags/YKit/" style="font-size: 10px;">YKit</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/appjs-AIR/" style="font-size: 10px;">appjs.AIR</a> <a href="/tags/async/" style="font-size: 10.71px;">async</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/attribute/" style="font-size: 10px;">attribute</a> <a href="/tags/avalon/" style="font-size: 10px;">avalon</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/beyondcompare/" style="font-size: 10px;">beyondcompare</a> <a href="/tags/bigpipe/" style="font-size: 10px;">bigpipe</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/browserify/" style="font-size: 10px;">browserify</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/casperjs/" style="font-size: 10px;">casperjs</a> <a href="/tags/chai/" style="font-size: 10px;">chai</a> <a href="/tags/change/" style="font-size: 10px;">change</a> <a href="/tags/chmod/" style="font-size: 10px;">chmod</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-launcher/" style="font-size: 10px;">chrome-launcher</a> <a href="/tags/click/" style="font-size: 10px;">click</a> <a href="/tags/clipboard/" style="font-size: 11.43px;">clipboard</a> <a href="/tags/cnpm/" style="font-size: 10px;">cnpm</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/copy/" style="font-size: 10.71px;">copy</a> <a href="/tags/css/" style="font-size: 12.14px;">css</a> <a href="/tags/defer/" style="font-size: 10px;">defer</a> <a href="/tags/diff/" style="font-size: 10px;">diff</a> <a href="/tags/diff%E7%AE%97%E6%B3%95/" style="font-size: 10px;">diff算法</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/event-loop/" style="font-size: 10.71px;">event-loop</a> <a href="/tags/fekit/" style="font-size: 13.57px;">fekit</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/file/" style="font-size: 10px;">file</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/forever/" style="font-size: 10px;">forever</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/gyp/" style="font-size: 10px;">gyp</a> <a href="/tags/harmonyos/" style="font-size: 10.71px;">harmonyos</a> <a href="/tags/headless-chrome/" style="font-size: 10px;">headless chrome</a> <a href="/tags/hex/" style="font-size: 10px;">hex</a> <a href="/tags/history-mode/" style="font-size: 10px;">history mode</a> <a href="/tags/http/" style="font-size: 10.71px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/iOS/" style="font-size: 12.14px;">iOS</a> <a href="/tags/iPhone-X%E9%80%82%E9%85%8D/" style="font-size: 10px;">iPhone X适配</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/int/" style="font-size: 10px;">int</a> <a href="/tags/iostat/" style="font-size: 10px;">iostat</a> <a href="/tags/jQuery/" style="font-size: 14.29px;">jQuery</a> <a href="/tags/jQuery%E6%BA%90%E7%A0%81/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/javascript/" style="font-size: 12.86px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/keep-alive/" style="font-size: 10px;">keep-alive</a> <a href="/tags/markdown/" style="font-size: 11.43px;">markdown</a> <a href="/tags/merge/" style="font-size: 10px;">merge</a> <a href="/tags/mocha/" style="font-size: 10.71px;">mocha</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/n/" style="font-size: 10px;">n</a> <a href="/tags/nginx/" style="font-size: 10.71px;">nginx</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/node/" style="font-size: 10.71px;">node</a> <a href="/tags/node-inspector/" style="font-size: 12.14px;">node-inspector</a> <a href="/tags/node-webkit/" style="font-size: 10px;">node-webkit</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm/" style="font-size: 12.86px;">npm</a> <a href="/tags/npm%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/" style="font-size: 10px;">npm私有仓库</a> <a href="/tags/npm%E7%A7%81%E6%9C%89%E6%BA%90/" style="font-size: 10px;">npm私有源</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/nvm/" style="font-size: 10.71px;">nvm</a> <a href="/tags/nvmw/" style="font-size: 10px;">nvmw</a> <a href="/tags/openssl/" style="font-size: 10px;">openssl</a> <a href="/tags/paste/" style="font-size: 10.71px;">paste</a> <a href="/tags/phantomjs/" style="font-size: 10.71px;">phantomjs</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/polyfill/" style="font-size: 10px;">polyfill</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/puppeteer/" style="font-size: 10.71px;">puppeteer</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/robotjs/" style="font-size: 10px;">robotjs</a> <a href="/tags/rsync/" style="font-size: 10.71px;">rsync</a> <a href="/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/tags/seajs/" style="font-size: 10px;">seajs</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/sinppia/" style="font-size: 10px;">sinppia</a> <a href="/tags/slimerjs/" style="font-size: 10px;">slimerjs</a> <a href="/tags/spa/" style="font-size: 10px;">spa</a> <a href="/tags/ssh/" style="font-size: 11.43px;">ssh</a> <a href="/tags/str/" style="font-size: 10px;">str</a> <a href="/tags/submodule/" style="font-size: 10px;">submodule</a> <a href="/tags/tcp/" style="font-size: 10px;">tcp</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/tideSDK/" style="font-size: 10px;">tideSDK</a> <a href="/tags/touch/" style="font-size: 10px;">touch</a> <a href="/tags/v8/" style="font-size: 10px;">v8</a> <a href="/tags/velocity/" style="font-size: 10px;">velocity</a> <a href="/tags/vmstat/" style="font-size: 10px;">vmstat</a> <a href="/tags/webpack/" style="font-size: 12.14px;">webpack</a> <a href="/tags/webrick/" style="font-size: 10px;">webrick</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/%E4%B8%A2%E5%8C%85/" style="font-size: 10px;">丢包</a> <a href="/tags/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">严格模式</a> <a href="/tags/%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">中文翻译</a> <a href="/tags/%E4%B8%AD%E6%96%87%E8%B7%AF%E5%BE%84/" style="font-size: 10px;">中文路径</a> <a href="/tags/%E4%B9%B1%E7%A0%81/" style="font-size: 10px;">乱码</a> <a href="/tags/%E4%BA%8B%E4%BB%B6/" style="font-size: 10px;">事件</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" style="font-size: 13.57px;">事件循环</a> <a href="/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" style="font-size: 10px;">二维码</a> <a href="/tags/%E4%BB%93%E5%BA%93/" style="font-size: 10px;">仓库</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" style="font-size: 10.71px;">代码优化</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E6%9F%A5/" style="font-size: 10px;">代码审查</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" style="font-size: 13.57px;">代码规范</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">代码设计</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">代码转换</a> <a href="/tags/%E4%BC%91%E7%9C%A0/" style="font-size: 10px;">休眠</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">作用域</a> <a href="/tags/%E4%BE%BF%E6%8D%B7/" style="font-size: 10px;">便捷</a> <a href="/tags/%E5%80%BC%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">值对比</a> <a href="/tags/%E5%80%BC%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">值计算</a> <a href="/tags/%E5%85%A8%E6%A0%88/" style="font-size: 10px;">全栈</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">关系型数据库</a> <a href="/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/" style="font-size: 10px;">兼容性</a> <a href="/tags/%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E5%8F%82%E6%95%B0/" style="font-size: 10px;">内存占用参数</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">内存模型</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" style="font-size: 10px;">内存泄露</a> <a href="/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" style="font-size: 10px;">内存管理</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">分布式文件系统</a> <a href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" style="font-size: 10.71px;">前后端分离</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.57px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/" style="font-size: 12.14px;">前端基础</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 10px;">前端安全</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">前端工程</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 10.71px;">前端开发</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%94%BB%E9%98%B2/" style="font-size: 10px;">前端攻防</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84/" style="font-size: 10.71px;">前端架构</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" style="font-size: 10.71px;">前端框架</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%94%BB%E5%9B%BE/" style="font-size: 10px;">前端画图</a> <a href="/tags/%E5%89%AA%E8%B4%B4%E6%9D%BF/" style="font-size: 10px;">剪贴板</a> <a href="/tags/%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">加载</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A1%A8%E5%8D%95/" style="font-size: 10px;">动态表单</a> <a href="/tags/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93/" style="font-size: 10.71px;">动态链接库</a> <a href="/tags/%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2/" style="font-size: 10px;">动态页面</a> <a href="/tags/%E5%8A%A8%E7%94%BB/" style="font-size: 10px;">动画</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86/" style="font-size: 10px;">包管理</a> <a href="/tags/%E5%8D%8F%E7%A8%8B/" style="font-size: 10px;">协程</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10.71px;">单元测试</a> <a href="/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" style="font-size: 10px;">单点登录</a> <a href="/tags/%E5%8D%95%E8%89%B2%E9%BB%91/" style="font-size: 10px;">单色黑</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">压力测试</a> <a href="/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/tags/%E5%8E%9F%E7%94%9F/" style="font-size: 10.71px;">原生</a> <a href="/tags/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" style="font-size: 10px;">参考资料</a> <a href="/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" style="font-size: 10.71px;">反向代理</a> <a href="/tags/%E5%8F%AF%E4%BC%B8%E7%BC%A9/" style="font-size: 10.71px;">可伸缩</a> <a href="/tags/%E5%8F%AF%E7%BB%B4%E6%8A%A4%E4%BB%A3%E7%A0%81/" style="font-size: 10px;">可维护代码</a> <a href="/tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/" style="font-size: 10px;">名词解释</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 10px;">后端</a> <a href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 10px;">后端开发</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" style="font-size: 10.71px;">命令行</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BB%A3%E7%90%86/" style="font-size: 10px;">命令行代理</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">命令行配置</a> <a href="/tags/%E5%93%8D%E5%BA%94/" style="font-size: 10px;">响应</a> <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" style="font-size: 10px;">响应式布局</a> <a href="/tags/%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/" style="font-size: 10px;">四舍五入</a> <a href="/tags/%E5%9B%9B%E8%89%B2%E9%BB%91/" style="font-size: 10px;">四色黑</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">回归测试</a> <a href="/tags/%E5%9B%BA%E5%AE%9A%E5%B8%83%E5%B1%80/" style="font-size: 10px;">固定布局</a> <a href="/tags/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" style="font-size: 10px;">图片上传</a> <a href="/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/" style="font-size: 10px;">图片识别</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88/" style="font-size: 10px;">图片预览</a> <a href="/tags/%E5%9C%A8%E7%BA%BF%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">在线更新</a> <a href="/tags/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">垂直居中</a> <a href="/tags/%E5%9E%82%E7%9B%B4%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">垂直水平居中</a> <a href="/tags/%E5%A0%86%E6%A0%88/" style="font-size: 10px;">堆栈</a> <a href="/tags/%E5%A4%8D%E5%88%B6/" style="font-size: 11.43px;">复制</a> <a href="/tags/%E5%A4%9A%E9%A1%B5%E6%89%93%E5%8C%85/" style="font-size: 10px;">多页打包</a> <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">大前端</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">大数据</a> <a href="/tags/%E5%AD%97%E4%BD%93/" style="font-size: 10.71px;">字体</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" style="font-size: 10.71px;">字符串匹配</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" style="font-size: 10px;">字符串处理</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 11.43px;">字符集</a> <a href="/tags/%E5%AD%97%E8%8A%82%E5%BA%8F/" style="font-size: 10px;">字节序</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/" style="font-size: 10px;">学习经验</a> <a href="/tags/%E5%AE%89%E5%85%A8%E5%8C%BA%E9%80%82%E9%85%8D/" style="font-size: 10px;">安全区适配</a> <a href="/tags/%E5%AE%89%E5%85%A8%E7%BC%96%E7%A0%81/" style="font-size: 10px;">安全编码</a> <a href="/tags/%E5%AE%89%E5%85%A8%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">安全设计</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 11.43px;">安卓</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF/" style="font-size: 13.57px;">客户端</a> <a href="/tags/%E5%AE%B9%E5%99%A8%E5%8C%96/" style="font-size: 10.71px;">容器化</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10.71px;">小程序</a> <a href="/tags/%E5%B0%8F%E9%BB%91%E6%9D%A1%E9%80%82%E9%85%8D/" style="font-size: 10px;">小黑条适配</a> <a href="/tags/%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">居中</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 15px;">工程化</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 10px;">布局</a> <a href="/tags/%E5%B9%BF%E5%91%8A/" style="font-size: 10px;">广告</a> <a href="/tags/%E5%BB%B6%E6%97%B6%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">延时检测</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 12.86px;">开发工具</a> <a href="/tags/%E5%BC%82%E6%AD%A5/" style="font-size: 12.86px;">异步</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E4%B8%8A%E4%BC%A0/" style="font-size: 10px;">异步上传</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">异步编程</a> <a href="/tags/%E5%BC%95%E6%93%8E/" style="font-size: 10px;">引擎</a> <a href="/tags/%E5%BC%B9%E5%B1%82%E6%BB%9A%E5%8A%A8/" style="font-size: 10px;">弹层滚动</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 10.71px;">微前端</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 11.43px;">快捷键</a> <a href="/tags/%E6%80%9D%E8%B7%AF/" style="font-size: 10px;">思路</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 10px;">性能</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13.57px;">性能优化</a> <a href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" style="font-size: 10.71px;">性能分析</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 10.71px;">性能测试</a> <a href="/tags/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" style="font-size: 10.71px;">性能调优</a> <a href="/tags/%E6%89%8B%E5%86%99/" style="font-size: 10px;">手写</a> <a href="/tags/%E6%89%8B%E7%BB%98/" style="font-size: 10px;">手绘</a> <a href="/tags/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/" style="font-size: 12.14px;">打包工具</a> <a href="/tags/%E6%89%93%E5%8D%B0%E6%9C%BA/" style="font-size: 10px;">打印机</a> <a href="/tags/%E6%89%A9%E5%B1%95/" style="font-size: 10px;">扩展</a> <a href="/tags/%E6%89%AC%E5%A3%B0%E5%99%A8/" style="font-size: 10px;">扬声器</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E6%A0%88/" style="font-size: 10px;">技术栈</a> <a href="/tags/%E6%8E%92%E5%88%97/" style="font-size: 10px;">排列</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 10px;">插件推荐</a> <a href="/tags/%E6%95%B0%E5%80%BC/" style="font-size: 10px;">数值</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 10px;">数据分析</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%AF%94%E8%BE%83/" style="font-size: 10px;">数据库比较</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10.71px;">数据结构</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" style="font-size: 10px;">文件上传</a> <a href="/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/" style="font-size: 10px;">文本处理</a> <a href="/tags/%E6%96%87%E6%9C%AC%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">文本模板</a> <a href="/tags/%E6%97%A0%E6%B3%95%E5%94%A4%E9%86%92/" style="font-size: 10px;">无法唤醒</a> <a href="/tags/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" style="font-size: 10px;">日志分析</a> <a href="/tags/%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9%E5%99%A8/" style="font-size: 10px;">日期时间选择器</a> <a href="/tags/%E6%97%A5%E6%9C%9F%E9%80%89%E6%8B%A9%E5%99%A8/" style="font-size: 10px;">日期选择器</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8/" style="font-size: 10px;">服务器推</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7/" style="font-size: 10px;">服务器监控</a> <a href="/tags/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/" style="font-size: 10px;">本地预览</a> <a href="/tags/%E6%A0%A1%E9%AA%8C/" style="font-size: 10px;">校验</a> <a href="/tags/%E6%A0%B7%E5%BC%8F%E5%86%B2%E7%AA%81/" style="font-size: 10px;">样式冲突</a> <a href="/tags/%E6%A0%B7%E5%BC%8F%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">样式框架</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/" style="font-size: 10px;">桌面应用</a> <a href="/tags/%E6%A1%8C%E9%9D%A2%E7%AB%AF/" style="font-size: 13.57px;">桌面端</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E5%99%A8/" style="font-size: 10px;">模块加载器</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 17.86px;">模块化</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E8%AF%91/" style="font-size: 10px;">模块化编译</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83/" style="font-size: 10px;">模块化规范</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE/" style="font-size: 10.71px;">模拟数据</a> <a href="/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" style="font-size: 10px;">模板引擎</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 12.86px;">正则表达式</a> <a href="/tags/%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">水平居中</a> <a href="/tags/%E6%B5%81%E5%BC%8F%E5%B8%83%E5%B1%80/" style="font-size: 10px;">流式布局</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" style="font-size: 10px;">流程图</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE/" style="font-size: 10.71px;">测试数据</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">测试框架</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 19.29px;">浏览器</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/" style="font-size: 15.71px;">浏览器原理</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8/" style="font-size: 10px;">浏览器安全</a> <a href="/tags/%E6%B5%AE%E7%82%B9%E6%95%B0/" style="font-size: 10px;">浮点数</a> <a href="/tags/%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91/" style="font-size: 10px;">混合开发</a> <a href="/tags/%E6%B8%97%E9%80%8F/" style="font-size: 10px;">渗透</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 10px;">源码</a> <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 16.43px;">源码分析</a> <a href="/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" style="font-size: 10.71px;">源码阅读</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">滑动穿透</a> <a href="/tags/%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">滚动穿透</a> <a href="/tags/%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF/" style="font-size: 10px;">演示文稿</a> <a href="/tags/%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/" style="font-size: 10px;">灰度发布</a> <a href="/tags/%E7%82%B9%E5%87%BB%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">点击下载</a> <a href="/tags/%E7%82%B9%E5%87%BB%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">点击穿透</a> <a href="/tags/%E7%83%AD%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">热更新</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E7%89%B9%E6%80%A7%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">特性检测</a> <a href="/tags/%E7%8A%B6%E6%80%81/" style="font-size: 10.71px;">状态</a> <a href="/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" style="font-size: 10.71px;">状态管理</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%94%9F%E6%88%90%E5%99%A8/" style="font-size: 10px;">生成器</a> <a href="/tags/%E7%98%A6%E8%BA%AB/" style="font-size: 10px;">瘦身</a> <a href="/tags/%E7%9D%A1%E7%9C%A0/" style="font-size: 10px;">睡眠</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 10px;">知识管理</a> <a href="/tags/%E7%A6%81%E6%AD%A2%E6%BB%9A%E5%8A%A8/" style="font-size: 10px;">禁止滚动</a> <a href="/tags/%E7%A6%81%E7%94%A8%E7%BC%93%E5%AD%98/" style="font-size: 10px;">禁用缓存</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 10px;">移动端</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95/" style="font-size: 10px;">移动端调试</a> <a href="/tags/%E7%A7%BB%E9%99%A4%E6%B3%A8%E9%87%8A/" style="font-size: 10px;">移除注释</a> <a href="/tags/%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">穿透</a> <a href="/tags/%E7%AB%99%E7%82%B9/" style="font-size: 10px;">站点</a> <a href="/tags/%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">符号计算</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8C%85/" style="font-size: 10px;">第三方包</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10.71px;">算法</a> <a href="/tags/%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90/" style="font-size: 10px;">管理员权限</a> <a href="/tags/%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">管理系统</a> <a href="/tags/%E7%AE%A1%E7%A8%8B/" style="font-size: 10px;">管程</a> <a href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">类型转换</a> <a href="/tags/%E7%B1%BB%E5%BA%93/" style="font-size: 10px;">类库</a> <a href="/tags/%E7%B2%98%E8%B4%B4/" style="font-size: 11.43px;">粘贴</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">系统工具</a> <a href="/tags/%E7%BA%A4%E7%A8%8B/" style="font-size: 10px;">纤程</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/" style="font-size: 11.43px;">组件化</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" style="font-size: 10.71px;">组件通信</a> <a href="/tags/%E7%BB%84%E5%90%88/" style="font-size: 10px;">组合</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/" style="font-size: 10px;">终端代理</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 11.43px;">缓存</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 12.86px;">编码</a> <a href="/tags/%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81/" style="font-size: 10.71px;">编码解码</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">编程语言</a> <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 10px;">编辑器</a> <a href="/tags/%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">网站架构</a> <a href="/tags/%E7%BD%91%E7%AB%99%E9%80%9F%E5%BA%A6%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">网站速度检测</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2/" style="font-size: 10.71px;">网络攻防</a> <a href="/tags/%E7%BD%91%E9%A1%B5%E5%AE%9A%E4%BD%8D/" style="font-size: 10px;">网页定位</a> <a href="/tags/%E8%80%B3%E6%9C%BA/" style="font-size: 10px;">耳机</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 12.86px;">自动化</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" style="font-size: 12.14px;">自动化测试</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E8%A1%A8%E5%8D%95/" style="font-size: 10px;">自动化表单</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%88%AA%E5%9B%BE/" style="font-size: 10px;">自动截图</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%92%AD%E6%94%BE/" style="font-size: 10px;">自动播放</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/" style="font-size: 10px;">自动构建</a> <a href="/tags/%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/" style="font-size: 10px;">自签名证书</a> <a href="/tags/%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80/" style="font-size: 10px;">自适应布局</a> <a href="/tags/%E8%8B%B9%E6%9E%9C/" style="font-size: 11.43px;">苹果</a> <a href="/tags/%E8%99%9A%E6%8B%9FDOM/" style="font-size: 10px;">虚拟DOM</a> <a href="/tags/%E8%A1%A8%E5%8D%95%E5%80%BC%E5%AD%98%E5%8F%96/" style="font-size: 10px;">表单值存取</a> <a href="/tags/%E8%A7%84%E8%8C%83/" style="font-size: 10px;">规范</a> <a href="/tags/%E8%A7%84%E8%8C%83%E6%A3%80%E6%9F%A5/" style="font-size: 10px;">规范检查</a> <a href="/tags/%E8%A7%A3%E7%A0%81/" style="font-size: 10.71px;">解码</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" style="font-size: 10px;">设计原则</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%9B%BE/" style="font-size: 10px;">设计图</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%AF%81%E4%B9%A6/" style="font-size: 10px;">证书</a> <a href="/tags/%E8%AF%B7%E6%B1%82/" style="font-size: 10px;">请求</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 12.14px;">调试</a> <a href="/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 11.43px;">跨域</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0-%E8%B7%A8%E7%AB%AF-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-Web%E8%B7%A8%E5%B9%B3%E5%8F%B0-Web%E8%B7%A8%E7%AB%AF/" style="font-size: 10px;">跨平台,跨端,解决方案,Web跨平台,Web跨端</a> <a href="/tags/%E8%B7%A8%E7%AB%AF/" style="font-size: 10px;">跨端</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3/" style="font-size: 10px;">软件破解</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 11.43px;">运维</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">进程</a> <a href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/" style="font-size: 10px;">迭代器</a> <a href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">逆向工程</a> <a href="/tags/%E9%83%A8%E5%88%86%E6%89%93%E5%8D%B0/" style="font-size: 10px;">部分打印</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 11.43px;">部署</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E8%A7%84%E8%8C%83/" style="font-size: 10px;">配置规范</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a> <a href="/tags/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">隐式类型转换</a> <a href="/tags/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">静态博客</a> <a href="/tags/%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">静态服务器</a> <a href="/tags/%E9%9D%9E%E5%86%85%E7%BD%AE%E7%AE%A1%E7%90%86%E5%91%98/" style="font-size: 10px;">非内置管理员</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 12.14px;">面向对象</a> <a href="/tags/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" style="font-size: 11.43px;">面向过程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;">面试题</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/" style="font-size: 10px;">音视频</a> <a href="/tags/%E9%A1%B5%E9%9D%A2/" style="font-size: 10px;">页面</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96/" style="font-size: 10px;">页面优化</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E4%BD%8D%E7%BD%AE/" style="font-size: 10px;">页面位置</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">页面加载</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80/" style="font-size: 10px;">页面布局</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">项目模板</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">项目结构</a> <a href="/tags/%E9%A3%8E%E6%A0%BC/" style="font-size: 10px;">风格</a> <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" style="font-size: 11.43px;">高性能</a> <a href="/tags/%E9%AB%98%E6%95%88/" style="font-size: 10px;">高效</a> <a href="/tags/%E9%B8%BF%E8%92%99/" style="font-size: 11.43px;">鸿蒙</a> <a href="/tags/%E9%BC%A0%E6%A0%87%E5%AE%9A%E4%BD%8D/" style="font-size: 10px;">鼠标定位</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>首页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/619/" style="font-size: 10px;">619</a> <a href="/tags/ABTest/" style="font-size: 10px;">ABTest</a> <a href="/tags/AJAX/" style="font-size: 10.71px;">AJAX</a> <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/Administrator/" style="font-size: 10px;">Administrator</a> <a href="/tags/Ajax/" style="font-size: 10.71px;">Ajax</a> <a href="/tags/Android/" style="font-size: 12.14px;">Android</a> <a href="/tags/Babel/" style="font-size: 10px;">Babel</a> <a href="/tags/BackstopJS/" style="font-size: 10px;">BackstopJS</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Browser/" style="font-size: 10px;">Browser</a> <a href="/tags/Browserify/" style="font-size: 10px;">Browserify</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/CMD/" style="font-size: 10.71px;">CMD</a> <a href="/tags/CMS/" style="font-size: 10px;">CMS</a> <a href="/tags/CORS/" style="font-size: 10.71px;">CORS</a> <a href="/tags/CSRF/" style="font-size: 11.43px;">CSRF</a> <a href="/tags/CSS/" style="font-size: 16.43px;">CSS</a> <a href="/tags/CSS-Hack/" style="font-size: 10px;">CSS Hack</a> <a href="/tags/CSS2/" style="font-size: 10px;">CSS2</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/CSS%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">CSS兼容</a> <a href="/tags/CSS%E5%B1%9E%E6%80%A7/" style="font-size: 10px;">CSS属性</a> <a href="/tags/CSS%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">CSS框架</a> <a href="/tags/CSS%E8%AF%A6%E8%A7%A3/" style="font-size: 10px;">CSS详解</a> <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/Cisco-VPN/" style="font-size: 10px;">Cisco VPN</a> <a href="/tags/Cli/" style="font-size: 10px;">Cli</a> <a href="/tags/Codova/" style="font-size: 10px;">Codova</a> <a href="/tags/Combobox/" style="font-size: 10px;">Combobox</a> <a href="/tags/CommonJS/" style="font-size: 10px;">CommonJS</a> <a href="/tags/Confluence/" style="font-size: 10px;">Confluence</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/DOM%E4%BD%8D%E7%BD%AE-DOM%E4%BA%8B%E4%BB%B6-%E5%B1%8F%E5%B9%95%E4%BD%8D%E7%BD%AE/" style="font-size: 10px;">DOM位置,DOM事件,屏幕位置</a> <a href="/tags/Datagrid/" style="font-size: 10px;">Datagrid</a> <a href="/tags/Date/" style="font-size: 10px;">Date</a> <a href="/tags/DateTimePicker/" style="font-size: 10px;">DateTimePicker</a> <a href="/tags/Deploy/" style="font-size: 10px;">Deploy</a> <a href="/tags/Django-%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">Django 流程</a> <a href="/tags/Django-%E6%BA%90%E7%A0%81/" style="font-size: 10px;">Django 源码</a> <a href="/tags/ECMAScript/" style="font-size: 13.57px;">ECMAScript</a> <a href="/tags/ECMAScript2015/" style="font-size: 10px;">ECMAScript2015</a> <a href="/tags/ECMAScript6/" style="font-size: 10px;">ECMAScript6</a> <a href="/tags/ES2015/" style="font-size: 10px;">ES2015</a> <a href="/tags/ES6/" style="font-size: 14.29px;">ES6</a> <a href="/tags/EasyUI/" style="font-size: 10.71px;">EasyUI</a> <a href="/tags/Electron/" style="font-size: 12.86px;">Electron</a> <a href="/tags/Event-Loop/" style="font-size: 10px;">Event Loop</a> <a href="/tags/Events/" style="font-size: 10px;">Events</a> <a href="/tags/FEKit/" style="font-size: 10px;">FEKit</a> <a href="/tags/File-API/" style="font-size: 10.71px;">File API</a> <a href="/tags/Flash/" style="font-size: 10px;">Flash</a> <a href="/tags/Flutter/" style="font-size: 10.71px;">Flutter</a> <a href="/tags/Flux/" style="font-size: 10px;">Flux</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/Git-Bash/" style="font-size: 10px;">Git Bash</a> <a href="/tags/Git-SSH-%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">Git SSH 配置</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HOC/" style="font-size: 10px;">HOC</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/HTML4/" style="font-size: 10px;">HTML4</a> <a href="/tags/HTML5/" style="font-size: 13.57px;">HTML5</a> <a href="/tags/HTTP/" style="font-size: 12.86px;">HTTP</a> <a href="/tags/HTTP-BIND/" style="font-size: 10px;">HTTP-BIND</a> <a href="/tags/HTTP2/" style="font-size: 10px;">HTTP2</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/HTTP%E8%AF%B7%E6%B1%82/" style="font-size: 10px;">HTTP请求</a> <a href="/tags/HTTP%E8%B0%83%E8%AF%95/" style="font-size: 10.71px;">HTTP调试</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/HarmonyOS/" style="font-size: 10px;">HarmonyOS</a> <a href="/tags/Headless-Chrome/" style="font-size: 13.57px;">Headless Chrome</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hijacking/" style="font-size: 10px;">Hijacking</a> <a href="/tags/Hybrid/" style="font-size: 10.71px;">Hybrid</a> <a href="/tags/IA32/" style="font-size: 10.71px;">IA32</a> <a href="/tags/IE/" style="font-size: 10px;">IE</a> <a href="/tags/IE8/" style="font-size: 10.71px;">IE8</a> <a href="/tags/IEEE-745/" style="font-size: 10px;">IEEE 745</a> <a href="/tags/IO%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">IO模型</a> <a href="/tags/Inspect/" style="font-size: 11.43px;">Inspect</a> <a href="/tags/Internet-Explorer/" style="font-size: 10px;">Internet Explorer</a> <a href="/tags/JIRA/" style="font-size: 10px;">JIRA</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Java/" style="font-size: 10.71px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/JavaScript%E5%8E%86%E5%8F%B2/" style="font-size: 10px;">JavaScript历史</a> <a href="/tags/JavaScript%E5%9B%BE%E8%A1%A8/" style="font-size: 10px;">JavaScript图表</a> <a href="/tags/JavaScript%E5%BC%95%E6%93%8E/" style="font-size: 10px;">JavaScript引擎</a> <a href="/tags/JavaScript%E7%94%BB%E5%9B%BE/" style="font-size: 10px;">JavaScript画图</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Jekyll-Bootstrap/" style="font-size: 10px;">Jekyll Bootstrap</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/LDAP/" style="font-size: 10px;">LDAP</a> <a href="/tags/Lighthouse/" style="font-size: 10px;">Lighthouse</a> <a href="/tags/Linux/" style="font-size: 10.71px;">Linux</a> <a href="/tags/Linux%E6%80%A7%E8%83%BD%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">Linux性能检测</a> <a href="/tags/Linux%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">Linux系统命令</a> <a href="/tags/Linux%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/" style="font-size: 10px;">Linux系统管理</a> <a href="/tags/MTU/" style="font-size: 10px;">MTU</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MediaElement/" style="font-size: 10px;">MediaElement</a> <a href="/tags/Mock/" style="font-size: 11.43px;">Mock</a> <a href="/tags/Modular/" style="font-size: 10px;">Modular</a> <a href="/tags/My97Datepicker/" style="font-size: 10px;">My97Datepicker</a> <a href="/tags/NW/" style="font-size: 10.71px;">NW</a> <a href="/tags/Native/" style="font-size: 11.43px;">Native</a> <a href="/tags/Nest/" style="font-size: 10px;">Nest</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/NoSQL/" style="font-size: 10px;">NoSQL</a> <a href="/tags/Node/" style="font-size: 17.14px;">Node</a> <a href="/tags/Node-Webkit/" style="font-size: 10px;">Node-Webkit</a> <a href="/tags/Node-js/" style="font-size: 10.71px;">Node.js</a> <a href="/tags/NodeJS/" style="font-size: 18.57px;">NodeJS</a> <a href="/tags/NodeJS%E5%8E%86%E5%8F%B2/" style="font-size: 10px;">NodeJS历史</a> <a href="/tags/ORM/" style="font-size: 10px;">ORM</a> <a href="/tags/OSI/" style="font-size: 10px;">OSI</a> <a href="/tags/OWASP/" style="font-size: 10px;">OWASP</a> <a href="/tags/OpenLDAP/" style="font-size: 10px;">OpenLDAP</a> <a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a> <a href="/tags/P3P/" style="font-size: 10px;">P3P</a> <a href="/tags/PDF/" style="font-size: 10.71px;">PDF</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/PHP%E5%86%85%E6%A0%B8/" style="font-size: 10px;">PHP内核</a> <a href="/tags/PM2/" style="font-size: 10.71px;">PM2</a> <a href="/tags/PPT/" style="font-size: 10px;">PPT</a> <a href="/tags/PSS/" style="font-size: 10px;">PSS</a> <a href="/tags/PhantomCSS/" style="font-size: 10px;">PhantomCSS</a> <a href="/tags/PhantomJS/" style="font-size: 12.86px;">PhantomJS</a> <a href="/tags/Phonegap/" style="font-size: 10px;">Phonegap</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/Python/" style="font-size: 10.71px;">Python</a> <a href="/tags/Python-%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/" style="font-size: 10px;">Python 网页截图</a> <a href="/tags/RSS/" style="font-size: 10px;">RSS</a> <a href="/tags/Range/" style="font-size: 10px;">Range</a> <a href="/tags/React/" style="font-size: 15.71px;">React</a> <a href="/tags/React-Native/" style="font-size: 10.71px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/SQL%E6%B3%A8%E5%85%A5/" style="font-size: 10.71px;">SQL注入</a> <a href="/tags/SSO/" style="font-size: 10px;">SSO</a> <a href="/tags/Same-Origin-Policy/" style="font-size: 10px;">Same Origin Policy</a> <a href="/tags/SeaJS/" style="font-size: 10px;">SeaJS</a> <a href="/tags/Selection/" style="font-size: 10px;">Selection</a> <a href="/tags/Selenium/" style="font-size: 13.57px;">Selenium</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Shell/" style="font-size: 10.71px;">Shell</a> <a href="/tags/Slides/" style="font-size: 10px;">Slides</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Sublime-Text-2/" style="font-size: 10px;">Sublime Text 2</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/TypeScript/" style="font-size: 12.86px;">TypeScript</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/URL/" style="font-size: 10px;">URL</a> <a href="/tags/USS/" style="font-size: 10px;">USS</a> <a href="/tags/UTC/" style="font-size: 10px;">UTC</a> <a href="/tags/Unicode/" style="font-size: 10px;">Unicode</a> <a href="/tags/V8/" style="font-size: 10px;">V8</a> <a href="/tags/VIA/" style="font-size: 10px;">VIA</a> <a href="/tags/VIM/" style="font-size: 10px;">VIM</a> <a href="/tags/VPN/" style="font-size: 11.43px;">VPN</a> <a href="/tags/VPN%E9%94%99%E8%AF%AF/" style="font-size: 10px;">VPN错误</a> <a href="/tags/VSS/" style="font-size: 10px;">VSS</a> <a href="/tags/Velocity/" style="font-size: 10px;">Velocity</a> <a href="/tags/Velocity-tools/" style="font-size: 10px;">Velocity-tools</a> <a href="/tags/Video/" style="font-size: 10px;">Video</a> <a href="/tags/VirtualEnv/" style="font-size: 10px;">VirtualEnv</a> <a href="/tags/Vue/" style="font-size: 15.71px;">Vue</a> <a href="/tags/Vue-Router/" style="font-size: 10px;">Vue Router</a> <a href="/tags/Vue-js/" style="font-size: 10px;">Vue.js</a> <a href="/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/tags/W3C/" style="font-size: 13.57px;">W3C</a> <a href="/tags/WSGI/" style="font-size: 10px;">WSGI</a> <a href="/tags/WebAssembly/" style="font-size: 10px;">WebAssembly</a> <a href="/tags/WebComponent/" style="font-size: 10px;">WebComponent</a> <a href="/tags/Webpack/" style="font-size: 15px;">Webpack</a> <a href="/tags/Web%E5%89%8D%E7%AB%AF/" style="font-size: 12.14px;">Web前端</a> <a href="/tags/Web%E5%8E%86%E5%8F%B2/" style="font-size: 10px;">Web历史</a> <a href="/tags/Web%E5%8F%91%E5%B1%95/" style="font-size: 10px;">Web发展</a> <a href="/tags/Web%E5%AE%89%E5%85%A8/" style="font-size: 14.29px;">Web安全</a> <a href="/tags/Web%E5%BC%80%E5%8F%91/" style="font-size: 10.71px;">Web开发</a> <a href="/tags/Web%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">Web服务器</a> <a href="/tags/Web%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">Web架构</a> <a href="/tags/Web%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">Web框架</a> <a href="/tags/Web%E8%B0%83%E8%AF%95/" style="font-size: 10px;">Web调试</a> <a href="/tags/Wiki/" style="font-size: 10px;">Wiki</a> <a href="/tags/Win10/" style="font-size: 10px;">Win10</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/XMLHTTPRequest/" style="font-size: 10px;">XMLHTTPRequest</a> <a href="/tags/XMPP/" style="font-size: 10px;">XMPP</a> <a href="/tags/XSS/" style="font-size: 10.71px;">XSS</a> <a href="/tags/Xvfb/" style="font-size: 12.86px;">Xvfb</a> <a href="/tags/YKit/" style="font-size: 10px;">YKit</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/appjs-AIR/" style="font-size: 10px;">appjs.AIR</a> <a href="/tags/async/" style="font-size: 10.71px;">async</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/attribute/" style="font-size: 10px;">attribute</a> <a href="/tags/avalon/" style="font-size: 10px;">avalon</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/beyondcompare/" style="font-size: 10px;">beyondcompare</a> <a href="/tags/bigpipe/" style="font-size: 10px;">bigpipe</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/browserify/" style="font-size: 10px;">browserify</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/casperjs/" style="font-size: 10px;">casperjs</a> <a href="/tags/chai/" style="font-size: 10px;">chai</a> <a href="/tags/change/" style="font-size: 10px;">change</a> <a href="/tags/chmod/" style="font-size: 10px;">chmod</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-launcher/" style="font-size: 10px;">chrome-launcher</a> <a href="/tags/click/" style="font-size: 10px;">click</a> <a href="/tags/clipboard/" style="font-size: 11.43px;">clipboard</a> <a href="/tags/cnpm/" style="font-size: 10px;">cnpm</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/copy/" style="font-size: 10.71px;">copy</a> <a href="/tags/css/" style="font-size: 12.14px;">css</a> <a href="/tags/defer/" style="font-size: 10px;">defer</a> <a href="/tags/diff/" style="font-size: 10px;">diff</a> <a href="/tags/diff%E7%AE%97%E6%B3%95/" style="font-size: 10px;">diff算法</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/event-loop/" style="font-size: 10.71px;">event-loop</a> <a href="/tags/fekit/" style="font-size: 13.57px;">fekit</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/file/" style="font-size: 10px;">file</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/forever/" style="font-size: 10px;">forever</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/gyp/" style="font-size: 10px;">gyp</a> <a href="/tags/harmonyos/" style="font-size: 10.71px;">harmonyos</a> <a href="/tags/headless-chrome/" style="font-size: 10px;">headless chrome</a> <a href="/tags/hex/" style="font-size: 10px;">hex</a> <a href="/tags/history-mode/" style="font-size: 10px;">history mode</a> <a href="/tags/http/" style="font-size: 10.71px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/iOS/" style="font-size: 12.14px;">iOS</a> <a href="/tags/iPhone-X%E9%80%82%E9%85%8D/" style="font-size: 10px;">iPhone X适配</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/int/" style="font-size: 10px;">int</a> <a href="/tags/iostat/" style="font-size: 10px;">iostat</a> <a href="/tags/jQuery/" style="font-size: 14.29px;">jQuery</a> <a href="/tags/jQuery%E6%BA%90%E7%A0%81/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/javascript/" style="font-size: 12.86px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/keep-alive/" style="font-size: 10px;">keep-alive</a> <a href="/tags/markdown/" style="font-size: 11.43px;">markdown</a> <a href="/tags/merge/" style="font-size: 10px;">merge</a> <a href="/tags/mocha/" style="font-size: 10.71px;">mocha</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/n/" style="font-size: 10px;">n</a> <a href="/tags/nginx/" style="font-size: 10.71px;">nginx</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/node/" style="font-size: 10.71px;">node</a> <a href="/tags/node-inspector/" style="font-size: 12.14px;">node-inspector</a> <a href="/tags/node-webkit/" style="font-size: 10px;">node-webkit</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm/" style="font-size: 12.86px;">npm</a> <a href="/tags/npm%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/" style="font-size: 10px;">npm私有仓库</a> <a href="/tags/npm%E7%A7%81%E6%9C%89%E6%BA%90/" style="font-size: 10px;">npm私有源</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/nvm/" style="font-size: 10.71px;">nvm</a> <a href="/tags/nvmw/" style="font-size: 10px;">nvmw</a> <a href="/tags/openssl/" style="font-size: 10px;">openssl</a> <a href="/tags/paste/" style="font-size: 10.71px;">paste</a> <a href="/tags/phantomjs/" style="font-size: 10.71px;">phantomjs</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/polyfill/" style="font-size: 10px;">polyfill</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/puppeteer/" style="font-size: 10.71px;">puppeteer</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/robotjs/" style="font-size: 10px;">robotjs</a> <a href="/tags/rsync/" style="font-size: 10.71px;">rsync</a> <a href="/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/tags/seajs/" style="font-size: 10px;">seajs</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/sinppia/" style="font-size: 10px;">sinppia</a> <a href="/tags/slimerjs/" style="font-size: 10px;">slimerjs</a> <a href="/tags/spa/" style="font-size: 10px;">spa</a> <a href="/tags/ssh/" style="font-size: 11.43px;">ssh</a> <a href="/tags/str/" style="font-size: 10px;">str</a> <a href="/tags/submodule/" style="font-size: 10px;">submodule</a> <a href="/tags/tcp/" style="font-size: 10px;">tcp</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/tideSDK/" style="font-size: 10px;">tideSDK</a> <a href="/tags/touch/" style="font-size: 10px;">touch</a> <a href="/tags/v8/" style="font-size: 10px;">v8</a> <a href="/tags/velocity/" style="font-size: 10px;">velocity</a> <a href="/tags/vmstat/" style="font-size: 10px;">vmstat</a> <a href="/tags/webpack/" style="font-size: 12.14px;">webpack</a> <a href="/tags/webrick/" style="font-size: 10px;">webrick</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/%E4%B8%A2%E5%8C%85/" style="font-size: 10px;">丢包</a> <a href="/tags/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">严格模式</a> <a href="/tags/%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">中文翻译</a> <a href="/tags/%E4%B8%AD%E6%96%87%E8%B7%AF%E5%BE%84/" style="font-size: 10px;">中文路径</a> <a href="/tags/%E4%B9%B1%E7%A0%81/" style="font-size: 10px;">乱码</a> <a href="/tags/%E4%BA%8B%E4%BB%B6/" style="font-size: 10px;">事件</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" style="font-size: 13.57px;">事件循环</a> <a href="/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" style="font-size: 10px;">二维码</a> <a href="/tags/%E4%BB%93%E5%BA%93/" style="font-size: 10px;">仓库</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" style="font-size: 10.71px;">代码优化</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E6%9F%A5/" style="font-size: 10px;">代码审查</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" style="font-size: 13.57px;">代码规范</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">代码设计</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">代码转换</a> <a href="/tags/%E4%BC%91%E7%9C%A0/" style="font-size: 10px;">休眠</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">作用域</a> <a href="/tags/%E4%BE%BF%E6%8D%B7/" style="font-size: 10px;">便捷</a> <a href="/tags/%E5%80%BC%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">值对比</a> <a href="/tags/%E5%80%BC%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">值计算</a> <a href="/tags/%E5%85%A8%E6%A0%88/" style="font-size: 10px;">全栈</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">关系型数据库</a> <a href="/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/" style="font-size: 10px;">兼容性</a> <a href="/tags/%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E5%8F%82%E6%95%B0/" style="font-size: 10px;">内存占用参数</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">内存模型</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" style="font-size: 10px;">内存泄露</a> <a href="/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" style="font-size: 10px;">内存管理</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">分布式文件系统</a> <a href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" style="font-size: 10.71px;">前后端分离</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.57px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/" style="font-size: 12.14px;">前端基础</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 10px;">前端安全</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">前端工程</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 10.71px;">前端开发</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%94%BB%E9%98%B2/" style="font-size: 10px;">前端攻防</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84/" style="font-size: 10.71px;">前端架构</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" style="font-size: 10.71px;">前端框架</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%94%BB%E5%9B%BE/" style="font-size: 10px;">前端画图</a> <a href="/tags/%E5%89%AA%E8%B4%B4%E6%9D%BF/" style="font-size: 10px;">剪贴板</a> <a href="/tags/%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">加载</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A1%A8%E5%8D%95/" style="font-size: 10px;">动态表单</a> <a href="/tags/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93/" style="font-size: 10.71px;">动态链接库</a> <a href="/tags/%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2/" style="font-size: 10px;">动态页面</a> <a href="/tags/%E5%8A%A8%E7%94%BB/" style="font-size: 10px;">动画</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86/" style="font-size: 10px;">包管理</a> <a href="/tags/%E5%8D%8F%E7%A8%8B/" style="font-size: 10px;">协程</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10.71px;">单元测试</a> <a href="/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" style="font-size: 10px;">单点登录</a> <a href="/tags/%E5%8D%95%E8%89%B2%E9%BB%91/" style="font-size: 10px;">单色黑</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">压力测试</a> <a href="/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/tags/%E5%8E%9F%E7%94%9F/" style="font-size: 10.71px;">原生</a> <a href="/tags/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" style="font-size: 10px;">参考资料</a> <a href="/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" style="font-size: 10.71px;">反向代理</a> <a href="/tags/%E5%8F%AF%E4%BC%B8%E7%BC%A9/" style="font-size: 10.71px;">可伸缩</a> <a href="/tags/%E5%8F%AF%E7%BB%B4%E6%8A%A4%E4%BB%A3%E7%A0%81/" style="font-size: 10px;">可维护代码</a> <a href="/tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/" style="font-size: 10px;">名词解释</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 10px;">后端</a> <a href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 10px;">后端开发</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" style="font-size: 10.71px;">命令行</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BB%A3%E7%90%86/" style="font-size: 10px;">命令行代理</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">命令行配置</a> <a href="/tags/%E5%93%8D%E5%BA%94/" style="font-size: 10px;">响应</a> <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" style="font-size: 10px;">响应式布局</a> <a href="/tags/%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/" style="font-size: 10px;">四舍五入</a> <a href="/tags/%E5%9B%9B%E8%89%B2%E9%BB%91/" style="font-size: 10px;">四色黑</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">回归测试</a> <a href="/tags/%E5%9B%BA%E5%AE%9A%E5%B8%83%E5%B1%80/" style="font-size: 10px;">固定布局</a> <a href="/tags/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" style="font-size: 10px;">图片上传</a> <a href="/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/" style="font-size: 10px;">图片识别</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88/" style="font-size: 10px;">图片预览</a> <a href="/tags/%E5%9C%A8%E7%BA%BF%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">在线更新</a> <a href="/tags/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">垂直居中</a> <a href="/tags/%E5%9E%82%E7%9B%B4%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">垂直水平居中</a> <a href="/tags/%E5%A0%86%E6%A0%88/" style="font-size: 10px;">堆栈</a> <a href="/tags/%E5%A4%8D%E5%88%B6/" style="font-size: 11.43px;">复制</a> <a href="/tags/%E5%A4%9A%E9%A1%B5%E6%89%93%E5%8C%85/" style="font-size: 10px;">多页打包</a> <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">大前端</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">大数据</a> <a href="/tags/%E5%AD%97%E4%BD%93/" style="font-size: 10.71px;">字体</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" style="font-size: 10.71px;">字符串匹配</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" style="font-size: 10px;">字符串处理</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 11.43px;">字符集</a> <a href="/tags/%E5%AD%97%E8%8A%82%E5%BA%8F/" style="font-size: 10px;">字节序</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/" style="font-size: 10px;">学习经验</a> <a href="/tags/%E5%AE%89%E5%85%A8%E5%8C%BA%E9%80%82%E9%85%8D/" style="font-size: 10px;">安全区适配</a> <a href="/tags/%E5%AE%89%E5%85%A8%E7%BC%96%E7%A0%81/" style="font-size: 10px;">安全编码</a> <a href="/tags/%E5%AE%89%E5%85%A8%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">安全设计</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 11.43px;">安卓</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF/" style="font-size: 13.57px;">客户端</a> <a href="/tags/%E5%AE%B9%E5%99%A8%E5%8C%96/" style="font-size: 10.71px;">容器化</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10.71px;">小程序</a> <a href="/tags/%E5%B0%8F%E9%BB%91%E6%9D%A1%E9%80%82%E9%85%8D/" style="font-size: 10px;">小黑条适配</a> <a href="/tags/%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">居中</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 15px;">工程化</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 10px;">布局</a> <a href="/tags/%E5%B9%BF%E5%91%8A/" style="font-size: 10px;">广告</a> <a href="/tags/%E5%BB%B6%E6%97%B6%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">延时检测</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 12.86px;">开发工具</a> <a href="/tags/%E5%BC%82%E6%AD%A5/" style="font-size: 12.86px;">异步</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E4%B8%8A%E4%BC%A0/" style="font-size: 10px;">异步上传</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">异步编程</a> <a href="/tags/%E5%BC%95%E6%93%8E/" style="font-size: 10px;">引擎</a> <a href="/tags/%E5%BC%B9%E5%B1%82%E6%BB%9A%E5%8A%A8/" style="font-size: 10px;">弹层滚动</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 10.71px;">微前端</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 11.43px;">快捷键</a> <a href="/tags/%E6%80%9D%E8%B7%AF/" style="font-size: 10px;">思路</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 10px;">性能</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13.57px;">性能优化</a> <a href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" style="font-size: 10.71px;">性能分析</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 10.71px;">性能测试</a> <a href="/tags/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" style="font-size: 10.71px;">性能调优</a> <a href="/tags/%E6%89%8B%E5%86%99/" style="font-size: 10px;">手写</a> <a href="/tags/%E6%89%8B%E7%BB%98/" style="font-size: 10px;">手绘</a> <a href="/tags/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/" style="font-size: 12.14px;">打包工具</a> <a href="/tags/%E6%89%93%E5%8D%B0%E6%9C%BA/" style="font-size: 10px;">打印机</a> <a href="/tags/%E6%89%A9%E5%B1%95/" style="font-size: 10px;">扩展</a> <a href="/tags/%E6%89%AC%E5%A3%B0%E5%99%A8/" style="font-size: 10px;">扬声器</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E6%A0%88/" style="font-size: 10px;">技术栈</a> <a href="/tags/%E6%8E%92%E5%88%97/" style="font-size: 10px;">排列</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 10px;">插件推荐</a> <a href="/tags/%E6%95%B0%E5%80%BC/" style="font-size: 10px;">数值</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 10px;">数据分析</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%AF%94%E8%BE%83/" style="font-size: 10px;">数据库比较</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10.71px;">数据结构</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" style="font-size: 10px;">文件上传</a> <a href="/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/" style="font-size: 10px;">文本处理</a> <a href="/tags/%E6%96%87%E6%9C%AC%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">文本模板</a> <a href="/tags/%E6%97%A0%E6%B3%95%E5%94%A4%E9%86%92/" style="font-size: 10px;">无法唤醒</a> <a href="/tags/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" style="font-size: 10px;">日志分析</a> <a href="/tags/%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9%E5%99%A8/" style="font-size: 10px;">日期时间选择器</a> <a href="/tags/%E6%97%A5%E6%9C%9F%E9%80%89%E6%8B%A9%E5%99%A8/" style="font-size: 10px;">日期选择器</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8/" style="font-size: 10px;">服务器推</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7/" style="font-size: 10px;">服务器监控</a> <a href="/tags/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/" style="font-size: 10px;">本地预览</a> <a href="/tags/%E6%A0%A1%E9%AA%8C/" style="font-size: 10px;">校验</a> <a href="/tags/%E6%A0%B7%E5%BC%8F%E5%86%B2%E7%AA%81/" style="font-size: 10px;">样式冲突</a> <a href="/tags/%E6%A0%B7%E5%BC%8F%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">样式框架</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/" style="font-size: 10px;">桌面应用</a> <a href="/tags/%E6%A1%8C%E9%9D%A2%E7%AB%AF/" style="font-size: 13.57px;">桌面端</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E5%99%A8/" style="font-size: 10px;">模块加载器</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 17.86px;">模块化</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E8%AF%91/" style="font-size: 10px;">模块化编译</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83/" style="font-size: 10px;">模块化规范</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE/" style="font-size: 10.71px;">模拟数据</a> <a href="/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" style="font-size: 10px;">模板引擎</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 12.86px;">正则表达式</a> <a href="/tags/%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">水平居中</a> <a href="/tags/%E6%B5%81%E5%BC%8F%E5%B8%83%E5%B1%80/" style="font-size: 10px;">流式布局</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" style="font-size: 10px;">流程图</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE/" style="font-size: 10.71px;">测试数据</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">测试框架</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 19.29px;">浏览器</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/" style="font-size: 15.71px;">浏览器原理</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8/" style="font-size: 10px;">浏览器安全</a> <a href="/tags/%E6%B5%AE%E7%82%B9%E6%95%B0/" style="font-size: 10px;">浮点数</a> <a href="/tags/%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91/" style="font-size: 10px;">混合开发</a> <a href="/tags/%E6%B8%97%E9%80%8F/" style="font-size: 10px;">渗透</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 10px;">源码</a> <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 16.43px;">源码分析</a> <a href="/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" style="font-size: 10.71px;">源码阅读</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">滑动穿透</a> <a href="/tags/%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">滚动穿透</a> <a href="/tags/%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF/" style="font-size: 10px;">演示文稿</a> <a href="/tags/%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/" style="font-size: 10px;">灰度发布</a> <a href="/tags/%E7%82%B9%E5%87%BB%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">点击下载</a> <a href="/tags/%E7%82%B9%E5%87%BB%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">点击穿透</a> <a href="/tags/%E7%83%AD%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">热更新</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E7%89%B9%E6%80%A7%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">特性检测</a> <a href="/tags/%E7%8A%B6%E6%80%81/" style="font-size: 10.71px;">状态</a> <a href="/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" style="font-size: 10.71px;">状态管理</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%94%9F%E6%88%90%E5%99%A8/" style="font-size: 10px;">生成器</a> <a href="/tags/%E7%98%A6%E8%BA%AB/" style="font-size: 10px;">瘦身</a> <a href="/tags/%E7%9D%A1%E7%9C%A0/" style="font-size: 10px;">睡眠</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 10px;">知识管理</a> <a href="/tags/%E7%A6%81%E6%AD%A2%E6%BB%9A%E5%8A%A8/" style="font-size: 10px;">禁止滚动</a> <a href="/tags/%E7%A6%81%E7%94%A8%E7%BC%93%E5%AD%98/" style="font-size: 10px;">禁用缓存</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 10px;">移动端</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95/" style="font-size: 10px;">移动端调试</a> <a href="/tags/%E7%A7%BB%E9%99%A4%E6%B3%A8%E9%87%8A/" style="font-size: 10px;">移除注释</a> <a href="/tags/%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">穿透</a> <a href="/tags/%E7%AB%99%E7%82%B9/" style="font-size: 10px;">站点</a> <a href="/tags/%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">符号计算</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8C%85/" style="font-size: 10px;">第三方包</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10.71px;">算法</a> <a href="/tags/%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90/" style="font-size: 10px;">管理员权限</a> <a href="/tags/%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">管理系统</a> <a href="/tags/%E7%AE%A1%E7%A8%8B/" style="font-size: 10px;">管程</a> <a href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">类型转换</a> <a href="/tags/%E7%B1%BB%E5%BA%93/" style="font-size: 10px;">类库</a> <a href="/tags/%E7%B2%98%E8%B4%B4/" style="font-size: 11.43px;">粘贴</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">系统工具</a> <a href="/tags/%E7%BA%A4%E7%A8%8B/" style="font-size: 10px;">纤程</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/" style="font-size: 11.43px;">组件化</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" style="font-size: 10.71px;">组件通信</a> <a href="/tags/%E7%BB%84%E5%90%88/" style="font-size: 10px;">组合</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/" style="font-size: 10px;">终端代理</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 11.43px;">缓存</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 12.86px;">编码</a> <a href="/tags/%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81/" style="font-size: 10.71px;">编码解码</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">编程语言</a> <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 10px;">编辑器</a> <a href="/tags/%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">网站架构</a> <a href="/tags/%E7%BD%91%E7%AB%99%E9%80%9F%E5%BA%A6%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">网站速度检测</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2/" style="font-size: 10.71px;">网络攻防</a> <a href="/tags/%E7%BD%91%E9%A1%B5%E5%AE%9A%E4%BD%8D/" style="font-size: 10px;">网页定位</a> <a href="/tags/%E8%80%B3%E6%9C%BA/" style="font-size: 10px;">耳机</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 12.86px;">自动化</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" style="font-size: 12.14px;">自动化测试</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E8%A1%A8%E5%8D%95/" style="font-size: 10px;">自动化表单</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%88%AA%E5%9B%BE/" style="font-size: 10px;">自动截图</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%92%AD%E6%94%BE/" style="font-size: 10px;">自动播放</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/" style="font-size: 10px;">自动构建</a> <a href="/tags/%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/" style="font-size: 10px;">自签名证书</a> <a href="/tags/%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80/" style="font-size: 10px;">自适应布局</a> <a href="/tags/%E8%8B%B9%E6%9E%9C/" style="font-size: 11.43px;">苹果</a> <a href="/tags/%E8%99%9A%E6%8B%9FDOM/" style="font-size: 10px;">虚拟DOM</a> <a href="/tags/%E8%A1%A8%E5%8D%95%E5%80%BC%E5%AD%98%E5%8F%96/" style="font-size: 10px;">表单值存取</a> <a href="/tags/%E8%A7%84%E8%8C%83/" style="font-size: 10px;">规范</a> <a href="/tags/%E8%A7%84%E8%8C%83%E6%A3%80%E6%9F%A5/" style="font-size: 10px;">规范检查</a> <a href="/tags/%E8%A7%A3%E7%A0%81/" style="font-size: 10.71px;">解码</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" style="font-size: 10px;">设计原则</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%9B%BE/" style="font-size: 10px;">设计图</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%AF%81%E4%B9%A6/" style="font-size: 10px;">证书</a> <a href="/tags/%E8%AF%B7%E6%B1%82/" style="font-size: 10px;">请求</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 12.14px;">调试</a> <a href="/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 11.43px;">跨域</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0-%E8%B7%A8%E7%AB%AF-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-Web%E8%B7%A8%E5%B9%B3%E5%8F%B0-Web%E8%B7%A8%E7%AB%AF/" style="font-size: 10px;">跨平台,跨端,解决方案,Web跨平台,Web跨端</a> <a href="/tags/%E8%B7%A8%E7%AB%AF/" style="font-size: 10px;">跨端</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3/" style="font-size: 10px;">软件破解</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 11.43px;">运维</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">进程</a> <a href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/" style="font-size: 10px;">迭代器</a> <a href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">逆向工程</a> <a href="/tags/%E9%83%A8%E5%88%86%E6%89%93%E5%8D%B0/" style="font-size: 10px;">部分打印</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 11.43px;">部署</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E8%A7%84%E8%8C%83/" style="font-size: 10px;">配置规范</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a> <a href="/tags/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">隐式类型转换</a> <a href="/tags/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">静态博客</a> <a href="/tags/%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">静态服务器</a> <a href="/tags/%E9%9D%9E%E5%86%85%E7%BD%AE%E7%AE%A1%E7%90%86%E5%91%98/" style="font-size: 10px;">非内置管理员</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 12.14px;">面向对象</a> <a href="/tags/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" style="font-size: 11.43px;">面向过程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;">面试题</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/" style="font-size: 10px;">音视频</a> <a href="/tags/%E9%A1%B5%E9%9D%A2/" style="font-size: 10px;">页面</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96/" style="font-size: 10px;">页面优化</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E4%BD%8D%E7%BD%AE/" style="font-size: 10px;">页面位置</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">页面加载</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80/" style="font-size: 10px;">页面布局</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">项目模板</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">项目结构</a> <a href="/tags/%E9%A3%8E%E6%A0%BC/" style="font-size: 10px;">风格</a> <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" style="font-size: 11.43px;">高性能</a> <a href="/tags/%E9%AB%98%E6%95%88/" style="font-size: 10px;">高效</a> <a href="/tags/%E9%B8%BF%E8%92%99/" style="font-size: 11.43px;">鸿蒙</a> <a href="/tags/%E9%BC%A0%E6%A0%87%E5%AE%9A%E4%BD%8D/" style="font-size: 10px;">鼠标定位</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>前端异步那些事 | 技术人生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="技术，生活" />
+  
+  <meta name="description" content="ECMAScript  标准中的异步回调函数这是函数作为一等公民或者一类对象带来的特性，函数可以像对象一样独立使用，可以作为参数和返回值等等。 常见的浏览器的DOM事件，NodeJS中的文件读写等等，都会在回调函数中有一个关键的第一个参数来保留现场和传递流程，比如Event对象，err对象等等。 Promise通过返回Promise对象来实现链式调用，通过链式调用的方式来处理异步的结果，从一定程度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端异步那些事">
+<meta property="og:url" content="http://rawbin-.github.io/async/2018-12-11-fe-async/index.html">
+<meta property="og:site_name" content="技术人生">
+<meta property="og:description" content="ECMAScript  标准中的异步回调函数这是函数作为一等公民或者一类对象带来的特性，函数可以像对象一样独立使用，可以作为参数和返回值等等。 常见的浏览器的DOM事件，NodeJS中的文件读写等等，都会在回调函数中有一个关键的第一个参数来保留现场和传递流程，比如Event对象，err对象等等。 Promise通过返回Promise对象来实现链式调用，通过链式调用的方式来处理异步的结果，从一定程度">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-31T02:37:59.948Z">
+<meta property="article:modified_time" content="2021-12-31T02:37:59.948Z">
+<meta property="article:author" content="小淼焱">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="异步">
+<meta property="article:tag" content="NodeJS">
+<meta property="article:tag" content="浏览器">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?true";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=true&web_id=true" language="JavaScript"></script>
+  </div>
+
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">简单，创造</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>首页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        简单，创造
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        像傻子一样生活，像疯子一样创造
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="rawbin-" target="_blank" href="//rawbin-.github.io">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/rawbin-">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo"  target="_blank" rel="noopener" href="//weibo.com/">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter"  target="_blank" rel="noopener" href="//twitter.com/">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-async/2018-12-11-fe-async" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      前端异步那些事
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2021-12-31
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h1 id="ECMAScript-标准中的异步"><a href="#ECMAScript-标准中的异步" class="headerlink" title="ECMAScript  标准中的异步"></a>ECMAScript  标准中的异步</h1><h2 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h2><p>这是函数作为一等公民或者一类对象带来的特性，函数可以像对象一样独立使用，可以作为参数和返回值等等。</p>
+<p>常见的浏览器的DOM事件，NodeJS中的文件读写等等，都会在回调函数中有一个关键的第一个参数来保留现场和传递流程，比如Event对象，err对象等等。</p>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>通过返回Promise对象来实现链式调用，通过链式调用的方式来处理异步的结果，从一定程度上解决了回调地狱（异步回调嵌套太深）的问题，同时也提供了<code>.all</code>,<code>.race</code>等多种实用的方法来解决异步操作中的并行和并发的问题。</p>
+<h2 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h2><p>作为ESx的特性提供出来，一方面不是必须的（因为ES5照样能搞所有事，这么多年也是这么玩的），另一方面ES6也加入了更多底层或者元编程相关的内容。</p>
+<p>生成器几个新的特性：</p>
+<ul>
+<li>控制代码内部执行</li>
+<li>控制代码内部返回</li>
+<li>控制代码内部抛异常</li>
+</ul>
+<p>这让我们对代码执行有更多可控的支点，最常用的使用场景就是<code>async/await</code>这个语法糖的异步代码同步写法，一方面让代码逻辑清晰，另一方面也解决了不管是回调函数还是Promise也存在的回调地域问题。</p>
+<h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><p>从语法结构上来看是用了同步代码的表达方式支持了异步代码的表达，避免了回调层级深的问题，同时也让流程更加简化清晰。</p>
+<h1 id="浏览器中的异步"><a href="#浏览器中的异步" class="headerlink" title="浏览器中的异步"></a>浏览器中的异步</h1><p>浏览器自身是没有标准的(全靠事实标准)，但实现了很多其他的标准ECMAScript，HTML5，HTTP，DOM，XML等等了，还增加了一些非标准的但作为事实存在的标准，比如<code>conosle</code>。</p>
+<h2 id="回调函数-1"><a href="#回调函数-1" class="headerlink" title="回调函数"></a>回调函数</h2><ul>
+<li>浏览器环境</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">function getData(callback)&#123;&#125;</span><br><span class="line">getData((data) =&gt; &#123;&#125;) // 传入的参数就是</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Node环境</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var fs = require(&#x27;fs&#x27;)</span><br><span class="line">fs.readFile(&#x27;test.txt&#x27;,(err,data) =&gt; &#123;</span><br><span class="line">	if(err)&#123;</span><br><span class="line">		console.log(&#x27;readFile error:&#x27;,err)</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		console.log(&#x27;fileData:&#x27;, data)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="setTimeout-setInterval"><a href="#setTimeout-setInterval" class="headerlink" title="setTimeout/setInterval"></a>setTimeout/setInterval</h2><p>这个是属于<a target="_blank" rel="noopener" href="https://whatwg-cn.github.io/html/#timers">HTML规范</a>的一部分，但为了兼容开发人员使用习惯，NodeJS环境中也是有实现的。</p>
+<p>从规范中可以看到一些信息：</p>
+<ul>
+<li>setTimeout/setInterval 函数可以有两种重载形式，<ul>
+<li>当第一个参数为函数的时候，可以传递可选的第二个参数和其他任意参数，第二个参数之后的所有参数都会传递给第一个参数（这个函数）作为参数</li>
+<li>当第一个参数为字符串的时候，可以传递可选的第二个参数，其他再多的参数传递都会被忽略</li>
+</ul>
+</li>
+<li>定时器可以嵌套，但嵌套超过5层的嵌套，调用间隔会设置为最少4ms <a target="_blank" rel="noopener" href="https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/renderer/core/frame/dom_timer.cc;bpv=1;bpt=1">chromium的实现</a></li>
+<li>定时器不能保证都能准确按时执行，可能影响因素是CPU负载，其他任务等等</li>
+<li>有对应的clearTimeout/clearInterval清除对应的定时器，参数为setTimout/setInterval的返回值</li>
+</ul>
+<h2 id="Promise-1"><a href="#Promise-1" class="headerlink" title="Promise"></a>Promise</h2><p>作为<a target="_blank" rel="noopener" href="https://262.ecma-international.org/12.0/#sec-promise-objects">ESx规范</a>的内容，用来获取延迟计算的最终的结果，可以通过链式调用的方式来定义流程。</p>
+<h2 id="Generator-1"><a href="#Generator-1" class="headerlink" title="Generator"></a>Generator</h2><p><a target="_blank" rel="noopener" href="https://262.ecma-international.org/12.0/#sec-generator-objects">ESx规范</a></p>
+<h2 id="async-await-1"><a href="#async-await-1" class="headerlink" title="async/await"></a>async/await</h2><p><a target="_blank" rel="noopener" href="https://262.ecma-international.org/12.0/#sec-async-function-definitions">ESx规范</a></p>
+<h2 id="异步I-O"><a href="#异步I-O" class="headerlink" title="异步I/O"></a>异步I/O</h2><p>HTML页面中的各种资源加载</p>
+<h2 id="XMLHTTPRequest-严格说也算I-O"><a href="#XMLHTTPRequest-严格说也算I-O" class="headerlink" title="XMLHTTPRequest(严格说也算I/O)"></a>XMLHTTPRequest(严格说也算I/O)</h2><p><a target="_blank" rel="noopener" href="https://xhr.spec.whatwg.org/">异步数据请求规范</a></p>
+<h2 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h2><p><a target="_blank" rel="noopener" href="https://whatwg-cn.github.io/html/multipage/web-messaging.html#web-messaging">参考</a></p>
+<h2 id="Server-Send-Event"><a href="#Server-Send-Event" class="headerlink" title="Server Send Event"></a>Server Send Event</h2><p><a target="_blank" rel="noopener" href="https://whatwg-cn.github.io/html/multipage/server-sent-events.html#server-sent-events">参考</a></p>
+<h2 id="FetchAPI"><a href="#FetchAPI" class="headerlink" title="FetchAPI"></a>FetchAPI</h2><p><a target="_blank" rel="noopener" href="https://fetch.spec.whatwg.org/">内置数据请求封装</a></p>
+<h2 id="SCRIPT异步脚本加载"><a href="#SCRIPT异步脚本加载" class="headerlink" title="SCRIPT异步脚本加载"></a>SCRIPT异步脚本加载</h2><p><a target="_blank" rel="noopener" href="https://whatwg-cn.github.io/html/multipage/webappapis.html#scripting-processing-model">脚本加载</a></p>
+<p><a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/multipage/webappapis.html#scripting">脚本解析</a></p>
+<h2 id="其他常见事件"><a href="#其他常见事件" class="headerlink" title="其他常见事件"></a>其他常见事件</h2><ul>
+<li>DOM事件监听</li>
+<li>ResizeObserver</li>
+<li>ReportingObserver</li>
+<li>PerformanceObserver</li>
+<li>IntersectionObserver</li>
+<li>MutationObserver</li>
+</ul>
+<h1 id="NodeJS中的异步"><a href="#NodeJS中的异步" class="headerlink" title="NodeJS中的异步"></a>NodeJS中的异步</h1><h2 id="回调函数-2"><a href="#回调函数-2" class="headerlink" title="回调函数"></a>回调函数</h2><h2 id="setTimeout-setInterval-1"><a href="#setTimeout-setInterval-1" class="headerlink" title="setTimeout/setInterval"></a>setTimeout/setInterval</h2><h2 id="Promise-2"><a href="#Promise-2" class="headerlink" title="Promise"></a>Promise</h2><h2 id="Generator-2"><a href="#Generator-2" class="headerlink" title="Generator"></a>Generator</h2><h2 id="async-await-2"><a href="#async-await-2" class="headerlink" title="async/await"></a>async/await</h2><p>作用和用法跟浏览器类似，都是对ECMAScript的实现，只是明确下这是两种实现，对于非标准的内容可能有差异，比如<code>console</code> ，即使标准的内容也可能有差异，因为是两种实现，有标准不一定都会遵守，这个就涉及到商业化和产品化以及发展历史的事，到现在浏览器对于HTML5还是有不一致的实现，Node对于ECMAScript还是不完全实现或者实现方式不一样等等。</p>
+<h1 id="综合说明"><a href="#综合说明" class="headerlink" title="综合说明"></a>综合说明</h1><h2 id="关于宏任务和微任务"><a href="#关于宏任务和微任务" class="headerlink" title="关于宏任务和微任务"></a>关于宏任务和微任务</h2><h3 id="宏任务归类"><a href="#宏任务归类" class="headerlink" title="宏任务归类"></a>宏任务归类</h3><ul>
+<li>setTimeout</li>
+<li>setInterval</li>
+<li>I/O</li>
+<li>事件</li>
+<li>postMessage</li>
+<li>setImmediate</li>
+<li>request.AnimationFrame</li>
+<li>UI渲染</li>
+</ul>
+<h3 id="微任务归类"><a href="#微任务归类" class="headerlink" title="微任务归类"></a>微任务归类</h3><ul>
+<li>Promise.then</li>
+<li>MutationObserver</li>
+<li>process.nextTick</li>
+</ul>
+<h2 id="标准之外"><a href="#标准之外" class="headerlink" title="标准之外"></a>标准之外</h2><p>在整个Web发展的过程中，浏览器占了很大的比重也起了很关键的作用，从各种各样的浏览器厂商的出现和消失，也可见一班。奇怪的是，虽然浏览器的发展现在越来越趋一化，就连独占鳌头的微软老大也都忍痛割爱易弦更张拥抱开源Chromium，但浏览器目前为止，是没有一个标准的，虽然浏览器实现了很多标准比如ECMAScript，HTML5，HTTP，DOM，XML等，浏览器本身是没有一个标准规范的。</p>
+<p>在浏览器发展历程从早期的野蛮生长，到后来的相互学（抄）习（袭），到后来的百花齐放，导致前端开发者苦不堪言，就在十年前，我还在<code>MathEdit</code>项目中处理各种IE6、7、8，Safari，Opera，Firefox以及各种当时的国产浏览器的兼容性问题（那会Chrome貌似还是0.x.y的beta版本），当时处理的方式还是通过<code>UA判断指定的浏览器</code>，这种方法后来被<code>浏览器特性检测</code>取代，但又由于各种浏览器开发商作弊的行为（比如特性检测说是支持某些HTML5的特性，但实际调用的时候没有的这种情况），还是没有一个相对通用的解决办法。</p>
+<p>综上，简单总结，浏览器对标准的实现本身具有滞后的特点，同时呢也有对标准实现有差异的地方，因为标准也是有大部分浏览器厂商参与制定的，标准也不一定能被标准实现，比如HTML5就有两个标准不是（分分合合，现在又合好了，<a target="_blank" rel="noopener" href="https://www.w3.org/html/">参考</a>）。而剩下的非标准的内容，比如宿主环境的API(比如console.log 到底是同步还是异步，不同浏览器可能不一样，浏览器和Node环境可能不一样)，这个就看浏览器厂商的心情和排期了。浏览器兼容性问题对开发者来说已经是好太多了，但这个问题也会是一个常态化存在的问题，原因是上面说到的多方面的。</p>
+<h1 id="核心内容解析"><a href="#核心内容解析" class="headerlink" title="核心内容解析"></a>核心内容解析</h1><h2 id="浏览器中的实现"><a href="#浏览器中的实现" class="headerlink" title="浏览器中的实现"></a>浏览器中的实现</h2><h3 id="脚本加载"><a href="#脚本加载" class="headerlink" title="脚本加载"></a>脚本加载</h3><h4 id="script-元素"><a href="#script-元素" class="headerlink" title="script 元素"></a>script 元素</h4><p>默认为<code>JavaScript</code>，也就是<code>type=text/javascript</code>，除了每一个HTML元素都有的公共属性（当前22个）和公共事件（当前66个）外还有如下特有的属性值（动态修改属性值无效）：</p>
+<ul>
+<li><code>src</code> 资源地址</li>
+<li><code>type</code> 脚本类型，早期还有其他的不同的type，比如<code>vbscript</code>,<code>jscript</code>等，现在几乎统一为JavaScript。<ul>
+<li>省略或者设置为<code>type/javascript</code>表示使用传统的脚本加载方式，这种方式受<code>async</code>和<code>defer</code>配置的影响（在设置了src的情况下）。</li>
+<li>设置为<code>module</code>就按ES module的方式加载，此时不受<code>defer</code>属性的影响，但还是受<code>async</code>属性的影响（不管设置没设置src属性）。设置其他值，元素内容会被认为是数据块而不处理。</li>
+</ul>
+</li>
+<li><code>nomodule</code> 在支持<code>module</code>的浏览环境中禁用<code>module</code>支持</li>
+<li><code>async</code> 脚本准备好就执行，不阻塞加载过程</li>
+<li><code>defer</code> 延迟执行，加载过程完成后统一执行</li>
+<li><code>crossorigin</code> 设定处理跨越的配置，可选值``</li>
+<li><code>integrity</code> 在子资源完整性检查中的完整的元数据</li>
+<li><code>referrerpolicy</code> 元素初始化的资源加载中的资源引用策略</li>
+</ul>
+<h4 id="脚本加载的异步"><a href="#脚本加载的异步" class="headerlink" title="脚本加载的异步"></a>脚本加载的异步</h4><ul>
+<li><code>&lt;script&gt;</code> 解析到<code>script</code>后暂停解析，直接加载对应资源，加载完成后执行，执行完成后再继续解析</li>
+<li><code>&lt;script defer&gt;</code> 解析到<code>script</code>后继续解析，并行加载对应资源，等页面解析完成后，执行对应的资源</li>
+<li><code>&lt;script async&gt;</code> 解析到<code>script</code>后继续解析，并行加载相应资源，加载完成后直接执行，执行完之后再继续解析</li>
+<li><code>&lt;script type=module&gt;</code> 解析到<code>script</code>后继续解析，并行加载对应资源，加载完成后并行加载资源所有对应的依赖，等页面解析完成后直接执行</li>
+<li><code>&lt;script type=module async&gt;  </code>解析到<code>script</code>后继续解析，并行加载对应资源，加载完成后并行加载资源所有对应的依赖，依赖加载完成后直接执行，执行完成后再继续解析</li>
+</ul>
+<h4 id="脚本动态加载"><a href="#脚本动态加载" class="headerlink" title="脚本动态加载"></a>脚本动态加载</h4><ul>
+<li>动态修改<code>script</code>元素的属性无效</li>
+<li>如果使用<code>document.write</code>写入的话，会立即执行并阻塞页面解析，使用<code>innerHTML</code>和<code>outterHTML</code>属性的话，脚本不执行</li>
+<li><code>script</code>元素API<ul>
+<li><code>text</code> 属性获取或者设置当前元素的脚本内容</li>
+<li><code>support</code> 方法判断是否支持<code>classic</code>和<code>module</code>的方法</li>
+</ul>
+</li>
+</ul>
+<h3 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h3><p><a target="_blank" rel="noopener" href="https://html.spec.whatwg.org/multipage/webappapis.html#event-loops">规范参考</a></p>
+<p>事件循环是用来协调事件、用户交互、脚本、渲染、网络等等用户代理中的各个事务的机制。不同的地方可能有不同的事件循环。</p>
+<p>每一个事件循环可以有一个或者多个事件队列，一个事件队列就是一组任务，虽然说事件队列，但事件队列的访问方式不完全按照队列的访问方式来运作，比如处理一个队列的时候是取第一个可执行的任务来执行，而不是取第一个任务（第一个可能不可执行）。微任务队列不是任务队列。</p>
+<h4 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h4><h5 id="任务分类"><a href="#任务分类" class="headerlink" title="任务分类"></a>任务分类</h5><h6 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h6><p>分发一个事件对象到一个事件目标对象，通常由一个【绑定任务】(deticated task)来做，不是所有的事件都用任务队列来分发，也有许多在其他任务中分发。</p>
+<h6 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h6><p>HTML解析器解析文本词法到并处理解析结果，也是一个典型的任务。</p>
+<h6 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h6><p>调用回到函数通常也是一个【绑定任务】</p>
+<h6 id="资源调用"><a href="#资源调用" class="headerlink" title="资源调用"></a>资源调用</h6><p>当一个场景获取了一个资源，如果获取过程是非阻塞的情况，那么接下来在这个资源部分或者全部可用情况下的处理过程，是用一个任务来完成得的</p>
+<h6 id="DOM操作变更"><a href="#DOM操作变更" class="headerlink" title="DOM操作变更"></a>DOM操作变更</h6><p>有些元素用对DOM操作进行响应的任务，比如在元素插入到文档的时候</p>
+<h5 id="任务源"><a href="#任务源" class="headerlink" title="任务源"></a>任务源</h5><ul>
+<li>DOM操作</li>
+<li>用户交互</li>
+<li>网络</li>
+<li>历史记录</li>
+</ul>
+<h5 id="任务的要素"><a href="#任务的要素" class="headerlink" title="任务的要素"></a>任务的要素</h5><ul>
+<li>步骤 任务要做的事的先后内容</li>
+<li>任务源 用来分组和序列化相关的任务</li>
+<li>文档 任务对应的文档，如果在浏览器窗口的事件循环的话</li>
+<li>脚本执行 一组用来跟踪任务脚本执行过程的环境配置对象</li>
+</ul>
+<p>每一个任务都有一个特定的事件源，每一个事件源都跟一个特定的任务队列绑定。</p>
+<p>每个事件循环都有一个当前执行的任务，可以是一个任务或者是<code>null</code> ,初始化是<code>null</code> 也常被用来处理重入。</p>
+<p>每个事件循环都有一个微任务队列，初始为空，微任务是一个口语化的对一个用微任务入队算法创建的任务的一个指代。</p>
+<p>每个事件循环都有一个微任务检查点的标志位，初始化为<code>false</code> ，通常用来阻断对微任务检查点重入的调用。</p>
+<p>每个window事件循环都有一个高精度的时间戳来记录上一次渲染的世界，初始为0。</p>
+<p>每个window事件循环都有一个高精度的时间戳来记录上一次空闲周期的开始时间，初始为0。</p>
+<h5 id="任务入队（全局任务，元素任务，微任务都类似）"><a href="#任务入队（全局任务，元素任务，微任务都类似）" class="headerlink" title="任务入队（全局任务，元素任务，微任务都类似）"></a>任务入队（全局任务，元素任务，微任务都类似）</h5><ul>
+<li>如果没有指定事件循环，就用默认的（从当前调用上下文推断出来的）</li>
+<li>如果没有指定文档，就用默认的（从当前调用上下文推断出来的）</li>
+<li>创建一个新的任务对象，并设置<code>steps</code>,<code>source</code>,<code>document</code> 字段</li>
+<li>设置新任务的脚本执行环境配置对象为空</li>
+<li>把新任务追加到根当前任务源关联的任务队列上。</li>
+</ul>
+<p>微任务也有可能被转移到常规任务队列中，如果初始化过程，它[spins the event loop] 就会被转移，这也是唯一的一起用<code>事件源</code>,<code>事件文档</code>,<code>脚本执行环境配置对象集</code>，执行微任务检查点的算法会忽略他们。</p>
+<h3 id="处理模型"><a href="#处理模型" class="headerlink" title="处理模型"></a>处理模型</h3><p>事件循环比如从进入执行后一直持续的执行下面的步骤：</p>
+<ul>
+<li>设<code>taskQueue</code>为事件循环中一个有至少一个可执行任务的任务队列</li>
+<li>设<code>oldestTask</code> 为<code>taskQueue</code>中第一个可执行的任务，并把这个任务从<code>taskQueue</code>中删除</li>
+<li>把事件循环当前正执行的任务设置为<code>oldestTask</code></li>
+<li>设<code>taskStartTime</code>为当前的高精度时间</li>
+<li>执行<code>oldestTask</code>的步骤</li>
+<li>设置事件循环中当前正执行的任务为<code>null</code></li>
+<li>微任务：执行微任务检查点<ul>
+<li>如果事件循环的微任务检查点标识为<code>true</code>则返回</li>
+<li>设微任务检查点标识为<code>true</code></li>
+<li>循环处理直到微任务队列为空<ul>
+<li>设<code>oldestMicrotask</code>为事件循环的微任务队列的出队结果</li>
+<li> 设事件循环的当前正执行任务位<code>oldestMicrotask</code></li>
+<li>执行<code>oldestMicrotask</code></li>
+<li>设事件循环当前正执行任务为<code>null</code></li>
+</ul>
+</li>
+<li>对每一个当前事件循环负责的环境设置对象，通知受拒绝的期约</li>
+<li>清理 IndexDB事务</li>
+<li>执行<code>ClearKeptObjects()</code></li>
+<li>设置事件循环的微任务检查点标识为<code>false</code></li>
+</ul>
+</li>
+<li>设<code>hasARenderingOpportunity</code> 为<code>false</code></li>
+<li>设<code>now</code> 为当前的高精度时间，也为任务执行结束时间</li>
+<li>执行如下步骤报告任务的执行时间<ul>
+<li>设置顶级的浏览上下文为空集合</li>
+<li>对<code>oldestTask</code>的每一个环节设置对象，追加设置对象的顶级浏览上下文到顶级浏览上下文</li>
+<li>报告长时间的任务，传入<code>taskStartTime</code>,<code>now</code>,顶级浏览上下文，<code>oldestTask</code></li>
+</ul>
+</li>
+<li>更新渲染，如果当前事件循环是window事件循环的话，执行：<ul>
+<li>设<code>docs</code>为所有的关联代理为当前事件循环的文档对象，除非遇上如下情况，否则可以任意排序：<ul>
+<li>任意一个文档B的浏览上下文的容器文档为A，那么B需要再A的后面</li>
+<li>如果有两个文档A和B的浏览上下文都是另一个容器文档C的子浏览上下文，那么文档A和B在列表中的顺序需要与文档C的节点树的影子包含树顺序一致。</li>
+<li>下面这些文档的处理顺序都要按照这个列表中文档的顺序来</li>
+</ul>
+</li>
+<li>渲染时机：从<code>docs</code>中删除浏览上下文没有渲染时机的文档<ul>
+<li>是否有渲染时机：当用户代理可以展示浏览上下文的内容给用户，考虑到硬件刷新率的限制和性能优化的节流，也要考虑内容是否可展现及时是在视区外</li>
+<li>浏览上下文的渲染时机是基于像显示器的刷新率的硬件限制和其他想页面性能或者当前文档是否是<code>visible</code>的的状态共同决定的，渲染时机一般发生在有规律的时间间隔。</li>
+<li>本规范没有授权给任何一个选择渲染时机的模型，比如，如果一个浏览器想要达到60Hz的刷新率，那么渲染时机在1s中有60次；如果一个浏览器达没法维持这个刷新率， 它可以降低到30Hz的刷新，而不是偶尔丢帧。类似的，如果一个浏览上下文不可见，那么用户代理可以选择把刷新率降到4Hz或者更低。</li>
+</ul>
+</li>
+<li>如果删完可不渲染的<code>docs</code>还是非空的话，那么设置<code>hasARenderingOpportunity</code> 为<code>true</code>,并且设置事件循环的上次渲染时机的为<code>taskStartTime</code></li>
+<li>非必要渲染：从<code>docs</code>中删除如下条件的文档<ul>
+<li>用户代理确认更新文档浏览上下文对视觉效果没影响，同时文档的动画动画帧回调为空</li>
+</ul>
+</li>
+<li>从<code>docs</code>中删除用户代理确认因为各种原因要跳过的渲染</li>
+<li>对每一个全激活的文档，如果浏览上下文是顶级上下文的话，刷新<code>autofocus</code></li>
+<li> 对每一个全激活的文档，执行<code>resize</code>的步骤，传入<code>now</code>作为时间戳</li>
+<li>对每一个全激活的文档，执行<code>scroll</code>的步骤，传入<code>now</code> 作为时间戳</li>
+<li>对每一个全激活的文档，执行媒体查询和变更报告，传入<code>now</code>作为时间戳</li>
+<li>对每一个全激活的文档，更新动画和发送事件，传入<code>now</code>作为时间戳</li>
+<li>对每一个全激活的文档，执行全屏的步骤，传入<code>now</code>作为时间戳</li>
+<li>对每一个全激活的文档，如果用户代理检测到备用存储关联的<code>CanvasRenderingContext2D</code>或者<code>OffscreenCanvasRenderingContext2D</code>，上下文丢失，那么需要执行上下文丢失的步骤：<ul>
+<li>设<code>canvas</code>为上下文的<code>canvas</code>属性，如果上下文是<code>CanvasRenderingContext2D</code>或者关联的<code>OffscreenCanvas</code>对象</li>
+<li>设上下文的上下文丢失属性为<code>true</code></li>
+<li>重置渲染上下文到默认状态</li>
+<li>设<code>shouldRestore</code>为canvas上<code>contextlost</code>的事件触发结果，并设置<code>cancelable</code>属性为<code>true</code></li>
+<li>如果<code>shouldRestore</code>为<code>false</code>，结束步骤</li>
+<li>尝试通过上下文的属性及他们与上下文的关联创建一个备用存储，如果失败了结束步骤</li>
+<li>设置上下文的上下文丢失属性为<code>false</code></li>
+<li>在canvas上触发一个叫<code>contextrestored</code>的事件</li>
+</ul>
+</li>
+<li>对每一个全激活的文档，执行文档的动画帧回调，传入<code>now</code>作为时间戳</li>
+<li>对每一个全激活的文档，执行文档的更新交叉监视，传入<code>now</code>作为时间戳</li>
+<li>对每一个<code>docs</code>中的文档调用标记绘制时间算法</li>
+<li>对每一个全激活的文档，更新文档和上下文的渲染和用户界面来表达当前的状态</li>
+<li>如果下面这些条件都成立的话，那么执行后面的步骤<ul>
+<li>条件<ul>
+<li>当前是window event loop</li>
+<li>在当前全激活的文档事件循环的任务队列里面没有任务</li>
+<li>事件循环的微任务队列为空</li>
+<li><code>hasARenderingOpportunity</code>是<code>false</code></li>
+</ul>
+</li>
+<li>步骤<ul>
+<li>设<code>computeDeadline</code>为下面的步骤<ul>
+<li>设<code>deadline</code> 为事件循环的上一次空闲期开始时间+50，（+50）是为了保证视觉暂停的下限</li>
+<li>设<code>hasPendingRenders</code>为<code>false</code></li>
+<li>对每一个当前事件循环的同循环窗口<code>windowInSameLoop</code>执行如下步骤<ul>
+<li>如果<code>windowInSameLoop</code>的动画帧回调不为空，或者用户代理确认<code>windowInSameLoop</code>可能有没有处理的渲染更新，设置<code>hasPendingRenders</code>为<code>true</code></li>
+<li>设置<code>timerCallbackEstimates</code>为<code>windowInSameLoop</code>的激活计时器的值</li>
+<li>对每一个<code>timerCallbackEstimates</code>的  <code>timeouteDeadline</code>，如果<code>timeoutDeadline</code>比<code>deadline</code>小，把<code>timeoutDeadline</code>设置为<code>deadline</code></li>
+</ul>
+</li>
+<li>如果<code>hasPendingRenders</code> 为 <code>true</code>：<ul>
+<li>设<code>nextRenderDeadline</code>为事件循环的上一次渲染时机的时间。刷新率跟硬件相关也跟实现相关，比如一个60Hz的刷新率，<code>nextRenderDeadline</code>为大约为上次渲染时机时间之后16.67ms</li>
+<li>如果<code>nextRenderDeadline</code>比<code>deadline</code>少，就返回<code>nextRenderDeadline</code></li>
+</ul>
+</li>
+<li>返回<code>deadline</code></li>
+</ul>
+</li>
+<li>对当前事件循环的同循环窗口中的每一个窗口，用<code>computeDeadline</code>对窗口执行开始空闲时间的算法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如果这是一个woker事件循环，然后：<ul>
+<li>如果这个事件循环的代理的单个领域的全局对象是一个受支持的<code>DedicatedWorkerGlobalScope</code>，并且用户代理确认在这个时候更新它的渲染有用的话，就执行如下：<ul>
+<li>设<code>now</code>为当前的高精度时间</li>
+<li>对<code>DedicatedWorkerGlobalScope</code>执行动画帧回调，传入<code>now</code>作为时间戳</li>
+<li>更新绑定的worker的渲染来表达当前的状态</li>
+</ul>
+</li>
+<li>如果在事件循环的任务队列里面都没有任务并且<code>WorkerGlobalScope</code>对象的<code>closing</code>标识为<code>true</code>的话，就销毁当前事件循环，终止步骤，继续执行工作脚本的步骤</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="源码体验"><a href="#源码体验" class="headerlink" title="源码体验"></a>源码体验</h3><p>chromium中源码在 <a target="_blank" rel="noopener" href="https://source.chromium.org/chromium/chromium/src/+/master:base/message_loop/message_pump_default.cc;l=29">src/base/message_loop/message_pump_default.cc</a> 中，直接在网页上看可以简单点.</p>
+<p>如果要下载下来的话也行，需要准备50G左右的磁盘空间，如果要编译的话占用空间会更多，同时有几个事要做，翻墙的梯子，给shell配梯子，给git配梯子，然后应该就可以一路通过了。</p>
+<p>直接看Run方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">void MessagePumpDefault::Run(Delegate* delegate) &#123;</span><br><span class="line">  AutoReset&lt;bool&gt; auto_reset_keep_running(&amp;keep_running_, true);</span><br><span class="line"></span><br><span class="line">  for (;;) &#123;</span><br><span class="line">#if defined(OS_APPLE)</span><br><span class="line">    mac::ScopedNSAutoreleasePool autorelease_pool;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">    Delegate::NextWorkInfo next_work_info = delegate-&gt;DoWork();</span><br><span class="line">    bool has_more_immediate_work = next_work_info.is_immediate();</span><br><span class="line">    if (!keep_running_)</span><br><span class="line">      break;</span><br><span class="line"></span><br><span class="line">    if (has_more_immediate_work)</span><br><span class="line">      continue;</span><br><span class="line"></span><br><span class="line">    has_more_immediate_work = delegate-&gt;DoIdleWork();</span><br><span class="line">    if (!keep_running_)</span><br><span class="line">      break;</span><br><span class="line"></span><br><span class="line">    if (has_more_immediate_work)</span><br><span class="line">      continue;</span><br><span class="line"></span><br><span class="line">    if (next_work_info.delayed_run_time.is_max()) &#123;</span><br><span class="line">      event_.Wait();</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      event_.TimedWait(next_work_info.remaining_delay());</span><br><span class="line">    &#125;</span><br><span class="line">    // Since event_ is auto-reset, we don&#x27;t need to do anything special here</span><br><span class="line">    // other than service each delegate method.</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>从上面代码可以看出</p>
+<ul>
+<li>这是一个死循环（所谓的事件循环或者这里的消息循环），进到这里面就要一直执行，直到退出</li>
+<li>有能立即执行的任务就立即执行</li>
+</ul>
+<p>从上面代码所在目录的文件可以看出</p>
+<ul>
+<li>针对不同平台和不同场景消息循环都有些差异化的实现</li>
+</ul>
+<p>不同的任务类型可<a target="_blank" rel="noopener" href="https://source.chromium.org/chromium/chromium/src/+/master:third_party/blink/public/platform/task_type.h">参考</a></p>
+<p>更多内容可以参考<a target="_blank" rel="noopener" href="https://www.chromium.org/developers/how-tos/getting-around-the-chrome-source-code">chromium文档</a> 像事件循环这样公共的内容代码都在<code>src/base</code>里面，比如<a target="_blank" rel="noopener" href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/threading_and_tasks.md">任务相关的文档</a></p>
+<h2 id="NodeJS中的实现"><a href="#NodeJS中的实现" class="headerlink" title="NodeJS中的实现"></a>NodeJS中的实现</h2><p><a target="_blank" rel="noopener" href="https://nodejs.org/en/docs/meta/topics/dependencies/">NodeJS的依赖</a></p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/en/docs/guides/">NodeJS指南</a></p>
+<h3 id="定时执行"><a href="#定时执行" class="headerlink" title="定时执行"></a>定时执行</h3><ul>
+<li>setTimeout(定时器) clearTimeout</li>
+<li>setInterval(定时器) clearInterval</li>
+<li>setImmediate clearImmediate<ul>
+<li>在本轮事件循环的所有I/O操作之后执行</li>
+<li>在下一轮事件循环的所有定时器操作之前执行</li>
+</ul>
+</li>
+<li>process.nextTick<ul>
+<li>在所有<code>Immediate</code>和所有<code>I/O</code>操作之前执行</li>
+<li>原子执行，过程不能中断</li>
+</ul>
+</li>
+</ul>
+<h3 id="事件循环-1"><a href="#事件循环-1" class="headerlink" title="事件循环"></a>事件循环</h3><ul>
+<li>NodeJS初始化事件循环，处理完输入脚本之后，剩下的就是事件循环来处理了</li>
+<li>每一个事件阶段都有一个先进先出回调队列，虽说是队列但不一定按队列的形式实现，比如定时器就是找到点的先执行，不一定是队首的元素</li>
+<li>当事件循环执行到每个阶段，会在允许情况下执行该阶段的所有操作，然后进入下一个阶段<ul>
+<li>要么执行完所有在队列里面的回调</li>
+<li>要么执行完最大的回调个数限制的回调数</li>
+</ul>
+</li>
+<li>事件循环中的每一个回调（操作）完成后，如果有<code>process.nextTick</code>设定的回调，要立即全部执行完（这个看起来是亲生的，相比setImmediate这个后娘养的来说），再进行下一个回调</li>
+<li>事件循环的每个阶段及其执行内容<ul>
+<li><code>timers</code> <ul>
+<li>执行<code>setTimeout</code>和<code>setInterval</code>设定的回调；</li>
+<li>只能保证不会提前执行，有可能被其他任务拖延（还没轮到这个阶段，设定的时间已经过去）</li>
+</ul>
+</li>
+<li><code>pending callbacks</code> <ul>
+<li>执行除<code>timers</code>，<code>check</code>，<code>close callbacks</code>之外的所有回调</li>
+</ul>
+</li>
+<li><code>idle</code>,<code> prepare</code> <ul>
+<li>内部使用的阶段</li>
+</ul>
+</li>
+<li><code>poll</code> <ul>
+<li><code>timers</code>执行也在这里控制</li>
+<li>新的I/O事件的处理，此处可能会阻塞</li>
+<li>队列非空，执行当前阶段到最大数量限制或者队列置空</li>
+<li>队列为空<ul>
+<li>如果<code>check</code>不为空，执行<code>check</code>中的全部内容；</li>
+<li>如果<code>check</code>为空，等待回调添加，然后立即执行</li>
+<li>检查<code>timers</code>中到点的回调，并执行<code>timers</code>阶段</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>check</code> <ul>
+<li><code>setImmediate</code>设定的回调（相比起来后娘养的）</li>
+<li>在poll完成时执行</li>
+</ul>
+</li>
+<li><code>close callbacks</code> <ul>
+<li>I/O关闭的回调，比如socket.on(‘close’,’…’)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   ┌───────────────────────┐</span><br><span class="line">┌─&gt;│        timers         │</span><br><span class="line">│  └──────────┬────────────┘</span><br><span class="line">│  ┌──────────┴────────────┐</span><br><span class="line">│  │     I/O callbacks     │</span><br><span class="line">│  └──────────┬────────────┘</span><br><span class="line">│  ┌──────────┴────────────┐</span><br><span class="line">│  │     idle, prepare     │</span><br><span class="line">│  └──────────┬────────────┘      ┌───────────────┐</span><br><span class="line">│  ┌──────────┴────────────┐      │   incoming:   │</span><br><span class="line">│  │         poll          │&lt;─────┤  connections, │</span><br><span class="line">│  └──────────┬────────────┘      │   data, etc.  │</span><br><span class="line">│  ┌──────────┴────────────┐      └───────────────┘</span><br><span class="line">│  │        check          │</span><br><span class="line">│  └──────────┬────────────┘</span><br><span class="line">│  ┌──────────┴────────────┐</span><br><span class="line">└──┤    close callbacks    │</span><br><span class="line">   └───────────────────────┘</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="闲扯淡"><a href="#闲扯淡" class="headerlink" title="闲扯淡"></a>闲扯淡</h3><p><code>NodeJS</code>官方文档比较<code>setImmediate</code>个<code>process.nextTick</code>：</p>
+<ul>
+<li><code>process.nextTick</code>在当前阶段立即执行</li>
+<li><code>setImmediate</code>在下一轮事件循环的时候尽早执行</li>
+</ul>
+<p>如果把<code>tick</code>理解为一次回调的话，就没有那一段说的那个问题了，<code>immediate</code>再快也要等到高优先级的搞完了才到，而<code>tick</code>可以理解为秒针动一次（一个回调） ，一次循环不能为一个<code>tick</code></p>
+<h3 id="源码体验-1"><a href="#源码体验-1" class="headerlink" title="源码体验"></a>源码体验</h3><p>从<a target="_blank" rel="noopener" href="https://nodejs.org/en/docs/meta/topics/dependencies/">NodeJS官方文档</a>，可以看到NodeJS是使用<code>libuv</code>来实现事件循环的，对应的源码在<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/master/deps/uv/src/unix/core.c">src/deps/uv/src/unix/core.c</a> 不同平台也有不同实现</p>
+<p>同样的也是看run方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int uv_run(uv_loop_t* loop, uv_run_mode mode) &#123;</span><br><span class="line">  int timeout;</span><br><span class="line">  int r;</span><br><span class="line">  int ran_pending;</span><br><span class="line"></span><br><span class="line">  r = uv__loop_alive(loop);</span><br><span class="line">  if (!r)</span><br><span class="line">    uv__update_time(loop);</span><br><span class="line"></span><br><span class="line">  while (r != 0 &amp;&amp; loop-&gt;stop_flag == 0) &#123;</span><br><span class="line">    uv__update_time(loop);</span><br><span class="line">    uv__run_timers(loop);</span><br><span class="line">    ran_pending = uv__run_pending(loop);</span><br><span class="line">    uv__run_idle(loop);</span><br><span class="line">    uv__run_prepare(loop);</span><br><span class="line"></span><br><span class="line">    timeout = 0;</span><br><span class="line">    if ((mode == UV_RUN_ONCE &amp;&amp; !ran_pending) || mode == UV_RUN_DEFAULT)</span><br><span class="line">      timeout = uv_backend_timeout(loop);</span><br><span class="line"></span><br><span class="line">    uv__io_poll(loop, timeout);</span><br><span class="line"></span><br><span class="line">    /* Run one final update on the provider_idle_time in case uv__io_poll</span><br><span class="line">     * returned because the timeout expired, but no events were received. This</span><br><span class="line">     * call will be ignored if the provider_entry_time was either never set (if</span><br><span class="line">     * the timeout == 0) or was already updated b/c an event was received.</span><br><span class="line">     */</span><br><span class="line">    uv__metrics_update_idle_time(loop);</span><br><span class="line"></span><br><span class="line">    uv__run_check(loop);</span><br><span class="line">    uv__run_closing_handles(loop);</span><br><span class="line"></span><br><span class="line">    if (mode == UV_RUN_ONCE) &#123;</span><br><span class="line">      /* UV_RUN_ONCE implies forward progress: at least one callback must have</span><br><span class="line">       * been invoked when it returns. uv__io_poll() can return without doing</span><br><span class="line">       * I/O (meaning: no callbacks) when its timeout expires - which means we</span><br><span class="line">       * have pending timers that satisfy the forward progress constraint.</span><br><span class="line">       *</span><br><span class="line">       * UV_RUN_NOWAIT makes no guarantees about progress so it&#x27;s omitted from</span><br><span class="line">       * the check.</span><br><span class="line">       */</span><br><span class="line">      uv__update_time(loop);</span><br><span class="line">      uv__run_timers(loop);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    r = uv__loop_alive(loop);</span><br><span class="line">    if (mode == UV_RUN_ONCE || mode == UV_RUN_NOWAIT)</span><br><span class="line">      break;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  /* The if statement lets gcc compile it to a conditional store. Avoids</span><br><span class="line">   * dirtying a cache line.</span><br><span class="line">   */</span><br><span class="line">  if (loop-&gt;stop_flag != 0)</span><br><span class="line">    loop-&gt;stop_flag = 0;</span><br><span class="line"></span><br><span class="line">  return r;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到除了跟文档描述一致的处理结构之外，还有不同情况的特殊处理。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2021年12月31日 10:37</p>
+        <p>原始链接： <a class="post-url" href="/async/2018-12-11-fe-async/" title="前端异步那些事">http://rawbin-.github.io/async/2018-12-11-fe-async/</a></p>
+        <footer>
+            <a href="http://rawbin-.github.io">
+                <img src="/images/logo.png" alt="小淼焱">
+                小淼焱
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赞赏这个人~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.png" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.png">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.png">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://rawbin-.github.io/async/2018-12-11-fe-async/&title=《前端异步那些事》 — 技术人生&pic=http://rawbin-.github.ioimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://rawbin-.github.io/async/2018-12-11-fe-async/&title=《前端异步那些事》 — 技术人生&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://rawbin-.github.io/async/2018-12-11-fe-async/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端异步那些事》 — 技术人生&url=http://rawbin-.github.io/async/2018-12-11-fe-async/&via=http://rawbin-.github.io" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://rawbin-.github.io/async/2018-12-11-fe-async/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://rawbin-.github.io/async/2018-12-11-fe-async/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/JavaScript/" class="color1">JavaScript</a>
+      
+    <a href="/tags/异步/" class="color3">异步</a>
+      
+    <a href="/tags/NodeJS/" class="color2">NodeJS</a>
+      
+    <a href="/tags/浏览器/" class="color4">浏览器</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ECMAScript-%E6%A0%87%E5%87%86%E4%B8%AD%E7%9A%84%E5%BC%82%E6%AD%A5"><span class="post-toc-text">ECMAScript  标准中的异步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="post-toc-text">回调函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Promise"><span class="post-toc-text">Promise</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Generator"><span class="post-toc-text">Generator</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#async-await"><span class="post-toc-text">async&#x2F;await</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E5%BC%82%E6%AD%A5"><span class="post-toc-text">浏览器中的异步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0-1"><span class="post-toc-text">回调函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#setTimeout-setInterval"><span class="post-toc-text">setTimeout&#x2F;setInterval</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Promise-1"><span class="post-toc-text">Promise</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Generator-1"><span class="post-toc-text">Generator</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#async-await-1"><span class="post-toc-text">async&#x2F;await</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BC%82%E6%AD%A5I-O"><span class="post-toc-text">异步I&#x2F;O</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#XMLHTTPRequest-%E4%B8%A5%E6%A0%BC%E8%AF%B4%E4%B9%9F%E7%AE%97I-O"><span class="post-toc-text">XMLHTTPRequest(严格说也算I&#x2F;O)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#postMessage"><span class="post-toc-text">postMessage</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Server-Send-Event"><span class="post-toc-text">Server Send Event</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#FetchAPI"><span class="post-toc-text">FetchAPI</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SCRIPT%E5%BC%82%E6%AD%A5%E8%84%9A%E6%9C%AC%E5%8A%A0%E8%BD%BD"><span class="post-toc-text">SCRIPT异步脚本加载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%B6%E4%BB%96%E5%B8%B8%E8%A7%81%E4%BA%8B%E4%BB%B6"><span class="post-toc-text">其他常见事件</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#NodeJS%E4%B8%AD%E7%9A%84%E5%BC%82%E6%AD%A5"><span class="post-toc-text">NodeJS中的异步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0-2"><span class="post-toc-text">回调函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#setTimeout-setInterval-1"><span class="post-toc-text">setTimeout&#x2F;setInterval</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Promise-2"><span class="post-toc-text">Promise</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Generator-2"><span class="post-toc-text">Generator</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#async-await-2"><span class="post-toc-text">async&#x2F;await</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BB%BC%E5%90%88%E8%AF%B4%E6%98%8E"><span class="post-toc-text">综合说明</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%B3%E4%BA%8E%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%92%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1"><span class="post-toc-text">关于宏任务和微任务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1%E5%BD%92%E7%B1%BB"><span class="post-toc-text">宏任务归类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BE%AE%E4%BB%BB%E5%8A%A1%E5%BD%92%E7%B1%BB"><span class="post-toc-text">微任务归类</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%A0%87%E5%87%86%E4%B9%8B%E5%A4%96"><span class="post-toc-text">标准之外</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%A0%B8%E5%BF%83%E5%86%85%E5%AE%B9%E8%A7%A3%E6%9E%90"><span class="post-toc-text">核心内容解析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">浏览器中的实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%84%9A%E6%9C%AC%E5%8A%A0%E8%BD%BD"><span class="post-toc-text">脚本加载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#script-%E5%85%83%E7%B4%A0"><span class="post-toc-text">script 元素</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%84%9A%E6%9C%AC%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%BC%82%E6%AD%A5"><span class="post-toc-text">脚本加载的异步</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E8%84%9A%E6%9C%AC%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD"><span class="post-toc-text">脚本动态加载</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="post-toc-text">事件循环</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1"><span class="post-toc-text">任务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E5%88%86%E7%B1%BB"><span class="post-toc-text">任务分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="post-toc-text">事件</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#%E8%A7%A3%E6%9E%90"><span class="post-toc-text">解析</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#%E5%9B%9E%E8%B0%83"><span class="post-toc-text">回调</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#%E8%B5%84%E6%BA%90%E8%B0%83%E7%94%A8"><span class="post-toc-text">资源调用</span></a></li><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#DOM%E6%93%8D%E4%BD%9C%E5%8F%98%E6%9B%B4"><span class="post-toc-text">DOM操作变更</span></a></li></ol></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E6%BA%90"><span class="post-toc-text">任务源</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E7%9A%84%E8%A6%81%E7%B4%A0"><span class="post-toc-text">任务的要素</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E4%BB%BB%E5%8A%A1%E5%85%A5%E9%98%9F%EF%BC%88%E5%85%A8%E5%B1%80%E4%BB%BB%E5%8A%A1%EF%BC%8C%E5%85%83%E7%B4%A0%E4%BB%BB%E5%8A%A1%EF%BC%8C%E5%BE%AE%E4%BB%BB%E5%8A%A1%E9%83%BD%E7%B1%BB%E4%BC%BC%EF%BC%89"><span class="post-toc-text">任务入队（全局任务，元素任务，微任务都类似）</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A4%84%E7%90%86%E6%A8%A1%E5%9E%8B"><span class="post-toc-text">处理模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%BA%90%E7%A0%81%E4%BD%93%E9%AA%8C"><span class="post-toc-text">源码体验</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NodeJS%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="post-toc-text">NodeJS中的实现</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%9A%E6%97%B6%E6%89%A7%E8%A1%8C"><span class="post-toc-text">定时执行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF-1"><span class="post-toc-text">事件循环</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%97%B2%E6%89%AF%E6%B7%A1"><span class="post-toc-text">闲扯淡</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%BA%90%E7%A0%81%E4%BD%93%E9%AA%8C-1"><span class="post-toc-text">源码体验</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/dev-tools/2018-12-15-mobile-debug-method/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          移动端页面真机或模拟器调试方法分场景攻坚
+        
+      </span>
+    </a>
+  
+  
+    <a href="/cross-platform/2018-12-03-fe-to-native-apps/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">前端视角切入原生之快速开发——鸿蒙、Android、iOS、Flutter</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <div id="comments">
+        <script>
+            var gitment = new Gitment({
+                owner: 'rawbin-',
+                repo: 'blog-comment',
+                oauth: {
+                    client_id: '2756d21ad6c1ad88f87b',
+                    client_secret: '7a4053b8e31aaf4c73f34b1fc00d3f9c2551a85d',
+                },
+            })
+            gitment.render('comments')
+        </script>
+    </div>
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2022 小淼焱<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://rawbin-.github.io",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Codova/">Codova</a><a class="category-link" href="/categories/Codova/Phonegap/">Phonegap</a><a class="category-link" href="/categories/Codova/Phonegap/Hybrid/">Hybrid</a><a class="category-link" href="/categories/Codova/Phonegap/Hybrid/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/Codova/Phonegap/Hybrid/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="category-link" href="/categories/HTTP/">HTTP</a><a class="category-link" href="/categories/HTTP/TCP/">TCP</a><a class="category-link" href="/categories/JavaScript/">JavaScript</a><a class="category-link" href="/categories/JavaScript/Web%E5%89%8D%E7%AB%AF/">Web前端</a><a class="category-link" href="/categories/JavaScript/Web%E5%89%8D%E7%AB%AF/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/JavaScript/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/JavaScript/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/Android%E5%BC%80%E5%8F%91/">Android开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/Android%E5%BC%80%E5%8F%91/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BC%80%E5%8F%91/">移动端开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/">JavaScript</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/HTML5/">HTML5</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/">移动开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript/%E8%87%AA%E5%8A%A8%E5%8C%96/">自动化</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/JavaScript%E5%BC%80%E5%8F%91/">JavaScript开发</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Python/">Python</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/React/">React</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/React/JavaScript/">JavaScript</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%89%8D%E7%AB%AF/">Web前端</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%AE%89%E5%85%A8/">Web安全</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/">前端工程化</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/">开发技术</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/JavaScript/">JavaScript</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E8%87%AA%E5%8A%A8%E5%8C%96/">自动化</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E6%B5%8B%E8%AF%95/">测试</a><a class="category-link" href="/categories/Web%E5%BC%80%E5%8F%91/%E7%BD%91%E7%BB%9C%E5%B7%A5%E5%85%B7/">网络工具</a><a class="category-link" href="/categories/%E4%BA%92%E8%81%94%E7%BD%91/">互联网</a><a class="category-link" href="/categories/%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1/">代码设计</a><a class="category-link" href="/categories/%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">程序设计</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/CSS/">CSS</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/HTTP/">HTTP</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/JavaScript/">JavaScript</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/JavaScript/DOM/">DOM</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/JavaScript/Electron/">Electron</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/JavaScript/NodeJS/">NodeJS</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/JavaScript/NodeJS/TypeScript/">TypeScript</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/JavaScript/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/">代码规范</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/Web%E5%AE%89%E5%85%A8/">Web安全</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E5%85%A8%E6%A0%88%E5%BC%80%E5%8F%91/">全栈开发</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/">前端框架</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E6%9C%8D%E5%8A%A1%E9%85%8D%E7%BD%AE/">服务配置</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/">灰度发布</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/ABTest/">ABTest</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/">应用技术</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/">打包工具</a><a class="category-link" href="/categories/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/">应用技术</a><a class="category-link" href="/categories/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/Web%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">Web性能优化</a><a class="category-link" href="/categories/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/">开发技术</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/JavaScript/">JavaScript</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Java%E5%BC%80%E5%8F%91/">Java开发</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Web%E5%89%8D%E7%AB%AF/">Web前端</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/Web%E5%BC%80%E5%8F%91/JavaScript/">JavaScript</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/">应用技术</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Git/">Git</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/Git/">Git</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/VIM/">VIM</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/">开发技术</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E5%BC%80%E5%8F%91%E6%8A%80%E6%9C%AF/%E5%BA%94%E7%94%A8%E6%8A%80%E6%9C%AF/">应用技术</a><a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a><a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a><a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a><a class="category-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8/">系统应用</a><a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><a class="category-link" href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF/">知识积累</a><a class="category-link" href="/categories/%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97/">符号计算</a><a class="category-link" href="/categories/%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97/%E5%80%BC%E8%AE%A1%E7%AE%97/">值计算</a><a class="category-link" href="/categories/%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97/%E5%80%BC%E8%AE%A1%E7%AE%97/%E5%AF%B9%E6%AF%94/">对比</a><a class="category-link" href="/categories/%E7%AE%97%E6%B3%95%E7%BB%93%E6%9E%84/">算法结构</a><a class="category-link" href="/categories/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/">系统工具</a><a class="category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">计算机体系结构</a><a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/">计算机基础</a><a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/">计算机体系结构</a><a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/HTTP/">HTTP</a><a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AE%89%E5%85%A8/">计算机安全</a><a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</a><a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/">软件开发</a><a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/">Web开发</a><a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><a class="category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/">项目管理</a><a class="category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/Bug%E7%AE%A1%E7%90%86/">Bug管理</a><a class="category-link" href="/categories/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/Bug%E7%AE%A1%E7%90%86/%E6%B5%81%E7%A8%8B%E7%AE%A1%E7%90%86/">流程管理</a><a class="category-link" href="/categories/%E9%A3%8E%E6%A0%BC/">风格</a><a class="category-link" href="/categories/%E9%A3%8E%E6%A0%BC/%E6%80%9D%E8%B7%AF/">思路</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/619/" style="font-size: 10px;">619</a> <a href="/tags/ABTest/" style="font-size: 10px;">ABTest</a> <a href="/tags/AJAX/" style="font-size: 10.71px;">AJAX</a> <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/Administrator/" style="font-size: 10px;">Administrator</a> <a href="/tags/Ajax/" style="font-size: 10.71px;">Ajax</a> <a href="/tags/Android/" style="font-size: 12.14px;">Android</a> <a href="/tags/Babel/" style="font-size: 10px;">Babel</a> <a href="/tags/BackstopJS/" style="font-size: 10px;">BackstopJS</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Browser/" style="font-size: 10px;">Browser</a> <a href="/tags/Browserify/" style="font-size: 10px;">Browserify</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/CMD/" style="font-size: 10.71px;">CMD</a> <a href="/tags/CMS/" style="font-size: 10px;">CMS</a> <a href="/tags/CORS/" style="font-size: 10.71px;">CORS</a> <a href="/tags/CSRF/" style="font-size: 11.43px;">CSRF</a> <a href="/tags/CSS/" style="font-size: 16.43px;">CSS</a> <a href="/tags/CSS-Hack/" style="font-size: 10px;">CSS Hack</a> <a href="/tags/CSS2/" style="font-size: 10px;">CSS2</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/CSS%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">CSS兼容</a> <a href="/tags/CSS%E5%B1%9E%E6%80%A7/" style="font-size: 10px;">CSS属性</a> <a href="/tags/CSS%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">CSS框架</a> <a href="/tags/CSS%E8%AF%A6%E8%A7%A3/" style="font-size: 10px;">CSS详解</a> <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/Cisco-VPN/" style="font-size: 10px;">Cisco VPN</a> <a href="/tags/Cli/" style="font-size: 10px;">Cli</a> <a href="/tags/Codova/" style="font-size: 10px;">Codova</a> <a href="/tags/Combobox/" style="font-size: 10px;">Combobox</a> <a href="/tags/CommonJS/" style="font-size: 10px;">CommonJS</a> <a href="/tags/Confluence/" style="font-size: 10px;">Confluence</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/DOM%E4%BD%8D%E7%BD%AE-DOM%E4%BA%8B%E4%BB%B6-%E5%B1%8F%E5%B9%95%E4%BD%8D%E7%BD%AE/" style="font-size: 10px;">DOM位置,DOM事件,屏幕位置</a> <a href="/tags/Datagrid/" style="font-size: 10px;">Datagrid</a> <a href="/tags/Date/" style="font-size: 10px;">Date</a> <a href="/tags/DateTimePicker/" style="font-size: 10px;">DateTimePicker</a> <a href="/tags/Deploy/" style="font-size: 10px;">Deploy</a> <a href="/tags/Django-%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">Django 流程</a> <a href="/tags/Django-%E6%BA%90%E7%A0%81/" style="font-size: 10px;">Django 源码</a> <a href="/tags/ECMAScript/" style="font-size: 13.57px;">ECMAScript</a> <a href="/tags/ECMAScript2015/" style="font-size: 10px;">ECMAScript2015</a> <a href="/tags/ECMAScript6/" style="font-size: 10px;">ECMAScript6</a> <a href="/tags/ES2015/" style="font-size: 10px;">ES2015</a> <a href="/tags/ES6/" style="font-size: 14.29px;">ES6</a> <a href="/tags/EasyUI/" style="font-size: 10.71px;">EasyUI</a> <a href="/tags/Electron/" style="font-size: 12.86px;">Electron</a> <a href="/tags/Event-Loop/" style="font-size: 10px;">Event Loop</a> <a href="/tags/Events/" style="font-size: 10px;">Events</a> <a href="/tags/FEKit/" style="font-size: 10px;">FEKit</a> <a href="/tags/File-API/" style="font-size: 10.71px;">File API</a> <a href="/tags/Flash/" style="font-size: 10px;">Flash</a> <a href="/tags/Flutter/" style="font-size: 10.71px;">Flutter</a> <a href="/tags/Flux/" style="font-size: 10px;">Flux</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/Git-Bash/" style="font-size: 10px;">Git Bash</a> <a href="/tags/Git-SSH-%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">Git SSH 配置</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HOC/" style="font-size: 10px;">HOC</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/HTML4/" style="font-size: 10px;">HTML4</a> <a href="/tags/HTML5/" style="font-size: 13.57px;">HTML5</a> <a href="/tags/HTTP/" style="font-size: 12.86px;">HTTP</a> <a href="/tags/HTTP-BIND/" style="font-size: 10px;">HTTP-BIND</a> <a href="/tags/HTTP2/" style="font-size: 10px;">HTTP2</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/HTTP%E8%AF%B7%E6%B1%82/" style="font-size: 10px;">HTTP请求</a> <a href="/tags/HTTP%E8%B0%83%E8%AF%95/" style="font-size: 10.71px;">HTTP调试</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/HarmonyOS/" style="font-size: 10px;">HarmonyOS</a> <a href="/tags/Headless-Chrome/" style="font-size: 13.57px;">Headless Chrome</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hijacking/" style="font-size: 10px;">Hijacking</a> <a href="/tags/Hybrid/" style="font-size: 10.71px;">Hybrid</a> <a href="/tags/IA32/" style="font-size: 10.71px;">IA32</a> <a href="/tags/IE/" style="font-size: 10px;">IE</a> <a href="/tags/IE8/" style="font-size: 10.71px;">IE8</a> <a href="/tags/IEEE-745/" style="font-size: 10px;">IEEE 745</a> <a href="/tags/IO%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">IO模型</a> <a href="/tags/Inspect/" style="font-size: 11.43px;">Inspect</a> <a href="/tags/Internet-Explorer/" style="font-size: 10px;">Internet Explorer</a> <a href="/tags/JIRA/" style="font-size: 10px;">JIRA</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Java/" style="font-size: 10.71px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/JavaScript%E5%8E%86%E5%8F%B2/" style="font-size: 10px;">JavaScript历史</a> <a href="/tags/JavaScript%E5%9B%BE%E8%A1%A8/" style="font-size: 10px;">JavaScript图表</a> <a href="/tags/JavaScript%E5%BC%95%E6%93%8E/" style="font-size: 10px;">JavaScript引擎</a> <a href="/tags/JavaScript%E7%94%BB%E5%9B%BE/" style="font-size: 10px;">JavaScript画图</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Jekyll-Bootstrap/" style="font-size: 10px;">Jekyll Bootstrap</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/LDAP/" style="font-size: 10px;">LDAP</a> <a href="/tags/Lighthouse/" style="font-size: 10px;">Lighthouse</a> <a href="/tags/Linux/" style="font-size: 10.71px;">Linux</a> <a href="/tags/Linux%E6%80%A7%E8%83%BD%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">Linux性能检测</a> <a href="/tags/Linux%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">Linux系统命令</a> <a href="/tags/Linux%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/" style="font-size: 10px;">Linux系统管理</a> <a href="/tags/MTU/" style="font-size: 10px;">MTU</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MediaElement/" style="font-size: 10px;">MediaElement</a> <a href="/tags/Mock/" style="font-size: 11.43px;">Mock</a> <a href="/tags/Modular/" style="font-size: 10px;">Modular</a> <a href="/tags/My97Datepicker/" style="font-size: 10px;">My97Datepicker</a> <a href="/tags/NW/" style="font-size: 10.71px;">NW</a> <a href="/tags/Native/" style="font-size: 11.43px;">Native</a> <a href="/tags/Nest/" style="font-size: 10px;">Nest</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/NoSQL/" style="font-size: 10px;">NoSQL</a> <a href="/tags/Node/" style="font-size: 17.14px;">Node</a> <a href="/tags/Node-Webkit/" style="font-size: 10px;">Node-Webkit</a> <a href="/tags/Node-js/" style="font-size: 10.71px;">Node.js</a> <a href="/tags/NodeJS/" style="font-size: 18.57px;">NodeJS</a> <a href="/tags/NodeJS%E5%8E%86%E5%8F%B2/" style="font-size: 10px;">NodeJS历史</a> <a href="/tags/ORM/" style="font-size: 10px;">ORM</a> <a href="/tags/OSI/" style="font-size: 10px;">OSI</a> <a href="/tags/OWASP/" style="font-size: 10px;">OWASP</a> <a href="/tags/OpenLDAP/" style="font-size: 10px;">OpenLDAP</a> <a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a> <a href="/tags/P3P/" style="font-size: 10px;">P3P</a> <a href="/tags/PDF/" style="font-size: 10.71px;">PDF</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/PHP%E5%86%85%E6%A0%B8/" style="font-size: 10px;">PHP内核</a> <a href="/tags/PM2/" style="font-size: 10.71px;">PM2</a> <a href="/tags/PPT/" style="font-size: 10px;">PPT</a> <a href="/tags/PSS/" style="font-size: 10px;">PSS</a> <a href="/tags/PhantomCSS/" style="font-size: 10px;">PhantomCSS</a> <a href="/tags/PhantomJS/" style="font-size: 12.86px;">PhantomJS</a> <a href="/tags/Phonegap/" style="font-size: 10px;">Phonegap</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/Python/" style="font-size: 10.71px;">Python</a> <a href="/tags/Python-%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/" style="font-size: 10px;">Python 网页截图</a> <a href="/tags/RSS/" style="font-size: 10px;">RSS</a> <a href="/tags/Range/" style="font-size: 10px;">Range</a> <a href="/tags/React/" style="font-size: 15.71px;">React</a> <a href="/tags/React-Native/" style="font-size: 10.71px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/SQL%E6%B3%A8%E5%85%A5/" style="font-size: 10.71px;">SQL注入</a> <a href="/tags/SSO/" style="font-size: 10px;">SSO</a> <a href="/tags/Same-Origin-Policy/" style="font-size: 10px;">Same Origin Policy</a> <a href="/tags/SeaJS/" style="font-size: 10px;">SeaJS</a> <a href="/tags/Selection/" style="font-size: 10px;">Selection</a> <a href="/tags/Selenium/" style="font-size: 13.57px;">Selenium</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Shell/" style="font-size: 10.71px;">Shell</a> <a href="/tags/Slides/" style="font-size: 10px;">Slides</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Sublime-Text-2/" style="font-size: 10px;">Sublime Text 2</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/TypeScript/" style="font-size: 12.86px;">TypeScript</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/URL/" style="font-size: 10px;">URL</a> <a href="/tags/USS/" style="font-size: 10px;">USS</a> <a href="/tags/UTC/" style="font-size: 10px;">UTC</a> <a href="/tags/Unicode/" style="font-size: 10px;">Unicode</a> <a href="/tags/V8/" style="font-size: 10px;">V8</a> <a href="/tags/VIA/" style="font-size: 10px;">VIA</a> <a href="/tags/VIM/" style="font-size: 10px;">VIM</a> <a href="/tags/VPN/" style="font-size: 11.43px;">VPN</a> <a href="/tags/VPN%E9%94%99%E8%AF%AF/" style="font-size: 10px;">VPN错误</a> <a href="/tags/VSS/" style="font-size: 10px;">VSS</a> <a href="/tags/Velocity/" style="font-size: 10px;">Velocity</a> <a href="/tags/Velocity-tools/" style="font-size: 10px;">Velocity-tools</a> <a href="/tags/Video/" style="font-size: 10px;">Video</a> <a href="/tags/VirtualEnv/" style="font-size: 10px;">VirtualEnv</a> <a href="/tags/Vue/" style="font-size: 15.71px;">Vue</a> <a href="/tags/Vue-Router/" style="font-size: 10px;">Vue Router</a> <a href="/tags/Vue-js/" style="font-size: 10px;">Vue.js</a> <a href="/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/tags/W3C/" style="font-size: 13.57px;">W3C</a> <a href="/tags/WSGI/" style="font-size: 10px;">WSGI</a> <a href="/tags/WebAssembly/" style="font-size: 10px;">WebAssembly</a> <a href="/tags/WebComponent/" style="font-size: 10px;">WebComponent</a> <a href="/tags/Webpack/" style="font-size: 15px;">Webpack</a> <a href="/tags/Web%E5%89%8D%E7%AB%AF/" style="font-size: 12.14px;">Web前端</a> <a href="/tags/Web%E5%8E%86%E5%8F%B2/" style="font-size: 10px;">Web历史</a> <a href="/tags/Web%E5%8F%91%E5%B1%95/" style="font-size: 10px;">Web发展</a> <a href="/tags/Web%E5%AE%89%E5%85%A8/" style="font-size: 14.29px;">Web安全</a> <a href="/tags/Web%E5%BC%80%E5%8F%91/" style="font-size: 10.71px;">Web开发</a> <a href="/tags/Web%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">Web服务器</a> <a href="/tags/Web%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">Web架构</a> <a href="/tags/Web%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">Web框架</a> <a href="/tags/Web%E8%B0%83%E8%AF%95/" style="font-size: 10px;">Web调试</a> <a href="/tags/Wiki/" style="font-size: 10px;">Wiki</a> <a href="/tags/Win10/" style="font-size: 10px;">Win10</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/XMLHTTPRequest/" style="font-size: 10px;">XMLHTTPRequest</a> <a href="/tags/XMPP/" style="font-size: 10px;">XMPP</a> <a href="/tags/XSS/" style="font-size: 10.71px;">XSS</a> <a href="/tags/Xvfb/" style="font-size: 12.86px;">Xvfb</a> <a href="/tags/YKit/" style="font-size: 10px;">YKit</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/appjs-AIR/" style="font-size: 10px;">appjs.AIR</a> <a href="/tags/async/" style="font-size: 10.71px;">async</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/attribute/" style="font-size: 10px;">attribute</a> <a href="/tags/avalon/" style="font-size: 10px;">avalon</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/beyondcompare/" style="font-size: 10px;">beyondcompare</a> <a href="/tags/bigpipe/" style="font-size: 10px;">bigpipe</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/browserify/" style="font-size: 10px;">browserify</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/casperjs/" style="font-size: 10px;">casperjs</a> <a href="/tags/chai/" style="font-size: 10px;">chai</a> <a href="/tags/change/" style="font-size: 10px;">change</a> <a href="/tags/chmod/" style="font-size: 10px;">chmod</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-launcher/" style="font-size: 10px;">chrome-launcher</a> <a href="/tags/click/" style="font-size: 10px;">click</a> <a href="/tags/clipboard/" style="font-size: 11.43px;">clipboard</a> <a href="/tags/cnpm/" style="font-size: 10px;">cnpm</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/copy/" style="font-size: 10.71px;">copy</a> <a href="/tags/css/" style="font-size: 12.14px;">css</a> <a href="/tags/defer/" style="font-size: 10px;">defer</a> <a href="/tags/diff/" style="font-size: 10px;">diff</a> <a href="/tags/diff%E7%AE%97%E6%B3%95/" style="font-size: 10px;">diff算法</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/event-loop/" style="font-size: 10.71px;">event-loop</a> <a href="/tags/fekit/" style="font-size: 13.57px;">fekit</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/file/" style="font-size: 10px;">file</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/forever/" style="font-size: 10px;">forever</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/gyp/" style="font-size: 10px;">gyp</a> <a href="/tags/harmonyos/" style="font-size: 10.71px;">harmonyos</a> <a href="/tags/headless-chrome/" style="font-size: 10px;">headless chrome</a> <a href="/tags/hex/" style="font-size: 10px;">hex</a> <a href="/tags/history-mode/" style="font-size: 10px;">history mode</a> <a href="/tags/http/" style="font-size: 10.71px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/iOS/" style="font-size: 12.14px;">iOS</a> <a href="/tags/iPhone-X%E9%80%82%E9%85%8D/" style="font-size: 10px;">iPhone X适配</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/int/" style="font-size: 10px;">int</a> <a href="/tags/iostat/" style="font-size: 10px;">iostat</a> <a href="/tags/jQuery/" style="font-size: 14.29px;">jQuery</a> <a href="/tags/jQuery%E6%BA%90%E7%A0%81/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/javascript/" style="font-size: 12.86px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/keep-alive/" style="font-size: 10px;">keep-alive</a> <a href="/tags/markdown/" style="font-size: 11.43px;">markdown</a> <a href="/tags/merge/" style="font-size: 10px;">merge</a> <a href="/tags/mocha/" style="font-size: 10.71px;">mocha</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/n/" style="font-size: 10px;">n</a> <a href="/tags/nginx/" style="font-size: 10.71px;">nginx</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/node/" style="font-size: 10.71px;">node</a> <a href="/tags/node-inspector/" style="font-size: 12.14px;">node-inspector</a> <a href="/tags/node-webkit/" style="font-size: 10px;">node-webkit</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm/" style="font-size: 12.86px;">npm</a> <a href="/tags/npm%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/" style="font-size: 10px;">npm私有仓库</a> <a href="/tags/npm%E7%A7%81%E6%9C%89%E6%BA%90/" style="font-size: 10px;">npm私有源</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/nvm/" style="font-size: 10.71px;">nvm</a> <a href="/tags/nvmw/" style="font-size: 10px;">nvmw</a> <a href="/tags/openssl/" style="font-size: 10px;">openssl</a> <a href="/tags/paste/" style="font-size: 10.71px;">paste</a> <a href="/tags/phantomjs/" style="font-size: 10.71px;">phantomjs</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/polyfill/" style="font-size: 10px;">polyfill</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/puppeteer/" style="font-size: 10.71px;">puppeteer</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/robotjs/" style="font-size: 10px;">robotjs</a> <a href="/tags/rsync/" style="font-size: 10.71px;">rsync</a> <a href="/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/tags/seajs/" style="font-size: 10px;">seajs</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/sinppia/" style="font-size: 10px;">sinppia</a> <a href="/tags/slimerjs/" style="font-size: 10px;">slimerjs</a> <a href="/tags/spa/" style="font-size: 10px;">spa</a> <a href="/tags/ssh/" style="font-size: 11.43px;">ssh</a> <a href="/tags/str/" style="font-size: 10px;">str</a> <a href="/tags/submodule/" style="font-size: 10px;">submodule</a> <a href="/tags/tcp/" style="font-size: 10px;">tcp</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/tideSDK/" style="font-size: 10px;">tideSDK</a> <a href="/tags/touch/" style="font-size: 10px;">touch</a> <a href="/tags/v8/" style="font-size: 10px;">v8</a> <a href="/tags/velocity/" style="font-size: 10px;">velocity</a> <a href="/tags/vmstat/" style="font-size: 10px;">vmstat</a> <a href="/tags/webpack/" style="font-size: 12.14px;">webpack</a> <a href="/tags/webrick/" style="font-size: 10px;">webrick</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/%E4%B8%A2%E5%8C%85/" style="font-size: 10px;">丢包</a> <a href="/tags/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">严格模式</a> <a href="/tags/%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">中文翻译</a> <a href="/tags/%E4%B8%AD%E6%96%87%E8%B7%AF%E5%BE%84/" style="font-size: 10px;">中文路径</a> <a href="/tags/%E4%B9%B1%E7%A0%81/" style="font-size: 10px;">乱码</a> <a href="/tags/%E4%BA%8B%E4%BB%B6/" style="font-size: 10px;">事件</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" style="font-size: 13.57px;">事件循环</a> <a href="/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" style="font-size: 10px;">二维码</a> <a href="/tags/%E4%BB%93%E5%BA%93/" style="font-size: 10px;">仓库</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" style="font-size: 10.71px;">代码优化</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E6%9F%A5/" style="font-size: 10px;">代码审查</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" style="font-size: 13.57px;">代码规范</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">代码设计</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">代码转换</a> <a href="/tags/%E4%BC%91%E7%9C%A0/" style="font-size: 10px;">休眠</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">作用域</a> <a href="/tags/%E4%BE%BF%E6%8D%B7/" style="font-size: 10px;">便捷</a> <a href="/tags/%E5%80%BC%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">值对比</a> <a href="/tags/%E5%80%BC%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">值计算</a> <a href="/tags/%E5%85%A8%E6%A0%88/" style="font-size: 10px;">全栈</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">关系型数据库</a> <a href="/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/" style="font-size: 10px;">兼容性</a> <a href="/tags/%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E5%8F%82%E6%95%B0/" style="font-size: 10px;">内存占用参数</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">内存模型</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" style="font-size: 10px;">内存泄露</a> <a href="/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" style="font-size: 10px;">内存管理</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">分布式文件系统</a> <a href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" style="font-size: 10.71px;">前后端分离</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.57px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/" style="font-size: 12.14px;">前端基础</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 10px;">前端安全</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">前端工程</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 10.71px;">前端开发</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%94%BB%E9%98%B2/" style="font-size: 10px;">前端攻防</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84/" style="font-size: 10.71px;">前端架构</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" style="font-size: 10.71px;">前端框架</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%94%BB%E5%9B%BE/" style="font-size: 10px;">前端画图</a> <a href="/tags/%E5%89%AA%E8%B4%B4%E6%9D%BF/" style="font-size: 10px;">剪贴板</a> <a href="/tags/%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">加载</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A1%A8%E5%8D%95/" style="font-size: 10px;">动态表单</a> <a href="/tags/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93/" style="font-size: 10.71px;">动态链接库</a> <a href="/tags/%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2/" style="font-size: 10px;">动态页面</a> <a href="/tags/%E5%8A%A8%E7%94%BB/" style="font-size: 10px;">动画</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86/" style="font-size: 10px;">包管理</a> <a href="/tags/%E5%8D%8F%E7%A8%8B/" style="font-size: 10px;">协程</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10.71px;">单元测试</a> <a href="/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" style="font-size: 10px;">单点登录</a> <a href="/tags/%E5%8D%95%E8%89%B2%E9%BB%91/" style="font-size: 10px;">单色黑</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">压力测试</a> <a href="/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/tags/%E5%8E%9F%E7%94%9F/" style="font-size: 10.71px;">原生</a> <a href="/tags/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" style="font-size: 10px;">参考资料</a> <a href="/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" style="font-size: 10.71px;">反向代理</a> <a href="/tags/%E5%8F%AF%E4%BC%B8%E7%BC%A9/" style="font-size: 10.71px;">可伸缩</a> <a href="/tags/%E5%8F%AF%E7%BB%B4%E6%8A%A4%E4%BB%A3%E7%A0%81/" style="font-size: 10px;">可维护代码</a> <a href="/tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/" style="font-size: 10px;">名词解释</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 10px;">后端</a> <a href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 10px;">后端开发</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" style="font-size: 10.71px;">命令行</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BB%A3%E7%90%86/" style="font-size: 10px;">命令行代理</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">命令行配置</a> <a href="/tags/%E5%93%8D%E5%BA%94/" style="font-size: 10px;">响应</a> <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" style="font-size: 10px;">响应式布局</a> <a href="/tags/%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/" style="font-size: 10px;">四舍五入</a> <a href="/tags/%E5%9B%9B%E8%89%B2%E9%BB%91/" style="font-size: 10px;">四色黑</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">回归测试</a> <a href="/tags/%E5%9B%BA%E5%AE%9A%E5%B8%83%E5%B1%80/" style="font-size: 10px;">固定布局</a> <a href="/tags/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" style="font-size: 10px;">图片上传</a> <a href="/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/" style="font-size: 10px;">图片识别</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88/" style="font-size: 10px;">图片预览</a> <a href="/tags/%E5%9C%A8%E7%BA%BF%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">在线更新</a> <a href="/tags/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">垂直居中</a> <a href="/tags/%E5%9E%82%E7%9B%B4%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">垂直水平居中</a> <a href="/tags/%E5%A0%86%E6%A0%88/" style="font-size: 10px;">堆栈</a> <a href="/tags/%E5%A4%8D%E5%88%B6/" style="font-size: 11.43px;">复制</a> <a href="/tags/%E5%A4%9A%E9%A1%B5%E6%89%93%E5%8C%85/" style="font-size: 10px;">多页打包</a> <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">大前端</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">大数据</a> <a href="/tags/%E5%AD%97%E4%BD%93/" style="font-size: 10.71px;">字体</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" style="font-size: 10.71px;">字符串匹配</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" style="font-size: 10px;">字符串处理</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 11.43px;">字符集</a> <a href="/tags/%E5%AD%97%E8%8A%82%E5%BA%8F/" style="font-size: 10px;">字节序</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/" style="font-size: 10px;">学习经验</a> <a href="/tags/%E5%AE%89%E5%85%A8%E5%8C%BA%E9%80%82%E9%85%8D/" style="font-size: 10px;">安全区适配</a> <a href="/tags/%E5%AE%89%E5%85%A8%E7%BC%96%E7%A0%81/" style="font-size: 10px;">安全编码</a> <a href="/tags/%E5%AE%89%E5%85%A8%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">安全设计</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 11.43px;">安卓</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF/" style="font-size: 13.57px;">客户端</a> <a href="/tags/%E5%AE%B9%E5%99%A8%E5%8C%96/" style="font-size: 10.71px;">容器化</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10.71px;">小程序</a> <a href="/tags/%E5%B0%8F%E9%BB%91%E6%9D%A1%E9%80%82%E9%85%8D/" style="font-size: 10px;">小黑条适配</a> <a href="/tags/%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">居中</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 15px;">工程化</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 10px;">布局</a> <a href="/tags/%E5%B9%BF%E5%91%8A/" style="font-size: 10px;">广告</a> <a href="/tags/%E5%BB%B6%E6%97%B6%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">延时检测</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 12.86px;">开发工具</a> <a href="/tags/%E5%BC%82%E6%AD%A5/" style="font-size: 12.86px;">异步</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E4%B8%8A%E4%BC%A0/" style="font-size: 10px;">异步上传</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">异步编程</a> <a href="/tags/%E5%BC%95%E6%93%8E/" style="font-size: 10px;">引擎</a> <a href="/tags/%E5%BC%B9%E5%B1%82%E6%BB%9A%E5%8A%A8/" style="font-size: 10px;">弹层滚动</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 10.71px;">微前端</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 11.43px;">快捷键</a> <a href="/tags/%E6%80%9D%E8%B7%AF/" style="font-size: 10px;">思路</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 10px;">性能</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13.57px;">性能优化</a> <a href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" style="font-size: 10.71px;">性能分析</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 10.71px;">性能测试</a> <a href="/tags/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" style="font-size: 10.71px;">性能调优</a> <a href="/tags/%E6%89%8B%E5%86%99/" style="font-size: 10px;">手写</a> <a href="/tags/%E6%89%8B%E7%BB%98/" style="font-size: 10px;">手绘</a> <a href="/tags/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/" style="font-size: 12.14px;">打包工具</a> <a href="/tags/%E6%89%93%E5%8D%B0%E6%9C%BA/" style="font-size: 10px;">打印机</a> <a href="/tags/%E6%89%A9%E5%B1%95/" style="font-size: 10px;">扩展</a> <a href="/tags/%E6%89%AC%E5%A3%B0%E5%99%A8/" style="font-size: 10px;">扬声器</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E6%A0%88/" style="font-size: 10px;">技术栈</a> <a href="/tags/%E6%8E%92%E5%88%97/" style="font-size: 10px;">排列</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 10px;">插件推荐</a> <a href="/tags/%E6%95%B0%E5%80%BC/" style="font-size: 10px;">数值</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 10px;">数据分析</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%AF%94%E8%BE%83/" style="font-size: 10px;">数据库比较</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10.71px;">数据结构</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" style="font-size: 10px;">文件上传</a> <a href="/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/" style="font-size: 10px;">文本处理</a> <a href="/tags/%E6%96%87%E6%9C%AC%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">文本模板</a> <a href="/tags/%E6%97%A0%E6%B3%95%E5%94%A4%E9%86%92/" style="font-size: 10px;">无法唤醒</a> <a href="/tags/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" style="font-size: 10px;">日志分析</a> <a href="/tags/%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9%E5%99%A8/" style="font-size: 10px;">日期时间选择器</a> <a href="/tags/%E6%97%A5%E6%9C%9F%E9%80%89%E6%8B%A9%E5%99%A8/" style="font-size: 10px;">日期选择器</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8/" style="font-size: 10px;">服务器推</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7/" style="font-size: 10px;">服务器监控</a> <a href="/tags/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/" style="font-size: 10px;">本地预览</a> <a href="/tags/%E6%A0%A1%E9%AA%8C/" style="font-size: 10px;">校验</a> <a href="/tags/%E6%A0%B7%E5%BC%8F%E5%86%B2%E7%AA%81/" style="font-size: 10px;">样式冲突</a> <a href="/tags/%E6%A0%B7%E5%BC%8F%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">样式框架</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/" style="font-size: 10px;">桌面应用</a> <a href="/tags/%E6%A1%8C%E9%9D%A2%E7%AB%AF/" style="font-size: 13.57px;">桌面端</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E5%99%A8/" style="font-size: 10px;">模块加载器</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 17.86px;">模块化</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E8%AF%91/" style="font-size: 10px;">模块化编译</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83/" style="font-size: 10px;">模块化规范</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE/" style="font-size: 10.71px;">模拟数据</a> <a href="/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" style="font-size: 10px;">模板引擎</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 12.86px;">正则表达式</a> <a href="/tags/%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">水平居中</a> <a href="/tags/%E6%B5%81%E5%BC%8F%E5%B8%83%E5%B1%80/" style="font-size: 10px;">流式布局</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" style="font-size: 10px;">流程图</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE/" style="font-size: 10.71px;">测试数据</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">测试框架</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 19.29px;">浏览器</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/" style="font-size: 15.71px;">浏览器原理</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8/" style="font-size: 10px;">浏览器安全</a> <a href="/tags/%E6%B5%AE%E7%82%B9%E6%95%B0/" style="font-size: 10px;">浮点数</a> <a href="/tags/%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91/" style="font-size: 10px;">混合开发</a> <a href="/tags/%E6%B8%97%E9%80%8F/" style="font-size: 10px;">渗透</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 10px;">源码</a> <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 16.43px;">源码分析</a> <a href="/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" style="font-size: 10.71px;">源码阅读</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">滑动穿透</a> <a href="/tags/%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">滚动穿透</a> <a href="/tags/%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF/" style="font-size: 10px;">演示文稿</a> <a href="/tags/%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/" style="font-size: 10px;">灰度发布</a> <a href="/tags/%E7%82%B9%E5%87%BB%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">点击下载</a> <a href="/tags/%E7%82%B9%E5%87%BB%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">点击穿透</a> <a href="/tags/%E7%83%AD%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">热更新</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E7%89%B9%E6%80%A7%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">特性检测</a> <a href="/tags/%E7%8A%B6%E6%80%81/" style="font-size: 10.71px;">状态</a> <a href="/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" style="font-size: 10.71px;">状态管理</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%94%9F%E6%88%90%E5%99%A8/" style="font-size: 10px;">生成器</a> <a href="/tags/%E7%98%A6%E8%BA%AB/" style="font-size: 10px;">瘦身</a> <a href="/tags/%E7%9D%A1%E7%9C%A0/" style="font-size: 10px;">睡眠</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 10px;">知识管理</a> <a href="/tags/%E7%A6%81%E6%AD%A2%E6%BB%9A%E5%8A%A8/" style="font-size: 10px;">禁止滚动</a> <a href="/tags/%E7%A6%81%E7%94%A8%E7%BC%93%E5%AD%98/" style="font-size: 10px;">禁用缓存</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 10px;">移动端</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95/" style="font-size: 10px;">移动端调试</a> <a href="/tags/%E7%A7%BB%E9%99%A4%E6%B3%A8%E9%87%8A/" style="font-size: 10px;">移除注释</a> <a href="/tags/%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">穿透</a> <a href="/tags/%E7%AB%99%E7%82%B9/" style="font-size: 10px;">站点</a> <a href="/tags/%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">符号计算</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8C%85/" style="font-size: 10px;">第三方包</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10.71px;">算法</a> <a href="/tags/%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90/" style="font-size: 10px;">管理员权限</a> <a href="/tags/%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">管理系统</a> <a href="/tags/%E7%AE%A1%E7%A8%8B/" style="font-size: 10px;">管程</a> <a href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">类型转换</a> <a href="/tags/%E7%B1%BB%E5%BA%93/" style="font-size: 10px;">类库</a> <a href="/tags/%E7%B2%98%E8%B4%B4/" style="font-size: 11.43px;">粘贴</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">系统工具</a> <a href="/tags/%E7%BA%A4%E7%A8%8B/" style="font-size: 10px;">纤程</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/" style="font-size: 11.43px;">组件化</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" style="font-size: 10.71px;">组件通信</a> <a href="/tags/%E7%BB%84%E5%90%88/" style="font-size: 10px;">组合</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/" style="font-size: 10px;">终端代理</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 11.43px;">缓存</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 12.86px;">编码</a> <a href="/tags/%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81/" style="font-size: 10.71px;">编码解码</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">编程语言</a> <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 10px;">编辑器</a> <a href="/tags/%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">网站架构</a> <a href="/tags/%E7%BD%91%E7%AB%99%E9%80%9F%E5%BA%A6%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">网站速度检测</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2/" style="font-size: 10.71px;">网络攻防</a> <a href="/tags/%E7%BD%91%E9%A1%B5%E5%AE%9A%E4%BD%8D/" style="font-size: 10px;">网页定位</a> <a href="/tags/%E8%80%B3%E6%9C%BA/" style="font-size: 10px;">耳机</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 12.86px;">自动化</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" style="font-size: 12.14px;">自动化测试</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E8%A1%A8%E5%8D%95/" style="font-size: 10px;">自动化表单</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%88%AA%E5%9B%BE/" style="font-size: 10px;">自动截图</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%92%AD%E6%94%BE/" style="font-size: 10px;">自动播放</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/" style="font-size: 10px;">自动构建</a> <a href="/tags/%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/" style="font-size: 10px;">自签名证书</a> <a href="/tags/%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80/" style="font-size: 10px;">自适应布局</a> <a href="/tags/%E8%8B%B9%E6%9E%9C/" style="font-size: 11.43px;">苹果</a> <a href="/tags/%E8%99%9A%E6%8B%9FDOM/" style="font-size: 10px;">虚拟DOM</a> <a href="/tags/%E8%A1%A8%E5%8D%95%E5%80%BC%E5%AD%98%E5%8F%96/" style="font-size: 10px;">表单值存取</a> <a href="/tags/%E8%A7%84%E8%8C%83/" style="font-size: 10px;">规范</a> <a href="/tags/%E8%A7%84%E8%8C%83%E6%A3%80%E6%9F%A5/" style="font-size: 10px;">规范检查</a> <a href="/tags/%E8%A7%A3%E7%A0%81/" style="font-size: 10.71px;">解码</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" style="font-size: 10px;">设计原则</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%9B%BE/" style="font-size: 10px;">设计图</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%AF%81%E4%B9%A6/" style="font-size: 10px;">证书</a> <a href="/tags/%E8%AF%B7%E6%B1%82/" style="font-size: 10px;">请求</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 12.14px;">调试</a> <a href="/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 11.43px;">跨域</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0-%E8%B7%A8%E7%AB%AF-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-Web%E8%B7%A8%E5%B9%B3%E5%8F%B0-Web%E8%B7%A8%E7%AB%AF/" style="font-size: 10px;">跨平台,跨端,解决方案,Web跨平台,Web跨端</a> <a href="/tags/%E8%B7%A8%E7%AB%AF/" style="font-size: 10px;">跨端</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3/" style="font-size: 10px;">软件破解</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 11.43px;">运维</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">进程</a> <a href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/" style="font-size: 10px;">迭代器</a> <a href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">逆向工程</a> <a href="/tags/%E9%83%A8%E5%88%86%E6%89%93%E5%8D%B0/" style="font-size: 10px;">部分打印</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 11.43px;">部署</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E8%A7%84%E8%8C%83/" style="font-size: 10px;">配置规范</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a> <a href="/tags/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">隐式类型转换</a> <a href="/tags/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">静态博客</a> <a href="/tags/%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">静态服务器</a> <a href="/tags/%E9%9D%9E%E5%86%85%E7%BD%AE%E7%AE%A1%E7%90%86%E5%91%98/" style="font-size: 10px;">非内置管理员</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 12.14px;">面向对象</a> <a href="/tags/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" style="font-size: 11.43px;">面向过程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;">面试题</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/" style="font-size: 10px;">音视频</a> <a href="/tags/%E9%A1%B5%E9%9D%A2/" style="font-size: 10px;">页面</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96/" style="font-size: 10px;">页面优化</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E4%BD%8D%E7%BD%AE/" style="font-size: 10px;">页面位置</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">页面加载</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80/" style="font-size: 10px;">页面布局</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">项目模板</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">项目结构</a> <a href="/tags/%E9%A3%8E%E6%A0%BC/" style="font-size: 10px;">风格</a> <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" style="font-size: 11.43px;">高性能</a> <a href="/tags/%E9%AB%98%E6%95%88/" style="font-size: 10px;">高效</a> <a href="/tags/%E9%B8%BF%E8%92%99/" style="font-size: 11.43px;">鸿蒙</a> <a href="/tags/%E9%BC%A0%E6%A0%87%E5%AE%9A%E4%BD%8D/" style="font-size: 10px;">鼠标定位</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>首页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/619/" style="font-size: 10px;">619</a> <a href="/tags/ABTest/" style="font-size: 10px;">ABTest</a> <a href="/tags/AJAX/" style="font-size: 10.71px;">AJAX</a> <a href="/tags/AMD/" style="font-size: 10px;">AMD</a> <a href="/tags/Administrator/" style="font-size: 10px;">Administrator</a> <a href="/tags/Ajax/" style="font-size: 10.71px;">Ajax</a> <a href="/tags/Android/" style="font-size: 12.14px;">Android</a> <a href="/tags/Babel/" style="font-size: 10px;">Babel</a> <a href="/tags/BackstopJS/" style="font-size: 10px;">BackstopJS</a> <a href="/tags/Bash/" style="font-size: 10px;">Bash</a> <a href="/tags/Browser/" style="font-size: 10px;">Browser</a> <a href="/tags/Browserify/" style="font-size: 10px;">Browserify</a> <a href="/tags/CI/" style="font-size: 10px;">CI</a> <a href="/tags/CMD/" style="font-size: 10.71px;">CMD</a> <a href="/tags/CMS/" style="font-size: 10px;">CMS</a> <a href="/tags/CORS/" style="font-size: 10.71px;">CORS</a> <a href="/tags/CSRF/" style="font-size: 11.43px;">CSRF</a> <a href="/tags/CSS/" style="font-size: 16.43px;">CSS</a> <a href="/tags/CSS-Hack/" style="font-size: 10px;">CSS Hack</a> <a href="/tags/CSS2/" style="font-size: 10px;">CSS2</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/CSS%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">CSS兼容</a> <a href="/tags/CSS%E5%B1%9E%E6%80%A7/" style="font-size: 10px;">CSS属性</a> <a href="/tags/CSS%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">CSS框架</a> <a href="/tags/CSS%E8%AF%A6%E8%A7%A3/" style="font-size: 10px;">CSS详解</a> <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/Cisco-VPN/" style="font-size: 10px;">Cisco VPN</a> <a href="/tags/Cli/" style="font-size: 10px;">Cli</a> <a href="/tags/Codova/" style="font-size: 10px;">Codova</a> <a href="/tags/Combobox/" style="font-size: 10px;">Combobox</a> <a href="/tags/CommonJS/" style="font-size: 10px;">CommonJS</a> <a href="/tags/Confluence/" style="font-size: 10px;">Confluence</a> <a href="/tags/Cookie/" style="font-size: 10px;">Cookie</a> <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/DOM%E4%BD%8D%E7%BD%AE-DOM%E4%BA%8B%E4%BB%B6-%E5%B1%8F%E5%B9%95%E4%BD%8D%E7%BD%AE/" style="font-size: 10px;">DOM位置,DOM事件,屏幕位置</a> <a href="/tags/Datagrid/" style="font-size: 10px;">Datagrid</a> <a href="/tags/Date/" style="font-size: 10px;">Date</a> <a href="/tags/DateTimePicker/" style="font-size: 10px;">DateTimePicker</a> <a href="/tags/Deploy/" style="font-size: 10px;">Deploy</a> <a href="/tags/Django-%E6%B5%81%E7%A8%8B/" style="font-size: 10px;">Django 流程</a> <a href="/tags/Django-%E6%BA%90%E7%A0%81/" style="font-size: 10px;">Django 源码</a> <a href="/tags/ECMAScript/" style="font-size: 13.57px;">ECMAScript</a> <a href="/tags/ECMAScript2015/" style="font-size: 10px;">ECMAScript2015</a> <a href="/tags/ECMAScript6/" style="font-size: 10px;">ECMAScript6</a> <a href="/tags/ES2015/" style="font-size: 10px;">ES2015</a> <a href="/tags/ES6/" style="font-size: 14.29px;">ES6</a> <a href="/tags/EasyUI/" style="font-size: 10.71px;">EasyUI</a> <a href="/tags/Electron/" style="font-size: 12.86px;">Electron</a> <a href="/tags/Event-Loop/" style="font-size: 10px;">Event Loop</a> <a href="/tags/Events/" style="font-size: 10px;">Events</a> <a href="/tags/FEKit/" style="font-size: 10px;">FEKit</a> <a href="/tags/File-API/" style="font-size: 10.71px;">File API</a> <a href="/tags/Flash/" style="font-size: 10px;">Flash</a> <a href="/tags/Flutter/" style="font-size: 10.71px;">Flutter</a> <a href="/tags/Flux/" style="font-size: 10px;">Flux</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/Git-Bash/" style="font-size: 10px;">Git Bash</a> <a href="/tags/Git-SSH-%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">Git SSH 配置</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/HOC/" style="font-size: 10px;">HOC</a> <a href="/tags/HTML/" style="font-size: 12.86px;">HTML</a> <a href="/tags/HTML4/" style="font-size: 10px;">HTML4</a> <a href="/tags/HTML5/" style="font-size: 13.57px;">HTML5</a> <a href="/tags/HTTP/" style="font-size: 12.86px;">HTTP</a> <a href="/tags/HTTP-BIND/" style="font-size: 10px;">HTTP-BIND</a> <a href="/tags/HTTP2/" style="font-size: 10px;">HTTP2</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/HTTP%E8%AF%B7%E6%B1%82/" style="font-size: 10px;">HTTP请求</a> <a href="/tags/HTTP%E8%B0%83%E8%AF%95/" style="font-size: 10.71px;">HTTP调试</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/HarmonyOS/" style="font-size: 10px;">HarmonyOS</a> <a href="/tags/Headless-Chrome/" style="font-size: 13.57px;">Headless Chrome</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hijacking/" style="font-size: 10px;">Hijacking</a> <a href="/tags/Hybrid/" style="font-size: 10.71px;">Hybrid</a> <a href="/tags/IA32/" style="font-size: 10.71px;">IA32</a> <a href="/tags/IE/" style="font-size: 10px;">IE</a> <a href="/tags/IE8/" style="font-size: 10.71px;">IE8</a> <a href="/tags/IEEE-745/" style="font-size: 10px;">IEEE 745</a> <a href="/tags/IO%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">IO模型</a> <a href="/tags/Inspect/" style="font-size: 11.43px;">Inspect</a> <a href="/tags/Internet-Explorer/" style="font-size: 10px;">Internet Explorer</a> <a href="/tags/JIRA/" style="font-size: 10px;">JIRA</a> <a href="/tags/JSON/" style="font-size: 10px;">JSON</a> <a href="/tags/Java/" style="font-size: 10.71px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/JavaScript%E5%8E%86%E5%8F%B2/" style="font-size: 10px;">JavaScript历史</a> <a href="/tags/JavaScript%E5%9B%BE%E8%A1%A8/" style="font-size: 10px;">JavaScript图表</a> <a href="/tags/JavaScript%E5%BC%95%E6%93%8E/" style="font-size: 10px;">JavaScript引擎</a> <a href="/tags/JavaScript%E7%94%BB%E5%9B%BE/" style="font-size: 10px;">JavaScript画图</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Jekyll/" style="font-size: 10px;">Jekyll</a> <a href="/tags/Jekyll-Bootstrap/" style="font-size: 10px;">Jekyll Bootstrap</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/LDAP/" style="font-size: 10px;">LDAP</a> <a href="/tags/Lighthouse/" style="font-size: 10px;">Lighthouse</a> <a href="/tags/Linux/" style="font-size: 10.71px;">Linux</a> <a href="/tags/Linux%E6%80%A7%E8%83%BD%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">Linux性能检测</a> <a href="/tags/Linux%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">Linux系统命令</a> <a href="/tags/Linux%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/" style="font-size: 10px;">Linux系统管理</a> <a href="/tags/MTU/" style="font-size: 10px;">MTU</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/MediaElement/" style="font-size: 10px;">MediaElement</a> <a href="/tags/Mock/" style="font-size: 11.43px;">Mock</a> <a href="/tags/Modular/" style="font-size: 10px;">Modular</a> <a href="/tags/My97Datepicker/" style="font-size: 10px;">My97Datepicker</a> <a href="/tags/NW/" style="font-size: 10.71px;">NW</a> <a href="/tags/Native/" style="font-size: 11.43px;">Native</a> <a href="/tags/Nest/" style="font-size: 10px;">Nest</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/NoSQL/" style="font-size: 10px;">NoSQL</a> <a href="/tags/Node/" style="font-size: 17.14px;">Node</a> <a href="/tags/Node-Webkit/" style="font-size: 10px;">Node-Webkit</a> <a href="/tags/Node-js/" style="font-size: 10.71px;">Node.js</a> <a href="/tags/NodeJS/" style="font-size: 18.57px;">NodeJS</a> <a href="/tags/NodeJS%E5%8E%86%E5%8F%B2/" style="font-size: 10px;">NodeJS历史</a> <a href="/tags/ORM/" style="font-size: 10px;">ORM</a> <a href="/tags/OSI/" style="font-size: 10px;">OSI</a> <a href="/tags/OWASP/" style="font-size: 10px;">OWASP</a> <a href="/tags/OpenLDAP/" style="font-size: 10px;">OpenLDAP</a> <a href="/tags/OpenSSL/" style="font-size: 10px;">OpenSSL</a> <a href="/tags/P3P/" style="font-size: 10px;">P3P</a> <a href="/tags/PDF/" style="font-size: 10.71px;">PDF</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/PHP%E5%86%85%E6%A0%B8/" style="font-size: 10px;">PHP内核</a> <a href="/tags/PM2/" style="font-size: 10.71px;">PM2</a> <a href="/tags/PPT/" style="font-size: 10px;">PPT</a> <a href="/tags/PSS/" style="font-size: 10px;">PSS</a> <a href="/tags/PhantomCSS/" style="font-size: 10px;">PhantomCSS</a> <a href="/tags/PhantomJS/" style="font-size: 12.86px;">PhantomJS</a> <a href="/tags/Phonegap/" style="font-size: 10px;">Phonegap</a> <a href="/tags/PhotoShop/" style="font-size: 10px;">PhotoShop</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/Python/" style="font-size: 10.71px;">Python</a> <a href="/tags/Python-%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/" style="font-size: 10px;">Python 网页截图</a> <a href="/tags/RSS/" style="font-size: 10px;">RSS</a> <a href="/tags/Range/" style="font-size: 10px;">Range</a> <a href="/tags/React/" style="font-size: 15.71px;">React</a> <a href="/tags/React-Native/" style="font-size: 10.71px;">React Native</a> <a href="/tags/Redux/" style="font-size: 10px;">Redux</a> <a href="/tags/Router/" style="font-size: 10px;">Router</a> <a href="/tags/SQL%E6%B3%A8%E5%85%A5/" style="font-size: 10.71px;">SQL注入</a> <a href="/tags/SSO/" style="font-size: 10px;">SSO</a> <a href="/tags/Same-Origin-Policy/" style="font-size: 10px;">Same Origin Policy</a> <a href="/tags/SeaJS/" style="font-size: 10px;">SeaJS</a> <a href="/tags/Selection/" style="font-size: 10px;">Selection</a> <a href="/tags/Selenium/" style="font-size: 13.57px;">Selenium</a> <a href="/tags/Session/" style="font-size: 10px;">Session</a> <a href="/tags/Shell/" style="font-size: 10.71px;">Shell</a> <a href="/tags/Slides/" style="font-size: 10px;">Slides</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Sublime-Text-2/" style="font-size: 10px;">Sublime Text 2</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/TypeScript/" style="font-size: 12.86px;">TypeScript</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/URL/" style="font-size: 10px;">URL</a> <a href="/tags/USS/" style="font-size: 10px;">USS</a> <a href="/tags/UTC/" style="font-size: 10px;">UTC</a> <a href="/tags/Unicode/" style="font-size: 10px;">Unicode</a> <a href="/tags/V8/" style="font-size: 10px;">V8</a> <a href="/tags/VIA/" style="font-size: 10px;">VIA</a> <a href="/tags/VIM/" style="font-size: 10px;">VIM</a> <a href="/tags/VPN/" style="font-size: 11.43px;">VPN</a> <a href="/tags/VPN%E9%94%99%E8%AF%AF/" style="font-size: 10px;">VPN错误</a> <a href="/tags/VSS/" style="font-size: 10px;">VSS</a> <a href="/tags/Velocity/" style="font-size: 10px;">Velocity</a> <a href="/tags/Velocity-tools/" style="font-size: 10px;">Velocity-tools</a> <a href="/tags/Video/" style="font-size: 10px;">Video</a> <a href="/tags/VirtualEnv/" style="font-size: 10px;">VirtualEnv</a> <a href="/tags/Vue/" style="font-size: 15.71px;">Vue</a> <a href="/tags/Vue-Router/" style="font-size: 10px;">Vue Router</a> <a href="/tags/Vue-js/" style="font-size: 10px;">Vue.js</a> <a href="/tags/Vuex/" style="font-size: 10px;">Vuex</a> <a href="/tags/W3C/" style="font-size: 13.57px;">W3C</a> <a href="/tags/WSGI/" style="font-size: 10px;">WSGI</a> <a href="/tags/WebAssembly/" style="font-size: 10px;">WebAssembly</a> <a href="/tags/WebComponent/" style="font-size: 10px;">WebComponent</a> <a href="/tags/Webpack/" style="font-size: 15px;">Webpack</a> <a href="/tags/Web%E5%89%8D%E7%AB%AF/" style="font-size: 12.14px;">Web前端</a> <a href="/tags/Web%E5%8E%86%E5%8F%B2/" style="font-size: 10px;">Web历史</a> <a href="/tags/Web%E5%8F%91%E5%B1%95/" style="font-size: 10px;">Web发展</a> <a href="/tags/Web%E5%AE%89%E5%85%A8/" style="font-size: 14.29px;">Web安全</a> <a href="/tags/Web%E5%BC%80%E5%8F%91/" style="font-size: 10.71px;">Web开发</a> <a href="/tags/Web%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">Web服务器</a> <a href="/tags/Web%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">Web架构</a> <a href="/tags/Web%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">Web框架</a> <a href="/tags/Web%E8%B0%83%E8%AF%95/" style="font-size: 10px;">Web调试</a> <a href="/tags/Wiki/" style="font-size: 10px;">Wiki</a> <a href="/tags/Win10/" style="font-size: 10px;">Win10</a> <a href="/tags/XML/" style="font-size: 10px;">XML</a> <a href="/tags/XMLHTTPRequest/" style="font-size: 10px;">XMLHTTPRequest</a> <a href="/tags/XMPP/" style="font-size: 10px;">XMPP</a> <a href="/tags/XSS/" style="font-size: 10.71px;">XSS</a> <a href="/tags/Xvfb/" style="font-size: 12.86px;">Xvfb</a> <a href="/tags/YKit/" style="font-size: 10px;">YKit</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/appjs-AIR/" style="font-size: 10px;">appjs.AIR</a> <a href="/tags/async/" style="font-size: 10.71px;">async</a> <a href="/tags/asynchronous/" style="font-size: 10px;">asynchronous</a> <a href="/tags/attribute/" style="font-size: 10px;">attribute</a> <a href="/tags/avalon/" style="font-size: 10px;">avalon</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/beyondcompare/" style="font-size: 10px;">beyondcompare</a> <a href="/tags/bigpipe/" style="font-size: 10px;">bigpipe</a> <a href="/tags/bootstrap/" style="font-size: 10px;">bootstrap</a> <a href="/tags/browserify/" style="font-size: 10px;">browserify</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/casperjs/" style="font-size: 10px;">casperjs</a> <a href="/tags/chai/" style="font-size: 10px;">chai</a> <a href="/tags/change/" style="font-size: 10px;">change</a> <a href="/tags/chmod/" style="font-size: 10px;">chmod</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-launcher/" style="font-size: 10px;">chrome-launcher</a> <a href="/tags/click/" style="font-size: 10px;">click</a> <a href="/tags/clipboard/" style="font-size: 11.43px;">clipboard</a> <a href="/tags/cnpm/" style="font-size: 10px;">cnpm</a> <a href="/tags/cookie/" style="font-size: 10px;">cookie</a> <a href="/tags/copy/" style="font-size: 10.71px;">copy</a> <a href="/tags/css/" style="font-size: 12.14px;">css</a> <a href="/tags/defer/" style="font-size: 10px;">defer</a> <a href="/tags/diff/" style="font-size: 10px;">diff</a> <a href="/tags/diff%E7%AE%97%E6%B3%95/" style="font-size: 10px;">diff算法</a> <a href="/tags/eslint/" style="font-size: 10px;">eslint</a> <a href="/tags/event-loop/" style="font-size: 10.71px;">event-loop</a> <a href="/tags/fekit/" style="font-size: 13.57px;">fekit</a> <a href="/tags/fetch/" style="font-size: 10px;">fetch</a> <a href="/tags/file/" style="font-size: 10px;">file</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/forever/" style="font-size: 10px;">forever</a> <a href="/tags/git/" style="font-size: 11.43px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/grep/" style="font-size: 10px;">grep</a> <a href="/tags/gyp/" style="font-size: 10px;">gyp</a> <a href="/tags/harmonyos/" style="font-size: 10.71px;">harmonyos</a> <a href="/tags/headless-chrome/" style="font-size: 10px;">headless chrome</a> <a href="/tags/hex/" style="font-size: 10px;">hex</a> <a href="/tags/history-mode/" style="font-size: 10px;">history mode</a> <a href="/tags/http/" style="font-size: 10.71px;">http</a> <a href="/tags/hybrid/" style="font-size: 10px;">hybrid</a> <a href="/tags/iOS/" style="font-size: 12.14px;">iOS</a> <a href="/tags/iPhone-X%E9%80%82%E9%85%8D/" style="font-size: 10px;">iPhone X适配</a> <a href="/tags/input/" style="font-size: 10px;">input</a> <a href="/tags/int/" style="font-size: 10px;">int</a> <a href="/tags/iostat/" style="font-size: 10px;">iostat</a> <a href="/tags/jQuery/" style="font-size: 14.29px;">jQuery</a> <a href="/tags/jQuery%E6%BA%90%E7%A0%81/" style="font-size: 10px;">jQuery源码</a> <a href="/tags/javascript/" style="font-size: 12.86px;">javascript</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/keep-alive/" style="font-size: 10px;">keep-alive</a> <a href="/tags/markdown/" style="font-size: 11.43px;">markdown</a> <a href="/tags/merge/" style="font-size: 10px;">merge</a> <a href="/tags/mocha/" style="font-size: 10.71px;">mocha</a> <a href="/tags/mock/" style="font-size: 10px;">mock</a> <a href="/tags/n/" style="font-size: 10px;">n</a> <a href="/tags/nginx/" style="font-size: 10.71px;">nginx</a> <a href="/tags/ngrok/" style="font-size: 10px;">ngrok</a> <a href="/tags/node/" style="font-size: 10.71px;">node</a> <a href="/tags/node-inspector/" style="font-size: 12.14px;">node-inspector</a> <a href="/tags/node-webkit/" style="font-size: 10px;">node-webkit</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/npm/" style="font-size: 12.86px;">npm</a> <a href="/tags/npm%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/" style="font-size: 10px;">npm私有仓库</a> <a href="/tags/npm%E7%A7%81%E6%9C%89%E6%BA%90/" style="font-size: 10px;">npm私有源</a> <a href="/tags/nrm/" style="font-size: 10px;">nrm</a> <a href="/tags/nvm/" style="font-size: 10.71px;">nvm</a> <a href="/tags/nvmw/" style="font-size: 10px;">nvmw</a> <a href="/tags/openssl/" style="font-size: 10px;">openssl</a> <a href="/tags/paste/" style="font-size: 10.71px;">paste</a> <a href="/tags/phantomjs/" style="font-size: 10.71px;">phantomjs</a> <a href="/tags/pipeline/" style="font-size: 10px;">pipeline</a> <a href="/tags/polyfill/" style="font-size: 10px;">polyfill</a> <a href="/tags/promise/" style="font-size: 10px;">promise</a> <a href="/tags/property/" style="font-size: 10px;">property</a> <a href="/tags/puppeteer/" style="font-size: 10.71px;">puppeteer</a> <a href="/tags/redux/" style="font-size: 10px;">redux</a> <a href="/tags/requirejs/" style="font-size: 10px;">requirejs</a> <a href="/tags/robotjs/" style="font-size: 10px;">robotjs</a> <a href="/tags/rsync/" style="font-size: 10.71px;">rsync</a> <a href="/tags/ruby/" style="font-size: 10px;">ruby</a> <a href="/tags/seajs/" style="font-size: 10px;">seajs</a> <a href="/tags/selenium/" style="font-size: 10px;">selenium</a> <a href="/tags/session/" style="font-size: 10px;">session</a> <a href="/tags/sinppia/" style="font-size: 10px;">sinppia</a> <a href="/tags/slimerjs/" style="font-size: 10px;">slimerjs</a> <a href="/tags/spa/" style="font-size: 10px;">spa</a> <a href="/tags/ssh/" style="font-size: 11.43px;">ssh</a> <a href="/tags/str/" style="font-size: 10px;">str</a> <a href="/tags/submodule/" style="font-size: 10px;">submodule</a> <a href="/tags/tcp/" style="font-size: 10px;">tcp</a> <a href="/tags/this/" style="font-size: 10px;">this</a> <a href="/tags/tideSDK/" style="font-size: 10px;">tideSDK</a> <a href="/tags/touch/" style="font-size: 10px;">touch</a> <a href="/tags/v8/" style="font-size: 10px;">v8</a> <a href="/tags/velocity/" style="font-size: 10px;">velocity</a> <a href="/tags/vmstat/" style="font-size: 10px;">vmstat</a> <a href="/tags/webpack/" style="font-size: 12.14px;">webpack</a> <a href="/tags/webrick/" style="font-size: 10px;">webrick</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/%E4%B8%A2%E5%8C%85/" style="font-size: 10px;">丢包</a> <a href="/tags/%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">严格模式</a> <a href="/tags/%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AF%91/" style="font-size: 10px;">中文翻译</a> <a href="/tags/%E4%B8%AD%E6%96%87%E8%B7%AF%E5%BE%84/" style="font-size: 10px;">中文路径</a> <a href="/tags/%E4%B9%B1%E7%A0%81/" style="font-size: 10px;">乱码</a> <a href="/tags/%E4%BA%8B%E4%BB%B6/" style="font-size: 10px;">事件</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" style="font-size: 13.57px;">事件循环</a> <a href="/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" style="font-size: 10px;">二维码</a> <a href="/tags/%E4%BB%93%E5%BA%93/" style="font-size: 10px;">仓库</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/" style="font-size: 10.71px;">代码优化</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E6%9F%A5/" style="font-size: 10px;">代码审查</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" style="font-size: 13.57px;">代码规范</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">代码设计</a> <a href="/tags/%E4%BB%A3%E7%A0%81%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">代码转换</a> <a href="/tags/%E4%BC%91%E7%9C%A0/" style="font-size: 10px;">休眠</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/" style="font-size: 10px;">作用域</a> <a href="/tags/%E4%BE%BF%E6%8D%B7/" style="font-size: 10px;">便捷</a> <a href="/tags/%E5%80%BC%E5%AF%B9%E6%AF%94/" style="font-size: 10px;">值对比</a> <a href="/tags/%E5%80%BC%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">值计算</a> <a href="/tags/%E5%85%A8%E6%A0%88/" style="font-size: 10px;">全栈</a> <a href="/tags/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">关系型数据库</a> <a href="/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/" style="font-size: 10px;">兼容性</a> <a href="/tags/%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E5%8F%82%E6%95%B0/" style="font-size: 10px;">内存占用参数</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/" style="font-size: 10px;">内存模型</a> <a href="/tags/%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2/" style="font-size: 10px;">内存泄露</a> <a href="/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" style="font-size: 10px;">内存管理</a> <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">内网穿透工具</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">分布式文件系统</a> <a href="/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" style="font-size: 10.71px;">前后端分离</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13.57px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/" style="font-size: 12.14px;">前端基础</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" style="font-size: 10px;">前端安全</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">前端工程</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 10.71px;">前端开发</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%94%BB%E9%98%B2/" style="font-size: 10px;">前端攻防</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84/" style="font-size: 10.71px;">前端架构</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" style="font-size: 10.71px;">前端框架</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E7%94%BB%E5%9B%BE/" style="font-size: 10px;">前端画图</a> <a href="/tags/%E5%89%AA%E8%B4%B4%E6%9D%BF/" style="font-size: 10px;">剪贴板</a> <a href="/tags/%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">加载</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A1%A8%E5%8D%95/" style="font-size: 10px;">动态表单</a> <a href="/tags/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93/" style="font-size: 10.71px;">动态链接库</a> <a href="/tags/%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2/" style="font-size: 10px;">动态页面</a> <a href="/tags/%E5%8A%A8%E7%94%BB/" style="font-size: 10px;">动画</a> <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86/" style="font-size: 10px;">包管理</a> <a href="/tags/%E5%8D%8F%E7%A8%8B/" style="font-size: 10px;">协程</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 10.71px;">单元测试</a> <a href="/tags/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95/" style="font-size: 10px;">单点登录</a> <a href="/tags/%E5%8D%95%E8%89%B2%E9%BB%91/" style="font-size: 10px;">单色黑</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">压力测试</a> <a href="/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/tags/%E5%8E%9F%E7%94%9F/" style="font-size: 10.71px;">原生</a> <a href="/tags/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" style="font-size: 10px;">参考资料</a> <a href="/tags/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" style="font-size: 10.71px;">反向代理</a> <a href="/tags/%E5%8F%AF%E4%BC%B8%E7%BC%A9/" style="font-size: 10.71px;">可伸缩</a> <a href="/tags/%E5%8F%AF%E7%BB%B4%E6%8A%A4%E4%BB%A3%E7%A0%81/" style="font-size: 10px;">可维护代码</a> <a href="/tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/" style="font-size: 10px;">同源策略</a> <a href="/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/" style="font-size: 10px;">名词解释</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 10px;">后端</a> <a href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" style="font-size: 10px;">后端开发</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/" style="font-size: 10.71px;">命令行</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BB%A3%E7%90%86/" style="font-size: 10px;">命令行代理</a> <a href="/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C%E9%85%8D%E7%BD%AE/" style="font-size: 10px;">命令行配置</a> <a href="/tags/%E5%93%8D%E5%BA%94/" style="font-size: 10px;">响应</a> <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" style="font-size: 10px;">响应式布局</a> <a href="/tags/%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5/" style="font-size: 10px;">四舍五入</a> <a href="/tags/%E5%9B%9B%E8%89%B2%E9%BB%91/" style="font-size: 10px;">四色黑</a> <a href="/tags/%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">回归测试</a> <a href="/tags/%E5%9B%BA%E5%AE%9A%E5%B8%83%E5%B1%80/" style="font-size: 10px;">固定布局</a> <a href="/tags/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0/" style="font-size: 10px;">图片上传</a> <a href="/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/" style="font-size: 10px;">图片识别</a> <a href="/tags/%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88/" style="font-size: 10px;">图片预览</a> <a href="/tags/%E5%9C%A8%E7%BA%BF%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">在线更新</a> <a href="/tags/%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">垂直居中</a> <a href="/tags/%E5%9E%82%E7%9B%B4%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">垂直水平居中</a> <a href="/tags/%E5%A0%86%E6%A0%88/" style="font-size: 10px;">堆栈</a> <a href="/tags/%E5%A4%8D%E5%88%B6/" style="font-size: 11.43px;">复制</a> <a href="/tags/%E5%A4%9A%E9%A1%B5%E6%89%93%E5%8C%85/" style="font-size: 10px;">多页打包</a> <a href="/tags/%E5%A4%A7%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">大前端</a> <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">大数据</a> <a href="/tags/%E5%AD%97%E4%BD%93/" style="font-size: 10.71px;">字体</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D/" style="font-size: 10.71px;">字符串匹配</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" style="font-size: 10px;">字符串处理</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E9%9B%86/" style="font-size: 11.43px;">字符集</a> <a href="/tags/%E5%AD%97%E8%8A%82%E5%BA%8F/" style="font-size: 10px;">字节序</a> <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%BB%8F%E9%AA%8C/" style="font-size: 10px;">学习经验</a> <a href="/tags/%E5%AE%89%E5%85%A8%E5%8C%BA%E9%80%82%E9%85%8D/" style="font-size: 10px;">安全区适配</a> <a href="/tags/%E5%AE%89%E5%85%A8%E7%BC%96%E7%A0%81/" style="font-size: 10px;">安全编码</a> <a href="/tags/%E5%AE%89%E5%85%A8%E8%AE%BE%E8%AE%A1/" style="font-size: 10px;">安全设计</a> <a href="/tags/%E5%AE%89%E5%8D%93/" style="font-size: 11.43px;">安卓</a> <a href="/tags/%E5%AE%A2%E6%88%B7%E7%AB%AF/" style="font-size: 13.57px;">客户端</a> <a href="/tags/%E5%AE%B9%E5%99%A8%E5%8C%96/" style="font-size: 10.71px;">容器化</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 10.71px;">小程序</a> <a href="/tags/%E5%B0%8F%E9%BB%91%E6%9D%A1%E9%80%82%E9%85%8D/" style="font-size: 10px;">小黑条适配</a> <a href="/tags/%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">居中</a> <a href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/" style="font-size: 10px;">工作流</a> <a href="/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96/" style="font-size: 15px;">工程化</a> <a href="/tags/%E5%B8%83%E5%B1%80/" style="font-size: 10px;">布局</a> <a href="/tags/%E5%B9%BF%E5%91%8A/" style="font-size: 10px;">广告</a> <a href="/tags/%E5%BB%B6%E6%97%B6%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">延时检测</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 12.86px;">开发工具</a> <a href="/tags/%E5%BC%82%E6%AD%A5/" style="font-size: 12.86px;">异步</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E4%B8%8A%E4%BC%A0/" style="font-size: 10px;">异步上传</a> <a href="/tags/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">异步编程</a> <a href="/tags/%E5%BC%95%E6%93%8E/" style="font-size: 10px;">引擎</a> <a href="/tags/%E5%BC%B9%E5%B1%82%E6%BB%9A%E5%8A%A8/" style="font-size: 10px;">弹层滚动</a> <a href="/tags/%E5%BE%AE%E5%89%8D%E7%AB%AF/" style="font-size: 10.71px;">微前端</a> <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" style="font-size: 11.43px;">快捷键</a> <a href="/tags/%E6%80%9D%E8%B7%AF/" style="font-size: 10px;">思路</a> <a href="/tags/%E6%80%A7%E8%83%BD/" style="font-size: 10px;">性能</a> <a href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" style="font-size: 13.57px;">性能优化</a> <a href="/tags/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/" style="font-size: 10.71px;">性能分析</a> <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" style="font-size: 10.71px;">性能测试</a> <a href="/tags/%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98/" style="font-size: 10.71px;">性能调优</a> <a href="/tags/%E6%89%8B%E5%86%99/" style="font-size: 10px;">手写</a> <a href="/tags/%E6%89%8B%E7%BB%98/" style="font-size: 10px;">手绘</a> <a href="/tags/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/" style="font-size: 12.14px;">打包工具</a> <a href="/tags/%E6%89%93%E5%8D%B0%E6%9C%BA/" style="font-size: 10px;">打印机</a> <a href="/tags/%E6%89%A9%E5%B1%95/" style="font-size: 10px;">扩展</a> <a href="/tags/%E6%89%AC%E5%A3%B0%E5%99%A8/" style="font-size: 10px;">扬声器</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E6%A0%88/" style="font-size: 10px;">技术栈</a> <a href="/tags/%E6%8E%92%E5%88%97/" style="font-size: 10px;">排列</a> <a href="/tags/%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90/" style="font-size: 10px;">插件推荐</a> <a href="/tags/%E6%95%B0%E5%80%BC/" style="font-size: 10px;">数值</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" style="font-size: 10px;">数据分析</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 10px;">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%AF%94%E8%BE%83/" style="font-size: 10px;">数据库比较</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 10.71px;">数据结构</a> <a href="/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" style="font-size: 10px;">文件上传</a> <a href="/tags/%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/" style="font-size: 10px;">文本处理</a> <a href="/tags/%E6%96%87%E6%9C%AC%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">文本模板</a> <a href="/tags/%E6%97%A0%E6%B3%95%E5%94%A4%E9%86%92/" style="font-size: 10px;">无法唤醒</a> <a href="/tags/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" style="font-size: 10px;">日志分析</a> <a href="/tags/%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9%E5%99%A8/" style="font-size: 10px;">日期时间选择器</a> <a href="/tags/%E6%97%A5%E6%9C%9F%E9%80%89%E6%8B%A9%E5%99%A8/" style="font-size: 10px;">日期选择器</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8/" style="font-size: 10px;">服务器推</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7/" style="font-size: 10px;">服务器监控</a> <a href="/tags/%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/" style="font-size: 10px;">本地预览</a> <a href="/tags/%E6%A0%A1%E9%AA%8C/" style="font-size: 10px;">校验</a> <a href="/tags/%E6%A0%B7%E5%BC%8F%E5%86%B2%E7%AA%81/" style="font-size: 10px;">样式冲突</a> <a href="/tags/%E6%A0%B7%E5%BC%8F%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">样式框架</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/" style="font-size: 10px;">桌面应用</a> <a href="/tags/%E6%A1%8C%E9%9D%A2%E7%AB%AF/" style="font-size: 13.57px;">桌面端</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E5%99%A8/" style="font-size: 10px;">模块加载器</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 17.86px;">模块化</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E8%AF%91/" style="font-size: 10px;">模块化编译</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96%E8%A7%84%E8%8C%83/" style="font-size: 10px;">模块化规范</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE/" style="font-size: 10.71px;">模拟数据</a> <a href="/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" style="font-size: 10px;">模板引擎</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 12.86px;">正则表达式</a> <a href="/tags/%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD/" style="font-size: 10px;">水平居中</a> <a href="/tags/%E6%B5%81%E5%BC%8F%E5%B8%83%E5%B1%80/" style="font-size: 10px;">流式布局</a> <a href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" style="font-size: 10px;">流程图</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">测试工具</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE/" style="font-size: 10.71px;">测试数据</a> <a href="/tags/%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">测试框架</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 19.29px;">浏览器</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9/" style="font-size: 10px;">浏览器兼容</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/" style="font-size: 15.71px;">浏览器原理</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%89%E5%85%A8/" style="font-size: 10px;">浏览器安全</a> <a href="/tags/%E6%B5%AE%E7%82%B9%E6%95%B0/" style="font-size: 10px;">浮点数</a> <a href="/tags/%E6%B7%B7%E5%90%88%E5%BC%80%E5%8F%91/" style="font-size: 10px;">混合开发</a> <a href="/tags/%E6%B8%97%E9%80%8F/" style="font-size: 10px;">渗透</a> <a href="/tags/%E6%BA%90%E7%A0%81/" style="font-size: 10px;">源码</a> <a href="/tags/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" style="font-size: 16.43px;">源码分析</a> <a href="/tags/%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" style="font-size: 10.71px;">源码阅读</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">滑动穿透</a> <a href="/tags/%E6%BB%9A%E5%8A%A8%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">滚动穿透</a> <a href="/tags/%E6%BC%94%E7%A4%BA%E6%96%87%E7%A8%BF/" style="font-size: 10px;">演示文稿</a> <a href="/tags/%E7%81%B0%E5%BA%A6%E5%8F%91%E5%B8%83/" style="font-size: 10px;">灰度发布</a> <a href="/tags/%E7%82%B9%E5%87%BB%E4%B8%8B%E8%BD%BD/" style="font-size: 10px;">点击下载</a> <a href="/tags/%E7%82%B9%E5%87%BB%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">点击穿透</a> <a href="/tags/%E7%83%AD%E6%9B%B4%E6%96%B0/" style="font-size: 10px;">热更新</a> <a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/tags/%E7%89%B9%E6%80%A7%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">特性检测</a> <a href="/tags/%E7%8A%B6%E6%80%81/" style="font-size: 10.71px;">状态</a> <a href="/tags/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" style="font-size: 10.71px;">状态管理</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">环境搭建</a> <a href="/tags/%E7%94%9F%E6%88%90%E5%99%A8/" style="font-size: 10px;">生成器</a> <a href="/tags/%E7%98%A6%E8%BA%AB/" style="font-size: 10px;">瘦身</a> <a href="/tags/%E7%9D%A1%E7%9C%A0/" style="font-size: 10px;">睡眠</a> <a href="/tags/%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86/" style="font-size: 10px;">知识管理</a> <a href="/tags/%E7%A6%81%E6%AD%A2%E6%BB%9A%E5%8A%A8/" style="font-size: 10px;">禁止滚动</a> <a href="/tags/%E7%A6%81%E7%94%A8%E7%BC%93%E5%AD%98/" style="font-size: 10px;">禁用缓存</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" style="font-size: 10px;">移动端</a> <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95/" style="font-size: 10px;">移动端调试</a> <a href="/tags/%E7%A7%BB%E9%99%A4%E6%B3%A8%E9%87%8A/" style="font-size: 10px;">移除注释</a> <a href="/tags/%E7%A9%BF%E9%80%8F/" style="font-size: 10px;">穿透</a> <a href="/tags/%E7%AB%99%E7%82%B9/" style="font-size: 10px;">站点</a> <a href="/tags/%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97/" style="font-size: 10px;">符号计算</a> <a href="/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%8C%85/" style="font-size: 10px;">第三方包</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 10.71px;">算法</a> <a href="/tags/%E7%AE%A1%E7%90%86%E5%91%98%E6%9D%83%E9%99%90/" style="font-size: 10px;">管理员权限</a> <a href="/tags/%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/" style="font-size: 10px;">管理系统</a> <a href="/tags/%E7%AE%A1%E7%A8%8B/" style="font-size: 10px;">管程</a> <a href="/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">类型转换</a> <a href="/tags/%E7%B1%BB%E5%BA%93/" style="font-size: 10px;">类库</a> <a href="/tags/%E7%B2%98%E8%B4%B4/" style="font-size: 11.43px;">粘贴</a> <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">系统工具</a> <a href="/tags/%E7%BA%A4%E7%A8%8B/" style="font-size: 10px;">纤程</a> <a href="/tags/%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">线程</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/" style="font-size: 11.43px;">组件化</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" style="font-size: 10.71px;">组件通信</a> <a href="/tags/%E7%BB%84%E5%90%88/" style="font-size: 10px;">组合</a> <a href="/tags/%E7%BB%88%E7%AB%AF%E4%BB%A3%E7%90%86/" style="font-size: 10px;">终端代理</a> <a href="/tags/%E7%BC%93%E5%AD%98/" style="font-size: 11.43px;">缓存</a> <a href="/tags/%E7%BC%96%E7%A0%81/" style="font-size: 12.86px;">编码</a> <a href="/tags/%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81/" style="font-size: 10.71px;">编码解码</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">编程语言</a> <a href="/tags/%E7%BC%96%E8%BE%91%E5%99%A8/" style="font-size: 10px;">编辑器</a> <a href="/tags/%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">网站架构</a> <a href="/tags/%E7%BD%91%E7%AB%99%E9%80%9F%E5%BA%A6%E6%A3%80%E6%B5%8B/" style="font-size: 10px;">网站速度检测</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2/" style="font-size: 10.71px;">网络攻防</a> <a href="/tags/%E7%BD%91%E9%A1%B5%E5%AE%9A%E4%BD%8D/" style="font-size: 10px;">网页定位</a> <a href="/tags/%E8%80%B3%E6%9C%BA/" style="font-size: 10px;">耳机</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" style="font-size: 12.86px;">自动化</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95/" style="font-size: 12.14px;">自动化测试</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E8%A1%A8%E5%8D%95/" style="font-size: 10px;">自动化表单</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%88%AA%E5%9B%BE/" style="font-size: 10px;">自动截图</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%92%AD%E6%94%BE/" style="font-size: 10px;">自动播放</a> <a href="/tags/%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA/" style="font-size: 10px;">自动构建</a> <a href="/tags/%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/" style="font-size: 10px;">自签名证书</a> <a href="/tags/%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80/" style="font-size: 10px;">自适应布局</a> <a href="/tags/%E8%8B%B9%E6%9E%9C/" style="font-size: 11.43px;">苹果</a> <a href="/tags/%E8%99%9A%E6%8B%9FDOM/" style="font-size: 10px;">虚拟DOM</a> <a href="/tags/%E8%A1%A8%E5%8D%95%E5%80%BC%E5%AD%98%E5%8F%96/" style="font-size: 10px;">表单值存取</a> <a href="/tags/%E8%A7%84%E8%8C%83/" style="font-size: 10px;">规范</a> <a href="/tags/%E8%A7%84%E8%8C%83%E6%A3%80%E6%9F%A5/" style="font-size: 10px;">规范检查</a> <a href="/tags/%E8%A7%A3%E7%A0%81/" style="font-size: 10.71px;">解码</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 10px;">计算机网络</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" style="font-size: 10px;">设计原则</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E5%9B%BE/" style="font-size: 10px;">设计图</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">设计模式</a> <a href="/tags/%E8%AF%81%E4%B9%A6/" style="font-size: 10px;">证书</a> <a href="/tags/%E8%AF%B7%E6%B1%82/" style="font-size: 10px;">请求</a> <a href="/tags/%E8%B0%83%E8%AF%95/" style="font-size: 12.14px;">调试</a> <a href="/tags/%E8%B7%A8%E5%9F%9F/" style="font-size: 11.43px;">跨域</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0-%E8%B7%A8%E7%AB%AF-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-Web%E8%B7%A8%E5%B9%B3%E5%8F%B0-Web%E8%B7%A8%E7%AB%AF/" style="font-size: 10px;">跨平台,跨端,解决方案,Web跨平台,Web跨端</a> <a href="/tags/%E8%B7%A8%E7%AB%AF/" style="font-size: 10px;">跨端</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%A0%B4%E8%A7%A3/" style="font-size: 10px;">软件破解</a> <a href="/tags/%E8%BF%90%E7%BB%B4/" style="font-size: 11.43px;">运维</a> <a href="/tags/%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">进程</a> <a href="/tags/%E8%BF%AD%E4%BB%A3%E5%99%A8/" style="font-size: 10px;">迭代器</a> <a href="/tags/%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">逆向工程</a> <a href="/tags/%E9%83%A8%E5%88%86%E6%89%93%E5%8D%B0/" style="font-size: 10px;">部分打印</a> <a href="/tags/%E9%83%A8%E7%BD%B2/" style="font-size: 11.43px;">部署</a> <a href="/tags/%E9%85%8D%E7%BD%AE%E8%A7%84%E8%8C%83/" style="font-size: 10px;">配置规范</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a> <a href="/tags/%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/" style="font-size: 10px;">隐式类型转换</a> <a href="/tags/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">静态博客</a> <a href="/tags/%E9%9D%99%E6%80%81%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px;">静态服务器</a> <a href="/tags/%E9%9D%9E%E5%86%85%E7%BD%AE%E7%AE%A1%E7%90%86%E5%91%98/" style="font-size: 10px;">非内置管理员</a> <a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 12.14px;">面向对象</a> <a href="/tags/%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B/" style="font-size: 11.43px;">面向过程</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" style="font-size: 10px;">面试题</a> <a href="/tags/%E9%9F%B3%E8%A7%86%E9%A2%91/" style="font-size: 10px;">音视频</a> <a href="/tags/%E9%A1%B5%E9%9D%A2/" style="font-size: 10px;">页面</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96/" style="font-size: 10px;">页面优化</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E4%BD%8D%E7%BD%AE/" style="font-size: 10px;">页面位置</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD/" style="font-size: 10px;">页面加载</a> <a href="/tags/%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80/" style="font-size: 10px;">页面布局</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E6%A8%A1%E6%9D%BF/" style="font-size: 10px;">项目模板</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84/" style="font-size: 10px;">项目结构</a> <a href="/tags/%E9%A3%8E%E6%A0%BC/" style="font-size: 10px;">风格</a> <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD/" style="font-size: 11.43px;">高性能</a> <a href="/tags/%E9%AB%98%E6%95%88/" style="font-size: 10px;">高效</a> <a href="/tags/%E9%B8%BF%E8%92%99/" style="font-size: 11.43px;">鸿蒙</a> <a href="/tags/%E9%BC%A0%E6%A0%87%E5%AE%9A%E4%BD%8D/" style="font-size: 10px;">鼠标定位</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
