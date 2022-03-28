@@ -97,12 +97,12 @@ eval echo -n "[\$$1]"
 - `${param=default}` 如果变量没有被声明，则把它的值设置为`default`
 - `${param:=default}` 如果变量没有被设置，则把它的值设置为`default`
 - `${param+value}` 如果变量被声明了，就使用value，否则使用`null`字符串  
--  `${param:+value}`  如果变量被设置了，则使用value，否则使用`null`字符串
--   `${param?errmsg}` 如果变量被声明了，就使用设置的值，否则使用`errmsg` 
--  `${param:?errmsg}`  如果变量被设置了，则使用设置的值，否则使用`errmsg`
--   `${#*}` 或 `${#@}` 表示位置参数的个数
--   `${array#*}` 或 `${array#@}` 表示数组中元素个数
--   更多参考 [[Shell脚本#字符串处理]]
+- `${param:+value}`  如果变量被设置了，则使用value，否则使用`null`字符串
+- `${param?errmsg}` 如果变量被声明了，就使用设置的值，否则使用`errmsg` 
+- `${param:?errmsg}`  如果变量被设置了，则使用设置的值，否则使用`errmsg`
+- `${#*}` 或 `${#@}` 表示位置参数的个数
+- `${array#*}` 或 `${array#@}` 表示数组中元素个数
+- 更多参考 [[Shell脚本#字符串处理]]
 
 ## 命令或进程替换
 ### 命令替换
@@ -860,3 +860,13 @@ alias cp="cp -i"
 - `watch`
 - `strip`
 - `rdist`
+
+## 其他技巧
+```shell
+set -euxo pipefail 
+# 含义 
+# -u 存在未定义的变量就报错 
+# -x 执行每条命令之前先输出该命令 
+# -o pipefail 对管道命令中的每条命令都进行错误控制，出错即跳出 
+# -e 出现返回值非零即退出脚本执行
+```

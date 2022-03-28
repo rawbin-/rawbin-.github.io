@@ -152,6 +152,16 @@ tags: [PDF报表,Selenium,Puppeteer]
 
 
 
+### Playwright
+
+- 底层还是 Headless Chronium
+
+  
+
+
+
+
+
 ## 服务端实现的方案
 ### 借助浏览器打印实现
 - 参考前面
