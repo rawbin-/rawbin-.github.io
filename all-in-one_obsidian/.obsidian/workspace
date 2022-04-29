@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "339462341adf6a73",
+        "id": "7909812685e7089d",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Shell/Shell脚本.md",
+            "file": "styles/LESS/LESS.md",
             "mode": "source",
             "backlinks": true,
             "source": false
@@ -64,7 +64,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Shell/Shell脚本.md"
+                "file": "styles/LESS/LESS.md"
               }
             }
           }
@@ -89,7 +89,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Shell/Shell脚本.md",
+                "file": "styles/LESS/LESS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,7 +106,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Shell/Shell脚本.md",
+                "file": "styles/LESS/LESS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -129,7 +129,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Shell/Shell脚本.md"
+                "file": "styles/LESS/LESS.md"
               }
             }
           }
@@ -141,17 +141,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "339462341adf6a73",
+  "active": "7909812685e7089d",
   "lastOpenFiles": [
+    "styles/LESS/LESS.md",
+    "nginx/nginx配置分析.md",
+    "nginx/nginx.md",
     "Shell/Shell脚本.md",
-    "__基础原理/AntDesignPro+UmiJS全家桶原理/UmiJS原理.md",
-    "__基础原理/AntDesignPro+UmiJS全家桶原理/UmiUI原理.md",
-    "Web测试/测试工具.md",
+    "__基础原理/AntDesignPro+UmiJS全家桶原理/Antd Form AllInOne.md",
     "__基础原理/AntDesignPro+UmiJS全家桶原理/AntDesign Form相关原理.md",
-    "__基础原理/AntDesignPro+UmiJS全家桶原理/AntDesign原理.md",
-    "__应用实践/AntDesignPro+UmiJS全家桶实践/Antd+Pro组件库实践.md",
-    "__应用实践/AntDesignPro+UmiJS全家桶实践/AntDesignPro实践.md",
-    "前端解决方案/前端后端PDF报表导出.md",
-    "前端解决方案/排版布局印刷物相关基础.md"
+    "__组织管理/绩效管理/OKR/OKR.md",
+    "__组织管理/绩效管理/OKR/Pasted image 20220329090549.png",
+    "__组织管理/绩效管理/OKR/Pasted image 20220329090656.png",
+    "__基础原理/AntDesignPro+UmiJS全家桶原理/UmiJS原理.md"
   ]
 }
