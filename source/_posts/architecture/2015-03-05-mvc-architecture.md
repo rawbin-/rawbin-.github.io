@@ -13,13 +13,7 @@ MVC即Model-View-Controller，进行系统分层的一种架构模式。
   该层时应用程序中显示给用户的界面，如浏览器显示的页面，桌面程序的UI等
 + C即Controller 指的是控制层
   该层用来控制表示层和业务层之间的交互，根据用户交互事件控制用户界面显示和更新Model层的数据
-他们之间的依赖关系如下：
-
------------>Model<-----------------
-
-|                                 |
-
-<-------Controller<-------View---->
+  他们之间的依赖关系如下：
 
 即View依赖于Controller，同时View和Controller都依赖于Model
 
@@ -42,13 +36,7 @@ MVC即Model-View-Controller，进行系统分层的一种架构模式。
   + 接受用户请求
   + 调用模型相应用户请求
   + 选择视图显示响应结果
-他们之间的依赖关系如下：
-
------------>Model<-----------------
-
-|                                 |
-
-<-----Controller<------->View<---->
+  他们之间的依赖关系如下：
 
 即Model和View是双向依赖关系，View和Controller是双向依赖关系，Controller依赖于View。
 流程为：View发送用户事件给Controller，Controller接收用户事件，将其转发给Model，Model处理事件，并通知View更新。
@@ -66,13 +54,7 @@ MVC即Model-View-Controller，进行系统分层的一种架构模式。
   + 接受用户请求
   + 调用模型相应用户请求
   + 选择视图显示响应结果
-他们之间的依赖关系如下：
-
------------>Model------------------
-
-|                                 |
-
-<-----Controller<------->View------
+  他们之间的依赖关系如下：
 
 即View和Controller是双向依赖关系，Controller和Model之间是双向依赖关系。
 流程是：用户交互事件通过Controller来操作Model，Model也通过Controller来控制数据更新。
