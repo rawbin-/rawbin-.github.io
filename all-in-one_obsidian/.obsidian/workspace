@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "7909812685e7089d",
+        "id": "351e14d379a25f83",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "__基础原理/AntDesignPro+UmiJS全家桶原理/Antd主题定制.md",
+            "file": "前端技术视角/__精简目录/__原理/编译器.md",
             "mode": "source",
             "backlinks": true,
             "source": false
@@ -41,7 +41,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "端到",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -64,7 +64,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "__基础原理/AntDesignPro+UmiJS全家桶原理/Antd主题定制.md"
+                "file": "前端技术视角/__精简目录/__原理/编译器.md"
               }
             }
           }
@@ -88,7 +88,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "__基础原理/AntDesignPro+UmiJS全家桶原理/Antd主题定制.md",
+                "file": "前端技术视角/__精简目录/__原理/编译器.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +105,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "__基础原理/AntDesignPro+UmiJS全家桶原理/Antd主题定制.md",
+                "file": "前端技术视角/__精简目录/__原理/编译器.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -128,7 +128,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "__基础原理/AntDesignPro+UmiJS全家桶原理/Antd主题定制.md"
+                "file": "前端技术视角/__精简目录/__原理/编译器.md"
               }
             }
           }
@@ -140,17 +140,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "7909812685e7089d",
+  "active": "351e14d379a25f83",
   "lastOpenFiles": [
-    "__基础原理/AntDesignPro+UmiJS全家桶原理/Antd主题定制.md",
-    "styles/LESS/LESS.md",
-    "nginx/nginx配置分析.md",
-    "nginx/nginx.md",
-    "Shell/Shell脚本.md",
-    "__基础原理/AntDesignPro+UmiJS全家桶原理/Antd Form AllInOne.md",
-    "__基础原理/AntDesignPro+UmiJS全家桶原理/AntDesign Form相关原理.md",
-    "__组织管理/绩效管理/OKR/OKR.md",
-    "__组织管理/绩效管理/OKR/Pasted image 20220329090549.png",
-    "__组织管理/绩效管理/OKR/Pasted image 20220329090656.png"
+    "前端技术视角/__精简目录/__原理/浏览器.md",
+    "前端技术视角/__精简目录/__原理/JavaScript引擎.md",
+    "前端技术视角/__精简目录/__原理/编译器.md",
+    "前端技术视角/__精简目录/__兼容性/语言兼容性.md",
+    "前端技术视角/__精简目录/__兼容性/数据兼容性.md",
+    "前端技术视角/__精简目录/__兼容性/浏览器兼容性.md",
+    "前端技术视角/__精简目录/__兼容性/跨平台兼容性.md",
+    "前端技术视角/__精简目录/__工程化/工程化.md",
+    "前端技术视角/__精简目录/__兼容性/兼容性.md",
+    "前端技术视角/前端技术视角.md"
   ]
 }
