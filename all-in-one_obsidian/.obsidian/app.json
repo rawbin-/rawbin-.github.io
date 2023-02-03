@@ -5,5 +5,7 @@
   "attachmentFolderPath": "./",
   "legacyEditor": false,
   "newLinkFormat": "shortest",
-  "newFileLocation": "current"
+  "newFileLocation": "current",
+  "showLineNumber": true,
+  "spellcheck": true
 }

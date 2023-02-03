@@ -4,6 +4,7 @@
   "switcher",
   "graph",
   "backlink",
+  "canvas",
   "outgoing-link",
   "tag-pane",
   "page-preview",
@@ -17,6 +18,7 @@
   "random-note",
   "outline",
   "word-count",
+  "slides",
   "workspaces",
   "file-recovery"
 ]
