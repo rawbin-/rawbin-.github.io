@@ -4,19 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "6910e17228db0093",
+        "id": "6ac9c27a41251183",
         "type": "tabs",
         "children": [
           {
-            "id": "bf47fbad487396f3",
+            "id": "e805fa5d776cc571",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "canvas",
               "state": {
-                "file": "后端技术视角/基础服务/LDAP服务/LDAP服务.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
+                "file": "公共分享输出/意识架构.canvas",
+                "viewState": {
+                  "x": -611.4933806580839,
+                  "y": -79.45862417671027,
+                  "zoom": -1.154667299944433
+                }
               }
             }
           }
@@ -49,7 +51,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "next.",
+                "query": "转发配置",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -59,20 +61,12 @@
             }
           },
           {
-            "id": "1a258424ebe83716",
-            "type": "leaf",
-            "state": {
-              "type": "starred",
-              "state": {}
-            }
-          },
-          {
             "id": "34d7617ff56d70f5",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "后端技术视角/基础服务/LDAP服务/LDAP服务.md"
+                "file": "公共分享输出/意识架构.canvas"
               }
             }
           },
@@ -104,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "后端技术视角/基础服务/LDAP服务/LDAP服务.md",
+                "file": "公共分享输出/意识架构.canvas",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "后端技术视角/基础服务/LDAP服务/LDAP服务.md",
+                "file": "公共分享输出/意识架构.canvas",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -144,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "后端技术视角/基础服务/LDAP服务/LDAP服务.md"
+                "file": "公共分享输出/意识架构.canvas"
               }
             }
           }
@@ -165,33 +159,63 @@
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
       "random-note:开始漫游笔记": false,
-      "workspaces:管理工作区布局": false
+      "workspaces:管理工作区布局": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "d4fee861841e9904",
   "lastOpenFiles": [
-    "后端技术视角/基础服务/LDAP服务",
+    "公共分享输出/人的工作原理及应用/人的工作原理及其应用.canvas",
+    "公共分享输出/人的工作原理及应用/人的工作原理及其应用素材.md",
+    "公共分享输出/生命的逻辑/生命的逻辑提纲.md",
+    "公共分享输出/意识架构.canvas",
+    "公共分享输出/生命的逻辑/Drawing 2023-11-05 10.46.46.excalidraw.md",
+    "公共分享输出/生命的逻辑/Drawing 2023-11-05 10.24.12.excalidraw.md",
+    "公共分享输出/生命的逻辑/未命名.canvas",
+    "Excalidraw/Scripts/Downloaded/Add Connector Point.svg",
+    "Excalidraw/Scripts/Downloaded/Add Connector Point.md",
+    "Excalidraw/Scripts/Downloaded/Add Link to Existing File and Open.svg",
+    "Excalidraw/Scripts/Downloaded/Add Link to Existing File and Open.md",
+    "Excalidraw/Scripts/Downloaded/Add Link to New Page and Open.svg",
+    "Excalidraw/Scripts/Downloaded/Add Link to New Page and Open.md",
+    "Excalidraw/Scripts/Downloaded/Add Next Step in Process.svg",
+    "Excalidraw/Scripts/Downloaded/Add Next Step in Process.md",
+    "Excalidraw/Scripts/Downloaded/Auto Draw for Pen.svg",
+    "Excalidraw/Scripts/Downloaded/Auto Draw for Pen.md",
+    "Excalidraw/Scripts/Downloaded/Auto Layout.svg",
+    "Excalidraw/Scripts/Downloaded/Auto Layout.md",
+    "Excalidraw/Scripts/Downloaded/Boolean Operations.svg",
+    "Excalidraw/Scripts/Downloaded/Boolean Operations.md",
+    "Excalidraw/Scripts/Downloaded/Box Each Selected Groups.svg",
+    "Excalidraw/Scripts/Downloaded/Box Each Selected Groups.md",
+    "Excalidraw/Scripts/Downloaded/Box Selected Elements.svg",
+    "Excalidraw/Scripts/Downloaded/Box Selected Elements.md",
+    "Excalidraw/Scripts/Downloaded/Change shape of selected elements.svg",
+    "Excalidraw/Scripts/Downloaded/Change shape of selected elements.md",
+    "Excalidraw/Scripts/Downloaded/Concatenate lines.md",
+    "Excalidraw/Scripts/Downloaded/Connect elements.md",
+    "Excalidraw/Scripts/Downloaded/Convert freedraw to line.md",
+    "Excalidraw/Scripts/Downloaded/Convert selected text elements to sticky notes.md",
+    "Excalidraw/Scripts/Downloaded/Convert text to link with folder and alias.md",
+    "Excalidraw/Scripts/Downloaded/Copy Selected Element Styles to Global.md",
+    "Excalidraw/Scripts/Downloaded/Create DrawIO file.md",
+    "Excalidraw/Scripts/Downloaded/Create new markdown file and embed into active drawing.md",
+    "Excalidraw/Scripts/Downloaded/Darken background color.md",
+    "Excalidraw/Scripts/Downloaded/Deconstruct selected elements into new drawing.md",
+    "Excalidraw/Scripts/Downloaded/Elbow connectors.md",
+    "Excalidraw/Scripts/Downloaded",
+    "Excalidraw/Scripts",
+    "公共分享输出/生命的逻辑",
+    "公共分享输出/人的工作原理及应用",
+    "公共分享输出",
+    "Excalidraw",
+    "公共分享输出/知识体系化.canvas",
+    "未命名 2.canvas",
     "未命名 1.canvas",
-    "未命名.canvas",
-    "后端技术视角/基础服务/LDAP服务/LDAP服务.md",
-    "意识架构.canvas",
+    "后端技术视角/基础服务/LDAP服务",
     "后端技术视角/基础服务",
     "后端技术视角/Java技术栈",
     "后端技术视角/Go技术栈",
-    "后端技术视角",
-    "未命名.md",
-    "知识体系化.canvas",
-    "MonitorSDK.canvas",
-    "未命名 2.canvas",
-    "技术综合视角/NodeJS/NodeJS Web框架.md",
-    "技术综合视角/前端解决方案/前端脚手架套件.md",
-    "意识架构.png",
-    "Pasted image 20230107105519.png",
-    "Pasted image 20230107105452.png",
-    "技术综合视角/前端解决方案/前端文档化.md",
-    "技术综合视角/__基础原理/AntDesignPro+UmiJS全家桶原理/AntDesignPro原理.md",
-    "技术综合视角/__基础原理/AntDesignPro+UmiJS全家桶原理/AntDesignPro+UmiJS全家桶原理.md",
-    "技术综合视角/__基础原理/AntDesignPro+UmiJS全家桶原理/AntDesign原理.md",
-    "技术综合视角/__基础原理/AntDesignPro+UmiJS全家桶原理/AntDesign Form相关原理.md"
+    "MonitorSDK.canvas"
   ]
 }
